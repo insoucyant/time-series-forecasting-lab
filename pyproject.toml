@@ -1,3 +1,88 @@
 [project]
 name = "time-series-forecasting-lab"
 version = "0.1.0"
+description = "A time series forecasting lab covering statistical, machine learning, deep learning, and modern forecasting methods."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Sumit Singh" }
+]
+
+dependencies = [
+    "numpy",
+    "pandas",
+    "scikit-learn",
+    "matplotlib",
+    "pydantic",
+    "pyyaml",
+    "typer",
+    "rich",
+    "joblib"
+]
+
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "ruff",
+    "mypy",
+    "black",
+    "pre-commit"
+]
+
+notebooks = [
+    "jupyter",
+    "ipykernel",
+    "seaborn"
+]
+
+ml = [
+    "xgboost",
+    "lightgbm"
+]
+
+deep-learning = [
+    "prophet",
+    "sktime",
+    "darts"
+]
+
+
+api = [
+    "fastapi",
+    "uvicorn"
+]
+
+tracking = [
+    "mlflow"
+]
+
+[project.scripts]
+ts-forecast = "ts_forecasting_lab.cli:app"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = false
+ignore_missing_imports = true
+
+
