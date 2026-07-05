@@ -95,19 +95,20 @@ class ModelParametersConfig(BaseModel):
     
     model_config = ConfigDict(extra="allow")
     
-    
-    
 
 # 8
 class ModelConfig(BaseModel):
     """
-    
+    Forecast Model Configuration
     """   
+    name: str = Field(..., description="Name of the forecasting model.")
+    category: str = Field(..., description="Model Category (baseline, statistical, ML, DL, transformer).")
+    parame: ModelParametersConfig = Field(..., description="Model-specific hyperparameters")
 
 # 9
 class EvaluationConfig(BaseModel):
     """ 
-    
+    Forecast Evaluation Configuration
     """
     
 # 10
