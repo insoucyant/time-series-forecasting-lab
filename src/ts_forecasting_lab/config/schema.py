@@ -16,6 +16,9 @@ Its only responsibility is to answer:
 
 "If a valid config.yaml is loaded,
 what Python objects should it become?"
+
+
+config.yaml --> reader.py --> schema.py --> settings.py --> Application
 """
 
 
