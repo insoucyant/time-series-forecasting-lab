@@ -67,8 +67,13 @@ class DataConfig(BaseModel):
 
 class ForecastConfig(BaseModel):
     """ 
-    
+    Forecasting Configuration
     """
+    
+    horizon: int = Field(..., gt=0, description="Forecasting Horizon")
+    validation_size: int = Field(..., ge=0, description="Number of observations reserved for validation")
+    test_size: int = Field(..., ge=0, description="Number of observations reserved for testing.")
+    seasonal_period: int = Field(..., gt=0, description="Seasonal Period of the Time Series")
 # 6
 class BacktestingConfig(BaseModel):
      """ 
