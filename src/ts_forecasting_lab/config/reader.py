@@ -132,3 +132,14 @@ def load_yaml_config(config_path: Path) -> dict[str, Any]:
         )
         
     return config
+# Pydantic is **NOT** a translator. Pydantis is an **inspector**.
+# * ==yaml.safe_load()== says "Here is the data in Python form."
+# * ==Settings.model_validate()== says "Let me check whether this data matches 
+# the structure and rules we expect"
+
+# So, the two functions have different responsibilities:
+# * ==yaml.safe_load()==  = **Parsing** (YAML --> Python objects)
+# * ==Settings.model_validate()==   = **Validation and object construction** (Python objects
+# ----> typed ==Settings== object)
+# Understanding this distinction is fundamental. The same pattern will be with JSON/TOML/XML/API
+# responses, and many other data formats.  
