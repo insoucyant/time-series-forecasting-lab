@@ -36,3 +36,22 @@ backtesting:
   initial_train_size: 180
   step_size: 30
   expanding_window: True
+
+model:
+  name: seasonal_naive
+  category: baseline
+  params: 
+    seasonal_length: 7
+
+evaluation:
+  metrics:
+    - mae
+    - rmse
+    - mape
+    - smape
+    - mase
+
+tracking:
+  enabled: false
+  experiment_name: ts_forecasting_lab
+  tracking_uri: mlruns
