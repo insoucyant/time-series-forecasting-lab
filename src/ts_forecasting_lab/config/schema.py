@@ -36,18 +36,34 @@ class PathsConfig(BaseModel):
     Directory paths used throughout the project.
     """
     
+    data_dir: Path = Field(..., description="Root directory contains all datasets.")
+    raw_data_dir: Path = Field(..., description="Directory containing raw, unmodified datasets.")
+    processed_data_dir: Path = Field(..., description="Directory containing processed data.")
+    reports_dir: Path = Field(..., description="Directory for generated reports.")
+    plots_dir: Path = Field(..., description="Directory for forecast plots and visualizations")
+    models_dir: Path = Field(..., description="Directory where trained models are stored.")
+    logs_dir: Path = Field(..., description="Directory containing application log files.")
+    
 class RuntimeConfig(BaseModel):
     """
-    
-
-   
+    Runtime Configuration
     """
+    
+    environment: str = Field(default="local", description="Execution environment: local, dev, prod.")
+    random_seed: int = Field(default=42, ge=0, description="Random seed used for reproducibility")
+    log_level: str = Field(defauly="INFO", description="Logging Level")
     
 
 class DataConfig(BaseModel):
     """
-    
+    Dataset Configuration
     """
+    
+    dataset_name: str = Field(..., description="Name of the dataset.")
+    target_column: str = Field(..., description="Target Variable to Forecast")
+    time_column: str = Field(..., description="Timestamp Column")
+    id_column: str = Field(..., description="Unique identifier column for multiple time series.")
+    frequency: str = Field(..., description="Time Series Frequency (D, W, M, H, etc.)")
 
 class ForecastConfig(BaseModel):
     """ 
