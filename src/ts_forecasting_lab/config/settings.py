@@ -12,7 +12,8 @@ from ts_forecasting_lab.config.schema import Settings
 
 def get_settings(config_path: Path | None = None) -> Settings:
     """ 
-    Load and Validate Application Settings
+    Load and Validate Application Settings.
+    This becomes the **single entry point** for configuration.
     
     Parameters
     -----------
@@ -35,4 +36,5 @@ def get_settings(config_path: Path | None = None) -> Settings:
     
     return settings
 
-settings = get_settings()
+settings = get_settings() # Global Singleton # Creates one validated -
+# - **configuration object** when the module is imported.
