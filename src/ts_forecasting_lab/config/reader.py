@@ -7,7 +7,7 @@ Internally that will be:
 config.yaml --> reader.py --> dictionary --> schema.py --> Settings object --> Entire Application
 
 What should reader.py do?
-W=Exactly **one thing**: Given a Path, return Python Dictionary.
+Exactly **one thing**: Given a Path, return Python Dictionary.
 Nothing else. It should NOT:
 1. know about forecasting
 2. know about Pydantic
@@ -83,3 +83,52 @@ from ts_forecasting_lab.config.settings import settings
 print(settings.forecast.horizon)
 and rest of the repository never worries about YAML or validation.
 """
+
+
+from pathlib import Path
+from typing import Any
+
+import yaml
+
+def load_yaml_config(config_path: Path) -> dict[str, Any]:
+    """
+    Load a YAML configuration file and return it as a Python dictionary.
+    
+    Parameters
+    ----------
+    config_path:
+        Path to the YAMLconfiguration file.
+        
+    Returns
+    ----------
+    dict[str, Any]
+        Parsed YAML content.
+        
+    Raises
+    ----------
+    FileNotFoundError
+        If the configuration file does not exist.
+        
+    ValueError
+        If the YAML file is empty or does not contain a dictionary.
+    """
+    
+    
+    if not config_path.exists():
+        raise FileNotFoundError(f"Configuration file not found: {config_path}")
+    
+    with config_path.open("r", encoding="utf-8") as file: # At this point file is just a file object
+        # print(file.read()) # Just a string with the yaml file content
+        config = yaml.safe_load(file) # Parse the YAML
+        # This tells the YAML parser: 
+        #   "Read the YAML text and convert it into equivalent Python objects"
+        
+    if config is None: # Verify that it's a dictionary
+        raise ValueError(f"Configuration file is empty: {config_path}")
+    
+    if not isinstance(config, dict):
+        raise ValueError(
+            f"Configuration file must contain a YAML mapping/dictionary: {config_path}"
+        )
+        
+    return config
