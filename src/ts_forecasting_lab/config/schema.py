@@ -76,9 +76,15 @@ class ForecastConfig(BaseModel):
     seasonal_period: int = Field(..., gt=0, description="Seasonal Period of the Time Series")
 # 6
 class BacktestingConfig(BaseModel):
-     """ 
-    
+    """ 
+    Backtesting Configuration
     """
+    
+    n_splits: int = Field(..., gt=0, description="Number of rolling backtesting splits")
+    initial_train_size: int = Field(..., gt=0, description="Initial Training Window Size")
+    step_size: int = Field(..., gt=0, description="Window Shift after each Backtesting Iteration.")
+    expanding_window: bool = Field(default=True, description="Whether to use expanding Windows or Rolling Windows")
+    
 
 # 7
 class ModelParametersConfig(BaseModel):
