@@ -110,7 +110,7 @@ class EvaluationConfig(BaseModel):
     """ 
     Forecast Evaluation Configuration
     """
-    
+    metrics: list[str] = Field(..., description="Evaluation metrics used for model comparison")
 # 10
 class TrackingConfig(BaseModel):
     """ 
