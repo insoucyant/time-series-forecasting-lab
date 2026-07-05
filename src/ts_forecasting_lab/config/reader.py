@@ -65,9 +65,16 @@ This is one of the biggest reasons production systems use schemas.
 |                         | -ut the application.                                            |
 ---------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------|
-
-
+---------------------------------------------------------------------------------------------
+This separation is an example of the **Single Responsibility Principle (SRP)** :
+* ==config.yaml==  is responsible for **configuration data**.
+* ==reader.py==    is responsible for **file I/O and parsing**.
+* ==schema.py==    is responsible for **data structure and validation rules**.
+* ==settings.py==  is responsible for **assembling a validated configuration object**.
+* The rest of the application is responsible for **business logic**.
+---------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------
 After reader.py, we will write settings.py. Its responsbility will be:
 locate config.yaml --> Call reader.py --> Call schema.py --> Return validated Settings object.    
 
