@@ -89,8 +89,13 @@ class BacktestingConfig(BaseModel):
 # 7
 class ModelParametersConfig(BaseModel):
     """ 
-    
+    Model-specific Hyperparameters.
+    Unknown fields are allowed becuase different forecasting models require different hyperparameters.
     """
+    
+    model_config = ConfigDict(extra="allow")
+    
+    
     
 
 # 8
