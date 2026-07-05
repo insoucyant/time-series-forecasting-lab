@@ -123,5 +123,17 @@ class TrackingConfig(BaseModel):
 # 11
 class Settings(BaseModel):
     """ 
+    Root Application Configuration.
     
+    This class aggregates all configuration sections into a single, validated configuration object.
     """
+    
+    project: ProjectConfig = Field(..., description="Project Configuration")
+    path: PathsConfig = Field(..., description="Path Configuration")
+    runtime: RuntimeConfig = Field(..., description="Runtime Configuration")
+    data: DataConfig = Field(..., description="Dataset Configuration")
+    forecast: ForecastConfig = Field(..., description="Forecasting Configuration")
+    backtesting: BacktestingConfig = Field(..., description="Backtesting Configuration")
+    model: ModelConfig = Field(..., desciption= "Model Configuration")
+    evaluation: EvaluationConfig = Field(..., description="Evaluation Configuration")
+    tracking: TrackingConfig = Field(..., desciption="Experiment Tracking Configuration")
