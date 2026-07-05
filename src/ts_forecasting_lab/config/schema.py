@@ -114,8 +114,11 @@ class EvaluationConfig(BaseModel):
 # 10
 class TrackingConfig(BaseModel):
     """ 
-    
+    Experiment Tracking Configuration
     """
+    enabled: bool = Field(default=False, description="Whether experiment tracking is enabled.")
+    experiment_name: str = Field(..., description="Experiment name used by the tracking system")
+    tracking_uri: str = Field(..., description="Tracking server URI or local tracking directory")
     
 # 11
 class Settings(BaseModel):
