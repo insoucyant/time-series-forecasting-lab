@@ -71,6 +71,11 @@ def test_settings_schema_accepts_valid_config() -> None:
     
     
 def test_settings_schema_rejects_missing_required_field() -> None:
+    config = valid_config()
+    del config["project"]["name"]
+    
+    with pytest.raise(ValidationError):
+        Settings.model_validate(config)
     
 def test_settings_schema_rejects_negative_forecast_horizon() -> None:
     
