@@ -1,6 +1,7 @@
 # Forecasting Framework Design
 
 **Status:** Accepted
+
 **Date:** 2026-7-06
 
 --- 
@@ -58,3 +59,20 @@ The objective of this repository is to avoid that problem by defining a common f
 ---
 
 # 3. Design Goals
+
+The framework should satisfy the following goals:
+## Consistency
+Every forecasting model should expose the same interface.
+## Extensibility
+New forecasting models should be added with minimal changes.
+## Maintainability 
+Business Logic should be separated from infrastructure.
+## Reusability 
+Components should be reusable across projects.
+## Testability 
+Every component should be independently testable.
+## Product Readiness
+The framework should support deployment, monitoring and experiment tracking. 
+---
+
+# 4. What is a Forecaster?
