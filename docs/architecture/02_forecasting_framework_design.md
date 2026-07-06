@@ -149,3 +149,60 @@ These capabilities should not be mandatory for every forecasting model.
 
 # 6. ForecastResult
 
+# 7. Data Flow
+
+The forecasting pipeline should follow the architecture below:
+
+```
+Raw Data
+
+↓
+
+Data Validation
+
+↓
+
+Preprocessing
+
+↓
+
+Feature Engineering 
+
+↓
+
+Train / Validation / Test Split
+
+↓
+
+Forecaster.fit()
+
+↓
+
+Forecaster.predict()
+
+↓
+
+ForecastResult
+
+↓
+
+Evaluation
+
+↓
+
+Reporting 
+
+↓
+
+Visualization 
+
+↓
+
+Deployment 
+```
+
+Each should have a single responsibility. 
+
+---
+
+# 8. Supported Forecasting Paradigms
