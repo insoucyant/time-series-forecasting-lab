@@ -107,3 +107,45 @@ Although these models are mathematically different, the framework should interac
 --- 
 
 # 5. Required Interface
+
+Every forecasting model should implement the following methods.
+
+```python
+fit(...)
+```
+
+Train or fit the forecasting model.
+
+```python
+predict(...)
+```
+
+Generate forecasts. 
+
+Future versions may additionally support:
+
+```python
+save(...)
+```
+
+Persist a trained model.
+
+```python
+load(...)
+```
+
+Load a trained model.
+
+Optional capabilities may include:
+
+- predictions intervals
+- quantile forecasts
+- explainability 
+- feature importance
+
+These capabilities should not be mandatory for every forecasting model. 
+
+---
+
+# 6. ForecastResult
+
