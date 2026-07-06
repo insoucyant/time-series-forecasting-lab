@@ -72,7 +72,38 @@ Components should be reusable across projects.
 ## Testability 
 Every component should be independently testable.
 ## Product Readiness
+
 The framework should support deployment, monitoring and experiment tracking. 
+
 ---
 
 # 4. What is a Forecaster?
+
+A **Forecaster** is an object that learns patterns from historical time series data and produces forecasts for future time periods. 
+
+Regardless of the underlying algorithm, every forecasting model should behave like a forecaster. 
+
+Examples include:
+
+- Seasonal Naive
+- ARIMA
+- ETS
+- Prophet
+- Random Forest
+- XGBoost
+- LightGBM
+- CatBoost
+- LSTM
+- GRU
+- N-Beats
+- N-HiTS
+- Temporal Fusion Transformer
+- Chronos
+- TimesFM
+- Moirai
+
+Although these models are mathematically different, the framework should interact with them uniformly. 
+
+--- 
+
+# 5. Required Interface
