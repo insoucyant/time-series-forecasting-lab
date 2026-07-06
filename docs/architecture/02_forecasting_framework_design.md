@@ -239,6 +239,29 @@ Each should have a single responsibility.
 
 # 11. Architectural Principles
 
+The framework follows the following software engineering principles:
+
+## Single Responsibility Principle
+
+## Open/Closed Principle
+
+The framework should be open for extension but closed for modification.
+
+Adding a new forecasting model should not require changing existing forecasting models.
+
+---
+
+## Dependency Inversion 
+
+The forecasting pipeline should depend on the abstract forecasting interface rather than concrete forecasting implementations.
+
+---
+
+## Separation of Concerns
+
+Data loading, forecasting, evaluation, visualization, and deployment should remain separate. 
+
+---
 
 # 12. Long-Term Vision
 
