@@ -61,6 +61,13 @@ def valid_config() -> dict:
     }
     
 def test_settings_schema_accepts_valid_config() -> None:
+    settiings = Settings.model_validate(valid_config())
+    
+    assert settings.project.name == "time-series-forecasting-lab"
+    assert settings.forecast.horizon == 30
+    assert settings.model.name == "seasonal_naive"
+    assert settings.model.params.seasonal_length == 7
+    assert settings.evaluation.metrics == ["mae", "rmse", "mape", "smape", "mase"]
     
     
 def test_settings_schema_rejects_missing_required_field() -> None:
