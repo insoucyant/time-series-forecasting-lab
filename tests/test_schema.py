@@ -59,3 +59,15 @@ def valid_config() -> dict:
             "tracking_uri": "mlruns"
         },
     }
+    
+def test_settings_schema_accepts_valid_config() -> None:
+    
+    
+def test_settings_schema_rejects_missing_required_field() -> None:
+    
+def test_settings_schema_rejects_negative_forecast_horizon() -> None:
+    
+def test_settings_schema_rejects_zero_seasonal_period() -> None:
+    
+    
+def test_settings_schema_applies_default_runtime_values() -> None:
