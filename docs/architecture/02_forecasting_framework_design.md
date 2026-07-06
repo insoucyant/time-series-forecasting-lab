@@ -149,6 +149,20 @@ These capabilities should not be mandatory for every forecasting model.
 
 # 6. ForecastResult
 
+Forecast models should not return arbitrary objects.
+
+Instead, every forecasting model should return a common ForecastResult object.
+
+The ForecastResult object should contain:
+
+- Forecast values
+- Forecast horizon
+- Forecast timestamps
+- Model name
+- Frequency
+- Prediction intervals (optional)
+- Additional metadata
+
 # 7. Data Flow
 
 The forecasting pipeline should follow the architecture below:
