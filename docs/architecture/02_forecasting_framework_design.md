@@ -231,3 +231,27 @@ Each should have a single responsibility.
 ---
 
 # 8. Supported Forecasting Paradigms
+
+
+# 9. Dataset Representation 
+
+# 10. Keeping the Interface Stable
+
+# 11. Architectural Principles
+
+
+# 12. Long-Term Vision
+
+
+# 13. Future Work
+
+
+# 14. Summary 
+
+The central design philosophy of this repository is:
+
+> Build a reusable forecasting framework first.
+
+> Add forecasting model as interchangeable components.
+
+This allows the repository to scale from simple statistical forecasting models to the state-of-the-art foundation models without changing the overall architecture. 
