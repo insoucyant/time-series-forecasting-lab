@@ -22,3 +22,39 @@ The framework should support:
 - Experiment Tracking
 - Monitoring 
 - Explainability 
+
+The guiding principle is:
+
+> **Design the framework first. Plug models into it later.**
+
+--- 
+
+# 2.  Problem Statement 
+
+Many forecasting repositories evolve into collections of unrelated scripts.
+
+For example:
+
+```
+arima.py
+prophet.py
+lstm.py
+tft.py
+xgboost.py
+```
+
+Each script:
+
+- accepts different inputs
+- returns different outputs 
+- has different APIs
+- performs preprocessing differently 
+- is difficult to compare
+- is difficult to extend
+
+Such repositories become difficult to maintain as more forecasting models are added. 
+The objective of this repository is to avoid that problem by defining a common forecasting interface. 
+
+---
+
+# 3. Design Goals
