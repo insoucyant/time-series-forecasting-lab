@@ -163,6 +163,17 @@ The ForecastResult object should contain:
 - Prediction intervals (optional)
 - Additional metadata
 
+
+This allows downstream components such as:
+
+- evaluation
+- plotting
+- reporting 
+- monitoring 
+
+to consume forecast without depending on the underlying forecasting model.
+
+
 # 7. Data Flow
 
 The forecasting pipeline should follow the architecture below:
