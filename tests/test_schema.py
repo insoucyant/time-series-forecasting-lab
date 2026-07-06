@@ -78,8 +78,25 @@ def test_settings_schema_rejects_missing_required_field() -> None:
         Settings.model_validate(config)
     
 def test_settings_schema_rejects_negative_forecast_horizon() -> None:
+    config = valid_config()
+    config["forecast"]["horizon"] = -5
+    
+    with pytest.raises(ValidationError):
+        Settings.model_validate(config) 
     
 def test_settings_schema_rejects_zero_seasonal_period() -> None:
+    config = valid_config()
+    config['forecast']['seasonal_period'] = 0
     
+    with pytest.raises(ValidationError):
+        Settings.model_validate(config)
     
 def test_settings_schema_applies_default_runtime_values() -> None:
+    config = valid_config()
+    del config["runtime"]["random_seed"]
+    del config["runtime"]["log_level"]
+    
+    settings = Settings.model_validate(config)
+    
+    assert settings.runtime.random_seed == 42
+    assert settings.runtime.log_level == "INFO"
