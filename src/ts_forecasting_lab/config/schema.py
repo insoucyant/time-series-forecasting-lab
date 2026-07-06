@@ -22,8 +22,9 @@ config.yaml --> reader.py --> schema.py --> settings.py --> Application
 """
 
 
-from pydantic import BaseModel, Field
-from pathlib import Path 
+from pathlib import Path
+
+from pydantic import BaseModel, ConfigDict, Field
 
 class ProjectConfig(BaseModel):
     """
@@ -51,10 +52,10 @@ class RuntimeConfig(BaseModel):
     """
     Runtime Configuration
     """
-    
+
     environment: str = Field(default="local", description="Execution environment: local, dev, prod.")
     random_seed: int = Field(default=42, ge=0, description="Random seed used for reproducibility")
-    log_level: str = Field(defauly="INFO", description="Logging Level")
+    log_level: str = Field(default="INFO", description="Logging Level")
     
 
 class DataConfig(BaseModel):
@@ -91,22 +92,23 @@ class BacktestingConfig(BaseModel):
 
 # 7
 class ModelParametersConfig(BaseModel):
-    """ 
-    Model-specific Hyperparameters.
-    Unknown fields are allowed becuase different forecasting models require different hyperparameters.
     """
-    
-    model_config = ConfigDict(extra="allow")
-    
+    Model-specific Hyperparameters.
+    Unknown fields are allowed because different forecasting models require different hyperparameters.
+    """
 
-# 8
+    seasonal_length: int | None = Field(default=None, description="Seasonal length used by seasonal models")
+    model_config = ConfigDict(extra="allow")
+
+
 class ModelConfig(BaseModel):
     """
     Forecast Model Configuration
-    """   
+    """
+
     name: str = Field(..., description="Name of the forecasting model.")
     category: str = Field(..., description="Model Category (baseline, statistical, ML, DL, transformer).")
-    parame: ModelParametersConfig = Field(..., description="Model-specific hyperparameters")
+    params: ModelParametersConfig = Field(..., description="Model-specific hyperparameters")
 
 # 9
 class EvaluationConfig(BaseModel):
@@ -125,18 +127,18 @@ class TrackingConfig(BaseModel):
     
 # 11
 class Settings(BaseModel):
-    """ 
+    """
     Root Application Configuration.
-    
+
     This class aggregates all configuration sections into a single, validated configuration object.
     """
-    
+
     project: ProjectConfig = Field(..., description="Project Configuration")
-    path: PathsConfig = Field(..., description="Path Configuration")
+    paths: PathsConfig = Field(..., description="Path Configuration")
     runtime: RuntimeConfig = Field(..., description="Runtime Configuration")
     data: DataConfig = Field(..., description="Dataset Configuration")
     forecast: ForecastConfig = Field(..., description="Forecasting Configuration")
     backtesting: BacktestingConfig = Field(..., description="Backtesting Configuration")
-    model: ModelConfig = Field(..., desciption= "Model Configuration")
+    model: ModelConfig = Field(..., description="Model Configuration")
     evaluation: EvaluationConfig = Field(..., description="Evaluation Configuration")
-    tracking: TrackingConfig = Field(..., desciption="Experiment Tracking Configuration")
+    tracking: TrackingConfig = Field(..., description="Experiment Tracking Configuration")

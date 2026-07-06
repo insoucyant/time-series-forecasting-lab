@@ -61,8 +61,8 @@ def valid_config() -> dict:
     }
     
 def test_settings_schema_accepts_valid_config() -> None:
-    settiings = Settings.model_validate(valid_config())
-    
+    settings = Settings.model_validate(valid_config())
+
     assert settings.project.name == "time-series-forecasting-lab"
     assert settings.forecast.horizon == 30
     assert settings.model.name == "seasonal_naive"
@@ -74,7 +74,7 @@ def test_settings_schema_rejects_missing_required_field() -> None:
     config = valid_config()
     del config["project"]["name"]
     
-    with pytest.raise(ValidationError):
+    with pytest.raises(ValidationError):
         Settings.model_validate(config)
     
 def test_settings_schema_rejects_negative_forecast_horizon() -> None:
@@ -100,3 +100,10 @@ def test_settings_schema_applies_default_runtime_values() -> None:
     
     assert settings.runtime.random_seed == 42
     assert settings.runtime.log_level == "INFO"
+    
+    
+    
+# </> Bash
+# pytest tests/test_schema.py
+# Expected Output:
+# 5 passed
