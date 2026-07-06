@@ -242,6 +242,25 @@ Each should have a single responsibility.
 
 # 12. Long-Term Vision
 
+The rpository aims to evolve into a production-quality forecast framework supporting: 
+
+- Statistical Forecasting
+- Machine Learning
+- Deep Learning 
+- Foundation Models
+- Model Comparison
+- Backtesting 
+- Hyperparameter Optimisation
+- Experiment Tracking
+- REST APIs
+- Docker deployment 
+- Monitoring 
+- Drift detection 
+- Explainability 
+
+The objective is not merely to demonstrate forecasting algorithms but to demonstrate the software engineering required to build forecasting systems used in production.
+
+--- 
 
 # 13. Future Work
 
