@@ -40,6 +40,47 @@ forecast:
     test_size: 30
     seasonal_period: 7
     
-    """
+backtesting:
+    n_splits: 3
+    initial_train_size: 180
+    step_size: 30
+    expanding_window: true
+    
+model:
+    name: seasonal_naive
+    category: baseline
+    params:
+        seasonal_length: 7
         
+evaluation:
+    metrics:
+        - mae
+        - rmse
+        - mape
+        - smape
+        - mase
+        
+tracking:
+    enabled: false
+    experiment_name: ts_forecasting_lab
+    tracking_uri: mlruns
+    """,
+            encoding="utf-8",
     )
+    
+    settings = get_settings(config_path)
+
+    assert isinstance(settings, Settings)
+    assert settings.project.name == "time-series-forecasting-lab"
+    assert settings.forecast.horizon == 30
+    assert settings.model.name == "seasonal_naive"
+    assert settings.model.params.seasonal_length == 7
+    assert settings.tracking.enabled is False
+    
+    
+    
+    
+# </> Bash
+# pytest tests/test_settings.py
+# Expected
+# 1 passed
