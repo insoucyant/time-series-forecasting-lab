@@ -245,6 +245,19 @@ Each should have a single responsibility.
 
 # 13. Future Work
 
+Future architecture documents will describe:
+
+- Base Forecaster
+- Model Registry 
+- Feature Engineering Framework
+- Dataset Abstraction
+- Backtesting Engine
+- Logging 
+- Experiment Tracking 
+- Deployment Architecture
+- Monitoring Architecture
+
+--- 
 
 # 14. Summary 
 
