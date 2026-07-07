@@ -243,6 +243,15 @@ The framework follows the following software engineering principles:
 
 ## Single Responsibility Principle
 
+Each component should perform one responsibility.
+
+Examples:
+
+- reader.py reads configuration.
+- schema.py validates configuration.
+- evaluation computes metrics.
+- plotting generates figures.
+
 ## Open/Closed Principle
 
 The framework should be open for extension but closed for modification.
