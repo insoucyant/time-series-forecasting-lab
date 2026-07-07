@@ -237,6 +237,31 @@ Each should have a single responsibility.
 
 # 10. Keeping the Interface Stable
 
+The framework should distinguish between:
+
+"Core Forecasting Behaviour" & "Advanced Forecasting Capabilities". 
+
+The core interface should remain stable.
+
+```
+fit()
+
+predict()
+```
+
+Advanced functionality should be added through optional extensions rather than modifying the base interface.
+
+Examples include:
+
+- Probabilistic Forecasting
+- Explainability
+- Feature Importance
+- Serialization 
+
+This design allows increasingly sophisticated forecasting models to integrate without breaking existing code. 
+
+--- 
+
 # 11. Architectural Principles
 
 The framework follows the following software engineering principles:
