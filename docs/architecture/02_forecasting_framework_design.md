@@ -232,8 +232,116 @@ Each should have a single responsibility.
 
 # 8. Supported Forecasting Paradigms
 
+The framework should support multiple forecasting paradigms without changing the external interface.
+
+## Univariate Forecasting
+
+Single target variable.
+
+Example:
+
+Electricity Demand.
+
+---
+
+## Multivariate Forecasting
+
+Multiple related variables.
+
+Example:
+
+Demand, price, promotions, and holidays.
+
+---
+
+## Local Forecasting
+
+
+One forecasting model per individual time series.
+
+Example:
+
+One ARIMA model per retail store.
+
+---
+
+## Global Forecasting 
+
+
+A single forecasting model trained across many related time series.
+
+Example:
+
+One TFT trained on all retail stores. 
+
+---
+
+## Probabilistic Forecasting 
+
+Forecasts represented as probability distributions or prediction intervals.
+
+---
+
+## Deep Learning Forecasting 
+
+Examples include:
+
+- LSTM
+- GRU
+- N-BEATS
+- N-HiTS
+
+---
+
+## Transformer-based Forecasting
+
+Examples include:
+
+- Informer
+- Autoformer
+- PatchIST
+- Temporal Fusion Transformer
+
+---
+
+## Foundation Models
+
+Examples include:
+
+- Chronos
+- TimesFM
+- Moirai
+
+These models may have different internal architectures but should expose the same forecasting interface.
+---
+
 
 # 9. Dataset Representation 
+
+To maximize compatibility across forecasting models, datasets should eventually be represented using a common tabular format.
+
+Example:
+
+| unique_id |  ds |  y  | covariates...|
+|-----------|-----|-----|--------------|
+| store_001 | ... | ... | ... |
+
+where:
+
+- unique_id identifies the time series
+- ds represents the timestamp
+- y represents the target variable
+
+Additional columns may represent known covariates.
+
+This format naturally supports:
+
+- local forecasting
+- global forecasting
+- multivariate forecasting
+- transformer models
+
+--- 
 
 # 10. Keeping the Interface Stable
 
