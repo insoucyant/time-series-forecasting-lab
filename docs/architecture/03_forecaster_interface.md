@@ -6,6 +6,28 @@
 
 # 1. Overview
 
+This document defines the core forecasting interface for the Time Series Forecasting Lab.
+
+The goal is to ensure that every forecasting model in the repository follows a common contract, regardless of whether the model is:
+
+- Naive
+- Seasonal Naive
+- ARIMA
+- ETS
+- Prophet
+- XGboost
+- LightGBM
+- LSTM
+- N-BEATS
+- Temporal Fusion Transformer
+- Chronos
+- TimesFM
+- Moirai
+
+The central idea is:
+
+> Every model should behave like a Forecaster.
+
 ---
 
 # 2. Why do we need a COmmon Interface?
