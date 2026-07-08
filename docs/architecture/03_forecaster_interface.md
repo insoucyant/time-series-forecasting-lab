@@ -196,14 +196,39 @@ Expected behaviour:
 
 ## `load`
 
+```python
+load(path)
+```
+
+Loads a trained model from disk.
+
+Expected behaviour:
+
+- Restore the model state.
+- Restore model metadata.
+- Return a usable forecaster object.
+
 
 ---
 
 ## `get_model_info`
 
+```python
+get_model_info() -> dict
+```
 
----
+Returns basic model metadata.
 
+Examples metadata may include:
+
+```python
+{
+    "model_name": "seasonal_naive",
+    "model_type": "baseline",
+    "supports_probabilistic_forecast": False,
+    "supports_exogenous_variables": False,
+}
+```
 
 ---
 
