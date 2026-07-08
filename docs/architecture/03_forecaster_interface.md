@@ -354,14 +354,66 @@ p10 | p50 | p90
 
 ## Transformer Models
 
+
+Transformer models may require:
+
+- historical target values
+- known future covariates
+- static covariates
+- encoder length
+- decoder length
+
+These requirements should be handles by adapters or model-specific preprocessing, not by changing the base interface. 
+
+--- 
+
 ## Foundation Models
 
+Foundation Models such as Chronos, TimesFM, and Moirai may not require traditional fitting.
+
+However, they should still implement the same interface.
+
+For example:
+```python
+model.fit(data)
+```
+
+may prepare context, validate data, or store configuration, even if no gradient-based training occurs.
+
+This keeps the rest of the framework stable.
 
 
 ---
 
 # 10. Optional Capabilities
 
+Not every model supports every capability.
+
+For example:
+
+| Capability | Supported by all models? |
+| --- | --- |
+| Point Forecast | Yes |
+| Prediction intervals | No |
+| Quantile Forecast | No |
+| Feature importance | No |
+| Explainability | No |
+| Exogenous variables | No |
+| Online learning | No |
+
+Therefore, the base interface should remain small.
+
+Advanced capabilities can be added later using mixins or capability flags.
+
+Examples:
+
+```python
+ProbabilisticForecasterMixin
+ExplainableForecasterMixin
+SerializableForecasterMixin
+```
+
+This prevents simple models from being forced to implement methods they do not support.
 
 ---
 
