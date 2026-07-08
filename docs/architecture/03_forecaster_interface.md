@@ -265,7 +265,7 @@ ForecastResult
 A `ForecastResult` should contain:
 
 | Field | Purpose |
-| --- | --- \
+| --- | --- |
 | `predictions` | Forecasted values |
 | `horizon` | Forecast horizon |
 | `model_name` | Name of the model that generated the forecast |
