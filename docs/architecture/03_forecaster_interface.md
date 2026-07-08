@@ -285,6 +285,22 @@ In advanced cases, it may contain prediction intervals, quantiles, or multiple s
 # 9. Supporting different Forecasting Types
 
 
+## Univariate Forecasting
+
+## Multivariate Forecasting 
+
+## Local Forecasting 
+
+## Global Forecasting 
+
+## Probabilistic Forecasting 
+
+## Transformer Models
+
+## Foundation Models
+
+
+
 ---
 
 # 10. Optional Capabilities
