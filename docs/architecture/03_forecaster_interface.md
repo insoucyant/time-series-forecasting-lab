@@ -83,6 +83,24 @@ This should remain true whether the model is ARIMA, XGBosst, LSTM, TFT, or a fou
 
 # 4. Responsibilities of a Forecaster
 
+A forecaster is responsible for:
+
+- Fitting or training on historical time series data.
+- Producing future forecasts.
+- Returning forecast in a standard format.
+- Saving itself to disk.
+- Loading itself from disk.
+- Exposing basic model metadata.
+
+Therefore, every forecaster should implement:
+
+```python
+fit(...)
+predict(...)
+save(...)
+load(...)
+get_model_info(...)
+```
 
 ---
 
