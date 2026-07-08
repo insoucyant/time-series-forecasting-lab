@@ -131,6 +131,79 @@ It should not become a  pipeline, evaluator, plotter, or data cleaner.
 
 # 6. Core Interface
 
+The first version of the base forecaster should define the following methods.
+
+## `fit`
+
+```python
+fit(data, **kwargs)
+```
+
+Fits the model on historical data.
+
+Expected behaviour:
+
+- Accept training data.
+- Learn model parameters.
+- Store fitted state inside the object.
+- Return the fitted model object.
+
+Example:
+```python
+model = SeasonalNaiveForecaster(season_length=7)
+
+model.fit(train_data)
+``` 
+---
+
+## `predict`
+
+```python
+predict(horizon: int, **kwargs) -> ForecastResult
+```
+
+Generate forecasts for future periods.
+
+Expected behaviour:
+
+- Requires the model to be fitted first
+- Produce forecasts for the requested horizon.
+- Return a `ForecastResult`
+
+Example:
+
+```python
+forecast = model.predict(horizon=30)
+```
+
+---
+
+## `save`
+
+```python
+save(path)
+```
+
+Persists the trained model to disk.
+
+Expected behaviour:
+
+- Save the model state.
+- Save enough metadata to reload the model safely.
+-  Avoid mixing model serialization with evaluation or reporting
+
+---
+
+## `load`
+
+
+---
+
+## `get_model_info`
+
+
+---
+
 
 ---
 
