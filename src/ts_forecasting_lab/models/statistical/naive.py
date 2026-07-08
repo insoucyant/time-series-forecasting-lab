@@ -57,7 +57,7 @@ class SeasonalNaiveForecaster(BaseForecaster):
         self._check_is_fitted()
         
         if horizon <= 0:
-            raise ValueError("Horizon must be greeater than zero.")
+            raise ValueError("Horizon must be greater than zero.")
         
         assert self.history_ is not None 
         
@@ -74,4 +74,52 @@ class SeasonalNaiveForecaster(BaseForecaster):
                 "yhat": repeated_values,
             }
         )
+        
+        return ForecastResult(
+            predictions=predictions,
+            horizon=horizon,
+            model_name=self.model_name,
+            metadata={"season_length": self.season_length},
+        )
+        
+    def save(self, path: Path) -> None:
+        """ 
+        Save the fitted model to disk.
+        """
+        
+        joblib.dump(self, path)
+        
+        
+    @classmethod
+    def load(cls, path: Path) -> BaseForecaster:
+        """ 
+        Load a fitted model from disk
+        """
+        
+        model = joblib.load(path)
+        
+        if not isinstance(model, cls):
+            raise TypeError(
+                f"Loaded object is not a {cls.__name__}"
+            )
+            
+        return model
+    
+    def get_model_info(self) -> dict[str, Any]:
+        """ 
+        Return model metadata.
+        """
+        
+        info = super().get_model_info()
+        info.update(
+            {
+                "model_type": "baseline",
+                "season_length": self.season_length,
+                "supports_exogenous_variables": False,
+                "supports_probabilistic_forecast": False,
+            }
+        )
+        
+        return info 
+
      
