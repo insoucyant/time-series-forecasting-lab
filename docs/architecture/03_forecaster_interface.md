@@ -262,6 +262,23 @@ ForecastResult
 
 # 8. What should ForecastResult contain?
 
+A `ForecastResult` should contain:
+
+| Field | Purpose |
+| --- | --- \
+| `predictions` | Forecasted values |
+| `horizon` | Forecast horizon |
+| `model_name` | Name of the model that generated the forecast |
+| `frequency` | Time series frequency |
+| `timestamps` | Forecast timestamps, if available |
+| `series_id` | Time series identifier, if applicable |
+| `prediction_intervals` | Optional lower/upper bounds |
+| `quantiles` | Optional quantile forecasts |
+| `metadata` | Additional information |
+
+In simple cases, `ForecastResult` may only contain point forecasts.
+
+In advanced cases, it may contain prediction intervals, quantiles, or multiple series.
 
 ---
 
