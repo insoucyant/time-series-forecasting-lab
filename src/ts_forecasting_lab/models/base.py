@@ -97,7 +97,7 @@ class BaseForecaster(ABC):
             "class_name": self.__class__.__name__,
         }
         
-    def _check_id_fitted(self) -> None:
+    def _check_is_fitted(self) -> None:
         """ 
         Raise an error if the model has not been fitted.
         """

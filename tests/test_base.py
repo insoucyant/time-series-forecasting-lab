@@ -1,7 +1,7 @@
 from pathlib import Path
 from typing import Any
 
-import pandas as import pd 
+import pandas as pd 
 import pytest 
 
 from ts_forecasting_lab.models.base import BaseForecaster, ForecastResult
@@ -21,7 +21,7 @@ class DummyForecaster(BaseForecaster):
         
         predictions = pd.DataFrame(
             {
-                "ds": pd.date_range(start="2026-01-01", periods=horizon, freq="D")
+                "ds": pd.date_range(start="2026-01-01", periods=horizon, freq="D"),
                 "yhat": [1.0] * horizon
             }
         )
@@ -51,7 +51,7 @@ class DummyForecaster(BaseForecaster):
 def test_forecast_result_accepts_valid_predictions() -> None:
     predictions = pd.DataFrame(
         {
-            "ds": pd.date_range(start="2026-01-01", periods=3, freq="D")
+            "ds": pd.date_range(start="2026-01-01", periods=3, freq="D"),
             "yhat": [10.0, 11.0, 12.0],
         }
     )
@@ -64,7 +64,7 @@ def test_forecast_result_accepts_valid_predictions() -> None:
     )
     
     assert result.horizon == 3
-    assert resault.model_name == "dummy_forecaster"
+    assert result.model_name == "dummy_forecaster"
     assert len(result.predictions) == 3
     assert result.frequency == "D"
     
@@ -82,7 +82,7 @@ def test_forecast_result_rejects_invalid_horizon() -> None:
 def test_base_forecaster_initial_state() -> None:
     model = DummyForecaster()
     
-    assert model.model_nae == "dummy_forecaster"
+    assert model.model_name == "dummy_forecaster"
     assert model.is_fitted is False 
     
     
@@ -114,5 +114,30 @@ def test_base_forecaster_predict_returns_forecast_result() -> None:
     assert result.model_name == "dummy_forecaster"
     assert len(result.predictions) == 5 
     
-
+def test_base_forecaster_get_model_info() -> None:
+    model = DummyForecaster()
     
+    info = model.get_model_info()
+    
+    assert info["model_name"] == "dummy_forecaster"
+    assert info["is_fitted"] is False
+    assert info["class_name"] == "DummyForecaster"
+    
+    
+def test_base_forecaster_save_and_load(tmp_path: Path) -> None:
+    model_path = tmp_path / "dummy_model.txt"
+    
+    model = DummyForecaster()
+    model.fit(pd.DataFrame({"y" : [1 ,2, 3]}))
+    model.save(model_path)
+    
+    loaded_model = DummyForecaster.load(model_path)
+    
+    assert model_path.exists()
+    assert isinstance(loaded_model, DummyForecaster)
+    assert loaded_model.is_fitted is True
+    
+    
+# </> Bash
+# pytest tests/test_base.py
+# Result: 8 passed
