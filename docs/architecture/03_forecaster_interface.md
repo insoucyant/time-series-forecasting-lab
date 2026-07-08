@@ -30,8 +30,33 @@ The central idea is:
 
 ---
 
-# 2. Why do we need a COmmon Interface?
+# 2. Why do we need a Common Interface?
 
+Without a common interface, each forecasting model tends to develop its own structure.
+
+For example:
+
+```python
+arima_model.train(...)
+arima_model.forecast(...)
+
+xgboost_model.fit_model(...)
+xgboost_model.predict_future(...)
+
+tft_model.train_network(...)
+tft_model.infer(...)
+```
+
+This creates several problems:
+
+- Models become difficult to compare.
+- Pipelines need model-specific logic.
+- Evaluation code becomes duplicated.
+- Backtesting becomes harder.
+- New models are harder to add.
+- Collaborators cannot easily understand the framework. 
+
+A common interface solves this by making all models look the same from the outside.
 
 ---
 
