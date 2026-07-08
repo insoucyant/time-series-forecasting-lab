@@ -106,6 +106,26 @@ get_model_info(...)
 
 # 5. Responsibilities not owned by a Forecaster
 
+A forecaster should **not** be responsible for everything.
+
+The following responsibilities belong elsewhere:
+
+| Responsibility | Owner |
+|---|---|
+| Reading raw data | Data layer |
+| Cleaning data | Preprocessing layer |
+| Feature Engineering | Feature Layer |
+| Train/test splitting | Data splitting layer |
+| Backtesting | Backtesting engine |
+| Metric calculation | Evaluation layer |
+| Plotting | Visualization layer |
+| Experiment tracking | Tracking layer |
+| API serving | Serving layer |
+
+This separation keeps forecasting models focused and easy to test.
+
+A forecaster should forecast.
+It should not become a  pipeline, evaluator, plotter, or data cleaner. 
 
 ---
 
