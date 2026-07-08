@@ -234,6 +234,29 @@ Examples metadata may include:
 
 # 7. ForeacastResult
 
+A model should not return arbitrary outputs.
+
+Every model should return a standard `ForecastResult`.
+
+The purpose of `ForecastResult` is to decouple forecasting modesl from downstream consumers. 
+
+The model returns:
+
+```text
+ForecastResult
+```
+
+The other components consume it:
+
+```text
+ForecastResult
+    ├── Evaluation
+    ├── Plotting
+    ├── Reporting
+    ├── Monitoring
+    ├── API Response
+```
+
 
 ---
 
