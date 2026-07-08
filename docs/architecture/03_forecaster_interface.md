@@ -471,7 +471,6 @@ All models should return `ForecastResult`, not arbitrary DataFrames, dictionarie
 
 --- 
 
-
 ## Capability-Based Extension
 
 Advanced functionality should be optional and explicit
@@ -480,13 +479,52 @@ Advanced functionality should be optional and explicit
 
 # 13. Example Usage
 
+A simple model should be used like this:
 
+```python
+from ts_forecasting_lab_models.statistical.naive import SeasonalNaiveForecaster
+
+model = SeasonalNaiveForecaster(season_length=7)
+
+model.fit(train_data)
+
+forecast = model.predict(horizon=30)
+```
+
+A mode advanced model should still follow the same pattern:
+
+```python
+from ts_forecasting_lab.models.transformer.tft import TemporalFusionTransformerForecaster
+
+model = TemporalFusionTransformerForecaster(config=tft_config)
+
+model.fit(train_data)
+
+forecast = model.predict(horizon=30)
+```
+
+The pipeline should not need to know the internal details of either model.
 ---
 
 # 14. Implementation Plan
 
+This document will guide the implementation of:
 
+```text
+src/ts_forecasting_lab/models/base.py
+```
 
+That file should define:
+
+- `BaseForecaster`
+- `ForecastResult`
+
+Later files may define:
+
+- `TrainingResult`
+- `ModelMetadata`
+- capability mixins
+- model-specific adapters
 
 ---
 
