@@ -11,7 +11,7 @@ from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import Any
 
-import pandas as import pd 
+import pandas as pd 
 from pydantic import BaseModel, Field
 
 
@@ -94,7 +94,7 @@ class BaseForecaster(ABC):
         return {
             "model_name": self.model_name,
             "is_fitted": self.is_fitted,
-            "class_name": self.__clas__.__name__,
+            "class_name": self.__class__.__name__,
         }
         
     def _check_id_fitted(self) -> None:
