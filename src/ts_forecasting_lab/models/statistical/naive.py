@@ -49,4 +49,29 @@ class SeasonalNaiveForecaster(BaseForecaster):
         
         return self 
     
+    def predict(self, horizon: int, **kwargs: Any) -> ForecastResult:
+        """ 
+        Forecast future values by repeating the last seasonal cycle.
+        """
+        
+        self._check_is_fitted()
+        
+        if horizon <= 0:
+            raise ValueError("Horizon must be greeater than zero.")
+        
+        assert self.history_ is not None 
+        
+        last_season = self.history_["y"].tail(self.season_length).to_list()
+        
+        repeated_values = [
+            last_season[i % self.season_length]
+            for i in range(horizon)
+        ]
+        
+        predictions = pd.DataFrame(
+            {
+                "step": range(1, horizon + 1),
+                "yhat": repeated_values,
+            }
+        )
      
