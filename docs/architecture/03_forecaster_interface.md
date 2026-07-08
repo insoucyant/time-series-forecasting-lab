@@ -419,6 +419,27 @@ This prevents simple models from being forced to implement methods they do not s
 
 # 11. Interface Stabilities
 
+The core interface should remain stable even as the repository grows.
+
+The stable core is :
+```python
+fit(...)
+predict(...)
+save(...)
+load(...)
+get_model_info(...)
+```
+
+As new models become more sophisticated, their additional requirements should be handled through:
+
+- configuration
+- model-specific parameters
+- adapters
+- optional mixins
+- metadata
+- capability flags
+
+The base interface should not change every time a new model is added. 
 
 ---
 
