@@ -62,6 +62,22 @@ A common interface solves this by making all models look the same from the outsi
 
 # 3. What is a Forecaster?
 
+A **Forecaster** is an object that learns from historical time series data and produces future forecasts.
+
+In this framework, a forecaster should answer two basic questions:
+
+1. How do I learn from historical data?
+2. How do I generate forecasts for future periods?
+
+The simplest interaction should look like:
+
+```python
+model.fit(train_data)
+
+forecast = mode.predict(horizon=30)
+```
+
+This should remain true whether the model is ARIMA, XGBosst, LSTM, TFT, or a foundation model.
 
 ---
 
