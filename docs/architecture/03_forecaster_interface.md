@@ -284,16 +284,73 @@ In advanced cases, it may contain prediction intervals, quantiles, or multiple s
 
 # 9. Supporting different Forecasting Types
 
+The same interface should support different forecasting paradigms.
 
 ## Univariate Forecasting
 
+One time series, one target column.
+
+Example:
+
+```text
+ds | y
+```
+
+---
+
 ## Multivariate Forecasting 
+
+One or more target variables, with additional covariates.
+
+Example:
+
+```text
+ds | y | price | promotion | holiday
+```
+
+---
 
 ## Local Forecasting 
 
+One model per time series
+
+Example:
+
+```text
+One ARIMA model per store/city/zone.
+```
+
+---
+
 ## Global Forecasting 
 
+One model across many time series.
+
+Example:
+
+```text
+One TFT model trained across all stores.
+```
+
+---
+
 ## Probabilistic Forecasting 
+
+Forecasts include uncertainty estimates.
+
+Example:
+
+```text
+yhat | yhat_lower | yhat_upper
+```
+
+or 
+
+```text
+p10 | p50 | p90
+```
+
+---
 
 ## Transformer Models
 
