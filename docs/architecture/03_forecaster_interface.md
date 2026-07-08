@@ -445,7 +445,36 @@ The base interface should not change every time a new model is added.
 
 # 12. Design Principles
 
+## Single Responsibility Principles
 
+A forecaster should only forecast.
+
+It should nlot clean data, compute metrics, create plots, or serve APIs
+
+---
+
+## Open/Closed Principle
+
+The framework should be open to adding new forecasting models without modifying the pipeline.
+
+---
+
+## Dependency Inversion
+
+Pipelines should depend on the abstract `BaseForecaster`, not on concrete classes like `ARIMAForecaster` or `TFTForecaster`.
+
+---
+
+## Consistent Outputs
+
+All models should return `ForecastResult`, not arbitrary DataFrames, dictionaries, or library-specific objects.
+
+--- 
+
+
+## Capability-Based Extension
+
+Advanced functionality should be optional and explicit
 
 ---
 
