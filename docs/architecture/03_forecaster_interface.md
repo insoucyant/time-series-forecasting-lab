@@ -463,7 +463,18 @@ The base interface should not change every time a new model is added.
 
 # 15. Summary 
 
+The forecasting framework should treat every model as a Forecaster.
 
+A Forecaster must:
 
+- fit historical data
+- generate forecasts
+- return a standard ForecastResult
+- save and load itself
+- expose basic metadata.
+
+The rest of the system should depend on this common interface rather than individual model implementations.
+
+This design allows the repository to scale from simple baselines to advanced transformer and foundation models while keeping the external API stable.
 
 ---
