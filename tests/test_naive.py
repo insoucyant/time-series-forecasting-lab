@@ -41,3 +41,11 @@ def test_seasonal_naive_fit_requires_y_column() -> None:
     with pytest.raises(ValueError, match="must contain a 'y' column"):
         model.fit(data)
         
+def test_seasonal_naive_fit_requires_enough_history() -> None: 
+    model = SeasonalNaiveForecaster(season_length=7)
+    data = pd.DataFrame({"y": [1,2,3]})
+    
+    with pytest.raises(ValueError, match="at least as large as season_length"):
+        model.fit(data)
+        
+        
