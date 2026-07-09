@@ -25,7 +25,7 @@ class SeasonalNaiveForecaster(BaseForecaster):
         super().__init__(model_name="seasonal_naive")
         
         if season_length <= 0:
-            raise ValueError("Season length must be greater than zero.")
+            raise ValueError("season_length must be greater than zero")
         
         self.season_length = season_length
         self.history_: pd.DataFrame | None = None
@@ -57,7 +57,7 @@ class SeasonalNaiveForecaster(BaseForecaster):
         self._check_is_fitted()
         
         if horizon <= 0:
-            raise ValueError("Horizon must be greater than zero.")
+            raise ValueError("horizon must be greater than zero")
         
         assert self.history_ is not None 
         
