@@ -48,4 +48,15 @@ def test_seasonal_naive_fit_requires_enough_history() -> None:
     with pytest.raises(ValueError, match="at least as large as season_length"):
         model.fit(data)
         
+def test_seasonal_naive_predict_requires_fit() -> None:
+    model = SeasonalNaiveForecaster(season_length=5)
+    
+    with pytest.raises(RuntimeError, match="must be fitted before prediction"):
+        model.predict(horizon=3)
+        
+def test_seasonal_naive_predict_requires_fit() -> None:
+    model = SeasonalNaiveForecaster(season_length=5)
+    
+    with pytest.raises(RuntimeError, match="must be fitted before prediction"):
+        model.predict(horizon=3)
         
