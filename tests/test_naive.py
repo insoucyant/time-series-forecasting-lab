@@ -105,3 +105,8 @@ def test_seasonal_naive_save_and_load(tmp_path: Path) -> None:
     
     result = loaded_model.predict(horizon=3)
     assert result.predictions["yhat"].tolist() == [20, 21, 22]
+    
+    
+# </> Bash
+# pytest tests/test_naive.py
+# Output: 10 passed
