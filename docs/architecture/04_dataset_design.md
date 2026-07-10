@@ -89,3 +89,32 @@ y
 ```
 
 --- 
+
+# 5. Optional Columns
+
+Optional columns may include:
+```text
+price
+promotion
+holiday
+temperature
+inventory
+marketing_spend
+event_flag
+```
+
+These are covariates.
+
+They may be used by:
+
+- machine learning models
+- deep learning models
+- transformer models
+- causal feature analysis
+- scenario forecasting 
+
+
+--- 
+
+
+
