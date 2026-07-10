@@ -117,4 +117,26 @@ They may be used by:
 --- 
 
 
+# 6. Local vs Global Models
 
+## Local Models
+
+A local model trains one model per time series.
+
+Example:
+
+```text
+one ARIMA model per store
+```
+
+## Global Models
+
+A global model trains one model across many time series.
+
+Example:
+
+```text
+one TFT model across all stores
+```
+
+The `unique_id` column makes both design possible. 
