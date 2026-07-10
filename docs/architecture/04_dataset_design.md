@@ -184,5 +184,20 @@ Using unknown future variables directly can create data leakage.
 
 --- 
 
+# 9. Data Leakage Principle
+
+The dataset layer should help prevent leakage.
+
+A model should not accidentally use information from the future during training or prediction.
+
+Examples of leakage:
+
+- using future target values as features
+- computing rolling averages using future observations
+- using test-period covariates that would not have been known at prediction time
+
+--- 
+
+# 10 Dataset Object Responsibilities
 
 
