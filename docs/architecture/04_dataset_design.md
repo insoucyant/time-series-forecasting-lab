@@ -152,4 +152,21 @@ The `unique_id` column makes both design possible.
 
 # 7. Known Future Covariates
 
+Some variables are known in advance.
+
+Examples:
+
+- holidays
+- calendar features
+- planned promotions
+- scheduled prices
+- day of week
+- month
+
+This can be passed to models that support future covariates.
+
+--- 
+
+
+
 
