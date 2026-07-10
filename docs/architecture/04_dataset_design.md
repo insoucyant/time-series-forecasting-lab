@@ -88,6 +88,13 @@ ds
 y
 ```
 
+For a single univariate series, `unique_id` can be a constant value such as:
+
+```text
+series_001
+```
+
+This allows the same framework to handle both one series and many series.
 --- 
 
 # 5. Optional Columns
@@ -140,3 +147,9 @@ one TFT model across all stores
 ```
 
 The `unique_id` column makes both design possible. 
+
+---
+
+# 7. Known Future Covariates
+
+
