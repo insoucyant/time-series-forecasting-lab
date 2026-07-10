@@ -8,13 +8,41 @@
 
 # 1. Overview
 
-This 
+This document how time series data should be represented inside the Time Series Forecasting Lab.
+
+The goal is to create one standard dataset structure that can support:
+
+- univariate forecasting 
+- multivariate forecasting 
+- local models
+- global models
+- statistical models
+- machine learning models
+- deep learning models
+- transformer models
+- foundation models
+
+The central idea is:
+
+> Standardize the data format early so the models, features, backtesting, and pipelines can all depend on the same structure. 
 
 
 ---
 
 # 2. Why Dataset Design Matters?
 
+Forecasting models often expect different input formats.
+
+For example:
+- ARIMA usually needs a single ordered target series
+- Prophet expects column names `ds` and `y`.
+- XGBoost needs lag and rolling features.
+- TFT needs historical targets, knows future covariates, static covariates, encoder windows, and decoder windows.
+- Foundation models may need context windows.
+
+Without a common dataset abstraction, every model will need custom data handling. 
+
+That creates duplication and makes the framework harder to maintain.
 
 ---
 
