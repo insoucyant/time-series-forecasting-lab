@@ -167,6 +167,22 @@ This can be passed to models that support future covariates.
 
 --- 
 
+# 8. Unknown Future Covariates
+
+Some variables are not known in advance.
+
+Examples:
+
+- future demand
+- future stock price
+- future weather, unless forecasted separately
+- future competitor behavior
+
+These should be treated carefully. 
+
+Using unknown future variables directly can create data leakage.
+
+--- 
 
 
 
