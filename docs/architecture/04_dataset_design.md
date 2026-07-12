@@ -296,7 +296,120 @@ Plant Capacity
 
 Static variables are especially important for global forecasting models. 
 
-# 9. Data Leakage Principle
+---
+
+# 9. Hierarchical Forecasting 
+
+The dataset should eventually support hierarchical forecasting. 
+
+Examples:
+
+```
+Country 
+
+↓
+
+Region
+
+↓
+
+State
+
+↓
+
+City 
+
+↓
+
+Store
+```
+
+or
+
+```
+Company 
+
+↓
+
+Business Unit
+
+↓
+
+Product Family 
+
+↓
+
+SKU
+```
+
+Future version should include hierarchy metadata that enables reconciliation algorithms. 
+---
+
+
+# 10. Temporal Hierarchies
+
+The platform should also support multiple temporal resolutions.
+
+Examples:
+
+```
+Hourly
+
+↓
+
+Daily
+
+↓
+
+Weekly
+
+↓
+
+Monthly 
+
+↓
+
+Quarterly
+
+↓
+
+Yearly 
+```
+
+This enables temporal reconciliation
+
+
+---
+
+# 11. Probabilistic Forecasting 
+
+
+
+---
+
+# 12. Demand Sensing 
+
+
+
+---
+
+# 13. Causal Forecasting
+
+
+
+---
+
+# 14. Scenario Planning 
+
+---
+
+# 15. Data Validation
+
+
+
+---
+
+# 16. Data Leakage Principle
 
 The dataset layer should help prevent leakage.
 
