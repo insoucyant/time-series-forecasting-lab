@@ -2,7 +2,7 @@
 
 **Status:** Accepted
 
-**Date:** 2026-07-09
+**Date:** 2026-07-12
 
 --- 
 
@@ -12,15 +12,26 @@ This document how time series data should be represented inside the Time Series 
 
 The goal is to create one standard dataset structure that can support:
 
-- univariate forecasting 
-- multivariate forecasting 
-- local models
-- global models
-- statistical models
-- machine learning models
-- deep learning models
-- transformer models
-- foundation models
+- Univariate forecasting 
+- Multivariate forecasting 
+- Local models/forecasting
+- Global models/forecasting
+- Statistical forecasting
+- Machine learning forecasting
+- Deep learning forecasting
+- Transformer models 
+- Foundation models
+- Hierarchical forecasting
+- Demand sensing
+- Causal forecasting
+- Scenraio planning
+- Explainability
+- Optimization
+- Decision Intelligence
+
+Rather than allowing every forecasting model to define its own data format, the platform standardizes on a single internal representation. 
+
+This allows every component of the platform to communicate using a common language. 
 
 The central idea is:
 
@@ -29,7 +40,7 @@ The central idea is:
 
 ---
 
-# 2. Why Dataset Design Matters?
+# 2A. Why Dataset Design Matters?
 
 Forecasting models often expect different input formats.
 
@@ -45,6 +56,60 @@ Without a common dataset abstraction, every model will need custom data handling
 That creates duplication and makes the framework harder to maintain.
 
 ---
+
+# 2B. Design Goals
+
+The dataset layer should satisfy the following objectives:
+
+## Consistency
+
+Every forecasting model should consume a common dataset representation.
+
+---
+
+## Extensibility
+
+The dataset should support future forecasting models without requireing structural changes. 
+
+---
+
+## Production Readiness 
+
+The design should work for:
+
+- batch forecasting 
+- streamline forecasting 
+- real-time demand forecasting 
+- production deployment 
+
+---
+
+# Separation of Concern
+
+The dataset object should represent data.
+
+It should not:
+
+- train forecasting models
+- compute metrics
+- generate plots
+- perfrom optimization
+
+---
+
+
+## Reusability 
+
+The same dataset should be reusable by:
+
+- feature engineering
+- forecasting 
+- explainability
+- benchmarking 
+- optimization
+- deployment 
+
+
 
 # 3. Standard Forecasting Table
 
@@ -108,9 +173,13 @@ temperature
 inventory
 marketing_spend
 event_flag
+competitor_price
+weather
+fuel_price
+search_trend
 ```
 
-These are covariates.
+These are covariates. These variables become candidate predictors during feature engineering.
 
 They may be used by:
 
@@ -125,6 +194,8 @@ They may be used by:
 
 
 # 6. Local vs Global Models
+
+The dataset should support both:
 
 ## Local Models
 
@@ -150,39 +221,80 @@ The `unique_id` column makes both design possible.
 
 ---
 
-# 7. Known Future Covariates
+# 7. Dataset Categories
 
-Some variables are known in advance.
+The platform should distinguish between different categories of variables.
+
+## Target Variables
+
+The value to forecast.
+
+Example:
+
+```
+Demand
+Sales
+Electricity Load
+Wind Generation
+Stock Price
+```
+
+
+## Historical Covariates
+
+Observed only in the past.
+
+Examples:
+
+- previous inventory 
+- historical weather
+- historical prices
+
+## Known Future Covariates
+
+Some variables are known in advance: Known future covariates. They are available before the forecast is generated.
 
 Examples:
 
 - holidays
-- calendar features
+- calendar features: day of week, month
 - planned promotions
-- scheduled prices
-- day of week
-- month
+- scheduled/planned prices
 
 This can be passed to models that support future covariates.
 
 --- 
 
-# 8. Unknown Future Covariates
+## Unknown Future Covariates
 
-Some variables are not known in advance.
+Some variables are not known in advance. They are not available at forecast time.
 
 Examples:
 
 - future demand
-- future stock price
 - future weather, unless forecasted separately
 - future competitor behavior
 
 These should be treated carefully. 
 
-Using unknown future variables directly can create data leakage.
+Using unknown future variables directly can create data leakage. These should never be used directly for future predictions unless separately forecast. 
 
 --- 
+
+## Static Covariates
+
+Attributes that rarely change.
+
+Examples:
+
+```
+Store Size
+Region
+Product Category
+Plant Capacity 
+```
+
+Static variables are especially important for global forecasting models. 
 
 # 9. Data Leakage Principle
 
