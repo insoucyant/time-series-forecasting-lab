@@ -495,7 +495,28 @@ The framework should encourage leakage-free forecasting.
 
 # 17. ForecastDataset Object 
 
+The future implementation should define:
 
+```python
+ForecastDataset(...)
+```
+
+Responsibilities include:
+
+- store data
+- validate schema
+- infer frequency
+- expose metadata
+- sort data
+- group by series
+- filter series
+- inspect missing values
+
+It should **not**:
+
+- forecast
+- evaluate 
+- optimize 
 
 ---
 
@@ -507,6 +528,10 @@ The framework should encourage leakage-free forecasting.
 
 # 19. Future Extensions
 
+
+
+
+---
 
 # 20. Design Principles
 
