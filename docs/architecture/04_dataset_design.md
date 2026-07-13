@@ -566,8 +566,21 @@ Decision Intelligence
 
 # 19. Future Extensions
 
+The dataset abstraction should eventually support:
+
+- streaming data
+- Kafka
+- Spark
+- Ray Datasets
+- Feature Stores
+- Delta Lake
+- Iceberg
+- DuckDB
+- Arrow
+- cloud object storage
 
 
+without changing the forecasting API
 
 ---
 
