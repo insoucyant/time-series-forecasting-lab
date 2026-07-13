@@ -618,5 +618,18 @@ src/
 
 The dataset layer is the foundation of the forecasting platform. 
 
+By standardizing on a single internal representation based on:
+
+```
+unique_id
+ds
+y
+covariates
+``` 
+
+The platform can support forecasting models ranging from ARIMA to future foundation models, while remaining extensible enough for hierarchical forecasting, probabilistic forecasting, demand sensing, causal inference, scenario planning, optimization, and decision intelligence. 
+
+The dataset should be viewed as a reusable platform component rather than merely a DataFrame wrapper. 
+
 
 
