@@ -522,7 +522,45 @@ It should **not**:
 
 # 18. Dataset Flow
 
+```
+CSV
 
+↓
+
+Parquet
+
+↓
+
+Database
+
+↓
+
+API
+
+↓
+
+ForecastDataset
+
+↓
+
+Validation
+
+↓
+
+Feature Engineering
+
+↓
+
+Forecasting
+
+↓
+
+Evaluation
+
+↓
+
+Decision Intelligence
+``` 
 
 ---
 
