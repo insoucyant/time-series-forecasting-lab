@@ -462,7 +462,16 @@ These scenario variables should be supported without changing the dataset struct
 
 # 15. Data Validation
 
+The `dataset object` should validate :
+- required columns
+- duplicate timestamps
+- duplicate IDs
+- missing timestamps
+- missing target values
+- invalid frequencies
+- incorrect datatypes
 
+Invalid datasets should fail early. 
 
 ---
 
@@ -477,10 +486,44 @@ Examples of leakage:
 - using future target values as features
 - computing rolling averages using future observations
 - using test-period covariates that would not have been known at prediction time
+- future weather observation
+- future inventory
+
+The framework should encourage leakage-free forecasting. 
 
 --- 
 
-# 10 Dataset Object Responsibilities 
+# 17. ForecastDataset Object 
+
+
+
+---
+
+# 18. Dataset Flow
+
+
+
+---
+
+# 19. Future Extensions
+
+
+# 20. Design Principles
+
+
+
+
+---
+
+# 21. Implementation Roadmap
+
+
+
+--- 
+
+# 22. Summary 
+
+The dataset layer is the foundation of the forecasting platform. 
 
 
 
