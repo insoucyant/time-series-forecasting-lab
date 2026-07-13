@@ -586,14 +586,31 @@ without changing the forecasting API
 
 # 20. Design Principles
 
+The dataset layer follows:
 
+- Single Responsibility Principle
+- Open/Closed Principle
+- Separation of Concerns
+- Extensibility 
+- Type Safety
+- Production Readiness
 
 
 ---
 
 # 21. Implementation Roadmap
 
+This document guides the implementation of:
 
+src/
+└── ts_forecasting_lab/
+    └── data/
+        ├── dataset.py
+        ├── validators.py 
+        ├── frequency.py
+        ├── hierarchy.py
+        ├── schema.py 
+        ├── splitter.py    
 
 --- 
 
