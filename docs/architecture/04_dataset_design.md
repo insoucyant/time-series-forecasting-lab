@@ -397,9 +397,20 @@ The dataset should therefore remain compatible with probabilistic outputs.
 
 # 12. Demand Sensing 
 
+Future versions should support real-time demand sensing.
 
+Examples include:
 
+- weather
+- POS transactions
+- online traffic
+- promotions
+- social media
+- search trends
 
+These mau arrive at much higher frequencies than historical forecasting data.
+
+The dataset layer should remain flexible enough to integrate them. 
 
 ---
 
