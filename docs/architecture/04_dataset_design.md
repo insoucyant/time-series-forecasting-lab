@@ -416,7 +416,27 @@ The dataset layer should remain flexible enough to integrate them.
 
 # 13. Causal Forecasting
 
+Future forecasting system may distinguish between:
 
+```
+Observed Variables
+
+↓
+
+Treatment Variables
+
+↓
+
+Outcome Variables
+```
+
+Examples include:
+
+- pricing interventions
+- promotions
+- policy changes
+
+The dataset abstraction should not prevent causal modeling. 
 
 ---
 
