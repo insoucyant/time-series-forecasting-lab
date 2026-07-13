@@ -383,11 +383,21 @@ This enables temporal reconciliation
 
 # 11. Probabilistic Forecasting 
 
+The dataset design should not assume point forecasts only. 
 
+Future forecasting models may produce:
+
+- quantiles
+- prediction intervals
+- probability distributions
+
+The dataset should therefore remain compatible with probabilistic outputs.
 
 ---
 
 # 12. Demand Sensing 
+
+
 
 
 
