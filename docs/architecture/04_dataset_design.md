@@ -442,6 +442,22 @@ The dataset abstraction should not prevent causal modeling.
 
 # 14. Scenario Planning 
 
+Future scenarios may include hypothetical values.
+
+Examples:
+
+```
+Promotion = 20%
+
+Weather = Extreme Heat
+
+Oil Price = +30%
+
+Demand Shock = Pandemic
+``` 
+
+These scenario variables should be supported without changing the dataset structure.
+
 ---
 
 # 15. Data Validation
