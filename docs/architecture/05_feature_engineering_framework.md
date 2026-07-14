@@ -95,6 +95,41 @@ Well-designed features often improve forecasting performance more than changing 
 
 # 4. Feature Engineering Pipeline
 
+The feature engineering pipeline should follow the architecture below:
+
+```
+Raw Dataset
+
+↓
+
+Validation
+
+↓
+
+Missing Value Handling
+
+↓
+
+Outlier Handling
+
+↓
+
+Frequency Alignment
+
+↓
+
+Feature Generation
+
+↓
+
+Feature Selection
+
+↓
+
+Forecasting Model
+```
+
+Each stage should have a single responsibility.
 
 --- 
 
