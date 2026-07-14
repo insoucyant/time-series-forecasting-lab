@@ -135,25 +135,104 @@ Each stage should have a single responsibility.
 
 # 5. Feature Categories
 
+The framework should organize features into logical categories.
+
 ## Historical Features 
 
+Information derived directly from historical observations.
+
+Examples:
+
+- previous demand
+- previous sales
+- previous temperature
 
 --- 
 
 ## Lag Features
 
+Lag features represent previous observations.
+
+Examples:
+
+```
+$y_{t-1}$
+
+$y_{t-2}$
+
+$y_{t-7}$
+
+$y_{t-14}$
+
+$y_{t-28}$
+```
+
+Lag features are among the most important forecasting features.
 
 --- 
 
 ## Rolling Window Features
 
+Rolling statistics summarize recent history.
+
+Examples:
+
+```
+Rolling Mean
+
+Rolling Median
+
+Rolling Maximum
+
+Rolling Minimum
+
+Rolling Standard Deviation
+
+Rolling Variance
+```
+
+Different window sizes may be generated.
+
+Examples:
+
+```
+3
+
+7
+
+14
+
+28
+
+56
+```
+
 ---
 
 ## Expanding Window Features
 
+Expanding windows summarize the complete history.
+
+Examples:
+
+```
+Expanding Mean
+
+Expanding Variance
+
+Expanding Maximum
+```
+
 --- 
 
 ## Exponentially Weighted Features
+
+Examples include:
+
+- EWMA
+- Exonential variance
+
+These emphasize recent observations.
 
 ---
 
