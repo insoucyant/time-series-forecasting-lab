@@ -72,8 +72,24 @@ Generated features should be traceable and understandable.
 
 ---
 
-# 3. Why Featur Engineering Matters?
+# 3. Why Feature Engineering Matters?
 
+Forecasting models rarely learn directly from raw observations. 
+
+Instead, they learn from carefully constructed representations of historical behavior.
+
+Example include:
+
+- lag values
+- rolling statistics
+- seasonality 
+- holidays
+- weather
+- promotions
+- search trends
+- hierarchical information
+
+Well-designed features often improve forecasting performance more than changing forecasting algorithm.
 
 --- 
 
