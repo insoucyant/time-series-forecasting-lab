@@ -238,6 +238,22 @@ These emphasize recent observations.
 
 # 6. Calendar Features
 
+Calendar variables capture repeating temporal patterns.
+
+Examples include:
+
+- Hour
+- Day of Week
+- Day of Month
+- Week Number
+- Month
+- Quarter
+- Year
+- Weekend
+- Holiday
+- Fiscal Period
+
+Calendar features are useful across nearly all forecasting domains. 
 
 ---
 
