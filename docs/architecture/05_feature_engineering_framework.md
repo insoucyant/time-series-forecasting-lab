@@ -6,6 +6,24 @@
 
 # 1. Overview
 
+Feature Engineering is one of the most important components of industrial forecasting platform. 
+
+While forecasting models often receive the most attention, real-world forecasting accuracy frequently depends more on high-quality features than on the forecasting algorithm itself.
+
+The objective of this subsystem is to design a reusable, production-grade feature engineering framework that can support:
+
+- Statistical Forecasting
+- Machine Leaning Forecasting 
+- Deep Learning Forecasting 
+- Foundation Models
+- Demand Sensing
+- Hierarchical Forecasting 
+- Probabilistic Forecasting 
+- Causal Forecasting 
+- Scenario Planning 
+- Decision Intelligence
+
+Rather than manually creating features for each forecasting model, the platform should expose a common feature engineering pipeline.
 
 --- 
 
