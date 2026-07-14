@@ -156,9 +156,9 @@ Lag features represent previous observations.
 Examples:
 
 ```math
-$y_{t-1}$
+y_{t-1}
 
-$y_{t-2}$
+y_{t-2}
 
 $y_{t-7}$
 
@@ -272,6 +272,21 @@ Examples:
 
 # 8. Seasonality Features
 
+Seasonality may be represented using:
+
+- Month
+- Week
+- Hour
+- Fourier Features
+- Cyclical Encoding 
+
+Examples:
+
+```
+sin(month)
+
+cos(month)
+```
 
 --- 
 
