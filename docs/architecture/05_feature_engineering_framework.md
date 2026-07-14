@@ -29,31 +29,46 @@ Rather than manually creating features for each forecasting model, the platform 
 
 # 2. Design Goals
 
+The Feature Engineering Framework should satisfy the following goals:
 
 ## Consistency
 
+Features should be generated consistently across all forecasting models.
 
 ---
 
 ## Reusability 
 
+Features should be reusable across multiple forecasting models.
 
 --- 
 
 ## Extensibility 
 
+Adding new feature generators should not require modifying existing feature generators.
+
 ---
 
 ## Production Readiness
 
+Feature generation should support:
+
+- batch processing
+- streaming pipelines
+- online inference
+- feature stores
+
 ---
 
-## Leakage Prvention
+## Leakage Prevention
+
+The framework should prevent accidental use of future information.
 
 --- 
 
 ## Explainability 
 
+Generated features should be traceable and understandable.
 
 ---
 
