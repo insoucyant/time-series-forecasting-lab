@@ -156,7 +156,7 @@ Lag features represent previous observations.
 Examples:
 
 ```math
-y_{t-1}
+y_{t-1} \\
 
 y_{t-2}
 
@@ -292,6 +292,23 @@ cos(month)
 
 # 9. Frequency-Based Features
 
+Different frequencies may require different feature sets.
+
+Examples:
+
+Hourly 
+
+Daily 
+
+Weekly
+
+Monthly
+
+Quarterly
+
+Yearly
+
+The framework should automatically adapt feature generation to dataset frequency.
 
 --- 
 
