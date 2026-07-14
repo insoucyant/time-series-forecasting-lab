@@ -155,7 +155,7 @@ Lag features represent previous observations.
 
 Examples:
 
-```
+```math
 $y_{t-1}$
 
 $y_{t-2}$
@@ -230,7 +230,7 @@ Expanding Maximum
 Examples include:
 
 - EWMA
-- Exonential variance
+- Exponential variance
 
 These emphasize recent observations.
 
@@ -259,6 +259,14 @@ Calendar features are useful across nearly all forecasting domains.
 
 # 7. Trend Features
 
+Trend features describe long-term movement.
+
+Examples:
+
+- Time Index
+- Linear Trend
+- Polynomial Trend
+- Growth Rate
 
 --- 
 
