@@ -156,13 +156,13 @@ Lag features represent previous observations.
 Examples:
 
 ```math
-y_{t-1} \\
+y_{t-1}, \\
 
-y_{t-2} \\
+y_{t-2}, \\
 
-y_{t-7} \\
+y_{t-7}, \\
 
-y_{t-14} \\
+y_{t-14}, \\
 
 y_{t-28}
 ```
