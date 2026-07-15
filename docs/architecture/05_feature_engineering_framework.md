@@ -440,6 +440,24 @@ These variables become treatment variables in causal forecasting.
 
 # 16. Scenario Features
 
+Scenario planning introduces hypothetical feature values.
+
+Examples:
+
+```
+Price Increase
+
+Promotion
+
+Economic Recession
+
+Supply Disruption
+
+Heat Wave
+```
+
+Scenario variables allow "what-if" forecasting.
+
 
 --- 
 
