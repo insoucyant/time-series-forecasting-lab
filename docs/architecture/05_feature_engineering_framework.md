@@ -624,3 +624,10 @@ This enables forecasting models ranging from statistical approaches to modern fo
 Feature engineering should be viewed as a reusable platform capability rather than a model specific preprocessing step. 
 
 ---
+
+# 27. Another Future Recommendation
+
+We should distinguish between **Platform Features** and **Model-Generated Features** as the repository evolves.
+
+* **Platform Features:** lags, rolling statistics, calendar variables, weather, hierarchy fearures, demand sending signals. They are reusable across many models.
+* **Model-generated features:** transformers embeddings, learned latent representations, attention weights, or foundation-model embeddings. These are specific to a model family. 
