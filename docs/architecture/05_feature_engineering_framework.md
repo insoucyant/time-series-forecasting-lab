@@ -164,7 +164,7 @@ y_{t-7}, \\
 
 y_{t-14}, \\
 
-y_{t-28}
+y_{t-28} 
 ```
 
 Lag features are among the most important forecasting features.
@@ -314,6 +314,16 @@ The framework should automatically adapt feature generation to dataset frequency
 
 # 10. Statistical Features 
 
+Examples include:
+
+- Mean
+- Median
+- Variance
+- Kurtosis
+- Skewness
+- Percentiles
+
+These are particularly useful for machine learning models.
 
 --- 
 
