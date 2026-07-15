@@ -557,6 +557,18 @@ Business users should understand which features influenced a forecast.
 
 # 23. Future Extensions
 
+Future version may support:
+
+- Streaming Features
+- Kafka
+- Spark
+- Ray Data
+- Delta Lake
+- Iceberg
+- DuckDB
+- Arrow
+- Vector Features
+- LLM-generated Features
 
 --- 
 
