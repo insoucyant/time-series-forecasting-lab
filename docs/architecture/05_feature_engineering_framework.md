@@ -493,6 +493,18 @@ Possible selection techniques include:
 
 # 19. Feature Validation
 
+Generated features should be validated.
+
+Examples include:
+
+- Missing Values
+- Infinite Values
+- Constant Features
+- Duplicate Features
+- Leakage Detection
+- Datatype Validation
+
+Invalid features should fail fast.
 
 --- 
 
