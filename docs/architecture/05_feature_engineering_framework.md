@@ -367,6 +367,25 @@ These features often arrive at higher frequencies than historical forecasting da
 
 # 13. Static Features
 
+Static variables rarely change.
+
+Examples include:
+
+```
+Store Size
+
+Store Type
+
+Region
+
+Climate Zone
+
+Product Category
+
+Manufacturer
+```
+
+Static features are particularly valuable for global forecasting models.
 
 --- 
 
