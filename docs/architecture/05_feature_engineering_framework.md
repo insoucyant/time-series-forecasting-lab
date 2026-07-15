@@ -510,6 +510,16 @@ Invalid features should fail fast.
 
 # 20. Data Leakage Prevention
 
+The framework should actively prevent feature leakage.
+
+Examples of leakage include:
+
+- Future Target Values
+- Future Rolling Statistics
+- Future Inventory
+- Future Weather Observations
+
+Leakage prevention i mandatory for trustworthy forecasting. 
 
 --- 
 
