@@ -329,6 +329,19 @@ These are particularly useful for machine learning models.
 
 # 11. External Covariates
 
+External variables may strongly influence future demand.
+
+Examples include:
+
+- Weather
+- Fuel Price
+- Inflation
+- Exchange Rate
+- Population
+- GDP
+- Competitor Pricing
+
+These variables should be managed separately from historical target variables.
 
 --- 
 
