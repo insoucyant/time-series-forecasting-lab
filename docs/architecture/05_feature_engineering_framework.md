@@ -478,7 +478,16 @@ They should integrate naturally into the feature engineering framework.
 
 # 18. Feature Selection
 
+Not every generated features should be used.
 
+Possible selection techniques include:
+
+- Correlation Filtering
+- Mutual Information
+- Recursive Feature Elimination
+- SHAP Importance
+- Permutation Importance
+- Model-Based Selection
 
 --- 
 
