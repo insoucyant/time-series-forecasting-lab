@@ -425,6 +425,16 @@ These features enable:
 
 # 15. Causal Features
 
+Future versions whould support variables related to interventions.
+
+Examples:
+
+- Promotions
+- Pricing Changes
+- Advertising Campaigns
+- Government Policies
+
+These variables become treatment variables in causal forecasting.
 
 --- 
 
