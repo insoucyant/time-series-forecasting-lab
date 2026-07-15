@@ -542,6 +542,16 @@ The feature engineering framework should integrate seamlessly with the feature s
 
 # 22. Explainability
 
+Feature engineering should support explainability. 
+
+Examples include:
+
+- SHAP Values
+- Feature Importance
+- Partial Dependence
+- Prediction Attribution 
+
+Business users should understand which features influenced a forecast. 
 
 --- 
 
