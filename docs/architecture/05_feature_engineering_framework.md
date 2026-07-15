@@ -525,6 +525,18 @@ Leakage prevention i mandatory for trustworthy forecasting.
 
 # 21. Feature Store
 
+The long-term vision includes a production-grade Feature Store.
+
+Responsibilities include:
+
+- Feature Versioning 
+- Feature Metadata
+- Online Features
+- Offline Features
+- Feature Lineage
+- Feature Discovery
+
+The feature engineering framework should integrate seamlessly with the feature store. 
 
 --- 
 
