@@ -463,6 +463,16 @@ Scenario variables allow "what-if" forecasting.
 
 # 17. Embedded Features
 
+Future deep learning models may generate learned embeddings.
+
+Examples include:
+
+- Product Embeddings
+- Store Embeddings
+- Customer Embeddings
+- Geographic Embeddings
+
+They should integrate naturally into the feature engineering framework.
 
 --- 
 
