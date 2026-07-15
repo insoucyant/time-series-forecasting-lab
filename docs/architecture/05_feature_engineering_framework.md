@@ -347,6 +347,21 @@ These variables should be managed separately from historical target variables.
 
 # 12. Demand Sensing Features
 
+Demand sensing uses real-time signals.
+
+Examples include:
+
+- POS Transactions
+- Search Trends
+- Website Traffic
+- Mobile App Activity
+- Promotions
+- Inventory Levels
+- Weather Forecasts
+- Social Media
+- Events
+
+These features often arrive at higher frequencies than historical forecasting data.
 
 --- 
 
