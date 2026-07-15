@@ -574,6 +574,15 @@ Future version may support:
 
 # 24. Design Principles
 
+The Feature Engineering Framework follows:
+
+- Single Responsibility Principle
+- Open/Closed principle
+- Separation of Concerns
+- Extensibility
+- Reproducibility
+- Explainability
+- Production Readiness
 
 --- 
 
