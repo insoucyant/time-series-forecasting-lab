@@ -615,6 +615,12 @@ src/
 
 # 26. Summary 
 
+The Feature Engineering Framework is one of the core platform components of the Time Series Forecasting Lab.
 
+Rather than generating the ad hoc features for individual forecasting models, the platform provides a standardized, extensible, and production-grade feature engineering subsystem. 
+
+This enables forecasting models ranging from statistical approaches to modern foundation models to share a common feature generation pipeline while remaining compatible with demand sensing, causal forecasting, hierarchical forecasting, explainability, optimization, and decision intelligence. 
+
+Feature engineering should be viewed as a reusable platform capability rather than a model specific preprocessing step. 
 
 ---
