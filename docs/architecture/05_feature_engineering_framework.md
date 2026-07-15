@@ -391,6 +391,35 @@ Static features are particularly valuable for global forecasting models.
 
 # 14. Hierarchical Features
 
+Future versions of the platform should support hierarchy-aware features.
+
+Examples:
+
+```
+Country
+
+↓
+
+Region
+
+↓
+
+State
+
+↓
+
+City
+
+↓
+
+Store
+```
+
+These features enable:
+
+- hierarchical forecasting
+- reconciliation
+- cross-level learning 
 
 --- 
 
