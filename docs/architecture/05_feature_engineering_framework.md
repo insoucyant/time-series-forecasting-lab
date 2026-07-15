@@ -588,6 +588,28 @@ The Feature Engineering Framework follows:
 
 # 25. Implementation Roadmap
 
+This documentation guides the implementation of:
+
+```
+src/
+└── ts_forecasting_lab/
+    └── features/
+        ├── base.py
+        ├── lag.py
+        ├── rolling.py
+        ├── calendar.py
+        ├── trend.py
+        ├── seasonality.py
+        ├── statistical.py
+        ├── external.py
+        ├── hierarchy.py
+        ├── causal.py
+        ├── scenario.py
+        ├── validation.py
+        ├── selection.py
+        ├── registry.py
+        └── pipeline.py
+```
 
 ---
 
