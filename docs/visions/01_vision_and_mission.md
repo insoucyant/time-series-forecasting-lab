@@ -280,13 +280,35 @@ Every major subsystem should be designed with deployment in mind.
 
 # 8. Repository Principles
 
+The repository is **not** intended to be:
 
+- a Kaggle repository
+- a notebook collection
+- an implementation of isolated forecasting algorithms
+- a tutorial series
+- a benchmark leaderboard only
+
+Instead, it aims to become:
+
+- an industrial forecasting platform 
+- a software engineering reference
+- a research reference
+- a benchmarking framework
+- an educational resource
+- a reusable forecasting library
 
 ---
 
 # 9. Long-Term Objectives
 
+Over the next five to ten years, the repository aims to become:
 
+- a flagship open-source forecasting project
+- a reference architecture for industrial forecasting 
+- a teaching resource for forecasting and MLOps
+- a benchmarking platform for forecasting research
+- a production-ready forecasting framework 
+- a foundation for academic and industrial collaborations.
 
 ---
 
