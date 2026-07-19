@@ -21,7 +21,19 @@ Rather than focusing on individual forecasting algorithms, the platform focuses 
 
 # 2. Mission 
 
+The mission of the Time Series Forecasting Lab is to bridge the gap between forecasting research and production engineering. 
 
+The repository will provide:
+
+- rigorous implementation of forecasting methodologies
+- reusable software architecture
+- production engineering best practices
+- benchmarking infrastructure
+- industrial case studies
+- educational material
+- research references
+
+The objective is not simply to forecast future values, but to enable better business decisions through trustworthy forecasting system.
 
 ---
 
