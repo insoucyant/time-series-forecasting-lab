@@ -228,7 +228,53 @@ The  repository is intended for:
 
 # 7. Design Philosophy 
 
+The platform is guided by the following principles:
 
+## Platform First
+
+Build a forecasting platform rather than isolated forecasting models. 
+
+---
+
+## Architecture Before Implementation
+
+Design system before writing code.
+
+--- 
+
+## Research Meets Engineering
+
+Combine rigorous forecasting research with production software engineering.
+
+--- 
+
+## Modularity
+
+Every subsystem should have clearly defined responsibility.
+
+--- 
+
+## Extensibility 
+
+New forecasting models should integrate without changing existing architecture.
+
+--- 
+
+## Reproducibility 
+
+Every experiment should be reproducible. 
+
+--- 
+
+## Explainability
+
+Forecasts should be understandable by both engineers and business stakeholders.
+
+--- 
+
+## Production Readiness
+
+Every major subsystem should be designed with deployment in mind.
 
 ---
 
