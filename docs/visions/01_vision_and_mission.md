@@ -62,7 +62,20 @@ The repository therefore extends beyond forecasting algorithms  into uncertainty
 
 # 4. Motivation 
 
+Modern forecasting repositories often suffer from one or more of the following limitations:
 
+- collections of unrelated algorithms
+- tutorial notebooks
+- competition-focused code
+- lack of software engineering
+- little emphasis on production deployment 
+- poor documentation
+- limited benchmarking 
+- no architectural consistence
+
+Industrial forecasting systems require significantly more than forecasting algorithms. They require robust engineering, reproducibility, monitoring, deployment, explainability, and continuous improvement. 
+
+The Time Series Forecasting Lab is designed to address this gap.  
 
 ---
 
