@@ -81,13 +81,148 @@ The Time Series Forecasting Lab is designed to address this gap.
 
 # 5. Scope
 
+The platform will eventually support the complete forecasting lifecycle. 
 
+## Forecasting Foundations
+
+- Time Series Fundamentals
+- Data Quality
+- Missing Data
+- Outlier Detection
+- Trend Analysis
+- Seasonality
+- Change Point Detection
+- Time Series Similarity 
+- Feature Engineering 
 
 ---
 
+## Forecasting Algorithm
+
+### Classical Forecasting 
+
+- Naive
+- Seasonal Naive
+- Moving Average
+- ARIMA
+- SARIMA
+- ETS
+- Theta
+- Holt-Winters
+- VAR
+- State Space Models
+- Croston
+
+---
+
+### Machine Learning Forecast
+
+- Linear Regression
+- Random Forest
+- XGBoost
+- LightGBM
+- CatBoost
+- Support Vector Regression
+
+---
+
+### Deep Learning Forecasting 
+
+- RNN
+- LSTM
+- GRU
+- DeepAR
+- N-BEATS
+- N-HiTS
+- TFT
+- PatchIST
+- TimesNet
+
+---
+
+### Foundation Models
+
+- Chronos
+- Chronos-Bolt
+- TimeGPT
+- TimesFM
+- Moirai
+- Lag-Llama
+- Future Foundation Models
+
+--- 
+
+## Advanced Forecasting
+
+- Hierarchical Forecasting 
+- Forecast Reconciliation
+- Probabilistic Forecasting 
+- Bayesian Forecasting 
+- Conformal Prediction
+- Uncertainty Quantification 
+
+--- 
+
+## Forecast Intelligence
+
+- Demand Sensing
+- Causal Forecasting
+- Explainability
+- Scenario Planning
+- Forecast Benchmarking
+
+--- 
+
+## Decision Intelligence
+
+Forecasts should support downstream optimization including:
+
+- Inventory Optimization
+- Supply Chain Planning 
+- Capacity Planning 
+- Workforce Planning
+- Pricing
+- Energy Trading
+- Resource Allocation
+
+--- 
+
+## Production Platform
+
+The repository will eventually include production-grade infrastructure for:
+
+- Model Registry
+- Experiment Tracking 
+- Feature Store
+- Data Validation
+- MLflow
+- FastAPI
+- Docker
+- Kubernetes
+- Airflow
+- Ray
+- Spark
+- Kafka
+- Monitoring
+- Drift Detection
+- Retraining
+- CI/CD
+
+--- 
+
 # 6. Intended Audience
 
+The  repository is intended for:
 
+- Machine Learning Engineers
+- Applied Scientists
+- Data Scientists
+- Software Engineers
+- AI Architects
+- Operations Research Engineers
+- Supply Chain Scientists
+- Energy Forecasters
+- Researchers
 
 ---
 
