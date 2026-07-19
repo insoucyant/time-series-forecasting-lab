@@ -370,13 +370,45 @@ The architecture should remain stable while allowing continuous innovation.
 
 # 12. Relationship to Decision Intelligence
 
+Forecasting is one component of intelligent decision making.
 
+The long-term vision of the platform can be summarized as:
+
+```
+Data
+
+↓
+
+Understanding
+
+↓
+
+Forecasting
+
+↓
+
+Forecast Intelligence
+
+↓
+
+Decision Intelligence
+
+↓
+
+Business Value
+```
+
+The repository therefore positions forecasting as an enabling capability rather than the final objective. 
 
 ---
 
 # 13. Closing Statement 
 
+The Time Series Forecasting Lab is an investment in building an industrial forecasting platform that combines forecasting science, software engineering, and decision intelligence. 
 
+Every architectural decision, implementation, experiment and benchmark should contribute toward this long term vision. 
+
+The repository should be judged not by the number of forecasting algorithms it contains, but by the quality of platform it provides and the decision it enables. 
 
 ---
 
