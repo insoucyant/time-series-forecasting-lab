@@ -39,7 +39,24 @@ The objective is not simply to forecast future values, but to enable better busi
 
 # 3. Guiding Principle 
 
+The guiding principle of the repository is:
 
+> **A forecast is not the end product.**
+>
+> **A forecast is an input to better decisions.**
+
+Forecast should ultimately support better decisions such as:
+
+- inventory planning
+- supply chain planning 
+- workforce scheduling 
+- pricing
+- energy trading
+- production planning
+- logistics optimization
+- risk management 
+
+The repository therefore extends beyond forecasting algorithms  into uncertainty estimation, explainability, optimization, and decision intelligence. 
 
 ---
 
