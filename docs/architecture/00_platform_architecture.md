@@ -431,3 +431,51 @@ This workflow intentionally separates infrastructure from forecasting algorithms
 
 ---
 
+# 11. Design Principles
+
+The platform follows the following principles.
+
+## Platform Before Algorithms
+
+Design reusable infrastructure before implementing forecasting models.
+
+--- 
+
+## Separation of Concerns
+
+Each subsystem should have a clearly defined responsibility.
+
+---
+
+## Open for Extension 
+
+New forecasting models should integrate without modifying existing architecture.
+
+--- 
+
+## Reproducibility 
+
+Experiments should be reproducible.
+
+--- 
+
+## Production First 
+
+The platform should support production deployment from the beginning.
+
+--- 
+
+## Explainability 
+
+Forecasts should be understandable
+
+--- 
+
+## Decisions Oriented
+
+Every subsystem should ultimately contribute towards better decisions.
+
+--- 
+
+
+
