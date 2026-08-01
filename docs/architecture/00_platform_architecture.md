@@ -394,3 +394,40 @@ This workflow intentionally separates infrastructure from forecasting algorithms
 
 ---
 
+# 10. Platform Architecture Diagram 
+
+```
+
+                            Time Series Forecasting Lab
+
+┌─────────────────────────────────────────────────────────────────────┐
+|                           Platform Foundation                       |
+|                                                                     |
+| Configuration | Dataset | Features | Registry | Pipeline | Logging  |
+| Monitoring | Validation | Serving | Deployment | Tracking | testing |
+└─────────────────────────────────────────────────────────────────────┘
+                               │
+                               ▼
+┌─────────────────────────────────────────────────────────────────────┐
+|                           Forecasting Engine                        |
+| Statistical | Machine Learning | Deep Learning | Foundation Models  |
+└─────────────────────────────────────────────────────────────────────┘
+                               │
+                               ▼
+┌─────────────────────────────────────────────────────────────────────┐
+|                           Forecast Intelligence                     |
+|                                                                     |
+| Probabilistic | Hierarchical | Reconciliation | Demand Sensing      |
+|    Causal | Explainability | Scenario Planning | Benchmarking       |
+└─────────────────────────────────────────────────────────────────────┘
+                               │
+                               ▼
+┌─────────────────────────────────────────────────────────────────────┐
+|                           Decision Intelligence                     |
+| Inventory | Pricing | Workforce | Capacity | Supply Chain | Energy  |
+| Resource Allocation | Prescriptive Analytics                        |
+└────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
