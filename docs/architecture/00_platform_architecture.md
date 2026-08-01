@@ -127,3 +127,171 @@ Deployment
 
 ---
 
+# 5. Forecasting Engine
+ 
+The forecasting engine contains forecasting models.
+
+The forecasting engine should not concern itself with:
+
+- deployment 
+- monitoring
+- optimization
+- dashboards
+
+Its responsibility is to transform historical observations into future forecasts.
+
+The forecasting engine is divided into multiple model families.
+
+---
+
+## Classical Forecasting
+
+Examples include:
+
+- Naive
+- Seasonal Naive
+- ARIMA
+- SARIMA
+- ETS
+- Holt-Winters
+- Theta
+- Croston
+- VAR
+- State Space Models
+
+--- 
+
+## Machine Learning Forecasting 
+
+Examples include:
+
+- Linear Regression 
+- Random Forest 
+- XGBoost
+- LightGBM
+- CatBoost
+- Support Vector Regression
+
+--- 
+
+## Deep learning Forecast 
+
+Examples include:  
+
+- RNN
+- LSTM
+- GRU
+- DeepAR
+- N-BEATS
+- N-HiTS
+- TFT
+- PatchTST
+- TimesNet
+
+--- 
+
+## Foundation Models
+
+Examples include:
+
+- Chronos
+- Chronos-Bolt
+- TimeGPT
+- TimesFM
+- Moirai
+- Lag-Llama
+
+Future foundation models should integrate through the same forecasting interface. 
+
+--- 
+
+# 6. Forecast Intelligence
+
+Producing forecasts is only the first step. 
+
+Forecast Intelligence enriches forecasts by providing additional information required for decision making.
+
+This layer includes:
+
+## Probabilistic Forecasting 
+
+- Prediction Intervals
+- Quantile Forecasts
+- Distribution Forecasts
+- Bayesian Forecasting 
+
+--- 
+
+## Hierarchical Forecasting 
+
+- Bottom-Up
+- Top-Down
+- Middle-Out
+- Temporal Hierarchies
+
+--- 
+
+## Forecast Reconciliation 
+
+Methods ensuring coherence across hierarchical levels.
+
+Examples include:
+
+- Bottom-Up
+- Top-Down
+- MinT
+- ERM
+
+--- 
+
+## Demand Sensing 
+
+Real-time demand adjustment using signals such as:
+
+- Weather
+- Promotions
+- Search Trends
+- Events
+- Social Media
+
+--- 
+
+## Causal Forecasting 
+
+Understanding how interventions influence future demand.
+
+Examples include:
+
+- Promotion Effects
+- Pricing Changes
+- Counterfactual Analysis
+- Bayesian Structural Time Series
+
+--- 
+
+## Explainability 
+
+Helping engineers and business stakeholders understand forecasts.
+
+Examples include:
+
+- SHAP
+- Feature Importance
+- Attention Visualization 
+- Forecast Decomposition 
+
+--- 
+
+## Scenario Planning 
+
+"What-if" forecasting.
+
+Examples include: 
+
+- Price Increase
+- Weather Events
+- Supply Disruptions
+- Economic Recession 
+
+--- 
+
