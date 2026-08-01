@@ -321,3 +321,24 @@ Decision Intelligence combines:
 to recommend actions rather than merely predictions. 
 
 --- 
+
+# 8. Cross-Cutting Platform Services
+
+Certain capabilities span the entire platform.
+
+Examples include:
+
+- Logging 
+- Configuration 
+- Validation 
+- Monitoring 
+- Security
+- Documentation 
+- Testing 
+- Experiment Tracking 
+- Benchmarking 
+
+These services should remain usable across every susystem.
+
+--- 
+
