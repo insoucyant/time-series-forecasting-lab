@@ -342,3 +342,55 @@ These services should remain usable across every susystem.
 
 --- 
 
+# 9. Data Flow
+
+The high-level platform workflow is:
+
+```
+Raw Data
+
+↓
+
+Data Validation
+
+↓
+
+ForecastDataset
+
+↓
+
+Feature Engineering
+
+↓
+
+Forecast Pipeline
+
+↓
+
+Forecasting Model
+
+↓
+
+Forecast Result
+
+↓
+
+Evaluation 
+
+↓
+
+Forecast Intelligence
+
+↓
+
+Decision Intelligence
+
+↓
+
+Business Application
+```
+
+This workflow intentionally separates infrastructure from forecasting algorithms.
+
+---
+
