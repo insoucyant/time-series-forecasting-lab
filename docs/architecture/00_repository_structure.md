@@ -529,7 +529,27 @@ These modules transform forecasts into business decisions.
 
 # 11. Testing Organization 
 
+Tests should mirror the production package.
 
+Example:
+
+```
+src/
+
+features/
+
+calendar.py 
+
+↓
+
+tests/
+
+features/
+
+test_calendar.py 
+```
+
+This improves discoverability. 
 
 ---
 
