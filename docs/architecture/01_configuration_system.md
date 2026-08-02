@@ -44,3 +44,45 @@ A dedicated configuration provides a single source of truth for these settings.
 
 ---
 
+# 3. Design Goals
+
+The Configuration System is designed to satisfy the following objectives.
+
+## Centralized Configuration 
+
+All configuration should originate from a single location. 
+
+---
+
+## Type Safety
+
+Configuration values should be validated before being used. 
+
+Invalid configuration should fail immediately. 
+
+---
+
+## Separation of Concerns
+
+Configuration loading, validation, and usage should remain separate responsibilities. 
+
+--- 
+
+## Environment Independence
+
+The same application should run across different environments without modifying source code. 
+
+--- 
+
+## Extensibility 
+
+Future configuration sections should be added without changing existing code. 
+
+--- 
+
+## Reproducibility 
+
+Experiments should be reproducible by storing the exact configuration used.
+
+---
+
