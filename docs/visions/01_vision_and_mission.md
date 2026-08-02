@@ -316,6 +316,7 @@ Over the next five to ten years, the repository aims to become:
 
 The repository will be considered successful if it demonstrates:
 
+
 ## Scientific Excellence
 
 - sound forecasting methodologies
@@ -414,7 +415,7 @@ The repository should be judged not by the number of forecasting algorithms it c
 
 # Rough Directions:
 
-* Why the platfrom exists? Vision.
+* Why the platform exists? Vision.
 * What is the platform? Architecture
 * How the platform is engineered? Engineering Standards
 * How the platform evolves? Roadmap
