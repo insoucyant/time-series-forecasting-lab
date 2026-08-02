@@ -541,7 +541,17 @@ These modules transform forecasts into business decisions.
 
 # 13. What Does Not Belong
 
+The repository should avoid:
 
+- unrelated experiments
+- duplicate implementations
+- notebook-only code
+- business-specific hacks
+- hard-coded datasets
+- model-specific utilities outside their module
+- production logic inside notebooks
+
+Maintaining architectural discipline is essential. 
 
 ---
 
