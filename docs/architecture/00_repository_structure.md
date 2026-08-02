@@ -453,6 +453,30 @@ Contains reusable utilities shared across multiple platform modules.
 
 Forecasting models are organized by methodology.
 
+```
+models/
+
+├── baseline/
+
+├── statistical/
+
+├── machine_learning/
+
+├── deep_learning/
+
+├── foundation/
+
+├── probabilistic/
+
+└── hierarchical/
+```
+
+Each forecasting model should implement the common forecasting interface. 
+
+--- 
+
+
+
 
  
 
