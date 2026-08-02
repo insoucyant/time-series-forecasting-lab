@@ -535,7 +535,11 @@ These modules transform forecasts into business decisions.
 
 # 12. Repository Evolution 
 
+The repository is expected to evolve over time.
 
+New forecasting methodologies should be added by extending existing modules rather than restructuring the repository.
+
+major architectural changes should remain rare. 
 
 ---
 
