@@ -16,3 +16,31 @@ Every major component-including datasets, feature engineering, forecasting model
 
 ---
 
+# 2. Why a configuration system?
+
+Industrial software system requires flexibility. 
+
+The same application should run in multiple environments without changing source code. 
+
+Examples include:
+
+- Local Development 
+- Continuous Integration
+- Production
+- Cloud Deployment 
+
+Hard-coding configuration values make systems difficult to maintain and reproduce. 
+
+Examples of configurable values include:
+
+- data paths
+- logging levels
+- random seeds
+- experiment names
+- model parameters
+- deployment settings
+
+A dedicated configuration provides a single source of truth for these settings. 
+
+---
+
