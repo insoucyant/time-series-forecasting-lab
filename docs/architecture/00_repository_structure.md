@@ -488,14 +488,40 @@ forecast_intelligence/
 
 ├── causal/
 
-├── scenario_planning/
+└──  scenario_planning/
 ```
 
 These modules enrich forecast rather than generate forecasts.
 
 --- 
 
+# 9. Decision Intelligence
 
+Future optimization modules include:
+
+```
+decision_intelligence/
+
+├── inventory/
+
+├── pricing/
+
+├── workforce/
+
+├── capacity/
+
+├── supply_chain/
+
+├── energy/
+
+└── optimization/
+```
+
+These modules transform forecasts into business decisions.
+
+--- 
+
+# 10. Documentation Organization 
 
 
  
