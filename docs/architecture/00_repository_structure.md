@@ -475,6 +475,26 @@ Each forecasting model should implement the common forecasting interface.
 
 --- 
 
+# 8. Forecast Intelligence
+
+Future platform modules include:
+
+```
+forecast_intelligence/
+
+├── reconcilliation/
+
+├── demand_sensing/
+
+├── causal/
+
+├── scenario_planning/
+```
+
+These modules enrich forecast rather than generate forecasts.
+
+--- 
+
 
 
 
