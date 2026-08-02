@@ -28,11 +28,82 @@ Every directory should have a clearly defined responsibility.
 
 # 2. Design Principles
 
+The repository organization follows several guiding principles. 
 
+## Platform Before Algorithms
+
+Infrastructure should be built before forecasting models. 
+
+Examples include:
+
+- configuration 
+- datasets
+- feature engineering 
+- pipelines
+- monitoring 
+
+These platform components support every forecasting algorithm. 
+
+---
+
+## Separation of Concerns
+
+Each directory should own one responsibility.
+
+Directories should not contain unrelated functionality. 
 
 
 ---
 
-# 3. 
+## Open for Extension 
+
+New forecasting models should integrate without modifying existing repository organization. 
+
+---
+
+## Discoverability 
+
+Developers should easily locate:
+
+- forecasting models
+- pipelines
+- datasets
+- documentation 
+- benchmarks
+- examples
+
+---
+
+## Production First 
+
+The repository should be organized as an industrial software project rather than an academic notebook collection. 
+
+---
+
+
+# 3. High-Level Repository Structure
+
+```
+TIME-SERIES-FORECASTING-LAB/
+
+├── config/
+├── data/
+├── docs/
+├── examples/
+├── notebooks/
+├── benchmarks/
+├── reports/
+├── tests/
+├── scripts
+├── src/
+├── .github/
+├── pyproject.toml
+├── README.md
+└── LICENSE 
+```
+
+---
+
+
 
 
