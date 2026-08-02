@@ -523,7 +523,27 @@ These modules transform forecasts into business decisions.
 
 # 10. Documentation Organization 
 
+Documentation should mirror platform architecture.
 
+```
+vision/
+
+architecture/
+
+engineering/
+
+research/
+
+roadmap/
+
+tutorials/
+
+benchmarks/
+
+api/
+```
+
+Every subsystem should have corresponding documentation. 
 
 ---
 
