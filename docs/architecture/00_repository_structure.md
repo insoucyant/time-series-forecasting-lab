@@ -553,7 +553,15 @@ These modules transform forecasts into business decisions.
 
 # 15. Relationship to Platform Architecture
 
+This document describes the physical organization of the repository.
 
+The conceptual relationships between platform components are described in:
+
+```
+docs/architecture/00_platform_architecture.md
+```
+
+Every folder should correspond to one or more components of the platform architecture. 
 
 ---
 
