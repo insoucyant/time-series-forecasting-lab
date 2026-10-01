@@ -137,3 +137,20 @@ Examples include:
 Errors should provide enough context to identify the problem. 
 
 ---
+
+## 2.6 Reproducibility Is a Requirement 
+
+A forecasting experiment should be reproducible from:
+
+- code version 
+- configuration 
+- data version 
+- feature definitions
+- model parameters
+- random seeds
+- dependency versions
+
+Reproducibility should not depend on undocumented local state. 
+
+--- 
+
