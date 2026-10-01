@@ -154,3 +154,101 @@ Reproducibility should not depend on undocumented local state.
 
 --- 
 
+# 3. Python Standards
+
+Production Python code lives under:
+
+```text
+src/ts_forecasting_lab/
+```
+
+The repository uses the Python version delcared in:
+
+```text
+pyproject.toml
+```
+
+The supported Python version should have one authorative definition rather than being independently hard-coded in multiple places. 
+
+---
+
+# 4. Source Layout
+
+The repository uses the `src` layout. 
+
+```text 
+src/
+└── ts_forecasting_lab/
+```
+
+This helps prevent accidental imports firectly from the repository root and makes local development behave more like an installed package. 
+
+Production modules belong inside teh package. 
+
+Exploratory code does not. 
+
+---
+
+# 5. Naming Conventions
+
+Python naming should follow standard Python conventions. 
+
+## Classes
+
+Use `PascalCase`.
+
+Examples:
+
+```python
+ForecastDataset
+BaseForecaster
+SeasonalNaiveForecaster
+ForecastResult
+BacktestingConfig
+```
+
+---
+
+## Function and Methods
+
+Use `snake_case`
+
+Examples:
+
+```python
+load_yaml_config()
+calculate_metrics()
+generate_lag_features()
+run_backtest()
+```
+
+---
+
+## Variables
+
+Use descriptive `snake_case`.
+
+Preferred:
+
+```python
+forecast_horizon
+training_data
+season_length
+prediction_interval
+```
+
+Avoid:
+
+```python
+x
+tmp
+dfA
+stuff
+data1
+``` 
+
+except where short mathematical notation is genuinely clearer. 
+
+---
+
+
