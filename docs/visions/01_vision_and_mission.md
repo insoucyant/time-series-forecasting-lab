@@ -13,7 +13,7 @@ To build a very comprehensive open-source industrial forecasting platform that a
 
 The Time Series Forecasting Lab is designed to become a long-term reference implementation for modern forecasting systems used in industry, academia, and research. 
 
-The paltform aims to demonstrate the engineering, scientific and architectural principles required to build production grade forecasting systems capable of supporting enterprise decision making. 
+The platform aims to demonstrate the engineering, scientific and architectural principles required to build production grade forecasting systems capable of supporting enterprise decision making. 
 
 Rather than focusing on individual forecasting algorithms, the platform focuses on the complete forecasting lifecycle: from data ingestion to business decisions. 
 
