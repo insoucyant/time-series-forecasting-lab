@@ -251,4 +251,197 @@ except where short mathematical notation is genuinely clearer.
 
 ---
 
+## Constants
 
+Use uppercase names.
+
+```python 
+DEFAUL_RANDOM_SEED = 42
+DEFAULT_FREQUENCY = "D"
+```
+
+---
+
+## Private Implementation Details
+
+Internal function and attributes may use a leading underscore. 
+
+```python
+_validate_frequency()
+_check_is_fitted()
+_model
+```
+
+--- 
+
+# 6. Type Hints
+
+
+---
+
+# 7. Data Contracts
+
+
+---
+
+# 8. Configuration Standards
+
+
+---
+
+# 9. Dependency Management 
+
+
+---
+
+# 10. SOLID Principles
+
+
+---
+
+# 11. Function and Class Design 
+
+
+---
+
+# 12. Error Handling 
+
+
+---
+
+# 13. Custom Expectation 
+
+
+---
+
+# 14. Logging Standards
+
+
+---
+
+# 15. Docstrings 
+
+
+---
+
+# 16. Comments
+
+
+---
+
+# 17. Testing Philosophy 
+
+
+---
+
+# 18. Test Categories
+
+The repository will have several test levels. 
+
+## Unit Tests
+
+Test individual components.
+
+Examples:
+
+```text
+test_reader.py
+test_schema.py
+test_base.py
+test_naive.py
+```
+
+---
+
+## Integration Tests
+
+Test interaction between components.
+
+Example:
+
+```text
+ForecastDataset
+    ↓
+Feature Pipeline
+    ↓
+Forecaster
+```
+
+---
+
+## End-to-End Tests
+
+Test complete workflows.
+
+Example:
+
+```text
+Input Data
+    ↓
+Training
+    ↓ 
+Forecast
+    ↓
+Evaluation
+```
+
+---
+## Regression Tests
+
+Protect previously verified behavior from unintended changes. 
+---
+
+## Golden Tests
+
+For *deterministic workflows*, for given inputs, the repo's output may be compared against known expected outputs. 
+
+These are especially useful for validating forecasting and data-prcoessing pipelines. 
+
+---
+
+## Performance Tests
+
+Perfromance-sensitive components may be tested for:
+
+- runtime
+- memory consumption 
+- scalability 
+
+---
+
+# 19. 
+
+
+---
+
+# 20. 
+
+
+---
+
+# 21. 
+
+
+---
+
+# 22. 
+
+
+---
+
+# 23. 
+
+
+---
+
+# 24. 
+
+
+---
+
+# 25. 
+
+
+---
+
+# 50. Summary
