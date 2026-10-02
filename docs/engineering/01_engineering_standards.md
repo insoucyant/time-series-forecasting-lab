@@ -276,20 +276,93 @@ _model
 
 # 6. Type Hints
 
+Type hints are expected for the code. 
+
+Public functions and methods should specify:
+
+- parameter types
+- return types
+
+Example:
+
+```python
+def predict(self, horizon: int) -> ForecastResult:
+    ... 
+```
+
+Prefer precise type over `Any`.
+
+`Any` is acceptable when:
+
+- external libraries expose weak typing
+- a genuinely generic interface requires it
+- sdditional typing would create unnecessary complexity
+
+It should not be used merely to avoid thinking about the contract.
 
 ---
 
 # 7. Data Contracts
 
+Data moving between major subsystems should have explicit contracts. 
+
+Examples include:
+
+```text
+ForecastDataset
+ForecastResult
+Settings
+Model Metadata
+Backtest Result
+Evaluation Result
+```
+
+A contract should define:
+
+- required fields
+- optional fields
+- data types
+- semantics
+- validation rules
+
+Raw dictionaries and loosely structured DataFrames should not become undocumented cross-system APIs.
 
 ---
 
 # 8. Configuration Standards
 
+Configuration must use the centralized configuration subsystem. 
+
+Application code should not independdently read:
+
+```text
+config.yaml
+```
+
+Instead:
+
+```text
+YAML
+  ↓
+reader.py
+  ↓
+Python dictionary
+  ↓
+Pydantic validation
+  ↓
+Settings
+  ↓
+Application
+```
+
+Configuration should not contain application logic. 
+
+Source code should not contain environment-specific configuration. 
 
 ---
 
 # 9. Dependency Management 
+
 
 
 ---
