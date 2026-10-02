@@ -363,7 +363,27 @@ Source code should not contain environment-specific configuration.
 
 # 9. Dependency Management 
 
+Dependencies are managed through:
 
+```text
+pyproject.toml
+```
+
+A dependency should be added only when it provides meaningful value. 
+
+Before adding a dependency, consider:
+
+- Is the capability already available?
+- Is the library actively maintained?
+- Is it sufficiently mature?
+- What s its licensing model?
+- What additional transitive dependencies does it introduce?
+- Can the functionality reasonably be implemented without it?
+- Will it remain compatible with the platform architecture?
+
+Large optional ecosystems should not become mandatory dependencies unnecessarily. 
+
+Model-family-specific dependencies may later be managed as optional dependecy groups. 
 
 ---
 
