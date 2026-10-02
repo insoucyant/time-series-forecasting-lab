@@ -389,6 +389,75 @@ Model-family-specific dependencies may later be managed as optional dependecy gr
 
 # 10. SOLID Principles
 
+The repository follows SOLID principles where they imporove maintainiability.
+
+---
+
+## Single Responsibility Principle
+
+A class or module should have one primary reason to change.
+
+Example:
+
+```text
+Dataset Validator
+```
+
+should valid datasets. 
+
+It should not train models. 
+
+---
+
+## Open/Close Principle
+
+Components should be open for extensions but closed for unnecessary modifications. 
+
+For example, adding:
+
+```python
+TFTForecaster
+```
+
+should not require rewriting the forecasting pipeline. 
+
+---
+
+## Liskov Substitution Principle
+
+Implementation of:
+
+```python
+BaseForecaster
+```
+
+should respect the behavior promised by the base interface. 
+
+Code using `BaseForecaster` should not require special handling simply becuase the implememtation is ARIMA, XGBosst, TFT, or Chronos. 
+
+---
+
+## Interface Segregation Principle
+
+Components should depend only on the interfaces they need. 
+
+Large interfaces containing unrelated responsibilities should be avoided. 
+
+--- 
+
+## Dependency Inversion Principle 
+
+High-level workflows should depend on abstractions rather than individual model implementations. 
+
+Conceptually:
+
+```text
+ForecastPipeline
+  ↓
+BaseForecaster
+  ↓
+ARIMA /XGBOOST / TFT / Chronos
+```
 
 ---
 
@@ -396,6 +465,7 @@ Model-family-specific dependencies may later be managed as optional dependecy gr
 
 
 ---
+
 
 # 12. Error Handling 
 
