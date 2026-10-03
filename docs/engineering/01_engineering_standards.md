@@ -527,10 +527,38 @@ BacktestingError
 ReconciliationError
 ```
 
+Custom exceptions shoudl represent meaningful domain failures rather than wrapping every built-in exception. 
+
 ---
 
 # 14. Logging Standards
 
+Production code should use structured logging. 
+
+Avoid:
+
+```python
+print("Training Model")
+```
+
+Prefer logging through the platfrom logging subsystem.
+
+Logs should provide useful operational context such as:
+
+- pipeline stage
+- model name
+- dataset identifier
+- run identifier
+- forecast horizon
+- execution duration
+- failure context 
+
+Logs should not contain:
+
+- passwords
+- API Keys
+- credentials
+- sensitive personal data
 
 ---
 
