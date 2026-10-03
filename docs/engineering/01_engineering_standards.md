@@ -717,37 +717,250 @@ Perfromance-sensitive components may be tested for:
 
 ---
 
-# 19. 
+# 19. Test Organization
+
+Tests should generally mirror production modules. 
+
+Example:
+
+```text
+src/ts_forecasting_lab/features/calendar.py
+```
+
+corresponds to:
+
+```text
+tests/features/test_calendar.py
+```
+
+test names should describe behaviour. 
+
+Preferred:
+
+```python
+def test_predict_requires_fitted_model():
+  ...
+```
+
+rather than:
+
+```python
+def test_predict1():
+  ...
+```
+
+---
+
+# 20. Test Indpendence
+
+Tests should:
+
+- be determinisitic where possible
+- not depend on execution order
+- clean up temporary resources
+- avoid hidden shared state
+- avoid unnecessary network access
+
+External systems should be mocked or replaced by controlled fixtures when appropriate.
+
+---
+
+# 21. Test Coverage
+
+Coverage is a useful engineering signal but is not itself teh objective. 
+
+The goal is maniningful behavioral coverage.
+
+Critical components require stronger testing than low-risk utilities. 
+
+Coverage thresholds may later be enforced through CI once the codebase is sufficiently mature. 
+
+A high covergae percentage does not compensate for weak assertions. 
 
 
 ---
 
-# 20. 
+# 22. Forecasting-Specific Testing 
+
+Forecasting system requires tests beyond ordinary software tests.
+
+They should eventually include:
+
+- temporal ordering 
+- leakage preventions
+- horizon correctness
+- frequency correctness
+- missing-period handling 
+- deterministic baselines
+- probabilitstic interval validity 
+- hierarchy coherence
+- reconcilliation constraints
+- reporoducibility 
+- bactesting correctness
+
+A model can execute successfully whil still being scientifically invalid. 
 
 
 ---
 
-# 21. 
+# 23. Data Leakage Standards
 
 
 ---
 
-# 22. 
+# 24. Formatting and Linting 
 
 
 ---
 
-# 23. 
+# 25. Static Type Checking 
 
 
 ---
 
-# 24. 
+# 26. Notebook Standards
 
 
 ---
 
-# 25. 
+# 27. Scripts
+
+
+---
+
+# 28. Reproducibility Standards
+
+
+---
+
+# 29. Randomness
+
+
+---
+
+# 30. Performance Standards
+
+
+---
+
+# 31. Scalability 
+
+
+---
+
+# 32. Persistence and Serialization 
+
+
+---
+
+# 33. Security Standards
+
+
+---
+
+# 34. Data Security 
+
+
+---
+
+# 35. Git Standards
+
+Git history should communicate meaningful engineering changes.
+
+Commits hsould be:
+
+- focused
+- understandable
+- reasonably small
+
+Example:
+
+```text
+feat: add seasonal naive forecaster
+```
+
+```text
+test: add configuration reader tests
+```
+
+```text
+docs: define dataset architecture
+```
+
+```text
+fix: prevent leakage in rolling features
+```
+
+The repository may use Conventional Commit-style prefixes where useful. 
+
+---
+
+# 36. 
+
+
+---
+
+# 37. 
+
+
+---
+
+# 38. 
+
+
+---
+
+# 39. 
+
+
+---
+
+# 40. 
+
+
+---
+
+# 41. 
+
+
+---
+
+# 42. 
+
+
+---
+
+# 43. 
+
+
+---
+
+# 44. 
+
+
+---
+
+# 45. 
+
+
+---
+
+# 46. 
+
+
+---
+
+# 47. 
+
+
+---
+
+# 48. 
+
+
+---
+
+# 49. 
 
 
 ---
