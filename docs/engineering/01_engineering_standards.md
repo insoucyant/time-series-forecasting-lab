@@ -895,72 +895,74 @@ The repository may use Conventional Commit-style prefixes where useful.
 
 ---
 
-# 36. 
+# 36. Branching 
 
 
 ---
 
-# 37. 
+# 37. Code Review Standards
 
 
 ---
 
-# 38. 
+# 38. CI Quality Gates
 
 
 ---
 
-# 39. 
+# 39. Continuous Delivery 
 
 
 ---
 
-# 40. 
+# 40. Versioning 
 
 
 ---
 
-# 41. 
+# 41. Backward Compatibility 
 
 
 ---
 
-# 42. 
+# 42. Observability 
 
 
 ---
 
-# 43. 
+# 43. Research Code vs Production Code
 
 
 ---
 
-# 44. 
+# 44. Benchmarking Standards
 
 
 ---
 
-# 45. 
+# 45. Business Evaluation 
 
 
 ---
 
-# 46. 
+# 46. Engineering Decision Records 
 
 
 ---
 
-# 47. 
+# 47. Definition of Done
 
 
 ---
 
-# 48. 
+# 48. Engineering Priorities
 
 
 ---
 
-# 49. 
+# 49. Relationship to Other Documents
+
+This document defines how the software should be engineered. 
 
 
 ---
