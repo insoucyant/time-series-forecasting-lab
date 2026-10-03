@@ -603,6 +603,29 @@ def fit(...):
 
 # 16. Comments
 
+Comments should explain:
+
+> Why?
+
+rather than merely:
+
+> What ?
+
+Poor:
+
+```python
+# Increment i
+i += 1
+```
+
+Useful:
+
+```python
+# Shift beofre rolling so  the current target cannot leak into its own feature.
+rolling_mean = target.shift(1).rolling(7).mean()
+```
+
+Comments that become outdated are worse than no comments.
 
 ---
 
