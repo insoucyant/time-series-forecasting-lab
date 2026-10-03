@@ -564,6 +564,40 @@ Logs should not contain:
 
 # 15. Docstrings 
 
+Public:
+
+- modules
+- classes
+- functions
+- methods
+
+should have meaningful docstrings where their behavior is not obvious from the interface.
+
+Docstrings should explain:
+
+- purpose
+- important behavior
+- assumptions
+- non-obvious constraints
+
+They should not merely repeat the function name.
+
+Poor:
+
+```python
+def fit(...):
+  """Fit Model"""
+```
+
+Better:
+
+```python 
+def fit(...):
+  """
+  Fit the seasonal naive forecaster by retaining the most recent 
+  complete seasonal cycle required for future prediction.
+  """
+```
 
 ---
 
