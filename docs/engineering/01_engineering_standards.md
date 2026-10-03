@@ -463,17 +463,69 @@ ARIMA /XGBOOST / TFT / Chronos
 
 # 11. Function and Class Design 
 
+Functions should:
+
+- perform one coherent operation
+- has explicit inputs
+- return explicit outputs
+- minimize hidden states
+- avoid unnecessary side effects
+
+Classes shoud represent meaningful abstractions rather than merely grouping unrelated functions. 
+
+Large functions should become decomposed when distinct reponsibilities become visible.
+
+However, code should not be fragmented into tiny abstractions soleley for architectural appearance. 
 
 ---
 
-
 # 12. Error Handling 
 
+Errors should be:
+
+- explicit
+- actionable
+- contextual
+
+Avoid silently ignoring failures. 
+
+Preferred:
+
+```python
+raise ValueError(
+    "season_length must be greater than zero."
+)
+```
+Avoid vague failures such as:
+
+```python
+raise Exception("Error")
+```
+
+Exceptions shold be caught only when teh caller can:
+
+- recover,
+- add useful context,
+- translate teh exception at a system boundary, 
+- or perfrom necessary cleanup
 
 ---
 
 # 13. Custom Expectation 
 
+As the platform grows, domain-specific exceptions maybe introduced.
+
+Possible examples include:
+
+```text
+ConfigurationError
+DatasetValidationError
+ForecastingError
+FeatureEngineeringError
+ModelNotFittedError
+BacktestingError
+ReconciliationError
+```
 
 ---
 
