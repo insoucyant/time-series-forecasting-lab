@@ -631,6 +631,14 @@ Comments that become outdated are worse than no comments.
 
 # 17. Testing Philosophy 
 
+Testing is a first-class engineering requirement.
+
+Production functionality should not be considered complete merely because it runs out successfuly.
+
+Tests should verify both:
+- expected behaviour
+- failure behaviour
+
 
 ---
 
