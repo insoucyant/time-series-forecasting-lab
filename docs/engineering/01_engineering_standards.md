@@ -1074,6 +1074,23 @@ The repository may use Conventional Commit-style prefixes where useful.
 
 # 36. Branching 
 
+The default branch should remain deployable and tested. 
+
+Feature development should occur in focused branches. 
+
+Examples:
+
+```text
+feature/dataset-validation
+
+feature/arima-forecaster
+
+fix/rolling-feature-leakage
+
+docs/production-architecture
+```
+
+Branching conventions should remain unless project scale requires additional workflow complexity. 
 
 ---
 
