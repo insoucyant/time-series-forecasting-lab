@@ -850,6 +850,19 @@ Exact configurations should live in project configuration rather than being dupl
 
 # 25. Static Type Checking 
 
+Static type checking should gradually become part of CI. 
+
+The long term goal is strong typing for core platform interfaces. 
+
+Stricter typing should be first applied to:
+
+- configuration
+- datasets
+- forecasting interfaces
+- evauation objects
+- pipeline contracts
+
+Third-party library boundaries may require pragmatic exceptions. 
 
 ---
 
