@@ -1223,6 +1223,15 @@ Breaking changes should nevertheless be intentional and documented.
 
 # 41. Backward Compatibility 
 
+Public interfaces should become increasingly stabe as the project matures. 
+
+Breaking changes should:
+
+- have clear justification 
+- be documented
+- include migration guidance when appropriate
+
+Internal implementation details may evolve more freely. 
 
 ---
 
