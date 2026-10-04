@@ -826,6 +826,25 @@ Leakage tests should eventually become part of automated validation.
 
 # 24. Formatting and Linting 
 
+Formatting and linting should be automated rather than dependent on developer preference.
+
+The repository should use automated tooling configured through:
+
+```text
+pyproject.toml
+```
+
+The intended engineering toolchain includes:
+
+```text
+Ruff
+pytest
+mypy
+coverage
+pre-commit
+```
+
+Exact configurations should live in project configuration rather than being duplicated in documentation. 
 
 ---
 
