@@ -1000,11 +1000,43 @@ Production systems should not assume that arbitrary serialized Python objects ar
 
 # 33. Security Standards
 
+Secrets must never be committed to the repository. 
+
+Examples include: 
+
+- passwords
+- API keys
+- cloud credentials
+- database credentials
+- access tokens
+
+Secrets should eventually be supplied through:
+
+- environement variables
+- secret managers
+- deployment infrastructure
+
+`.gitignore` is not a substitute for secret management. 
 
 ---
 
 # 34. Data Security 
 
+Production datasets should not be committed to Git. 
+
+Sample datasets should be:
+
+- small
+- legally distributable
+- anonymized where required
+
+Sensitive data should not appear in:
+
+- tests
+- logs
+- notebooks
+- screenshots
+- benchmark artifacts
 
 ---
 
