@@ -805,6 +805,22 @@ A model can execute successfully whil still being scientifically invalid.
 
 # 23. Data Leakage Standards
 
+Future information must never unitentionally enter model training.
+
+Feature generation must respect forecast origin. 
+
+For example:
+```python
+target.shift(1).rolling(7).mean()
+```
+
+may be valid.
+
+A rolling operation containing the current or future target may not be. 
+
+Backtesting should reproduce the information that would actually have been available at prediction time. 
+
+Leakage tests should eventually become part of automated validation. 
 
 ---
 
