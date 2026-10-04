@@ -1201,6 +1201,23 @@ Production architecture is defined separately from these coding standards.
 
 # 40. Versioning 
 
+The project should use explicit versioning.
+
+Semantic versioing principles may be used. 
+
+```text
+MAJOR.MINOR.PATCH
+```
+
+Conceptually:
+
+- `MAJOR` - incompatible API changes
+- `MINOR` - backward-compatible functionality 
+- `PATCH` - bckward-compatible fixes
+
+Duing early deployment, APIs may evolve more rapidly.
+
+Breaking changes should nevertheless be intentional and documented. 
 
 ---
 
