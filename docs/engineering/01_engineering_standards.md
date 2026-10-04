@@ -946,11 +946,36 @@ Where complete determinism cannot be guaranteed, this shoud be documented.
 
 # 30. Performance Standards
 
+Correctness comes before optimization. 
+
+Performance optimization should be driven by evidence. 
+
+Before optimizing:
+
+1. measure,
+2. profile,
+3. identify the bottleneck, 
+4. optimize, 
+5. measure again. 
+
+Avoid unnecessary row-wise operations on large tabular datasets when vectorized or batch alternatives exist. 
+
+However, readability should not be sacrificed for micro-optimizations without measurable benefit. 
 
 ---
 
 # 31. Scalability 
 
+The architecture should allow future migration from local execution to distributed execution.
+
+Potential technologies include:
+
+- Ray
+- Spark
+- distributed training 
+- Kubernetes
+
+Core domain logic should avoid unncessary coupling to a particular distributed framework. 
 
 ---
 
