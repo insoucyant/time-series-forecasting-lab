@@ -1096,16 +1096,106 @@ Branching conventions should remain unless project scale requires additional wor
 
 # 37. Code Review Standards
 
+A code review should evaluate more than whether code executes. 
+
+Reviewers should consider:
+
+- architecture
+- correctness
+- readability
+- typing 
+- tests
+- leakage risk
+- reproducibility
+- performance
+- documentation
+- backward compatibility 
+
+Forecasting changes should additionally consider scientific validity. 
 
 ---
 
 # 38. CI Quality Gates
 
+The long term CI pipeline should verify:
+
+```text
+Install
+
+↓
+
+Lint
+
+↓
+
+Format Check
+
+↓
+
+Type Check
+
+↓
+
+Unit Tests
+
+↓
+
+Integration Tests
+
+↓
+
+Coverage
+
+↓
+
+Security / Dependency Checks
+
+↓
+
+Build
+```
+
+More expensive tests may run separately.
+
+CI should automate standards whenever practical. 
 
 ---
 
 # 39. Continuous Delivery 
 
+Deployment should occur only from validated artifacts. 
+
+The long-term production workflow should support:
+
+```text
+Code
+
+↓
+
+CI
+
+↓
+
+Tests
+
+↓
+
+Package / Container
+
+↓
+
+Registry
+
+↓
+
+Deployment
+
+↓
+
+Monitoring
+```
+
+Production architecture is defined separately from these coding standards. 
 
 ---
 
