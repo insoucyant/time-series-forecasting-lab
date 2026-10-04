@@ -892,11 +892,39 @@ Notebooks should consume platform API rather than recreate them.
 
 # 27. Scripts
 
+Scripts should primarily orchestrate reusable components. 
+
+Preferred:
+
+```python
+settings = get_settings()
+dataset = load_dataset(settings)
+pipeline = TrainingPipeline(settings)
+pipeline.run(dataset)
+```
+
+Avoid placing substantial forecasting or data-processing logic directly inside scripts. 
 
 ---
 
 # 28. Reproducibility Standards
 
+Forecasting experiments should record enough information to reproduce results. 
+
+This should eventually include:
+
+- Git commit
+- configuration
+- dataset version 
+- feature version 
+- model version 
+- hyperparameters
+- random seed
+- dependency version 
+- evaluation metrics
+- generated artifacts
+
+Experiment tracking will ater automate much of this process. 
 
 ---
 
