@@ -868,6 +868,25 @@ Third-party library boundaries may require pragmatic exceptions.
 
 # 26. Notebook Standards
 
+Notrbooks are allowed for:
+
+- exploration
+- demonstrations
+- research
+- visualization
+- teaching 
+
+Notebooks must not become the authoritative implementation of production functionality. 
+
+If useful logic originates in a notebook, it should eventually move into:
+
+```text
+srd/ts_forecasting_lab/
+```
+
+and be tested.
+
+Notebooks should consume platform API rather than recreate them. 
 
 ---
 
