@@ -930,6 +930,17 @@ Experiment tracking will ater automate much of this process.
 
 # 29. Randomness
 
+Random processes should expose configurable random seeds when supported. 
+
+Example:
+
+```python
+random_seed: int = 42
+```
+
+Random seeds should not be scattered independently through the codebase. 
+
+Where complete determinism cannot be guaranteed, this shoud be documented. 
 
 ---
 
