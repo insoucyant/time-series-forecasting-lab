@@ -981,6 +981,20 @@ Core domain logic should avoid unncessary coupling to a particular distributed f
 
 # 32. Persistence and Serialization 
 
+Model and artifact persistence should use explicit interfaces. 
+
+For example:
+
+```python
+model.save(path)
+model = Model.load(path)
+```
+
+Serialization format should be appropriate to the model family. 
+
+Compatibility implications should be documented. 
+
+Production systems should not assume that arbitrary serialized Python objects are permanently portable across library or Python versions. 
 
 ---
 
