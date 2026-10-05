@@ -1323,6 +1323,21 @@ This follows the platform's guiding principle:
 
 # 46. Engineering Decision Records 
 
+Important engineering decisions hsould be documented. 
+
+Architecture documents describe the overall system. 
+
+Significant decisions and their rationale may later be captured using Architecture Decision Records.
+
+Examples include decisions about:
+
+- dataset contracts
+- serialization
+- model interfaces
+- storage technologies
+- distributed execution 
+
+Not every implementation details require ADR. 
 
 ---
 
