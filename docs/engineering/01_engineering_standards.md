@@ -1301,6 +1301,23 @@ A complex model should not be considered useful merely because it produces forec
 
 # 45. Business Evaluation 
 
+Statistical accuracy is not the only objective. 
+
+Where appropriate, evaluation should eventually consider  downstream impact. 
+
+Examples include:
+
+- stockouts
+- inventory holding cost 
+- service level
+- staffing cost 
+- capacity utilization
+- trading risk 
+- revenue
+
+This follows the platform's guiding principle:
+
+> A forecast is not the end product-it is an input to better decisions.
 
 ---
 
