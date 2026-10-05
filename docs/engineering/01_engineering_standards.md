@@ -1260,6 +1260,21 @@ Pbservability is part of production engineering, not an afterthought.
 
 # 43. Research Code vs Production Code
 
+The repository supports both researc and production engineering.
+
+The distinction should remain explicit. 
+
+Research code may initialize prioritize experimentation. 
+
+Production code must prioritize:
+
+- maintainiability
+- testing 
+- contracts
+- observability 
+- reproducibility 
+
+Successful research implementations should be hardened before becoming platform components. 
 
 ---
 
