@@ -1343,6 +1343,28 @@ Not every implementation details require ADR.
 
 # 47. Definition of Done
 
+A production component is not considered complete merely becuase the implementation exists. 
+
+Depending on teh component, completion should normally include:
+
+- implementation
+- type hints
+- validation
+- meaningful tests
+- failure-path tests
+- documentation
+- configuration integration where required
+- logging where operationally relevant 
+- reproducibility considerationa
+- successful CI
+
+Fore forecasting algorithms, it shoudl additionally include: 
+
+- baseline comparison
+- evaluation
+- assumptions
+- matehmatical documentation
+- appropriate benchmark evidence
 
 ---
 
