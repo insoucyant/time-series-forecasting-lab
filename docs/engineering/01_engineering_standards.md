@@ -1237,6 +1237,24 @@ Internal implementation details may evolve more freely.
 
 # 42. Observability 
 
+Production systems shoudl eventually expose:
+
+- logs
+- metrics
+- traces
+- health information 
+
+Forecasting observability should additionally include:
+
+- model performance
+- forecast bias
+- data drift
+- feature drift
+- calibration
+- missing forecasts
+- infernce latency
+
+Pbservability is part of production engineering, not an afterthought. 
 
 ---
 
