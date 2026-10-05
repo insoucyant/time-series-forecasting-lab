@@ -1280,6 +1280,22 @@ Successful research implementations should be hardened before becoming platform 
 
 # 44. Benchmarking Standards
 
+Model comparisons should be fair and reproducible. 
+
+Benchmarks should specify:
+
+- dataset
+- split strategy 
+- forecast horizon 
+- infomration available at forecast time
+- hyperparameter policy
+- metrics
+- compute environment 
+- runtime
+
+Models should always be compared against meaningful baselines.
+
+A complex model should not be considered useful merely because it produces forecasts.
 
 ---
 
