@@ -124,3 +124,32 @@ class ForecastDataset:
         self._validate_duplicates()
         self._validate_frequency()
 
+    def sort(self) -> ForecastDataset:
+        """
+        Sort observations chronologically.
+
+        Multi-Series datasets are sorted forst by series identifier and then by timestamp. 
+
+        Returns
+        -------
+        ForecastDataset
+            The current ForecastDataset instance with sorted data.
+        """
+
+        sort_columns: list[str] = []
+
+        if self.series_id_col is not None:
+            sort_columns.append(self.series_id_col)
+
+        sort_columns.append(self.timestamp_col)
+
+        self._data = (
+            self._data
+            .sort_values(by=sort_columns)
+            .reset_index(drop=True) 
+        )
+
+        return self
+
+
+
