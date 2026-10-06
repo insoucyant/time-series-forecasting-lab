@@ -45,8 +45,55 @@ class ForecastDataset:
         self, 
         data: pd.DataFrame,
         timestamp_col: str,
-        taregt_col: str,
+        target_col: str,
         frequency: str, 
         series_id_col: str | None = None, 
         validate: bool = True
     ) -> None:
+        self._data = data.copy()
+
+        self.timestamp_col = timestamp_col
+        self.target_col = target_col
+        self.frequency = frequency
+        self.series_id_col = series_id_col
+
+        if validate:
+            self.validate()
+
+        self.sort()
+
+    @property
+    def data(self) -> pd.DataFrame:
+        """Return the underlying dataset as a pandas DataFrame."""
+        return self._data.copy()
+
+
+    @property
+    def is_multi_series(self) -> bool:
+        """Check if the dataset is a multi-series dataset."""
+        return self.series_id_col is not None
+
+    @property
+    def n_rows(self) -> int:
+        """Return the number of observations in the dataset."""
+        return len(self._data)
+
+    @property
+    def n_series(self) -> int:
+        """Return the number of unique series in the dataset."""
+        if self.series_id_col is None:
+            return 1
+
+        return self._data[self.series_id_col].nunique()
+
+    def validate(self) -> None:
+        """
+        Validate the dataset contract.
+
+        Validation checks:
+
+        - input data is a pandas DataFrame
+        - dataset is not empty
+        - required columns exist
+        - timestamp column can be represented as datetime.
+        """
