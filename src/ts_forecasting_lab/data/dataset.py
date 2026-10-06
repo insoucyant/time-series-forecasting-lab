@@ -212,5 +212,31 @@ class ForecastDataset:
 
         return self._data.loc[mask].copy()
 
+    def get_metadata(self) -> dict[str, Any]:
+        """
+        Return basic metadata describing the dataset.
+
+        Returns
+        -------
+        dict[str, Any]
+            A dictionary containing metadata about the dataset, including:
+            - number of rows
+            - number of unique series
+            - timestamp column name
+            - target column name
+            - frequency
+            - series identifier column name (if applicable)
+        """
+
+        return {
+            "timestamp_col": self.timestamp_col,
+            "target_col": self.target_col,
+            "series_id_col": self.series_id_col,
+            "frequency": self.frequency,
+            "n_rows": self.n_rows,
+            "n_series": self.n_series,
+            "is_multi_series": self.is_multi_series,
+        }
+
 
 
