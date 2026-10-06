@@ -181,5 +181,36 @@ class ForecastDataset:
 
         return self._data[self.series_id_col].drop_duplicates().sort_values().tolist()
 
+    def get_series(self, series_id: Any) -> pd.DataFrame:
+        """
+        Return observations belonging to one time series. 
+
+        Parameters
+        ----------
+        series_id:
+            The identifier of the time series to retrieve.
+
+        Returns
+        -------
+        pandas.DataFrame
+            A DataFrame containing observations for the specified time series.
+
+        Raises
+        ------
+        ValueError
+            If the dataset has no series identifier column or 
+            the requested identifier does not exist in the dataset.
+        """ 
+
+        if self.series_id_col is None:
+            raise ValueError("The dataset has no series identifier column.")
+
+        mask = self._data[self.series_id_col] == series_id
+
+        if not mask.any():
+            raise ValueError(f"Series identifier '{series_id}' does not exist in the dataset.")
+
+        return self._data.loc[mask].copy()
+
 
 
