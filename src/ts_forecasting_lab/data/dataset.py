@@ -251,4 +251,21 @@ class ForecastDataset:
         if self._data.empty:
             raise ValueError("The dataset is empty. Please provide a non empty dataset.")
 
+    def _validate_required_columns(self) -> None:
+        """Validate that the required columns exist in the dataset."""
+        
+        required_columns = {self.timestamp_col, self.target_col}
+
+        if self.series_id_col is not None:
+            required_columns.add(self.series_id_col)
+
+        missing_columns = required_columns - set(self._data.columns)
+
+        if missing_columns:
+            missing = ", ".join(sorted(missing_columns))
+
+            raise ValueError(
+                f"The following required columns are missing from the dataset: {missing}"
+            )
+
 
