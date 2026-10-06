@@ -95,5 +95,32 @@ class ForecastDataset:
         - input data is a pandas DataFrame
         - dataset is not empty
         - required columns exist
-        - timestamp column can be represented as datetime.
+        - timestamp column can be represented as datetime
+        - timestamps do not contain missing values
+        - target does not contain missing values
+        - series identifiers do not contain missing values
+        - timestamp keys are unique within each series (if multi-series)
+        - declared frequency is valid
+        - timestamps conform to the declared frequency 
+
+        Raises
+        ------
+        TypeError
+            If the input data is not a pandas DataFrame.
+
+        ValueError
+            If the dataset violates dataset contract rules, 
+            such as non-unique timestamps within a series or 
+            timestamps not conforming to the declared frequency, a ValueError will be raised.
         """
+
+        self._validate_dataframe()
+        self._validate_non_empty()
+        self._validate_required_columns()
+        self._convert_timestamp()
+        self._validate_timestamps()
+        self._validate_target()
+        self._validate_series_id()
+        self._validate_duplicates()
+        self._validate_frequency()
+
