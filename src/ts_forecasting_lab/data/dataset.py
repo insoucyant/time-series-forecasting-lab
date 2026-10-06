@@ -149,7 +149,37 @@ class ForecastDataset:
             .reset_index(drop=True) 
         )
 
-        return self
+        return self 
+
+    def get_target(self) -> pd.Series:
+        """
+        Return the target Series.
+
+        Returns
+        -------
+        pandas.Series
+            Copy of the target column from the dataset.
+        """ 
+
+        return self._data[self.target_col].copy()
+
+    def get_series_ids(self) -> list[Any]:
+        """ 
+        Return the unique series identifiers.
+
+        For a single-series dataset, an empty list is returned because no explicit 
+        series identifiers are present.
+
+        Returns
+        -------
+        list[Any]
+            Unique series identifiers. 
+        """
+
+        if self.series_id_col is None: 
+            return []
+
+        return self._data[self.series_id_col].drop_duplicates().sort_values().tolist()
 
 
 
