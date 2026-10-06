@@ -238,5 +238,11 @@ class ForecastDataset:
             "is_multi_series": self.is_multi_series,
         }
 
+    def _validate_dataframe(self) -> None:
+        """Validate that the dataset contains observations."""
+
+        if self._data is None or not isinstance(self._data, pd.DataFrame):
+            raise TypeError("Input data must be a pandas DataFrame.")
+
 
 
