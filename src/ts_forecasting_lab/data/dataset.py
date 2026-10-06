@@ -241,8 +241,14 @@ class ForecastDataset:
     def _validate_dataframe(self) -> None:
         """Validate that the dataset contains observations."""
 
-        if self._data is None or not isinstance(self._data, pd.DataFrame):
+        if not isinstance(self._data, pd.DataFrame):
             raise TypeError("Input data must be a pandas DataFrame.")
 
+    
+    def _validate_non_empty(self) -> None:
+        """Validate that the dataset is not empty."""
+
+        if self._data.empty:
+            raise ValueError("The dataset is empty. Please provide a non empty dataset.")
 
 
