@@ -268,4 +268,19 @@ class ForecastDataset:
                 f"The following required columns are missing from the dataset: {missing}"
             )
 
+    def _convert_timestamp(self) -> None:
+        """Convert the timestamp column to datetime format.""" 
+
+        try:
+            self._data[self.timestamp_col] = pd.to_datetime(
+                self._data[self.timestamp_col],
+                errors="raise"
+            )
+        except (ValueError, TypeError) as exc:
+            raise ValueError(
+                f"Failed to convert the timestamp column '{self.timestamp_col}' to datetime. "
+                f"Ensure that the column contains valid datetime values."
+            ) from exc
+
+
 
