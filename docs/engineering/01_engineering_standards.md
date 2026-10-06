@@ -1370,6 +1370,35 @@ Fore forecasting algorithms, it shoudl additionally include:
 
 # 48. Engineering Priorities
 
+When engineering objectives conflict, use the following general priority:
+
+```text
+Correctness 
+
+↓
+
+Scientific Validity
+
+↓
+
+Maintainability
+
+↓
+
+Observability
+
+↓
+
+Performace
+
+↓
+
+Convenience
+```
+
+This ordering is a guidance rather than an absolute rule. 
+
+For production-critical systems, security and reliability are non-negotiable constraints across all priorities. 
 
 ---
 
@@ -1377,7 +1406,56 @@ Fore forecasting algorithms, it shoudl additionally include:
 
 This document defines how the software should be engineered. 
 
+It complements
+
+```text
+docs/vision/01_vission_and_mission.md
+
+docs/architecture/00_platform_architecture.md
+
+docs/architecture/00_repository_structure.md
+
+docs/architecture/01_configuration_system.md
+
+docs/architecture/02_forecasting_framework_design.md
+
+docs/architecture/03_forecaster_interface.md
+
+docs/architecture/04_dataset_design.md
+
+docs/architecture/05_feature_engineering_framework.md
+```
+
+Architecture documents define **what the platform should look like**.
+
+This document defines **how we should engineer it**.
+
 
 ---
 
 # 50. Summary
+
+The *Time Series Forecasting Lab* is intended to remain maintainable over many years for research and engineering development. 
+
+Engineering discipline is therefore a core platform requirement. 
+
+The repository should consistently emphasize:
+
+- correctness
+- scientific validity 
+- clean architecture
+- explicit contracts
+- type safety
+- testing 
+- reproducibility 
+- observability
+- security 
+- extensibility 
+- documentation
+- product readiness
+
+These standards apply whether the implementation is Seasonal Naive baseline, an ARIMA model, a Temporal Fusion Transformer, a time-series foundation model, a reconciliation algorithm, or a downstream optimization system. 
+
+The sophistication of the algorithm may change. 
+
+The engineering standard should not. 
