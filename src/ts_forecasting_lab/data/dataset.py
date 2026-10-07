@@ -290,5 +290,13 @@ class ForecastDataset:
                 f"The timestamp column '{self.timestamp_col!r}' contains missing values."
                 )
 
+    def _validate_target(self) -> None:
+        """Validate that the target column does not contain missing values."""
+        
+        if self._data[self.target_col].isna().any():
+            raise ValueError(
+                f"The target column '{self.target_col!r}' contains missing values."
+            )
+
 
 
