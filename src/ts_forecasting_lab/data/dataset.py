@@ -306,4 +306,18 @@ class ForecastDataset:
                 f"The series identifier column '{self.series_id_col!r}' contains missing values."
             )
 
+    def _validate_duplicates(self) -> None:
+        """ Validate that timestamps are unique within each series (if multi-series)."""
 
+
+        duplicate_cols = [self.timestamp_col]
+
+        if self.series_id_col is not None:
+            duplicate_cols.insert(0, self.series_id_col)
+
+        duplicate_mask = self._data.duplicated(subset=duplicate_cols, keep=False)
+
+        if duplicate_mask.any():
+            raise ValueError(
+                "Dataset contains duplicate timestamps within a series."
+            )
