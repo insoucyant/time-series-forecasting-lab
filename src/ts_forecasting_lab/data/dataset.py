@@ -297,6 +297,13 @@ class ForecastDataset:
             raise ValueError(
                 f"The target column '{self.target_col!r}' contains missing values."
             )
+    def _validate_series_id(self) -> None:
+        """Validate that the series identifier coulumn does not contain missing values 
+        in multi-series datasets."""
 
+        if self.series_id_col is not None and self._data[self.series_id_col].isna().any():
+            raise ValueError(
+                f"The series identifier column '{self.series_id_col!r}' contains missing values."
+            )
 
 
