@@ -282,5 +282,13 @@ class ForecastDataset:
                 f"Ensure that the column contains valid datetime values."
             ) from exc
 
+    def _validate_timestamps(self) -> None:
+        """Validate that the timestamp column does not contain missing values."""
+
+        if self._data[self.timestamp_col].isna().any():
+            raise ValueError(
+                f"The timestamp column '{self.timestamp_col!r}' contains missing values."
+                )
+
 
 
