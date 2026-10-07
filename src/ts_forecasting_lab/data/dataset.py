@@ -321,3 +321,28 @@ class ForecastDataset:
             raise ValueError(
                 "Dataset contains duplicate timestamps within a series."
             )
+
+    def _validate_frequency(self) -> None:
+        """Validate the declared frequency and detect missing periods."""
+
+        try:
+            pd.tseries.frequencies.to_offset(self.frequency)
+        except ValueError as exc:
+            raise ValueError(
+                f"Invalid frequency '{self.frequency}'."
+            ) from exc 
+
+        if self.series_id_col is None:
+            self._validate_series_frequency(self._data)
+            return 
+
+        for series_id, series_data in self._data.groupby(
+            self.series_id_col,
+            sort=False,
+        ):
+            try:
+                self._validate_series_frequency(series_data)
+            except ValueError as exc:
+                raise ValueError(
+                    f"Frequency validation failed for series identifier '{series_id}'."
+                ) from exc
