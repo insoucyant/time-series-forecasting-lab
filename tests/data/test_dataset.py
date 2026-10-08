@@ -180,7 +180,24 @@ def test_invalid_timestamp():
             frequency="D", 
         )
 
-    
+def test_missing_timestamp():
+    """reject missing timestamp values."""
+
+    data = pd.DataFrame(
+        {
+            "timestamp": [pd.Timestamp("2026-01-01"), pd.NaT],
+            "sales": [10,20],
+        }
+    )
+
+    with pytest.raises(ValueError, match="missing values"):
+        ForecastDataset(
+            data=data,
+            timestamp_col="timestamp",
+            target_col="sales",
+            frequency="D",
+        )
+
 
 # =======================================================================
 # 4. Target Validation
