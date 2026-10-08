@@ -204,6 +204,24 @@ def test_missing_timestamp():
 # =======================================================================
 
 
+def test_missing_target_value():
+    """Reject missing target values."""
+
+    data = pd.DataFrame(
+        {
+            "timestamp": pd.date_range("2026-01-01", periods=3),
+            "sales": [100, None, 120],
+        }
+    )
+
+    with pytest.raises(ValueError, match="contains missing values"):
+        ForecastDataset(
+            data=data,
+            timestamp_col="timestamp",
+            target_col="sales",
+            frequency="D",
+        )
+
 # =======================================================================
 # 5. Series Identifier Validation
 # ======================================================================= 
