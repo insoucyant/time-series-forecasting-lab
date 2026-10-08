@@ -346,3 +346,36 @@ class ForecastDataset:
                 raise ValueError(
                     f"Frequency validation failed for series identifier '{series_id}'."
                 ) from exc
+
+    def _validate_series_frequency(
+            self,
+            series_data: pd.DataFrame, 
+    ) -> None:
+        """Validate that the timestamps in a single series conform to the declared frequency."""
+
+        timestamps = (
+            series_data[self.timestamp_col]
+            .sort_values()
+            .reset_index(drop=True)
+        )
+
+        if len(timestamps) <= 1:
+            return 
+
+        expected_timestamps = pd.date_range(
+            start=timestamps.iloc[0],
+            end=timestamps.iloc[-1],
+            freq=self.frequency,
+        )
+
+        actual_index = pd.DateTimeIndex(timestamps)
+
+        missing_timestamps = expected_timestamps.difference(actual_index)
+        unexpected_timestamps = actual_index.difference(expected_timestamps)
+
+        if len(missing_timestamps) > 0 or len(unexpected_timestamps) > 0:
+            raise ValueError(
+                f"Timestamps in the series do not conform to the declared frequency '{self.frequency}'. "
+                f"Missing timestamps: {missing_timestamps}, "
+                f"Unexpected timestamps: {unexpected_timestamps}."
+            )
