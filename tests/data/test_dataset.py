@@ -55,3 +55,38 @@ def multi_dataset(multi_series_data: pd.DataFrame) -> ForecastDataset:
         frequency="D",
         series_id_col="series_id",
     )
+
+# =======================================================================
+# 1. Initialization
+# =======================================================================
+
+def test_single_series_initialization(single_dataset):
+    """Verify single-series initialization."""
+
+    assert isinstance(single_dataset, ForecastDataset)
+    assert single_dataset.n_rows == 10
+    assert single_dataset.n_series == 1
+    assert single_dataset.is_multi_series is False
+
+def test_multi_series_initialization(multi_dataset):
+    """Verify multi-series initialization"""
+
+    assert isinstance(multi_dataset, ForecastDataset)
+    assert multi_dataset.n_rows == 20
+    assert multi_dataset.n_series == 2
+    assert multi_dataset.is_multi_series is True
+
+def test_empty_dataframe():
+    """Reject an empty dataset."""
+
+    data = pd.DataFrame(columns=["timestamp", "sales"])
+
+    with pytest.raises(ValueError, match="empty DataFrame"):
+        ForecastDataset(
+            data=data,
+            timestamp_col="timestamp",
+            target_col="sales",
+            frequency="D",
+        )
+
+        
