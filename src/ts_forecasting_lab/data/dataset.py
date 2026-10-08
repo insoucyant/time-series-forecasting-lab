@@ -1,4 +1,27 @@
 """ Core dataset abstraction for the forecasting platform."""
+"""
+pd.DataFrame
+      │
+      ▼
+ForecastDataset(...)
+      |
+      ├── validate DataFrame
+      ├── validate required columns
+      ├── convert timestamp column to datetime
+      ├── validate target
+      ├── validate series identifier
+      ├── validate duplicate timestamps
+      └── validate time frequency
+      │
+      ▼
+Canonical ForecastDataset
+      |
+      ├── Feature Engineering
+      ├── Backtesting
+      ├── Forecasting Models
+      └── Evaluation 
+
+"""
 
 
 from __future__ import annotations
