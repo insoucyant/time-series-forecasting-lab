@@ -122,6 +122,18 @@ def test_missing_target_column():
             frequency="D"
         )
 
+def test_missing_series_id_column(single_series_id):
+    """Reject a missing configured series identifier column."""
+
+    with pytest.raises(ValueError, mathc="missing required column"):
+        ForecastDataset(
+            data=single_series_data,
+            timestamp_col="timestamp",
+            target_col="sales",
+            frequency="D",
+            series_id_col="series_id",
+        )
+
 
 
 # =======================================================================
