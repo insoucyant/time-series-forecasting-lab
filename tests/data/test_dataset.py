@@ -43,3 +43,15 @@ def single_dataset(single_series_data: pd.DataFrame) -> ForecastDataset:
         target_col="sales",
         frequency="D",
     )
+
+@pytest.fixture
+def multi_dataset(multi_series_data: pd.DataFrame) -> ForecastDataset:
+    """Create a validated multi-series ForecastDataset."""
+
+    return ForecastDataset(
+        data=multi_series_data,
+        timestamp_col="timestamp",
+        target_col="sales", 
+        frequency="D",
+        series_id_col="series_id",
+    )
