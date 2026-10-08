@@ -107,6 +107,21 @@ def test_missing_timestamp_column():
             frequency="D",
         )
 
+def test_missing_target_column():
+    """Reject dataset without the configured target column."""
+
+    data = pd.DataFrame(
+        {"timestamp": pd.date_range("2026-01-01", periods=3)}
+    )
+
+    with pytest.raises(ValueError, match="missing required column"):
+        ForecastDataset(
+            data=data,
+            timestamp="col_timestamp",
+            target_col="sales",
+            frequency="D"
+        )
+
 
 
 # =======================================================================
