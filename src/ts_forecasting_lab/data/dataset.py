@@ -379,3 +379,20 @@ class ForecastDataset:
                 f"Missing timestamps: {missing_timestamps}, "
                 f"Unexpected timestamps: {unexpected_timestamps}."
             )
+
+    def __len__(self) -> int:
+        """Return the number of observations in the dataset.""" 
+        
+        return self.n_rows
+
+    def __repr__(self) -> str:
+        """Return a string representation of the ForecastDataset instance."""
+
+        return (
+            "ForecastDataset(" \
+            f"n_rows = {self.n_rows},"
+            f"n_series = {self.n_series},"
+            f"frequency = {self.frequency!r},"
+            f"target = {self.target_col!r}"
+            ")"
+        )
