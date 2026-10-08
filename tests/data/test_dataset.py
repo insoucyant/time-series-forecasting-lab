@@ -147,7 +147,7 @@ def test_string_timestamps_are_converted():
     data = pd.DataFrame(
         {
             "timestamp": ["2026-01-01", "2026-01-02", "2026-01-03"],
-            "sales": [10,20,30] 
+            "sales": [10,20,30],  
         }
     )
 
@@ -161,6 +161,26 @@ def test_string_timestamps_are_converted():
     assert pd.api.types.is_datetime64_any_dtype(
         dataset.data["timestamp"]
     )
+
+def test_invalid_timestamp():
+    """Reject unparsebale timestamp."""
+
+    data = pd.DataFrame(
+        {
+            "timestamp": ["2026-01-01", "invalid_date"],
+            "sales": [10,20],
+        }
+    )
+
+    with pytest.raises(ValueError, match="invalid timestamps"):
+        ForecastDataset(
+            data=data,
+            timestamp_col="timestamp",
+            target_col="sales",
+            frequency="D", 
+        )
+
+    
 
 # =======================================================================
 # 4. Target Validation
