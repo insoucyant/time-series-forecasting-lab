@@ -561,6 +561,17 @@ def test_len(single_dataset):
     """Verify the dataset length."""
 
     assert len(single_dataset) == 10
+
+def test_repr(single_dataset):
+    """Verify the dataset string representation."""
+
+    representation = repr(single_dataset)
+
+    assert "ForecastDataset" in representation
+    assert "n_rows=10" in representation
+    assert "frequency='D'" in representation 
+
+    
 # =======================================================================
 # 10. Data Isolation
 # =======================================================================
