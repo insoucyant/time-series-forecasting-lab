@@ -618,3 +618,22 @@ def test_get_series_return_copy(multi_dataset):
 # =======================================================================
 # 11. Additional Edge Cases
 # =======================================================================
+
+def test_single_observation():
+    """verify a single observation is accepted."""
+
+    data = pd.DataFrame(
+        {
+            "timestamp": ["2026-01-01"],
+            "sales": [100],  
+        }
+    )
+
+    dataset = ForecastDataset(
+        data=data,
+        timestamp_col="timestamp",
+        target_col="sales",
+        frequency="D",
+    )
+
+    assert dataset.n_rows == 1
