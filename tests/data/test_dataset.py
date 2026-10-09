@@ -1,5 +1,16 @@
 """Unit tests for the ForecastDataset abstraction."""
 
+"""
+#==========================================================
+Run the Test
+</> Bash
+python -m pytest tests/data/test_dataset.py -v
+Run the entire exisiting test suite:
+python -m pytest tests/ -v
+If you are using uv for dependency management, the equivalent is:
+uv run pytest tests/data/test_dataset.py -v 
+"""
+
 import pandas as pd
 import pytest 
 
