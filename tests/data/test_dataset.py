@@ -591,6 +591,14 @@ def test_input_dataframe_is_not_modified(single_series_data):
     pd.testing.assert_frame_equal(single_series_data, original)
 
 
+def test_data_property_returns_copy(single_dataset):
+    """Verify callers cannot mutate internal data through .data."""
+
+    external_data = single_dataset.data
+    external_data.loc[0,"sales"] = 99999
+
+    assert single_dataset.data.loc[0, "sales"] == 100
+
 # =======================================================================
 # 11. Additional Edge Cases
 # =======================================================================
