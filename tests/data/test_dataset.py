@@ -545,6 +545,18 @@ def test_get_series_without_identifiers(single_dataset):
     with pytest.raises(ValueError, match="requires a multi-series"):
         single_dataset.get_series("A")
 
+def test_get_metadata(single_dataset):
+    """Verify dataset metadata."""
+
+    metadata = single_dataset.get_metadata()
+
+    assert metadata["timestamp_col"] == "timestamp"
+    assert metadata["target_col"] == "sales"
+    assert metadata["frequency"] == "D"
+    assert metadata["n_rows"] == 10
+    assert metadata["n_series"] == 1
+    assert metadata["is_multi_series"] is False
+
 # =======================================================================
 # 10. Data Isolation
 # =======================================================================
