@@ -359,8 +359,17 @@ def test_duplicate_timestamp_within_series():
 # 7. Frequency Validation
 # =======================================================================
 
+def test_valid_daily_frequency(single_series_data):
+    """Accept a complete daily series."""
 
+    dataset = ForecastDataset(
+        data=single_series_data,
+        timestamp_col="timestamp",
+        target_col="sales",
+        frequency="D",
+    )
 
+    assert dataset.frequency == "D"
 
 # =======================================================================
 # 8. Sorting
