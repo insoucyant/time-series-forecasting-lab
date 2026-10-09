@@ -313,6 +313,23 @@ def test_same_timestamp_across_series_is_valid(multi_series_data):
 # 6. Duplicate Detection
 # =======================================================================
 
+def test_duplicate_timestamp_single_series():
+    """Reject duplicate timestamps in a single series."""
+
+    data = pd.DataFrame(
+        {
+            "timestamp": ["2026-01-01", "2026-01-01"],
+            "sales": [10, 20],
+        }
+    )
+
+    with pytest.raises(ValueError, match="duplicate timestamp"):
+        ForecastDataset(
+            data=data,
+            timestamp_col="timestamp",
+            target_col="sales",
+            frequency="D",
+        )
 
 
 
