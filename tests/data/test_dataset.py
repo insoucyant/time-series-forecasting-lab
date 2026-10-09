@@ -404,6 +404,28 @@ def test_missing_daily_period():
             frequency="D",
         )
 
+def test_inconsistent_frequency():
+    """reject timestamps incosnsitent with the declared frequency."""
+
+    data = pd.DataFrame(
+        {
+            "timestamp": [
+                "2026-01-01 00:00:00",
+                "2026-01-01 12:00:00",
+                "2026-01-02 00:00:00",
+            ],
+            "sales": [10 ,20, 30],
+        }
+    )
+
+    with pytest.raises(ValueError, match="inconsistent with frequency"):
+        ForecastDataset(
+            data=data,
+            timestamp_col="timestamp",
+            target_col="sales",
+            frequency="D",
+        )
+
 # =======================================================================
 # 8. Sorting
 # =======================================================================
