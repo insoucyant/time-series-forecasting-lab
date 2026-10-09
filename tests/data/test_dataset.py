@@ -426,6 +426,32 @@ def test_inconsistent_frequency():
             frequency="D",
         )
 
+def test_missing_period_in_one_series():
+    """Validate frequency independently for each series."""
+
+    data = pd.DataFrame(
+        {
+            "series_id": ["A", "A", "A", "B", "B"],
+            "timestamp": [
+                "2026-01-01",
+                "2026-01-02",
+                "2026-01-03",
+                "2026-01-01",
+                "2026-01-03",
+            ],
+            "sales": [10, 20, 30, 100, 120],
+        }
+    )
+
+    with pytest.raises(ValueError, match="series 'B'"):
+        ForecastDataset(
+            data=data,
+            timestamp_col="timestamp",
+            target_col="sales",
+            frequency="D",
+            series_id_col="series_id",
+        )
+
 # =======================================================================
 # 8. Sorting
 # =======================================================================
