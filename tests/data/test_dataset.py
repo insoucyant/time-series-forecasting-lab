@@ -330,7 +330,29 @@ def test_duplicate_timestamp_single_series():
             target_col="sales",
             frequency="D",
         )
+def test_duplicate_timestamp_within_series():
+    """Reject duplicate (series_id, timestamp) combinations."""
 
+    data = pd.DataFrame(
+        {
+            "series_id": ["A", "A", "B"],
+            "timestamp": [
+                "2026-01-01",
+                "2026-01-01",
+                "2026-01-01",
+            ],
+            "sales": [10, 20, 30],  
+        }
+    )
+
+    with pytest.raises(ValueError, match="duplicate timestamp"):
+        ForecastDataset(
+            data=data,
+            timestamp_col="timestamp",
+            target_col="sales",
+            frequency="D",
+            series_id_col="series_id", 
+        )
 
 
 # =======================================================================
