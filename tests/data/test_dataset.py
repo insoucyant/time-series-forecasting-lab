@@ -510,7 +510,13 @@ def test_multi_series_is_sorted():
 # 9. Public Methods
 # =======================================================================
 
+def test_get_target(single_dataset):
+    """Verify target extraction."""
 
+    target = single_dataset.get_target()
+
+    assert isinstance(target, pd.Series)
+    assert target.tolist() == [100, 120, 130, 150, 170, 160, 180, 200, 210, 220]
 
 # =======================================================================
 # 10. Data Isolation
