@@ -637,3 +637,10 @@ def test_single_observation():
     )
 
     assert dataset.n_rows == 1
+
+def test_validate_can_be_called_again(single_dataset):
+    """Verify explicit revalidation succeeds."""
+
+    single_dataset.validate()
+
+    assert single_dataset.n_rows == 10
