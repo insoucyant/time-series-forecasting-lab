@@ -607,6 +607,14 @@ def test_get_target_returns_copy(single_dataset):
 
     assert single_dataset.get_target().iloc[0] == 100
 
+def test_get_series_return_copy(multi_dataset):
+    """verify series extraction does not expose mutable internal state."""
+
+    series_a = multi_dataset.get_series("A")
+    series_a.loc[series_a.index[0], "sales"] = 99999
+
+    assert multi_dataset.get_series("A")["sales"].iloc[0] == 100
+
 # =======================================================================
 # 11. Additional Edge Cases
 # =======================================================================
