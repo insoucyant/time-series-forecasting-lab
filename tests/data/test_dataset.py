@@ -295,6 +295,19 @@ def test_missing_series_identifier():
             series_id_col="series_id",
         )
 
+def test_same_timestamp_across_series_is_valid(multi_series_data):
+    """Allow different series to share timestamps."""
+
+    dataset = ForecastDataset(
+        data=multi_series_data,
+        timestamp_col="timestamp",
+        target_col="sales",
+        frequency="D",
+        series_id_col="series_id"
+    )
+
+    assert dataset.n_series == 2
+
 
 # =======================================================================
 # 6. Duplicate Detection
