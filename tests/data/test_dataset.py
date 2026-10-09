@@ -1,6 +1,5 @@
-"""Unit tests for the ForecastDataset abstraction."""
-
-"""
+"""Unit tests for the ForecastDataset abstraction.
+    This file contains **34 Test Functions** across 11 categories. 
 #==========================================================
 Run the Test
 </> Bash
@@ -517,6 +516,13 @@ def test_get_target(single_dataset):
 
     assert isinstance(target, pd.Series)
     assert target.tolist() == [100, 120, 130, 150, 170, 160, 180, 200, 210, 220]
+
+def test_get_series_ids(multi_dataset):
+    """Verify unique series identifiers."""
+
+    assert multi_dataset.get_series_ids() == ["A", "B"]
+
+    
 
 # =======================================================================
 # 10. Data Isolation
