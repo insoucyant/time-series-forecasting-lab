@@ -599,6 +599,14 @@ def test_data_property_returns_copy(single_dataset):
 
     assert single_dataset.data.loc[0, "sales"] == 100
 
+def test_get_target_returns_copy(single_dataset):
+    """verify target extraction does not expose mutable internal state."""
+
+    target = single_dataset.get_target()
+    target.iloc[0] = 9999
+
+    assert single_dataset.get_target().iloc[0] == 100
+
 # =======================================================================
 # 11. Additional Edge Cases
 # =======================================================================
