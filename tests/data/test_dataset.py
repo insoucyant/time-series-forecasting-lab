@@ -456,6 +456,29 @@ def test_missing_period_in_one_series():
 # 8. Sorting
 # =======================================================================
 
+def test_single_series_is_sorted():
+    """Verify timestamps are sorted chornologically."""
+
+    data = pd.DataFrame(
+        {
+            "timestamp": [
+                "2026-01-03",
+                "2026-01-01",
+                "2026-01-02",
+            ],
+            "sales": [30,10,20],
+        }
+    )
+
+    dataset = ForecastDataset(
+        data=data,
+        timestamp_col="timestamp",
+        target_col="sales",
+        frequency="D",
+    )
+
+    assert dataset.data["sales"].tolist() == [10,20,30]
+
 
 
 # =======================================================================
