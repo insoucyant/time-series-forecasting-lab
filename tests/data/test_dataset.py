@@ -241,6 +241,25 @@ def test_zero_target_is_valid():
 
     assert dataset.n_rows == 3
 
+def test_negative_target_is_valid():
+    """Verify negative targets are not automatically rejected."""
+
+    data = pd.DataFrame(
+        {
+            "timestamp": pd.date_range("2026-01-01", periods=3),
+            "sales": [-10, 0, 20],
+        }
+    )
+
+    dataset = ForecastDataset(
+        data=data,
+        timestamp_col="timestamp",
+        target_col="sales",
+        frequency="D",
+    )
+
+    assert dataset.n_rows == 3
+
 # =======================================================================
 # 5. Series Identifier Validation
 # ======================================================================= 
