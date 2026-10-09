@@ -479,7 +479,32 @@ def test_single_series_is_sorted():
 
     assert dataset.data["sales"].tolist() == [10,20,30]
 
+def test_multi_series_is_sorted():
+    """Verify sorting by series ID followed by timestamp."""
 
+    data = pd.DataFrame(
+        {
+            "series_id": ["B", "A", "B", "A"],
+            "timestamp": [
+                "2026-01-02",
+                "2026-01-02",
+                "2026-01-01",
+                "2026-01-01",
+            ],
+            "sales": [220, 120, 210, 110],
+        }
+    )
+
+    dataset = ForecastDataset(
+        data=data,
+        timestamp_col="timestamp",
+        target_col="sales",
+        frequency="D",
+        series_id_col="series_id",
+    )
+
+    assert dataset.data["series_id"].tolist() == ["A", "A", "B", "B"]
+    assert dataset.data["sales"].tolist() == [110, 120, 210, 220]
 
 # =======================================================================
 # 9. Public Methods
