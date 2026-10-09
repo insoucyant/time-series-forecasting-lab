@@ -382,6 +382,28 @@ def test_invalid_frequency(single_series_data):
             frequency="NOT_A_FREQUENCY",
         )
 
+def test_missing_daily_period():
+    """Reject a gap in otherwise daily series."""
+
+    data = pd.DataFrame(
+        {
+            "timestamp": [
+                "2026-01-01",
+                "2026-01-02",
+                "2026-01-04",
+            ],
+            "sales": [10,20,40],
+        }
+    )
+
+    with pytest.raises(ValueError, match="missing timestamp"):
+        ForecastDataset(
+            data=data,
+            timestamp_col="timestamp",
+            target_col="sales",
+            frequency="D",
+        )
+
 # =======================================================================
 # 8. Sorting
 # =======================================================================
