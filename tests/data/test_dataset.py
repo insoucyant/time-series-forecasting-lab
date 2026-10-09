@@ -275,6 +275,25 @@ def test_negative_target_is_valid():
 # 5. Series Identifier Validation
 # ======================================================================= 
 
+def test_missing_series_identifier():
+    """Reject missing identifiers in multi-series datasets."""
+
+    data = pd.DataFrame(
+        {
+            "series_id": ["A", None, "A"],
+            "timestamp": pd.date_range("2026-01-01", periods=3),
+            "sales": [10, 20, 30],
+        }
+    )
+
+    with pytest.raises(ValueError, match="missing values"):
+        ForecastDataset(
+            data=data,
+            timestamp_col="timestamp",
+            target_col="sales",
+            frequency="D",
+            series_id_col="series_id",
+        )
 
 
 # =======================================================================
