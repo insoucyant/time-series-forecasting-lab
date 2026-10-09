@@ -644,3 +644,11 @@ def test_validate_can_be_called_again(single_dataset):
     single_dataset.validate()
 
     assert single_dataset.n_rows == 10
+
+
+def test_sort_returns_same_instance(single_dataset):
+    """Verify sort() supports method chaining."""
+
+    result = single_dataset.sort()
+
+    assert result in single_dataset
