@@ -371,6 +371,17 @@ def test_valid_daily_frequency(single_series_data):
 
     assert dataset.frequency == "D"
 
+def test_invalid_frequency(single_series_data):
+    """Reject an invalid frequency alias"""
+
+    with pytest.raises(ValueError, match="Invalid frequency"):
+        ForecastDataset(
+            data=single_series_data,
+            timestamp_col="timestamp",
+            target_col="sales",
+            frequency="NOT_A_FREQUENCY",
+        )
+
 # =======================================================================
 # 8. Sorting
 # =======================================================================
