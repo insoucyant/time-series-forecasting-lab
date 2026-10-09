@@ -222,6 +222,25 @@ def test_missing_target_value():
             frequency="D",
         )
 
+def test_zero_target_is_valid():
+    """Verify zero is acceptable as a valid target."""
+
+    data = pd.DataFrame(
+        {
+            "timestamp": pd.date_range("2026-01-01", periods=3),
+            "sales": [0, 10, 0],
+        }
+    )
+
+    dataset = ForecastDataset(
+        data=data,
+        timestamp_col="timestamp",
+        target_col="sales",
+        frequency="D",
+    )
+
+    assert dataset.n_rows == 3
+
 # =======================================================================
 # 5. Series Identifier Validation
 # ======================================================================= 
