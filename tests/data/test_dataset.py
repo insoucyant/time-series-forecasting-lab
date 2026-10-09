@@ -539,6 +539,12 @@ def test_get_series_invalid_identifier(multi_dataset):
     with pytest.raises(ValueError, match="does not exist"):
         multi_dataset.get_series("UNKNOWN")
 
+def test_get_series_without_identifiers(single_dataset):
+    """Reject get_series when no series ID column is configured."""
+
+    with pytest.raises(ValueError, match="requires a multi-series"):
+        single_dataset.get_series("A")
+
 # =======================================================================
 # 10. Data Isolation
 # =======================================================================
