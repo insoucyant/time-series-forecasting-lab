@@ -522,7 +522,10 @@ def test_get_series_ids(multi_dataset):
 
     assert multi_dataset.get_series_ids() == ["A", "B"]
 
-    
+def test_get_series_ids_single_series(single_dataset):
+    """verify no explicit identifiers for single-series data."""
+
+    assert single_dataset.get_series_ids() == []
 
 # =======================================================================
 # 10. Data Isolation
