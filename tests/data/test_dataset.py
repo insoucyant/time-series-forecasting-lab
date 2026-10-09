@@ -533,6 +533,12 @@ def test_get_series(multi_dataset):
     series_a = multi_dataset.get_series("A")
     assert series_a["sales"].tolist() == [100, 120, 130, 150, 170, 160, 180, 200, 210, 220]
 
+def test_get_series_invalid_identifier(multi_dataset):
+    """Reject requests for unknown series."""
+
+    with pytest.raises(ValueError, match="does not exist"):
+        multi_dataset.get_series("UNKNOWN")
+
 # =======================================================================
 # 10. Data Isolation
 # =======================================================================
