@@ -557,6 +557,10 @@ def test_get_metadata(single_dataset):
     assert metadata["n_series"] == 1
     assert metadata["is_multi_series"] is False
 
+def test_len(single_dataset):
+    """Verify the dataset length."""
+
+    assert len(single_dataset) == 10
 # =======================================================================
 # 10. Data Isolation
 # =======================================================================
