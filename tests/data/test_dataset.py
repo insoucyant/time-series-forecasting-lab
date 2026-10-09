@@ -571,13 +571,24 @@ def test_repr(single_dataset):
     assert "n_rows=10" in representation
     assert "frequency='D'" in representation 
 
-    
+
 # =======================================================================
 # 10. Data Isolation
 # =======================================================================
 
+def test_input_dataframe_is_not_modified(single_series_data):
+    """Verify construction does not mutate the input DataFrame. """
 
+    original = single_series_data.copy(ddp=True)
 
+    ForecastDataset(
+        data=single_series_data,
+        timestamp_col="timestamp",
+        target_col="sales",
+        frequency="D",
+    )
+
+    pd.testing.assert_frame_equal(single_series_data, original)
 
 
 # =======================================================================
