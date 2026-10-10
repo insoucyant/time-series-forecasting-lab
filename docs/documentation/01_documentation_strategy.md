@@ -61,3 +61,9 @@ Documenation must distinguish between:
 * Research ideas and exploratory proposals. 
 
 A planned capability must not be described as already available. 
+
+### 2.4 Documentation must explain both usage and reasoning
+
+Technical documentation shoudl explain what the component does and how it is used.
+
+Where relevant, architecture and methodlogy documents shoudl additionally explain design decisions, mathematical ssumptions, constraints and trade-offs.
