@@ -37,7 +37,7 @@ def multi_series_data() -> pd.DataFrame:
     return pd.DataFrame(
         {
             "timestamp": pd.date_range(start="2020-01-01", periods=10, freq="D").tolist() * 2,
-            "store_id": [A] * 10 + [B] * 10,
+            "store_id": ["A"] * 10 + ["B"] * 10,
             "sales": [100, 120, 130, 150, 170, 160, 180, 200, 210, 220] + 
                      [90, 110, 120, 140, 160, 150, 170, 190, 200, 210], 
         }
