@@ -1,4 +1,15 @@
-""" Core dataset abstraction for the forecasting platform."""
+"""Core dataset abstraction for the forecasting platform."""
+
+from __future__ import annotations
+
+from typing import Any
+
+import pandas as pd
+
+
+# ============================================================
+# Dataset Architecture
+# ============================================================
 """
 pd.DataFrame
       │
@@ -22,13 +33,6 @@ Canonical ForecastDataset
       └── Evaluation 
 
 """
-
-
-from __future__ import annotations
-
-from typing import Any
-
-import pandas as pd
 
 class ForecastDataset:
     """
@@ -391,7 +395,7 @@ class ForecastDataset:
             freq=self.frequency,
         )
 
-        actual_index = pd.DateTimeIndex(timestamps)
+        actual_index = pd.DatetimeIndex(timestamps)
 
         missing_timestamps = expected_timestamps.difference(actual_index)
         unexpected_timestamps = actual_index.difference(expected_timestamps)

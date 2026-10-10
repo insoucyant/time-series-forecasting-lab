@@ -1,5 +1,5 @@
 """Unit tests for the ForecastDataset abstraction.
-    This file contains **34 Test Functions** across 11 categories. 
+    This file contains **39 Test Functions** across 11 categories. 
 #==========================================================
 Run the Test
 </> Bash
@@ -651,4 +651,4 @@ def test_sort_returns_same_instance(single_dataset):
 
     result = single_dataset.sort()
 
-    assert result in single_dataset
+    assert result is single_dataset
