@@ -50,3 +50,14 @@ Each important architectural decision, interface contract, configuration paramet
 Other documents may reference that location rather than duplicate its contents. 
 
 This reduces inconsistenices and maintenace overhead. 
+
+### 2.3 Documentation must reflect implemented behavior
+
+Documenation must distinguish between:
+
+* Implemented functionality.
+* Functionality currently under development.
+* Planned functionality.
+* Research ideas and exploratory proposals. 
+
+A planned capability must not be described as already available. 
