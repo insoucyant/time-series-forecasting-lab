@@ -417,7 +417,7 @@ def test_inconsistent_frequency():
         }
     )
 
-    with pytest.raises(ValueError, match="inconsistent with frequency"):
+    with pytest.raises(ValueError, match="do not conform to the declared frequency"):
         ForecastDataset(
             data=data,
             timestamp_col="timestamp",
@@ -442,7 +442,7 @@ def test_missing_period_in_one_series():
         }
     )
 
-    with pytest.raises(ValueError, match="series 'B'"):
+    with pytest.raises(ValueError, match="series identifier 'B'"):
         ForecastDataset(
             data=data,
             timestamp_col="timestamp",
