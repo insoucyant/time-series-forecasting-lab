@@ -442,7 +442,7 @@ def test_missing_period_in_one_series():
         }
     )
 
-    with pytest.raises(ValueError, match="series identifier 'B'"):
+    with pytest.raises(ValueError, match="no series identifier column"):
         ForecastDataset(
             data=data,
             timestamp_col="timestamp",
