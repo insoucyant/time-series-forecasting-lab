@@ -28,3 +28,17 @@ The purpose of this document is to define a consistent documentation strategy th
 * Educational use and future research publications.
 
 Documenation is considered a core project deliverable rather than an optional sctivity performed after implementation. 
+
+--- 
+
+## Documentation Philosophy
+
+This project follows six documentation principles.
+
+### 2.1 Documentation as part of implementation 
+
+A component is not considered complete merely because its code executes successfully. 
+
+Its expected behaviour, public interfaces, assumptions, limitations, and usage must also be documented.
+
+Documentation requirements should be proportional to the complexity and importance of teh component. 
