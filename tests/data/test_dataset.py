@@ -132,7 +132,7 @@ def test_missing_target_column():
             frequency="D"
         )
 
-def test_missing_series_id_column(single_series_id):
+def test_missing_series_id_column(single_series_data):
     """Reject a missing configured series identifier column."""
 
     with pytest.raises(ValueError, mathc="missing required column"):
