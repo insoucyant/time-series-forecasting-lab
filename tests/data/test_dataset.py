@@ -542,7 +542,7 @@ def test_get_series_invalid_identifier(multi_dataset):
 def test_get_series_without_identifiers(single_dataset):
     """Reject get_series when no series ID column is configured."""
 
-    with pytest.raises(ValueError, match="requires a multi-series"):
+    with pytest.raises(ValueError, match="no series identifier column"):
         single_dataset.get_series("A")
 
 def test_get_metadata(single_dataset):
