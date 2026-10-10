@@ -127,7 +127,7 @@ def test_missing_target_column():
     with pytest.raises(ValueError, match="missing required column"):
         ForecastDataset(
             data=data,
-            timestamp="col_timestamp",
+            timestamp_col="timestamp",
             target_col="sales",
             frequency="D"
         )
