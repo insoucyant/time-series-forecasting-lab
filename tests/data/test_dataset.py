@@ -109,7 +109,7 @@ def test_missing_timestamp_column():
 
     data = pd.DataFrame({"sales": [10,20,30]})
 
-    with pytest.raises(ValueError, match="missing required column"):
+    with pytest.raises(ValueError, match="required columns are missing"):
         ForecastDataset(
             data=data,
             timestamp_col="timestamp",
