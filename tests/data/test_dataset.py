@@ -124,7 +124,7 @@ def test_missing_target_column():
         {"timestamp": pd.date_range("2026-01-01", periods=3)}
     )
 
-    with pytest.raises(ValueError, match="missing required column"):
+    with pytest.raises(ValueError, match="require column are missing"):
         ForecastDataset(
             data=data,
             timestamp_col="timestamp",
