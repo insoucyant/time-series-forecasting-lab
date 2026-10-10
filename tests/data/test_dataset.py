@@ -302,7 +302,7 @@ def test_same_timestamp_across_series_is_valid(multi_series_data):
         timestamp_col="timestamp",
         target_col="sales",
         frequency="D",
-        series_id_col="series_id"
+        series_id_col="store_id"
     )
 
     assert dataset.n_series == 2
