@@ -442,7 +442,7 @@ def test_missing_period_in_one_series():
         }
     )
 
-    with pytest.raises(ValueError, match="no series identifier column"):
+    with pytest.raises(ValueError, match="Frequency validation failed for series identifier 'B'"):
         ForecastDataset(
             data=data,
             timestamp_col="timestamp",
