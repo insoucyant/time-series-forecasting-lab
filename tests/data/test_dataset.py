@@ -569,7 +569,7 @@ def test_repr(single_dataset):
 
     assert "ForecastDataset" in representation
     assert "n_rows = 10" in representation
-    assert "frequency='D'" in representation 
+    assert "frequency = 'D'" in representation 
 
 
 # =======================================================================
