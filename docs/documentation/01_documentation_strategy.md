@@ -67,3 +67,17 @@ A planned capability must not be described as already available.
 Technical documentation shoudl explain what the component does and how it is used.
 
 Where relevant, architecture and methodlogy documents shoudl additionally explain design decisions, mathematical ssumptions, constraints and trade-offs.
+
+### 2.5 Documentation should support multiple audiences
+
+The platform is intended for:
+
+* Software engineers.
+* Data scientists.
+* Forecasting researchers.
+* Machine learning engineers.
+* Students and educators.
+* Business and decision-science practitioners.
+* Production platform operators.
+
+Documentation should provide appropriate levels of detail without forcing every audience to read every document.
