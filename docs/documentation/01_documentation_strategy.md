@@ -81,3 +81,9 @@ The platform is intended for:
 * Production platform operators.
 
 Documentation should provide appropriate levels of detail without forcing every audience to read every document.
+
+### 2.6 Documentation should remain maintainable
+
+Documentation must be structured so that individual components can evolve without requiring extensive changes throughout the repository. 
+
+Prefer focused documents, clear cross-references, and stable terminology. 
