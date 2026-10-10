@@ -579,7 +579,7 @@ def test_repr(single_dataset):
 def test_input_dataframe_is_not_modified(single_series_data):
     """Verify construction does not mutate the input DataFrame. """
 
-    original = single_series_data.copy(ddp=True)
+    original = single_series_data.copy(deep=True)
 
     ForecastDataset(
         data=single_series_data,
