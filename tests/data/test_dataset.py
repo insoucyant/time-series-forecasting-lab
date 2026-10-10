@@ -91,7 +91,7 @@ def test_empty_dataframe():
 
     data = pd.DataFrame(columns=["timestamp", "sales"])
 
-    with pytest.raises(ValueError, match="empty DataFrame"):
+    with pytest.raises(ValueError, match="dataset is empty"):
         ForecastDataset(
             data=data,
             timestamp_col="timestamp",
