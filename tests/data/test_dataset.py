@@ -63,7 +63,7 @@ def multi_dataset(multi_series_data: pd.DataFrame) -> ForecastDataset:
         timestamp_col="timestamp",
         target_col="sales", 
         frequency="D",
-        series_id_col="series_id",
+        series_id_col="store_id",
     )
 
 # =======================================================================
