@@ -124,7 +124,7 @@ def test_missing_target_column():
         {"timestamp": pd.date_range("2026-01-01", periods=3)}
     )
 
-    with pytest.raises(ValueError, match="require column are missing"):
+    with pytest.raises(ValueError, match="required column are missing"):
         ForecastDataset(
             data=data,
             timestamp_col="timestamp",
@@ -135,7 +135,7 @@ def test_missing_target_column():
 def test_missing_series_id_column(single_series_data):
     """Reject a missing configured series identifier column."""
 
-    with pytest.raises(ValueError, mathc="required columns are missing"):
+    with pytest.raises(ValueError, match="required columns are missing"):
         ForecastDataset(
             data=single_series_data,
             timestamp_col="timestamp",
@@ -568,7 +568,7 @@ def test_repr(single_dataset):
     representation = repr(single_dataset)
 
     assert "ForecastDataset" in representation
-    assert "n_rows=10" in representation
+    assert "n_rows = 10" in representation
     assert "frequency='D'" in representation 
 
 
