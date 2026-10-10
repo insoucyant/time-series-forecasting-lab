@@ -93,3 +93,13 @@ Prefer focused documents, clear cross-references, and stable terminology.
 The repository's existing documenation organization is the starting point.
 
 New documentation categories shoudl be introduced only when required by the actual implementation or a clearly approved project milestone. 
+
+### 3.1 Vision documentation
+
+**Location:** docs/vision/
+
+Describes the long-term purpose, mission, intended users, and strategic direction of the platform. 
+
+Vision documents shoudl be relatively stable. 
+
+Changes shoudl represent meaningful changes in the project direction rather than routine implementation adjustments.
