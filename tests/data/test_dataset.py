@@ -395,7 +395,7 @@ def test_missing_daily_period():
         }
     )
 
-    with pytest.raises(ValueError, match="missing timestamp"):
+    with pytest.raises(ValueError, match="Missing timestamps"):
         ForecastDataset(
             data=data,
             timestamp_col="timestamp",
