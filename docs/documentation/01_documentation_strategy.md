@@ -87,3 +87,9 @@ Documentation should provide appropriate levels of detail without forcing every 
 Documentation must be structured so that individual components can evolve without requiring extensive changes throughout the repository. 
 
 Prefer focused documents, clear cross-references, and stable terminology. 
+
+## Documentation Categories
+
+The repository's existing documenation organization is the starting point.
+
+New documentation categories shoudl be introduced only when required by the actual implementation or a clearly approved project milestone. 
