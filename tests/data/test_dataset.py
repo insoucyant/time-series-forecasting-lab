@@ -182,7 +182,7 @@ def test_invalid_timestamp():
         }
     )
 
-    with pytest.raises(ValueError, match="invalid timestamps"):
+    with pytest.raises(ValueError, match="Failed to convert the timestamp"):
         ForecastDataset(
             data=data,
             timestamp_col="timestamp",
