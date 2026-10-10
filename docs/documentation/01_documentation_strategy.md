@@ -42,3 +42,11 @@ A component is not considered complete merely because its code executes successf
 Its expected behaviour, public interfaces, assumptions, limitations, and usage must also be documented.
 
 Documentation requirements should be proportional to the complexity and importance of teh component. 
+
+### 2.2 Single source of truth 
+
+Each important architectural decision, interface contract, configuration parameter, or methodology should have one authorative documentation location. 
+
+Other documents may reference that location rather than duplicate its contents. 
+
+This reduces inconsistenices and maintenace overhead. 
