@@ -103,3 +103,22 @@ Describes the long-term purpose, mission, intended users, and strategic directio
 Vision documents shoudl be relatively stable. 
 
 Changes shoudl represent meaningful changes in the project direction rather than routine implementation adjustments.
+
+### 3.2 Architecture documentation
+
+**Location:** docs/acitecture
+
+Describes the platform's structure, component responsibilities, dependencies, contracts, and technical design.
+
+Examples include:
+
+* Platform architecture.
+* Repository structure.
+* Configuration system.
+* Forecasting framework.
+* Forecaster interface.
+* Dataset design.
+* Feature engineering framework.
+* Production architecture.
+
+Architecture documentation must distinguish current implementation from future-state architecture. 
