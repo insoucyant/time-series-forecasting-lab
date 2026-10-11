@@ -146,3 +146,11 @@ The existing `01_engineering_standards.md` remains the authoratative engineering
 
 This documentation strategy does not duplicate or replace those standard.
 
+### 3.4 Documentation governance
+
+**Location:** `docs/documentation`  
+
+Defines how documentation itself is authored, reviewed, organized and maintained. 
+
+This document is the initial governing document for that category. 
+
