@@ -154,3 +154,13 @@ Defines how documentation itself is authored, reviewed, organized and maintained
 
 This document is the initial governing document for that category. 
 
+### 3.5 Developemnt roadmap
+
+**Location:** `docs/roadmap`
+
+Describes planned development milestones, dependencies, priorities, and completion criteria.
+
+Roadmap documents should distinguish commitments from tentative plans.
+
+
+
