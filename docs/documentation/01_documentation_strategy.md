@@ -182,3 +182,11 @@ These materials should be added within the agreed repository architecture when t
 
 No new directory is required solely because these topics appear in the long-term vision.
 
+### 3.7 API and developer reference documentation
+
+Public classes, functions, configuration interfaces, and extension points should be documented through source-code docstrings and, where appropriate, generated reference documentation. 
+
+The source code is authoratative for teh actual callable interface. 
+
+Explanatory documents should reference those interfaces rather than manually reproducing large amount of API detail.
+
