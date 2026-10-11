@@ -162,5 +162,23 @@ Describes planned development milestones, dependencies, priorities, and completi
 
 Roadmap documents should distinguish commitments from tentative plans.
 
+### 3.6 Methodology and research documentation
 
+As the relevant capabilities are implemented, documentation should explain:
+
+* Mathematical definitions.
+* Statistical assumptions.
+* Model estimation procedures.
+* Forecast generation.
+* Evaluation metrics.
+* Backtesting methodology.
+* Probabilistic forecasting.
+* Hierarchical reconciliation.
+* Experimental protocols.
+* Benchmark datasets.
+* Research limitations.
+
+These materials should be added within the agreed repository architecture when the corresponding work begins.
+
+No new directory is required solely because these topics appear in the long-term vision.
 
