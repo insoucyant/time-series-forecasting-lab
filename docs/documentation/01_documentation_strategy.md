@@ -96,7 +96,7 @@ New documentation categories shoudl be introduced only when required by the actu
 
 ### 3.1 Vision documentation
 
-**Location:** docs/vision/
+**Location:** `docs/vision/`
 
 Describes the long-term purpose, mission, intended users, and strategic direction of the platform. 
 
@@ -106,7 +106,7 @@ Changes shoudl represent meaningful changes in the project direction rather than
 
 ### 3.2 Architecture documentation
 
-**Location:** docs/acitecture
+**Location:** `docs/acitecture`
 
 Describes the platform's structure, component responsibilities, dependencies, contracts, and technical design.
 
@@ -121,4 +121,28 @@ Examples include:
 * Feature engineering framework.
 * Production architecture.
 
-Architecture documentation must distinguish current implementation from future-state architecture. 
+Architecture documentation must distinguish current implementation from future-state architecture.
+
+### 3.3 Engineering documentation 
+
+**Location:** `docs/engineering/`
+
+Define software engineering standards and operational development practices. 
+
+Topics include:
+
+* Coding standards.
+* Type annotations.
+* Validation and exception handling.
+* Testing.
+* Logging.
+* Dependency management.
+* Reproducibility.
+* Security.
+* Code review.
+* Manintainability.
+
+The existing `01_engineering_standards.md` remains the authoratative engineering standards document.
+
+This documentation strategy does not duplicate or replace those standard.
+
