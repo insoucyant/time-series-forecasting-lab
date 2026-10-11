@@ -190,3 +190,21 @@ The source code is authoratative for teh actual callable interface.
 
 Explanatory documents should reference those interfaces rather than manually reproducing large amount of API detail.
 
+
+### 3.8 Tutorials and examples
+
+Tutorials and examples should demonstrate realisitic usage, including:
+
+* Loading time-series data.
+* Creating a forecast dataset.
+* Training a forecasting model.
+* Generating predictions.
+* Evaluating forecast accuracy.
+* Performing backtesting.
+* Comparing models.
+* producing decision-oriented outputs.
+
+Tutorials must be implemented functionality.
+
+Planned capabilities should not be presented as executable examples.
+
