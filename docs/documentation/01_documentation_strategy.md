@@ -208,3 +208,17 @@ Tutorials must be implemented functionality.
 
 Planned capabilities should not be presented as executable examples.
 
+---
+
+## 24. Guiding Principle
+
+the Time Series Forecasting Lab should remain understandable, reproducible, and maintainable as it evolves. 
+
+Documentation must preserve the connection between:
+
+**Platform vision --> Architecture --> Implementation --> Validation --> Forecast intelligence --> Decision intelligence --> Business value**
+
+The long-tem goal is not merely to document software, but to create a durable body of engineering, statistical, and decision-science knowledge that can support developers, researchers, stdents, and practitioners. 
+
+
+
