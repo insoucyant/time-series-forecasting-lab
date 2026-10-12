@@ -239,6 +239,22 @@ Planned capabilities should not be presented as executable examples.
 
 ---
 
+## 4. Documentation Levels
+
+The project uses four complementary documentation levels.
+
+| Level | Primary question | Typical content |
+|---|---|---|
+| Strategic | Why does the platform exist? | Vision. mission, roadmap |
+| Architectural | How is the platform organised? | Components, dependencies, interfaces |
+| Technical | How does a component work? | Classes, algorithms, schemas, validation |
+| Operational | How is the platfrom used and maintained? | Tutorials, testing, deployment, troubleshooting |
+
+The levels should remain connected through cross-refernces.
+
+---
+
+
 ## 24. Guiding Principle
 
 the Time Series Forecasting Lab should remain understandable, reproducible, and maintainable as it evolves. 
