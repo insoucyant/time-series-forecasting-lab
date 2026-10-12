@@ -254,6 +254,25 @@ The levels should remain connected through cross-refernces.
 
 ---
 
+# 23. Relationship to Existing Project Documents
+
+This strategy complements the existing documentation.
+
+| Document | Primary Responsibility |
+|---|---|
+| 'docs/vision/01_vision_and_mission.md' | Strategic vision and mission |
+| 'docs/architecture/00_platform_architecture.md' | Overall platfrom architecture |
+| 'docs/architecture/00_repository_structure.md' | Repository organization |
+| 'docs/architecture/01_configuration_system.md' | Configuration design |
+| 'docs/architecture/02_forecasting_framework_design.md' | Forecasting framework design |
+| 'docs/architecture/03_forecaster_interface.md' | Forecaster interface contract | 
+| 'docs/architecture/04_dataset_design.md' | Forecast datset design | 
+| 'docs/architecture/05_feature_engieering_framework.md' | Feature engineering design | 
+| 'docs/architecture/01_engineering_standards.md' | Engineering quality standards | 
+| 'docs/architecture/01_documentation_strategy.md' | Documentation governance | 
+
+The documentation startegy governs documenattion practices; it does not replace the technical authority of the other documents within their respective scopes. 
+---
 
 ## 24. Guiding Principle
 
