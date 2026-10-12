@@ -35,6 +35,8 @@ Documenation is considered a core project deliverable rather than an optional sc
 
 This project follows six documentation principles.
 
+---
+
 ### 2.1 Documentation as part of implementation 
 
 A component is not considered complete merely because its code executes successfully. 
@@ -43,6 +45,8 @@ Its expected behaviour, public interfaces, assumptions, limitations, and usage m
 
 Documentation requirements should be proportional to the complexity and importance of teh component. 
 
+---
+
 ### 2.2 Single source of truth 
 
 Each important architectural decision, interface contract, configuration parameter, or methodology should have one authorative documentation location. 
@@ -50,6 +54,8 @@ Each important architectural decision, interface contract, configuration paramet
 Other documents may reference that location rather than duplicate its contents. 
 
 This reduces inconsistenices and maintenace overhead. 
+
+---
 
 ### 2.3 Documentation must reflect implemented behavior
 
@@ -62,11 +68,15 @@ Documenation must distinguish between:
 
 A planned capability must not be described as already available. 
 
+---
+
 ### 2.4 Documentation must explain both usage and reasoning
 
 Technical documentation shoudl explain what the component does and how it is used.
 
 Where relevant, architecture and methodlogy documents shoudl additionally explain design decisions, mathematical ssumptions, constraints and trade-offs.
+
+---
 
 ### 2.5 Documentation should support multiple audiences
 
@@ -82,17 +92,23 @@ The platform is intended for:
 
 Documentation should provide appropriate levels of detail without forcing every audience to read every document.
 
+---
+
 ### 2.6 Documentation should remain maintainable
 
 Documentation must be structured so that individual components can evolve without requiring extensive changes throughout the repository. 
 
 Prefer focused documents, clear cross-references, and stable terminology. 
 
+---
+
 ## Documentation Categories
 
 The repository's existing documenation organization is the starting point.
 
 New documentation categories shoudl be introduced only when required by the actual implementation or a clearly approved project milestone. 
+
+---
 
 ### 3.1 Vision documentation
 
@@ -103,6 +119,8 @@ Describes the long-term purpose, mission, intended users, and strategic directio
 Vision documents shoudl be relatively stable. 
 
 Changes shoudl represent meaningful changes in the project direction rather than routine implementation adjustments.
+
+---
 
 ### 3.2 Architecture documentation
 
@@ -122,6 +140,8 @@ Examples include:
 * Production architecture.
 
 Architecture documentation must distinguish current implementation from future-state architecture.
+
+---
 
 ### 3.3 Engineering documentation 
 
@@ -146,6 +166,8 @@ The existing `01_engineering_standards.md` remains the authoratative engineering
 
 This documentation strategy does not duplicate or replace those standard.
 
+---
+
 ### 3.4 Documentation governance
 
 **Location:** `docs/documentation`  
@@ -154,6 +176,8 @@ Defines how documentation itself is authored, reviewed, organized and maintained
 
 This document is the initial governing document for that category. 
 
+---
+
 ### 3.5 Developemnt roadmap
 
 **Location:** `docs/roadmap`
@@ -161,6 +185,8 @@ This document is the initial governing document for that category.
 Describes planned development milestones, dependencies, priorities, and completion criteria.
 
 Roadmap documents should distinguish commitments from tentative plans.
+
+---
 
 ### 3.6 Methodology and research documentation
 
@@ -182,6 +208,8 @@ These materials should be added within the agreed repository architecture when t
 
 No new directory is required solely because these topics appear in the long-term vision.
 
+---
+
 ### 3.7 API and developer reference documentation
 
 Public classes, functions, configuration interfaces, and extension points should be documented through source-code docstrings and, where appropriate, generated reference documentation. 
@@ -190,6 +218,7 @@ The source code is authoratative for teh actual callable interface.
 
 Explanatory documents should reference those interfaces rather than manually reproducing large amount of API detail.
 
+---
 
 ### 3.8 Tutorials and examples
 
