@@ -414,6 +414,25 @@ Methodology documents should specify conventions where alternative definitions a
 
 ---
 
+## 7.6 Diagrams
+
+Diagrams should be used when they communicate relationships more effective than prose.
+
+Appropriate examples include:
+
+* Component diagrams.
+* Data-flow diagrams.
+* Sequence diagrams.
+* Deployment diagrams.
+* Model lifecycle diagrams.
+* Decision workflows.
+
+Prefer maintainable, text-based diagram definitions when practical. 
+
+Diagrams must remain consistent with the authoratative architecture. 
+
+---
+
 # 8. Documentation and Architectural Consistency
 
 
