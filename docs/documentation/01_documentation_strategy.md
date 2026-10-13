@@ -435,7 +435,20 @@ Diagrams must remain consistent with the authoratative architecture.
 
 # 8. Documentation and Architectural Consistency
 
+The platform architecture should not be modified simply to accomodate a documentation prefernce. 
 
+When documenting a new component:
+
+1. Review the existing platform architecture.
+2. Identify the component's established responsibility.
+3. Reuse existing terminology and contracts.
+4. Document implemented behavior.
+5. Identify any genuine inconsistencies.
+6. Propose architectural changes separately when necessary.
+
+Architecture changes should be deliberate traceable.
+
+Documentation updates must not silently introduce new modules, folders, interfaces, or dependencies. 
 
 ---
 
