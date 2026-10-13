@@ -254,6 +254,26 @@ The levels should remain connected through cross-refernces.
 
 ---
 
+# 22. Definition of Documentation Completeness
+
+Documentation for a component is considered sufficiently complete when:
+
+1. Its purpose and reponsibilities are clear.
+2. Its public interface is understandable.
+3. Its important assumptions and constraints are stated. 
+4. Its behaviour matches the implementation.
+5. Relevant usage examples are accurate.
+6. Important error conditions are documented.
+7. Related architecture documents remain consistent.
+8. Its implementation status is unambiguous.
+9. Future maintainers can understand how to use and extend it.
+
+Completeness does not mean documenting every implementation detail. 
+
+The goal is to provide sufficient, accurate information for correct use, maintenance, and extension.
+
+---
+
 # 23. Relationship to Existing Project Documents
 
 This strategy complements the existing documentation.
