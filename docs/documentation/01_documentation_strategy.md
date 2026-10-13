@@ -349,6 +349,14 @@ Each substantial document should contain:
 * Technical details appropriate to the topic.
 * References to related documents where useful.
 
+## 7.2 Headings
+
+Use a consistent heading hierarchy.
+
+Do not skip heading levels unnecessarily.
+
+Headings should describe the content rather than use vague labels.
+
 ---
 
 # 8. Documentation and Architectural Consistency
