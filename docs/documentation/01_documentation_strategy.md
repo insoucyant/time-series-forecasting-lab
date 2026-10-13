@@ -314,6 +314,27 @@ Avoid documenting speculative interfaces as established contracts.
 
 ---
 
+# 6. Source Code Documentation
+
+Python source code should use clear, consistent docstrings for public modules, classes, and functions.
+
+Docstrings should explain:
+
+* Purpose.
+* Parameters.
+* Return values.
+* Raised exceptions.
+* Important assumptions.
+* Usage examples when appropriate.
+
+Internal helper functions may use shorter documentation where their behavior is straightforwrd.
+
+Type annotations should complement docstrings rather than replace explainiations of behavior.
+
+The repository's engineering standards remain authoratative for detailed coding and docstring conventions. 
+
+---
+
 # 21. Documentation Development Roadmap
 
 Documentation maturity should increase in stages.
