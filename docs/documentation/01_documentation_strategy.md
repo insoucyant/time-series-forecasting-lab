@@ -254,6 +254,46 @@ The levels should remain connected through cross-refernces.
 
 ---
 
+# 21. Documentation Development Roadmap
+
+Documentation maturity should increase in stages.
+
+## Stage 1 -- Foundation
+
+Establish:
+
+* Vision and mission.
+* Platform architecture.
+* Repository structure.
+* Configuration documentation.
+* Core forecasting interfaces.
+* Dataset and feature-engineering design.
+* Engineering standards.
+* Documenation strategy.
+* Development roadmap.
+
+## Stage 2 -- Forecasting Engines
+
+Add detailed documentation for implemented statistical, machine learning, deep learning, and foundation-model forecasting components.
+
+Document model interfaces, training behavior, evaluation, and backtesting.
+
+## Stage 3 -- Forecast Intelligence
+
+Document probabilistic forecasting, hierarchical forecasting, reconciliation, sensing, explainability, and scneario analysis as those capabilities become available. 
+
+## Stage 4 -- Decision Intelligence
+
+Document optimization workflows, decision objectives, uncertainty-aware decision making, and domain-specific applications. 
+
+## Stage 5 -- Production and Community Maturity
+
+Expand operational documenation, contributor guidance, published references, tutorials, reproducible benchmarks, and release-specific documentation.
+
+These stages represent documenation priorities, not independent commitments to implement every long-term cpabaility immiediately.
+
+---
+
 # 22. Definition of Documentation Completeness
 
 Documentation for a component is considered sufficiently complete when:
