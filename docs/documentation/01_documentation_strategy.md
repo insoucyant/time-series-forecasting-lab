@@ -483,6 +483,23 @@ Update documentation when interfaces, configuration, behavior, or operational re
 # 10. Documenation Review Checklist
 
 
+Before merging a significant change, review the following items.
+
+- [ ] The component's purpose is documented.
+- [ ] Public interfaces are accurately described. 
+- [ ] Inputs and ouputs match the implementation.
+- [ ] Validation and error behavior are described where relevant.
+- [ ] Code examples use current APIs.
+- [ ] Architectural refernces remain consistent.
+- [ ] Planned features are clearly distinguised from implemented behaviours.
+- [ ] Related documents are updated where necessary.
+- [ ] Links and file paths are valid.
+- [ ] Terminology is consistent.
+- [ ] No unnecessary documentation duplication has been introduced.
+
+Not every checklist item applies to every change.
+
+Small internal refactoring changes amy require no documentation update if externally observable behavior remains unchanged.
 
 ---
 
