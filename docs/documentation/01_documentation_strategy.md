@@ -300,6 +300,18 @@ Document important assumptions, including:
 * Numerical limitaions.
 * Unsupported cases.
 
+## 5.6 Testing and Validation
+
+Describe the testing approach and relevant test locations.
+
+Document *critical invariants* and *edge cases* when they are important to understanding the component. 
+
+## 5.7 Extension points
+
+Where a component is intended to support a future implementations, describe its public extension mechanism.
+
+Avoid documenting speculative interfaces as established contracts. 
+
 ---
 
 # 21. Documentation Development Roadmap
