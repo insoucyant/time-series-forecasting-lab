@@ -454,7 +454,29 @@ Documentation updates must not silently introduce new modules, folders, interfac
 
 # 9. Documentation Lifecycle
 
+Documentation follows the development lifecycle of teh associated functionality.
 
+## 9.1 Design stage
+
+Dcoument the intended behaviors, boundaries, and interface contracts before or during implementation when the component requires architectural design.
+
+## 9.2 Implementation stage
+
+Update documentation as actual behavior becomes clear.
+
+Avoid allowing design proposals to remain indistinguishable from implemented functionality.
+
+## 9.3 Testing stage
+
+Verify that documented assumptions, validation rules, and usage examples agree with tested behavior.
+
+## 9.4 Review stage
+
+Review documentation alongside the relevant code changes.
+
+## 9.5 Maintenance stage
+
+Update documentation when interfaces, configuration, behavior, or operational requirement change.
 
 ---
 
