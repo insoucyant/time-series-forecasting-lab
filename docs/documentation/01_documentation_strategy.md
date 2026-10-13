@@ -254,6 +254,54 @@ The levels should remain connected through cross-refernces.
 
 ---
 
+# 5. Documentation Requirements by Component
+
+Each significant software component should have documentation covering the following areas where applicable. 
+
+## 5.1 Purpose and responsibility
+
+Describe the component's role in the overall platform.
+
+Identify the problem it solves and the bpoundaries of its responsibility.
+
+## 5.2 Inputs and outputs
+
+Document:
+
+* Required inputs.
+* Optional inputs.
+* Expected data types.
+* Output structures.
+* Validation rules.
+* Error conditions.
+
+For shared interfaces, these definitions form part of the component contract.
+
+## 5.3 Dependencies
+
+Identify important internal and external dependencies.
+
+Explain dependencies taht materially affect installation, execution, compatibility, or reproducibilty.
+
+## 5.4 Usage examples
+
+Provide concise, executable examples demonstrating intended behaviour.
+
+Examples should be tested or periodically verified against the current implementation.
+
+## 5.5 Assumptions and limitations
+
+Document important assumptions, including:
+
+* Data frequency requirements.
+* Missing-value handling.
+* Single-series versus multi-series support.
+* Model-specific constraints.
+* Numerical limitaions.
+* Unsupported cases.
+
+---
+
 # 21. Documentation Development Roadmap
 
 Documentation maturity should increase in stages.
