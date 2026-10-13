@@ -373,6 +373,45 @@ Examples of important distinctions include:
 * Configuration versus runtime state.
 * Dataset versus raw data source.
 
+Where terms have multiple established meanings, define their usage explicitly.
+
+---
+
+## 7.4 Code examples
+
+Code examples should:
+
+* Use valid syntax
+* Reflect existing APIs
+* Include required imports
+* Avoid undocumented dependencies
+* Use realisitic variable names.
+* Be concise enough to understand.
+
+Examples that are illustrative rather than executable must be labeled accordingly. 
+
+---
+
+## 7.5 Mathematical notation
+
+Mathematical documentation should define variables, indices, assumptions, and equations clearly.
+
+Where appropriate, use LaTeX-compatible mathematical notation.
+
+For example, forecast error may be defined as:
+
+[
+    e_{t+h} = y_{t+h} - \hat{y}_{t+h|t}
+]
+
+where:
+
+* (y_{t+h}) is the observed value at forecast horizon (h).
+* (\hat{y}_{t+h|t}) is the forecast made at time (t) for time (t+h).
+* (e_{t+h}) is the resulting forecast error.
+
+Methodology documents should specify conventions where alternative definitions are commmon.
+
 ---
 
 # 8. Documentation and Architectural Consistency
