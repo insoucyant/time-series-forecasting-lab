@@ -359,6 +359,22 @@ Headings should describe the content rather than use vague labels.
 
 ---
 
+## 7.3 Terminology
+
+Use consistent terminology throughout the repository.
+
+Examples of important distinctions include:
+
+* Forecast versus prediction interval.
+* Forecasting model versus forecasting framework.
+* Forecast accuracy versus forecast utility.
+* Forecast intelligence versus decision intelligence.
+* Backtesting versus model training.
+* Configuration versus runtime state.
+* Dataset versus raw data source.
+
+---
+
 # 8. Documentation and Architectural Consistency
 
 
