@@ -735,7 +735,28 @@ Critical inaccuracies affecting implementation, reproducibility, or production o
 
 # 20. Documentation Tooling Strategy
 
+The project should begin with a lightweight documentation workflow.
 
+** Current approach
+
+* Markdown files maintained alongside source code.
+* Git-based version control.
+* Documentation reviewed as part of development.
+* Source-code docstrings for public Python interfaces.
+
+## Potential future tooling 
+
+As the repository grows, the project may evaluate:
+
+* Markdown linters.
+* Automated lint checking.
+* API reference generation.
+* CI-based documentation validation.
+* Versioned documentation publishing.
+
+Tool adoption should be justified by actual project needs.
+
+The documentation strategy should not mandate immediate installation of these tools.
 
 ---
 
