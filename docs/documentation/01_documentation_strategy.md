@@ -505,7 +505,15 @@ Small internal refactoring changes amy require no documentation update if extern
 
 # 11. Documentation Ownership
 
+Documentation ownership follows code ownership.
 
+The developer or contributor introducing a change is responsible for updating affected documentation. 
+
+Reviewers are responsible for checking documentation accuracy where it is relevant to the change. 
+
+For a small project maintained by one primary developer, documentation responsibilitoes may initially be handled by the same person. 
+
+As the project grows, ownership may become more specialised. 
 
 ---
 
