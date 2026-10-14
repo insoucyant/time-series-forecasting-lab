@@ -715,7 +715,21 @@ Advanced mathematical material should remain rigorous while defining its notatio
 
 # 19. Documentation Maintenance and Technical Debt
 
+Outdated documentation is a form of technical debt.
 
+Common documentation problems include:
+
+* References to removed interfaces.
+* Outdated code examples.
+* Conflicting architecture diagrams.
+* Undocumented configuration changes.
+* Missing assumptions.
+* Unclear implementation status.
+* Duplicated explanations that have diverged.
+
+Documentation issues should be tracked and prioritized according to their impact.
+
+Critical inaccuracies affecting implementation, reproducibility, or production operation should receive higher priority than cosmetic improvements.
 
 ---
 
