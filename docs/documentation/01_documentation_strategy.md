@@ -577,6 +577,36 @@ The choice of documentation tooling should be made when the corresponding automa
 
 # 14. Documentation Versioning
 
+## 14.1 Version control
+
+Documentation files are maintained in Git.
+
+Meaningful documentation changes should be committed with clear messages.
+
+## 14.2 Alignment with software releases
+
+Documentation for a sofwtare release should accurately describe the corresponding functionality.
+
+Breaking changes should be reflected in relevant interface and usage documentation.
+
+## 14.3 Historical documentation
+
+Git history provides a record of prior documentation revisions.
+
+Separate versioned documentation sites may be introduced when the project has multiple actively supported releases.
+
+## 14.4 Deprecation
+
+When a feature is deprecaste, documentation should identify:
+
+* The deprecated interface or behavior.
+* The supporrted replacement, if available.
+* Relevant migration guidance.
+* Removal timing, if formally decided.
+
+
+
+
 
 
 ---
