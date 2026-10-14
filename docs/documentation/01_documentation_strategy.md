@@ -519,7 +519,23 @@ As the project grows, ownership may become more specialised.
 
 # 12. Documentation in Pull Requests
 
+A pull request should identify whether documentation changes are required.
 
+Documentation updates are expected when a change affects:
+
+* Public APIs
+* Configuration parameters.
+* Data contracts
+* Forecasting behavior.
+* Model assumptions.
+* Evaluation methodology.
+* Architecture.
+* Deployment procedures.
+* User-facing workflows.
+
+Documentaion only changes should be reviewed for consistency with the existing implementation.
+
+A pull request should not be rejected solely because it lacks a documentation change when no documentation impact exists.
 
 ---
 
