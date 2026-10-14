@@ -669,7 +669,26 @@ These requirements should be applied incrementally as new forecasting capabiliti
 
 # 17. Documentation for Decision Intelligence
 
+The platform's long-term objective extends beyond forecast generation. 
 
+Decision-intelligence documentation should explain the relationship between forecasts and decisions.
+
+Relevant subjects include:
+
+* Decision variables
+* Objective functions.
+* Constraints.
+* Forecast inputs.
+* Uncertainty propagation.
+* Optimization methods.
+* Scenario assumptions.
+* Business costs and benefits.
+* Decision evaluation.
+* Sensitivity analysis.
+
+A distinction must be maintained between improvements in forecasting accuracy and imporvements in downstream decision outcomes.
+
+Decision-intelligence capabilities should be documented when they are designed and implemented, rather than presented as existing functionality prematurely.
 
 ---
 
