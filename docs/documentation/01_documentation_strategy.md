@@ -541,7 +541,37 @@ A pull request should not be rejected solely because it lacks a documentation ch
 
 # 13. Automated Documentation Quality Checks
 
+Documentation qualtity checks should increasingly be supported by automation.
 
+Potential checks include:
+
+## 13.1 Markdown linting
+
+Check heading structure, whitepsaces, code fences, and common Markdown formatting problems.
+
+## 13.2 Link Validation
+
+Detect broken relative links and invalid references to repository files.
+
+## 13.3 Documentation builds
+
+When a documentation publishing framework is adopted, verify that documentation site builds succssfully.
+
+## 13.4 API reference generation
+
+Where appropriate, generate API documetation from Python source code and docstrings.
+
+## 13.5 Executable examples
+
+Important code examples may be tested through automated tests or documentation-specific execution.
+
+## 13.6 CI integration
+
+Documentation checks should eventually become part of the repository's CI pipeline.
+
+These are planned quality controls and should not be described as currently implemented unless they have been configured and verified. 
+
+The choice of documentation tooling should be made when the corresponding automation work begins. 
 
 ---
 
