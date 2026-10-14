@@ -694,7 +694,22 @@ Decision-intelligence capabilities should be documented when they are designed a
 
 # 18. Documentation Accessibility and Usability
 
+Documentation should be understandabale without requiring knowledge of undocumented internal conventions.
 
+Prefer:
+
+* Clear language.
+* Defined acronyms.
+* Short, focused examples.
+* Consistent naming.
+* Searchable headings.
+* Desriptive links.
+* Readable diagrams.
+* Explicit prerequisites.
+
+Avoid unnecessary jargon when a simpler technical explanation is available. 
+
+Advanced mathematical material should remain rigorous while defining its notation clearly.
 
 ---
 
