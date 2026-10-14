@@ -604,16 +604,30 @@ When a feature is deprecaste, documentation should identify:
 * Relevant migration guidance.
 * Removal timing, if formally decided.
 
-
-
-
-
-
 ---
 
 # 15. Documentation for Reproducible Research
 
+Reproducibility is particularly important for a forecasting research platform.
 
+Research-oriented documentation should identify, where relevant.
+
+* Dataset source and version.
+* Data preparation steps.
+* Train, validation, and test periods.
+* Forecast horizon.
+* Model configuration.
+* Random seeds.
+* Dependency versions.
+* Evaluation metrics.
+* Backtesting protocol.
+* Benchmark comparison methodology.
+* Hardware requirements where material.
+* Known limitations.
+
+Results should be reproducible from documented inputs and procedures to the extent practical.
+
+Benchmark claims should distinguish independently reproduced results from results reported by external sources. 
 
 ---
 
