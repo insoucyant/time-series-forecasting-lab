@@ -633,7 +633,37 @@ Benchmark claims should distinguish independently reproduced results from result
 
 # 16. Documentation for Forecasting Methodologies
 
+Each substantial forecasting methodology should eventually include:
 
+## 16.1 Mathematical formulation
+
+Define the forecasting problem, model assumptions, and relevant equations. 
+
+## 16.2 Estimation and training
+
+Explain how model parameters are estimated or learned.
+
+## 16.3 Prediction behavior
+
+Explain supported forecast horizons, output structure, and uncertainty representations.
+
+## 16.4 Data requirements
+
+Specify relevant frequency, sample-size, covariate, and missing-data requirements.
+
+## 16.5 Evaluation
+
+Describe appropriate metrics and validation procedures.
+
+## 16.6 Limitations
+
+Document known weaknesses, failure modes, and unsuitable applications.
+
+## 16.7 References 
+
+Cite important research papers, books, or technical references when the methodology depends on external work. 
+
+These requirements should be applied incrementally as new forecasting capabilities are developed. 
 
 ---
 
