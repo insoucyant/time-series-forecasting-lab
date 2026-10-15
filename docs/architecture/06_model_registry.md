@@ -72,3 +72,30 @@ These activities belong to their respective platform components.
 | Lifecycle status | Operational state of a trained version | Candidate, approved, retired |
 
 **Important distinction:** A *modeldefinition* identifies an implementattion; a *trained model version* identifies a particular fitted artifact. They must not be conflated. 
+
+## 5. Architectural Position
+
+The regsitry sits between model consumers and forecasting implementations.
+
+```text
+Configuration/Experiment/Pipeline/Serving
+                      |
+                      v
+            
+          Model Registry Contract
+             |       |       |
+             v       v       v
+       Statistical/ML/Deep Learning/Foundation
+             \       |       /
+              \      |      /
+               
+              Base Forecaster
+                      |
+                      v
+              
+              Forecast Result
+```
+
+The diagram represnts the intended integration pattern, not a claim that all shown model families or consumers have been implemented.
+
+
