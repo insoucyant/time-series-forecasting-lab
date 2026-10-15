@@ -56,3 +56,19 @@ The registry should not:
 - Implicitly deploy or serve a model when it is registered.
 
 These activities belong to their respective platform components.
+
+## 4. Registry Concepts
+
+| Concept | Meaning | Example or intended use |
+|---|---|---|
+| Model identifier | Stable name for a model implementation | `seasonal naive` |
+| Model family | Broad methodology category | `statistical`, `ml`, `deep_learning`, `foundation`|
+| Implementation reference | Import path or explicit factory reference | A Python forecaster class |
+| Capability metadata | Declared support behaviors | Single/multiple series, probabilistic output |
+| Default parameters | Optional validated initialization defaults | Seasonal period | 
+| Model configuration | Parameters for one run or experiment | Forecast horizon and hyperparameters |
+| Trained model artifact | Serailized fitted model | A file or object-store object |
+| Artifact version | Immutable identity or a fitted artifact | Versioned URI and checksum |
+| Lifecycle status | Operational state of a trained version | Candidate, approved, retired |
+
+**Important distinction:** A *modeldefinition* identifies an implementattion; a *trained model version* identifies a particular fitted artifact. They must not be conflated. 
