@@ -28,3 +28,31 @@ The existing elements form the starting point. **A fully implemented runtime reg
 
 This documents specifies the intended contract and incremenetal implementation plan. It does not change the existing repository layout or prescribe a new directory.
 
+## 3. Responsibilities and Non-Responsibilities
+
+### 3.1 Responsibilities
+
+The registry should eventually:
+
+1. Assign each supported forecasting implementation a stable, unique model identifier.
+2. Map identifiers to importable implementations or explicitly registered factories. 
+3. Validate registry entries and reject duplicates or invalid references.
+4. Expose model metadata and supported capabilities.
+5. Instantiate models using validated parameters.
+6. Provide clear errors for unknown, disabled, or incompatible models.
+7. Support reproducible records of the model implementation and configuration used in an experiment.
+8. Support future references to trained model versions and stored artifacts.
+
+### 3.2 Non-responsibilities
+
+The registry should not:
+
+- Perfrom model training or backtesting.
+- Select the best model automatically.
+- Calculate forecasting metrics.
+- Own datasets or future pipelines.
+- Replace the `BaseForecaster` contract.
+- Store large trained-model binaries inside YAML configuration.
+- Implicitly deploy or serve a model when it is registered.
+
+These activities belong to their respective platform components.
