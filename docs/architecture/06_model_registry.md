@@ -191,3 +191,28 @@ Version records should be immutable after publication, with new records created 
 
 
 
+---
+
+## 20.
+
+
+
+---
+
+## 21. Related Documents
+
+- `docs/architecture/00_platform_architecture.md`
+- `docs/architecture/01_configuration_system.md`
+- `docs/architecture/02_forecasting_framework_design.md`
+- `docs/architecture/03_forecaster_interface.md`
+- `docs/architecture/04_dataset_design.md`
+- `docs/architecture/07_backtesting_design.md` *(planned)*
+- `docs/architecture/08_evaluation_framework.md` *(planned)*
+- `docs/architecture/11_model_serving.md` *(planned)*
+- `docs/architecture/12_experiment_tracking.md` *(planned)*
+- `docs/engineering/01_engineering_standards.md`
+- `docs/documentation/01_documentation_strategy.md`
+
+---
+
+**Guiding principle:** The registry makes forecasting implementations discoverable and reproducible without changing how forecasters behave. Model definitions, trained artifacts, experiments, and deployments are related—but distinct—entities.
