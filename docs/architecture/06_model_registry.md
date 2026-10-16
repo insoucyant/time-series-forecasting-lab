@@ -98,4 +98,46 @@ Configuration/Experiment/Pipeline/Serving
 
 The diagram represnts the intended integration pattern, not a claim that all shown model families or consumers have been implemented.
 
+## 6. Relationship to Existing Configuration
+
+The existing `config/model_registry.yaml` is the natural source for **declarative model definitions** at the current stage.
+
+Before extending it, inspect its current keys and the existing configuration schema. Changes must remain compatible with the configuration reader and settings design documented in `01_configuration_system.md`.
+
+The registry configuration should describe models and their capabailities; environment-specific credentials, deployment endpoints, and runtime secrets must not be embedded in it. 
+
+### 6.1 Illustrative configuration shape
+
+The following is a **proposed example**, not a statement of the current YAML schema:
+
+
+```yaml
+models:
+  seasonal_naive:
+    family: statistical
+    implementation: ts_forecasting_lab.models.statistical.naive.SeasonalNaiveForecaster
+    enabled: True
+    capabilities:
+      probabibilistic: false
+      requires_training: true
+    default_parameters: {}
+```
+
+The final field names and capability values must be reconciled with the existing code and actual `SeasonalNaiveForecaster` constructor before implementation. 
+
+### 6.2 Configuration validation
+
+At minimum, validation should ensure:
+
+- The top-level registry structure is valid.
+- Each model identifier is unique and nonempty.
+- Each enabled model has a resolvable implementation.
+- The implementation conforms to the established forecasting interface.
+- Parameter defaults match the implementation's accepted initialization contract.
+- Capabilities fields use consistent types and documented meanings.
+
+Validation should fail with actionable error messages rather than silently skipping malformed entries. 
+
+
+
 
