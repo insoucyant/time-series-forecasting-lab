@@ -138,6 +138,21 @@ At minimum, validation should ensure:
 
 Validation should fail with actionable error messages rather than silently skipping malformed entries. 
 
+---
+
+## 7. Model Identifier Policy
+
+Model identifiers should be:
+
+- Stable across ordinary refactoring.
+- Unique within the registry.
+- Human-readable and suitable for logs, experiments, and configuration.
+- Independent of a particular training run or artifact version.
+
+Use lowercase snake_case names when practical, such as `seasonal_naive`.
+
+Renaming an identifier is a compatibility change because saved experiment metadata and downstream configurations may refer to it. Prefer aliases or an explicit migration policy if renaming becomes necessary.
+
 
 
 
