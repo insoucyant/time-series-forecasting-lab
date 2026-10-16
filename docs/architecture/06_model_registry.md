@@ -15,6 +15,8 @@ It supports the platform's progression from statistical forecasting to machine l
 
 The registry is **not** itself a training pipeline, experiment tracker, model artifact store, or serving system. It supplies model identity and discovery contracts that those components may consume. 
 
+---
+
 ## 2. Scope and Implementation Status
 
 The repository already contains:
@@ -27,6 +29,8 @@ The repository already contains:
 The existing elements form the starting point. **A fully implemented runtime registry, persisitent registry service, artifact vision store, and lifecycle management workflow are not assumed to exist.**
 
 This documents specifies the intended contract and incremenetal implementation plan. It does not change the existing repository layout or prescribe a new directory.
+
+---
 
 ## 3. Responsibilities and Non-Responsibilities
 
@@ -57,6 +61,8 @@ The registry should not:
 
 These activities belong to their respective platform components.
 
+---
+
 ## 4. Registry Concepts
 
 | Concept | Meaning | Example or intended use |
@@ -72,6 +78,8 @@ These activities belong to their respective platform components.
 | Lifecycle status | Operational state of a trained version | Candidate, approved, retired |
 
 **Important distinction:** A *modeldefinition* identifies an implementattion; a *trained model version* identifies a particular fitted artifact. They must not be conflated. 
+
+---
 
 ## 5. Architectural Position
 
@@ -97,6 +105,8 @@ Configuration/Experiment/Pipeline/Serving
 ```
 
 The diagram represnts the intended integration pattern, not a claim that all shown model families or consumers have been implemented.
+
+---
 
 ## 6. Relationship to Existing Configuration
 
@@ -124,6 +134,8 @@ models:
 ```
 
 The final field names and capability values must be reconciled with the existing code and actual `SeasonalNaiveForecaster` constructor before implementation. 
+
+---
 
 ### 6.2 Configuration validation
 
@@ -153,6 +165,29 @@ Use lowercase snake_case names when practical, such as `seasonal_naive`.
 
 Renaming an identifier is a compatibility change because saved experiment metadata and downstream configurations may refer to it. Prefer aliases or an explicit migration policy if renaming becomes necessary.
 
+---
+
+## 8. 
+
+
+
+---
+
+## 12. Versioning Strategy
+
+Maintain separate identities for:
+
+1. **Implementation version:** The code and interface used to construct a model.
+2. **Configuration version:** The parameters and settings applied to a run.
+3. **Artifact version:** The immutable fitted-model output from that run.
+
+A new fitted model does not necessarily imply a new implementation version. Likewise, a code change does not retroactively modify previously produced artifacts.
+
+Version records should be immutable after publication, with new records created for retraining or material changes.
+
+---
+
+## 13. 
 
 
 
