@@ -167,7 +167,15 @@ Renaming an identifier is a compatibility change because saved experiment metada
 
 ---
 
-## 8. 
+## 8. Runtime refistry Interface
+
+A future runtime registry should expose a small, explicit interface. The following signatures are **illustrative design targets**, not currently implemented APIs:
+
+```python
+registry.list_models()  # model identifiers and metadata
+registry.get_model_info(model_id) # metadata for one implementation
+regitsry.create(model_id, **params) # a new forecaster instance
+```
 
 
 
