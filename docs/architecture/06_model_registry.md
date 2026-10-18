@@ -374,6 +374,23 @@ Avoid logging sensitive configuration values or unnecessarily large parameter pa
 
 ---
 
+## 18. Reproducibility Requirements
+
+A forecasting result should be tracebale to:
+
+```text
+Model identifier
++ implementation/code revision
++ effective configuration
++ data reference/fingerprint
++ training/evaluation protocol
++ fitted artifact reference (if applicable)
+```
+
+The registry contributes identity and metadata, while experiment tracking, data management, and pipeline execution supply the remianing evidence. 
+
+---
+
 ## 20.
 
 
