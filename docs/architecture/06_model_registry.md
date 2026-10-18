@@ -177,6 +177,10 @@ registry.get_model_info(model_id) # metadata for one implementation
 regitsry.create(model_id, **params) # a new forecaster instance
 ```
 
+A registry factory must return a fresh model instance rather than a shared mutable trained object. 
+
+The runtime registry should delegate forecasting behavior to `BaseForecaster` implementations. It should not create alternative `fit`, `predict`, `save`, or `load` conventions.
+
 
 
 ---
