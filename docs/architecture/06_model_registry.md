@@ -197,6 +197,27 @@ The runtime registry should delegate forecasting behavior to `BaseForecaster` im
 
 **Security requirement:** Do not evaluate arbitrary configuration strings as Python expressions. If import paths are used, resolve them through controlled imports and explicit validation; a stricter allowist may be appropriate for production environments.
 
+---
+
+## 10. Capability Metadata
+
+Capability metadata helps consumers determine whether a model is suitable for a task without inferring behavior from its name.
+
+Potential fields include:
+
+| Capability | Question answered |
+|---|---|
+| Single-series support | Can it forecast one time series? |
+| Multi-series support | Can it handle multiple series in one dataset or workflow? |
+| Exogenous variables | Can it use known or observed covariates? |
+| Probabilitic forecasts | Can it produce distributions or intervals? |
+| Incremental updates | Can an existing fitted model be updated? |
+| Serialization | Can it be saved and loaded reliably? |
+| Minimum history | What amount of data is required? |
+| Supported frequency | Are there frequency restrictions? |
+
+  Do not mark a cpabaility as supported until its behaviour has been implemented and tested. 
+  Distinguish **not supported**, **supported**, and **not yet assessed** where useful.
 
 ---
 
