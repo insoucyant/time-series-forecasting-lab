@@ -345,8 +345,12 @@ Errors should not expose credentials or other secrets.
 
 ### 16.2 Contract tests
 
+- Registerd implementation conform to `BaseForecaster`.
+- Returned forecasts conform to the established result contract.
+- Save/load round trips work for implementations that declare persistence support.
 
 ### 16.3 Integration tests
+
 
 
 ### 16.4 Regression tests
