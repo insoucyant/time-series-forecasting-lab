@@ -281,6 +281,15 @@ Approval and deployment should be explicit operations backed by evaluation evide
 
 The precise states and approval policy should be defined when the deployment and model serving workflows are implemented. 
 
+---
+
+## 14. Integration Contracts
+
+### 14.1 Forecaster interface
+
+Every registered forecasting implementation must satisfy the established `BaseForecaster` interface documented in `03_forecaster_interface.md`. 
+
+### 14.2 
 
 ---
 
