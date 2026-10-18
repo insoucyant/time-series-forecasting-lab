@@ -360,6 +360,18 @@ Errors should not expose credentials or other secrets.
 
 Use fixed, small datasets and deterministic expected outputs for representative models. Registry refactoring must not silently change model behaviour.
 
+## 17. Logging and Observability
+
+Registry operations should eventually log:
+
+- Requested model identifier.
+- Registry or configuration revision.
+- Resolved implementation identity.
+- Creation success or failure.
+- Artifact refernce when loading a trained version.
+
+Avoid logging sensitive configuration values or unnecessarily large parameter payloads. Structured logging conventions should follow `10_logging_and_monitoring.md` when that design is finalized. 
+
 ---
 
 ## 20.
