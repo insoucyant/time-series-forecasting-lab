@@ -43,25 +43,25 @@ This roadmap is a planning document, not a statement that all listed capabilitie
 
 ---
 
-## 03.
+## 03. Scope and Boundaries
 
 
 
 ---
 
-## 04.
+## 04. Current Baseline
 
 
 
 ---
 
-## 05.
+## 05. Milestone Overview
 
 
 
 ---
 
-## 06.
+## 06. 
 
 
 
@@ -121,44 +121,46 @@ This roadmap is a planning document, not a statement that all listed capabilitie
 
 ---
 
-## 16.
+## 16. Cross-cutting Engineering Requirements
 
 
 
 ---
 
-## 17.
+## 17. Prioritization and Change Control
 
 
 
 ---
 
-## 18.
+## 18. Milestone Tracking Template
 
 
 
 ---
 
-## 19.
+## 19. Definition of Done
 
 
 
 ---
 
-## 20.
+## 20. Near-term Execution Plan
 
 
 
 ---
 
-## 21.
+## 21. Relationship to Existing Documents
 
 
 
 ---
 
-## 22.
+## 22. Maintenance Rule
 
 
 
 ---
+
+**Roadmap principle:** Build the smallest reliable forecasting capability, validate it rigorously, and extend it toward forecast intelligence and decision intelligence without sacrificing architectural consistency. 
