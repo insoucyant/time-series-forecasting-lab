@@ -395,12 +395,20 @@ The registry contributes identity and metadata, while experiment tracking, data 
 
 The regsitry should be introduced in small testable steps without changing the established architecture.
 
-### 19.1 Phase A - Verify existing contracts
+### Phase A - Verify existing contracts
 
 - [] Review `config/model_registry.yaml` as it currently exists.
 - [] Review the configuration schemas and loader.
 - [] Confirm the constructor and persistent contract of `SeasonalNaiveForecaster`.
 - [] Document the final minimal registry schema using actual code behavior.
+
+### Phase B -  Implement model discovery 
+
+- [] Add asmall runtime registry within the agreed code organization.
+- [] Support stable model identifiers and metadata lookup
+- [] Resolve registerd implementations safety.
+- [] Instantiate models using validated parameters.
+- [] Add focused unit tests.
 
 ---
 
