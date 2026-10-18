@@ -427,9 +427,19 @@ The regsitry should be introduced in small testable steps without changing the e
 
 ---
 
-## 20.
+## 20. Definition of Done
 
+The **initial runtime registry** is complete when:
 
+- [] The existing configuration format has an explict validated contract.
+- [] `seasonal_naive` can be discoverd by a stable identifier.
+- [] A new `BaseForecaster`- compatible instance can be created from its identifier.
+- [] Invalid or unknown entries produce clear errors.
+- [] Unit and integration test pass.
+- [] Documentation accurately reflects the implemented API.
+- [] No duplicate forecasting interface or unnecessary repository structuring is introduced.
+
+The **production artifact registry** has separate, later acceptance criteria and is not required to consider the initial runtime regitstry complete.
 
 ---
 
