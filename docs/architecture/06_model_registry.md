@@ -391,6 +391,19 @@ The registry contributes identity and metadata, while experiment tracking, data 
 
 ---
 
+## 19. Incremental Implementation Plan
+
+The regsitry should be introduced in small testable steps without changing the established architecture.
+
+### 19.1 Phase A - Verify existing contracts
+
+- [] Review `config/model_registry.yaml` as it currently exists.
+- [] Review the configuration schemas and loader.
+- [] Confirm the constructor and persistent contract of `SeasonalNaiveForecaster`.
+- [] Document the final minimal registry schema using actual code behavior.
+
+---
+
 ## 20.
 
 
