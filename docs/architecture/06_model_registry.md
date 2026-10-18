@@ -311,6 +311,25 @@ Serving components may resolve an approved artifact reference, load it through t
 
 ---
 
+## 15. Error Handling
+
+The registry should distinguish the following failure categories:
+
+| Condition | Expected behaviour |
+|---|---|
+| Unknown identifier | Raise an explicit unknown-model error |
+| Duplicate identifier | Fail registry validation |
+| Missing implementation | Fail with the unresolved reference identified |
+| Invalid construction parameters | Return an actionable parameter-validation error |
+| Disabled model | Reject instantiation with a clear explanation |
+| Interface incompatibility | Reject the registartion or creation request |
+| Missing artifact | Fail loading with the artifact reference identified |
+| Unsupported artifact version | Reject incompatible loading instead of silently proceeding |
+
+Errors should not expose credentials or other secrets.
+
+---
+
 ## 20.
 
 
