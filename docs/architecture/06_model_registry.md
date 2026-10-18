@@ -410,6 +410,13 @@ The regsitry should be introduced in small testable steps without changing the e
 - [] Instantiate models using validated parameters.
 - [] Add focused unit tests.
 
+### Phase C - Integrate workflows
+
+- [] Instantiate `SeasonalNaiveForecaster` through the registry.
+- [] Record model identity and effective parameters in run metadata.
+- [] Integrate with backtesting and evaluation when those components exist.
+- [] Add integration and regression tests.
+
 ---
 
 ## 20.
