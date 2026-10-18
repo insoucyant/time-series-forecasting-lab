@@ -305,6 +305,10 @@ Future backtesting and evaluation components may request models by identifier an
 
 Experiment tracking should record model identifiers, parameters, data references, code revisions, and artifact links. The registry remains responsible for model discovery and identity, not the full experiment record.
 
+### 14.6 Model serving
+
+Serving components may resolve an approved artifact reference, load it through the established persistence contract, and expose predictions. Model serving responsibilities remain documented separately in `11_model_serving.md`. 
+
 ---
 
 ## 20.
