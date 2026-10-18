@@ -293,6 +293,10 @@ Every registered forecasting implementation must satisfy the established `BaseFo
 
 Registry definitions must be read and validated consistently with `01_configuration_system.md`.
 
+### 14.3 Dataset design
+
+Model capability declarations must be compatible with the `Forecast Dataset` behavior documented in `04_dataset_design.md`. The registry must not invent parallel dataset abstraction.
+
 ---
 
 ## 20.
