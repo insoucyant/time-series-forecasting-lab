@@ -289,7 +289,9 @@ The precise states and approval policy should be defined when the deployment and
 
 Every registered forecasting implementation must satisfy the established `BaseForecaster` interface documented in `03_forecaster_interface.md`. 
 
-### 14.2 
+### 14.2 Configuration system
+
+Registry definitions must be read and validated consistently with `01_configuration_system.md`.
 
 ---
 
