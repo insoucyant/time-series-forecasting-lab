@@ -239,6 +239,8 @@ For each trained artifact, useful metadata may include:
 - Artifact checksum.
 - Creation timestamp and environment information.
 
+Artifact files should be stored in an appropriate filesystem or object store. The registry stores **refernces and metadata**, not the artifact bytes in its YAML file
+
 ---
 
 ## 12. Versioning Strategy
@@ -255,8 +257,29 @@ Version records should be immutable after publication, with new records created 
 
 ---
 
-## 13. 
+## 13. Lifecycle and Promotion - Future Capability
 
+A production registry may support lifecycle status such as:
+
+```text
+Registered candidate
+        |
+        v
+Validated/evaluated
+        |
+        v
+Approved for deployment
+        |
+        v
+Deployed
+        |
+        v
+Retired
+```
+
+Approval and deployment should be explicit operations backed by evaluation evidence and access controls. **registering a model must not automatically promote it to production.**
+
+The precise states and approval policy should be defined when the deployment and model serving workflows are implemented. 
 
 
 ---
