@@ -221,6 +221,26 @@ Potential fields include:
 
 ---
 
+## 11. Model Definitions Versus Trained Artifacts
+
+The initial registry may only need to manage implementation definitions. A future production workflow will also need to track fitted artifacts.  
+
+For each trained artifact, useful metadata may include:
+
+- Stable model identifier.
+- Artifact version or immutable run identifier.
+- Source-code revision or package version.
+- Effective hyperparameters.
+- Training dataset reference or fingerprint.
+- Training and validation time window.
+- Forecast horizon and target definition.
+- Evaluation results and metric definitions.
+- Serialization format and artifact URI.
+- Artifact checksum.
+- Creation timestamp and environment information.
+
+---
+
 ## 12. Versioning Strategy
 
 Maintain separate identities for:
