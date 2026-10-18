@@ -417,6 +417,14 @@ The regsitry should be introduced in small testable steps without changing the e
 - [] Integrate with backtesting and evaluation when those components exist.
 - [] Add integration and regression tests.
 
+## Phase D - production extensions (later)
+
+- [] Introduce immutable fitted-artifact version records.
+- [] Store artifact references and integrity metadata.
+- [] Define approval, promotion, and retirement rules.
+- [] Integrate artifact resolution with serving and deployment.
+- [] Add auditability, access control, and compatibility checks.
+
 ---
 
 ## 20.
