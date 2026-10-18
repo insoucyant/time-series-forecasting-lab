@@ -23,7 +23,21 @@ This roadmap is a planning document, not a statement that all listed capabilitie
 
 ---
 
-## 02.
+## 02. Guiding principles
+
+1. **Architectural stability:** keep the existing repository structure and contracts unless a documented technical requirements justifies a change. 
+
+2. **Vertical progress:** Prefer a working data-to-forecast-to-evaluation path over many disconnected modules. 
+
+3. **One component at a time:** Implement, test, document, and integrate each component before expanding scope.
+
+4. **Scientific validity:** Prevent tempora leakage; make benchmarks and experiments reproducible.
+
+5. **Extensible but minimal:** Support future model families through stable interfaces, not speculative infrastructure. 
+
+6. **Decision orientation:** Evaluate forecast quality first, then downstream utility where decision workflows exist.
+
+7. **Honest status:** Distinguish implemented, designed, planned, and experimental features. 
 
 
 
