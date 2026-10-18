@@ -297,6 +297,14 @@ Registry definitions must be read and validated consistently with `01_configurat
 
 Model capability declarations must be compatible with the `Forecast Dataset` behavior documented in `04_dataset_design.md`. The registry must not invent parallel dataset abstraction.
 
+### 14.4 Backtesting and evaluation
+
+Future backtesting and evaluation components may request models by identifier and attach metrics to a run or artifact reference. The registry itself does not compute metrics.
+
+### 14.5 Experiment tracking 
+
+Experiment tracking should record model identifiers, parameters, data references, code revisions, and artifact links. The registry remains responsible for model discovery and identity, not the full experiment record.
+
 ---
 
 ## 20.
