@@ -351,9 +351,14 @@ Errors should not expose credentials or other secrets.
 
 ### 16.3 Integration tests
 
-
+- Registry loading works with the project's configuration reader.
+- `seasonal_naive` can be instantiated through the registry once the runtime registry exists.
+- A simple dataset can be passed through a model instantiated by the registry.
+- Run metadata preserves the requested model identity and effective parameters.
 
 ### 16.4 Regression tests
+
+Use fixed, small datasets and deterministic expected outputs for representative models. Registry refactoring must not silently change model behaviour.
 
 ---
 
