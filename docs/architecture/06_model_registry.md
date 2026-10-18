@@ -181,6 +181,21 @@ A registry factory must return a fresh model instance rather than a shared mutab
 
 The runtime registry should delegate forecasting behavior to `BaseForecaster` implementations. It should not create alternative `fit`, `predict`, `save`, or `load` conventions.
 
+---
+
+## 9. Discovery and Instantiation Worflow
+
+1. Load registry configuration using the existing configuration infrastructure.
+2. Validate the registry schema and identifier uniqueness.
+3. Resolve the requested model identifier.
+4. Check whether the model is enabled and available.
+5. Resolve the implementation safely from an approved reference. 
+6. Validate or normalize initialization parameters.
+7. Instantiate the model.
+8. Return the instance to the calling workflow.
+9. record model identity, implemenetation version, and effective parameters in run metadata when supported.
+
+**Security requirement:** Do not evaluate arbitrary configuration strings as Python expressions. If import paths are used, resolve them through controlled imports and explicit validation; a stricter allowist may be appropriate for production environments.
 
 
 ---
