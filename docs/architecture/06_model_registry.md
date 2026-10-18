@@ -330,6 +330,29 @@ Errors should not expose credentials or other secrets.
 
 ---
 
+## 16. Testing Startegy
+
+### 16.1 Unit tests
+
+- Registry configuration load successfully.
+- Known model identifiers can be listed.
+- Unknown identifier fail clearly.
+- Duplicate identifiers are rejected.
+- Invalid implementation references are rejected.
+- Disabled models cannot be instantiated.
+- Valid constructor parameters are passed correctly.
+- Each creation returns a distinct model instance.
+
+### 16.2 Contract tests
+
+
+### 16.3 Integration tests
+
+
+### 16.4 Regression tests
+
+---
+
 ## 20.
 
 
