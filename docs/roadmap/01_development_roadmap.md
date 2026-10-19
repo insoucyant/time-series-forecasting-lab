@@ -117,9 +117,28 @@ Phases may overlap selectively, but **dependencies and acceptance criteria** sho
 
 ---
 
-## 07.
+## 07. Phase 1 - First end-to-end forecasting workflow
 
+### Objective
 
+Demonstrate a complete, reproducible forecasting workflow using existing interfaces before expanding the model catalog. 
+
+### Work items
+
+1. Define the simplest supported workflow from a validated `ForecastDataset` to a trained forecaster.
+2. Confirm forecast-horizon semantics and result alignment with actual timestamps.
+3. Create a minimal evaluation path with one or two clearly defined error metrics. 
+4. Run the workflow on a small, deterministic dataset.
+5. Add integration tests that exercise multiple components together.
+6. Document exact  commands and expected outputs.
+
+### Exit criteria
+
+- [ ] One command or example executes the workflow end to end.
+- [ ] Forecasts have unambiguous timestamps, horizons, and series identifiers.
+- [ ] No future observations are used to train a model for an earlier forecast origin.
+- [ ] Repeated runs on deterministic inputs produce the expected results.
+= [ ] Integration tests pass in the project environment.
 
 ---
 
