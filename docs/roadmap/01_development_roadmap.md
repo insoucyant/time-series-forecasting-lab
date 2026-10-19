@@ -45,7 +45,16 @@ This roadmap is a planning document, not a statement that all listed capabilitie
 
 ## 03. Scope and Boundaries
 
+The roadmap spans four layers:
 
+| Layer | Objective | Representative Capabilities |
+|---|---|---|
+| Platform Foundation | Reliable data, configuration, interfaces, and engineering practices | Dataset contracts, configuration, testing, pipelines |
+| Forecast engine | Generate and compare forecast | Statsitical, ML, DL, and foundation models |
+| Forecast intelligence | Improve interpretation and use of forecasts | Uncertainity, hierarchy, reconciliation, scenarios, explainability |
+| Decision Intelligence | Translate forecast into decisions | Optimization, resource allocation, inventory, pricing, energy, supply-chain use cases |
+
+Advanced capabilities are long-term goals; their inclusion here does not authorize premature implementation of new folders.
 
 ---
 
