@@ -142,8 +142,30 @@ Demonstrate a complete, reproducible forecasting workflow using existing interfa
 
 ---
 
-## 08.
+## 08. Phase 2 - Evaluation and backtesting
 
+### Objective
+
+Create trustworthy comparisons across forecasting approaches.
+
+### Work items
+
+- Implement temporal train/test splits and rolling-origin backtesting.
+- Define  expanding-window and sliding-window behavior where needed.
+- Specify forecast horizons, *stride*, minimum history, and treatment of *incomplete folds*.
+- Implement metircs appropriate to teh data and forecasting tasks, such as MAE, RMSE, and carefully defined scale-free metrics.
+- Handle multi-series aggregation explicitly: micro versus macro averages, series weighting, and missing predictions.
+- Compare results against manually computed golden cases.
+- Generate structured evaluation outputs that can be saved and reproduced. 
+
+### Exit criteria
+
+- [ ] Temporal leakage tests pass.
+- [ ] Golden test cases match independently calculated metrics.
+- [ ] Single-series and multi-series evaluation behavior is documented.
+- [ ] Evaluation outputs identify dataset, model, horizon, and run configuration.
+
+**Related designs:** `docs/architecture/07_backtesting_design.md` and `docs/architecture/08_evaluation_framework.md`.
 
 
 ---
