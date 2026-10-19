@@ -74,7 +74,21 @@ Existing architecture documents through `docs/architecture/06_model_registry.md`
 
 ## 05. Milestone Overview
 
+| Phase | Milestone | Primery deliverable | Exit evidence |
+|---|---|---|---|
+| 0 | Foundation baseline | Configuration, dataset, base forecaster, seasonal naive | Passing focused and repository tests | 
+| 1 | End-to-end forecasting slice | Dataset → fit → predict → evaluate | Reproducible executable examples and tests |
+| 2 | Evaluation and backtesting | Temporal splits, rolling evaluation, metric reports | Leakage-safe backtests and refernce checks |
+| 3 | Statistical forecasting breadth | Additional classical baseline | Comparable results through one interface |
+| 4 | Experiment and model lifecycle | Tracking, registration, artifact handling | Reproducible runs and loadabale artifacts |
+| 5 | ML and DL forecasting | Feature-based and neural approaches | Consistent training and evaluation contracts |
+| 6 | Forecast intelligence | Probabilistic and hierarchical capabilities | Validated uncertainty and reconciliation tests |
+| 7 | Production-oriented v1.0 | Repeatable execution, CI/CD, packaging, observability | Release checklist and deployment rehearsal |
+| 8 | Decision intelligence | Optimization and scenario-driven applications | Decision-quality benchmarks |
+| 9 | Reseacrch and ecosystem maturity | Foundation models, plugins, educational benchmarks | Reproducible comparisons and contributor workflows | 
 
+
+Phases may overlap selectively, but **dependencies and acceptance criteria** should determine sequencing rather than document numbering alone. 
 
 ---
 
