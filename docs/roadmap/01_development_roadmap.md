@@ -92,9 +92,28 @@ Phases may overlap selectively, but **dependencies and acceptance criteria** sho
 
 ---
 
-## 06. 
+## 06. Phase 0 - Foundation baseline
 
+### Status
 
+**Initial implementation complete; continued maintenance required.**
+
+### Scope
+
+- Project and environment configuration.
+- Common forecaster interface and forecast-reult schema
+- Seasonal naive forecasting baseline
+- Dataset validation and data access
+- Initial unit tests and engineering documentation
+
+### Exit criteria
+
+- [x] Configuration validation and tests exist.
+- [x] Base forecaster and tests exist.
+- [x] Seasonal naive implementation and tests exist.
+- [x] Dataset implementation and tests exist.
+- [x] Full test suite reported passing at the initial checkpoint.
+- [ ] Investigate the outstanding warning and record whether action is required.
 
 ---
 
