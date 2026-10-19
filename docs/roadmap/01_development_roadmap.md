@@ -60,7 +60,15 @@ Advanced capabilities are long-term goals; their inclusion here does not authori
 
 ## 04. Current Baseline
 
+The following components have been implemented and exercised in the repository's initial test suite:
 
+- YAML-based configuration loading and validation using the existing `config/` and `src/ts_forecasting_lab/config/` modules.
+- `BaseForecaster` and `ForecastResult` contracts.
+- `SeasonalNaiveForecaster`, including persistence behaviour.
+- `ForecastDataset`, including single-series and multi-series valication, sorting, metadata, and copy isolation.
+- Unit tests for the above components. The most recently reported full test run passed **67 tests with one warning**; this is a historical checkpoint, not a permanent quality claim.
+
+Existing architecture documents through `docs/architecture/06_model_registry.md` and the documentation strategy establish design direction. A design document is not evidence that runtime capability has been implemented.
 
 ---
 
