@@ -170,9 +170,26 @@ Create trustworthy comparisons across forecasting approaches.
 
 ---
 
-## 09.
+## 09. Phase 3 - Statistical forecasting breadth
 
+### Objective
 
+Establish strong, transparent benchmarks before adding more complex model families.
+
+### Candidate work
+
+- Non-seasonal naive and drift baselines.
+- Moving-average or exponential-smoothening methods where appropriate.
+- ETS and ARIMA-family approaches, subject to dependency and interface review.
+- Seasonal diagnostics and model-specific data requirements.
+- Persistence and reload tests for each supported estimator.
+
+### Exit criteria
+
+- [ ] Each model satisfies the agreed - `BaseForecaster` contract or an explicitly approved extension.
+- [ ] Model-specific edge cases are tested.
+- [ ] All models can be compared through the same backtesting and evaluation framework.
+- [ ] Benchmarks include simple baselines, not only advanced models.
 
 ---
 
