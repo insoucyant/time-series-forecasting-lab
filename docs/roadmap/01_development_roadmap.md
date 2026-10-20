@@ -248,9 +248,29 @@ Extend the forecasting engine without fragmenting evaluation and operational con
 
 ---
 
-## 12.
+## 12. Phase 6 - Forecast Intelligence
 
+### Objective
 
+Move beyong point forecasts to forecasts that can support complex planning.
+
+### Capability groups
+
+| Capability | Expected questions | Validated focus |
+|---|---|---|
+| Probabilistic forecasting | How uncertain is the future? | Coverage, calibration, sharpness, proper scoring rules |
+| Hierarchical forecasting | How should forecasts agree across levels? | Coherence and reconciliation correctness | 
+| Forecast sensing | Has the process or environment changed? | Drift and change detection |
+| Explainability | What influences a forecast ?| Method validity and stability |
+| Scenarios | How do plausible conditions alter coutcomes? | Assumption transparency and consistency |
+| Causal forecasting research | Which interventions alter outcomes? | Identification assumptions and counterfactual validity |
+
+### Exit criteria
+
+- [ ] Each capability has a clear mathematical and interface specification.
+- [ ] Results are compared with appropriate baselines.
+- [ ] Limitations and assumptions are documented.
+- [ ] New capabilities integrate with existing dataset, model, and evaluation components.
 
 ---
 
