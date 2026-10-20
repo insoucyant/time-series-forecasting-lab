@@ -274,9 +274,33 @@ Move beyong point forecasts to forecasts that can support complex planning.
 
 ---
 
-## 13.
+## 13. Phase 7 - Production-oriented v1.0
 
+### Objective
 
+Enable repeatable, observable, secure execution outside a developer's laptop.
+
+### Work items
+
+- Package the application and pin or lock dependencies appropriately.
+- Establish automated tests, linting, and build checks in CI.
+- Add container packaging if justified by the deployment target.
+- Design storage for datasets, artifacts, configuration, and run metadata.
+- Define batch execution and, if required, API serving contracts.
+- Implement structured logs, health indicators, and failure alerts.
+- Define secret management, least-privilege access, and artifact retention.
+- Rehearse failed-run recovery and rollback. 
+
+### Exit criteria
+
+- [ ] A clean environment can reproduce installation and execution.
+- [ ] CI checks run automatically on relevant changes
+- [ ] A deployment rehearsal runs a forecast workflow successfully.
+- [ ] Failures are observable and actionable.
+- [ ] Previous stable versions and artifacts can be recovered.
+- [ ] Operational documentation matches the deployed implementation.
+
+**Related design:** `docs/architecture/15_deployment_architecture.md`. Do not create a separate `20_production_architecture.md` document.
 
 ---
 
