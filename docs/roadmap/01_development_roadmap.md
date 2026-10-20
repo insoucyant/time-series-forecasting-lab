@@ -193,9 +193,29 @@ Establish strong, transparent benchmarks before adding more complex model famili
 
 ---
 
-## 10.
+## 10. Phase 4 - Experiments, registry, and model lifecycle
 
+### Objective
 
+Make forecasting runs traceable, reproducible, and recoverable.
+
+### Work items
+
+- Define run metadata: dataset fingerprint, code revision, model configuration, seeds, and metrics.
+- Formalize model registration and resolution using the existing `config/model_registry.yaml` design.
+- Store model artifacts with versioned metadata and integrity checks.
+- Separate logical model names from physical artifact locations.
+- Specify model states, promotion rules, and rollback refernces when deployment becomes relevant.
+- Implement experiment tracking only to the level justified by real use cases. 
+
+### Exit criteria
+
+- [ ] A completed experiment can be identified and reproduced.
+- [ ] A saved model can be loaded and used for inference.
+- [ ] Registry entries are validated and do not silently reference unavabilable models.
+- [ ] No proprietary tracking service is required for basic local development.
+
+**Related designs:** `docs/architecture/06_model_registry.md` and `docs/architecture/12_experiment_tracking.md`.
 
 ---
 
