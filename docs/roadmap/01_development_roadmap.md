@@ -219,9 +219,32 @@ Make forecasting runs traceable, reproducible, and recoverable.
 
 ---
 
-## 11.
+## 11. Phase 5 - Machine learning and deep learning 
 
+### Objective
 
+Extend the forecasting engine without fragmenting evaluation and operational contracts.
+
+### Machine learning work
+
+- Lag, calendar, rolling, and external-covariate features with strict leakage controls.
+- Direct, recursive, and multi-output forecasting startegies where supported.
+- Tree-based and linear ML baselines.
+- Feature provenance and training/inference consistency.
+
+### Deep learning work 
+
+- Windowed dataset preparation and batching 
+- Selected recurrent, convolutional, or transformer-based forecasting approaches.
+- Device management, checkpointing, and deterministic experiment controls.
+- Training monitoring and resource-cost reporting.
+
+### Exit criteria
+
+- [ ] Model families share a consistent forecast-output and evaluation contract.
+- [ ] Feature-generation tests detect future-data leakage.
+- [ ] Training configuration and model artifacts are reproducible
+- [ ] Accuracy and computational cost are benchmarked against statistcial baselines.
 
 ---
 
