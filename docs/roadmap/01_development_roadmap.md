@@ -304,9 +304,37 @@ Enable repeatable, observable, secure execution outside a developer's laptop.
 
 ---
 
-## 14.
+## 14. Phase 8 - Decision Intelligence
 
+### Objective
 
+Connect forecasts distributions and scenarios to explicit decisions and measurable outcomes. 
+
+### Candidate applications
+
+- Inventory and replenishment decisions.
+- Capacity and workforce planning.
+- Pricing and promotion decisions.
+- Supply-chain and logistics planning.
+- Energy scheduling and trading research.
+
+### Required decision contract
+
+Every decisions use case should specify:
+
+1. Decisions variables and feasible actions.
+2. Objective function and costs.
+3. Constraint and business rules.
+4. Forecast inputs and uncertainty assumptions.
+5. Optimization or decision policy.
+6. Evaluation against simple and historical decision baselines. 
+
+### Exit criteria
+
+- [ ] The decision objective is mathematcially defined.
+- [ ] The forecast-to-decision interface is explicit.
+- [ ] Decision performance is evaluated out of sample.
+- [ ] Results report decision value separately from forecasting accuracy.
 
 ---
 
