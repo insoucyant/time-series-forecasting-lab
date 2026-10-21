@@ -462,7 +462,7 @@ Following completion of teh documentation strategy and initial model-registry de
 
 ## 22. Maintenance Rule
 
-
+Review this roadmap at meaningful milestones, not after every minor commit. Update statuses based on verified code and tests. Keep speculative work clearly marked and preserve the existing architecture unless a documented change is necessary.
 
 ---
 
