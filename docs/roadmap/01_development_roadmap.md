@@ -383,6 +383,15 @@ The following apply throughout development rather than at the end:
 
 ## 17. Prioritization and Change Control
 
+Use the following order when choosing the next implementation task:
+
+1. Resolve correctness or regression failures.
+2. Complete missing contracts required by the next end-to-end workflow.
+3. Add integration tests for existing functionality.
+4. Expand model or evaluation capabilities with a demonstrable use case.
+5. Introduce infrastructure only when operational requirements justify it.
+
+Changes that alter public interfaces, repository structure, or architecture should be recorded with the reason, affected components, migration requirements, and tests. Avoid silent architecture changes.
 
 
 ---
