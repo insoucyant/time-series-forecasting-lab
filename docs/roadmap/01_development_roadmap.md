@@ -417,7 +417,16 @@ Avoid using number of files written as the sole measure of progress. Prefer inte
 
 ## 19. Definition of Done
 
+A milestone is complete only when the relevant conditions are satisfied:
 
+- [ ] Intended functionality is implemented.
+- [ ] Public interfaces and validation behaviour are documented.
+- [ ] Relevant unit and integration tests pass.
+- [ ] Numerical behavior is checked against reference case where applicable.
+- [ ] No known critical temporal leakage or correctness issue remains.
+- [ ] A reproducible example demonstrates the feature.
+- [ ] Dependencies, limitations, and operational assumptions are recorded.
+- [ ] Changes preserve or deliberately update the approved architecture.
 
 ---
 
