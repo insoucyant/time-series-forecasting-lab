@@ -9,11 +9,13 @@
 
 ## 1. Purpose
 
+Backtesting estimates how a forecasting method would have performed when predictions were made using only information available at the historical forecast origins. It provides an auditable basis for model selection, comparison, and eventual decision-oriented evaluation.
 
+This document defines the design and contracts of backtesting capability. **It does not claim that a backtesting engine is already implemented.**
 
 ---
 
-## 2.
+## 2. 
 
 
 
