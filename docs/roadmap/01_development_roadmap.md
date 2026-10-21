@@ -366,7 +366,18 @@ Grow the lab into a credible long-term research and learning platform.
 
 ## 16. Cross-cutting Engineering Requirements
 
+The following apply throughout development rather than at the end:
 
+| Area | Minimum expectation |
+|---|---|
+| Testing | Unit, integration, regression, and numerical golden tests as appropriate |
+| Data quality | Explicit schemas, timestamps, missingness, frequency, and series identity checks |
+| Reproducibility | Tracked configuration, deterministic fixtures, and recorded dependencies |
+| Logging | Useful context without exposing secrets or excessive noise |
+| Documentation | Update design and usage documents when behavior changes |
+| Security | No committed credentials; reviewed external inputs and dependencies |
+| Performance | Benchmark representative data sizes before optimizing |
+| Compatibility | Explicit policy for supported Python and dependency versions |
 
 ---
 
