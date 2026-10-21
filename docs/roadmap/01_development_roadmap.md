@@ -446,6 +446,16 @@ Following completion of teh documentation strategy and initial model-registry de
 
 ## 21. Relationship to Existing Documents
 
+- `docs/vision/01_vision_and_mission.md` — Long-term mission and intended impact.
+- `docs/architecture/00_platform_architecture.md` — Authoritative platform architecture.
+- `docs/architecture/00_repository_structure.md` — Authoritative repository organization.
+- `docs/architecture/03_forecaster_interface.md` — Forecaster contract.
+- `docs/architecture/04_dataset_design.md` — Dataset design.
+- `docs/architecture/05_feature_engineering_framework.md` — Feature engineering design.
+- `docs/architecture/06_model_registry.md` — Registry design.
+- `docs/architecture/16_future_roadmap.md` — Long-term *architectural* evolution, distinct from the development sequence here.
+- `docs/documentation/01_documentation_strategy.md` — Documentation governance.
+- `docs/engineering/01_engineering_standards.md` — Engineering quality requirements.
 
 
 ---
