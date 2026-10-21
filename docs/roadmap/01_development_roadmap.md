@@ -432,7 +432,15 @@ A milestone is complete only when the relevant conditions are satisfied:
 
 ## 20. Near-term Execution Plan
 
+Following completion of teh documentation strategy and initial model-registry design:
 
+1. Review the current test warning and decide whether it needs correction.
+2. Build the smallest executable dataset-to-forecast workflow using `ForecastDataset` and `SeasonalNaiveForecaster`
+3. Add integration test for the workflow.
+4. Implement *evaluation primitives* with independently verified refernce cases.
+5. Implement temporal backtesting and leakage tests.
+6. Expand statistical baselines only after the shared workflow is reliable.
+7. Continue the agreed architecture documentation sequence, starting with `07_bakctesting_design.md`, alongside corresponding implementation. 
 
 ---
 
