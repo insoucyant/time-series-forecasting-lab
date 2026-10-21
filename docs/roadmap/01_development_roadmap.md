@@ -338,7 +338,27 @@ Every decisions use case should specify:
 
 ---
 
-## 15.
+## 15. Phase 9 — Research, education, and ecosystem
+
+### Objective
+
+Grow the lab into a credible long-term research and learning platform.
+
+### Candidate work
+
+- Public benchmark protocols and reproducible experiment recipes.
+- Foundation-model forecasting comparisons.
+- Research notebooks and teaching materials.
+- Extension and plugin interfaces when actual integration needs emerge.
+- Contribution guidelines and review processes.
+- Research reports, papers, and domain-specific case studies.
+
+### Exit criteria
+
+- [ ] Claims are backed by reproducible experiments.
+- [ ] New contributors can run the baseline workflow independently.
+- [ ] Experimental functionality is clearly separated from stable APIs.
+
 
 
 
