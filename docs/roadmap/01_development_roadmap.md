@@ -398,6 +398,19 @@ Changes that alter public interfaces, repository structure, or architecture shou
 
 ## 18. Milestone Tracking Template
 
+For each active milestone, record:
+
+| Field | Description |
+|---|---|
+| Milestone | Short, stable name |
+| Status | Planned / In progress / Blocked / Complete |
+| Dependencies | Required preceding components |
+| Deliverables | Code, tests, docs, and examples |
+| Acceptance criteria | Objective checks for completion |
+| Risks | Key uncertainties and mitigations |
+| Evidence | Test output, example runs, or release references |
+
+Avoid using number of files written as the sole measure of progress. Prefer integrated, tested capabilities.
 
 
 ---
