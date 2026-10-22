@@ -15,9 +15,19 @@ This document defines the design and contracts of backtesting capability. **It d
 
 ---
 
-## 2. 
+## 2. Relationship to Existing Architecture
 
+the backtesting design fits within the existing Forecasting Engine and works with the established project components:
 
+- `ForecastDataset`: validated time-series data and metadata.
+- `BaseForecaster`: common `fit` and `predict` interface for forecasting models.
+- `ForecastResult`: the forecasting output contract, subject to the existing schema.
+- `Configuration system: vaidated experiment settings and model parameters.
+- Model registry design: model discovery and reproducible model identification.
+- Evaluation framework (`08_evaluation_framework.md`): metrics, comparisons, and statistical analysis; designed separately.
+- Pipeline architecture (`09_pipeline_architecture.md`): orchestration of the full workflow; designed separately.
+
+The backtester should **orchestrate** data splits, model fitting, prediction, and result collection. It should not redefine model APIs, evaluation metrics, or dataset semantics. 
 
 ---
 
