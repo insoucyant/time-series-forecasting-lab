@@ -117,8 +117,37 @@ Partial final folds should be disallowed by default and supported only through a
 
 ---
 
-## 7.
+## 7. Proposed Backtest Congfiguration Contract
 
+The following is a **conceptual confguration schema**, not an assertion that these keys already exist in `config/config.yaml` or its Pydantic models. 
+
+| Field | Type | Meaning |
+|---|---|
+| `startegy` | enum | `expanding` or `sliding` |
+| `initial_train_size` | positive integer | Minimum obervations in the first training fold |
+| `window_size` | positive integer / optional | Required for sliding-window mode |
+| `horizon` | positive integer | Maximum forecast horizon |
+| `step` | positive integer | Origin advance in periods |
+| `gap` | nonnegative integer | Excluded periods after training cutoff |
+| `refit` | boolean | Whether the estimator is retained for each fold |
+| `allow_partial_folds` | boolean | Whether incomplete final horizons are permitted; default `false` | 
+| `random_seed` | integer/optional | Reproducibility control where applicable |
+
+Example (illustrative only):
+
+```yaml
+backtesting:
+    startegy: expanding
+    initial_train_size: 48
+    horizon: 6
+    step: 1
+    gap: 0
+    refit: true
+    allow_partial_golds: false
+    random_seed: 42
+```
+
+The exact configuration fields must be reconciled with the existing configuration schema before implementation. Do not introduce an independent, conflicting configuration loader.
 
 ---
 
