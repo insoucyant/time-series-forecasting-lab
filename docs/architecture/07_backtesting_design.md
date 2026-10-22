@@ -151,8 +151,24 @@ The exact configuration fields must be reconciled with the existing configuratio
 
 ---
 
-## 8.
+## 8. Backtesting Execution Flow
 
+```mermaid
+flowchartTD
+    A[Validated ForecastDataset] --> B[Validated backtest configuration]
+    B --> C[Generate Chronological Folds]
+    C --> D[Create isolated model instance for fold]
+    D --> E[Fit using training observations only]
+    E --> F[Predict requested horizon]
+    F --> G[Align predictions with actual timestamps]
+    G --> H[Validate and collect fold results]
+    H --> I{More folds?}
+    I -- Yes --> D
+    I -- No --> J[Backtest result dataset]
+    J --> K[Evaluation framework]
+```
+
+The diagram is a proposed execution design; it is not a description of an already deployed pipeline. 
 
 ---
 
