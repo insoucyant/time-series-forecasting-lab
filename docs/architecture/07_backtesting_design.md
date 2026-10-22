@@ -89,6 +89,10 @@ Fold 3:             [ TRAIN             ] [ TEST ]
 
 Suitable when recent observations may be more representative than distant history.
 
+## 5.3 Holdout evaluation
+
+A single chronological train/test split can be used as a basic *smoke test* or baseline, but it does not provide the same robustness as multiple forecast origins. 
+
 ---
 
 ## 6.
