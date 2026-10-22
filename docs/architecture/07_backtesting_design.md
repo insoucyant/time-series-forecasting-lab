@@ -99,7 +99,20 @@ Blocked or nested temporal validation, irregularly spaced series, panel-specific
 
 ---
 
-## 6.
+## 6. Fold Generation and Temporal Boundaries
+
+For a serie with ordered timestamps, `t_1, ..., t_T`, define a forecast origin `o` nad horizons `h = 1, ..., H`.
+
+For the standard no-gap case:
+
+- Training observability satisfy `timestamp <= o`.
+- Evaluated target timestamps are the next `H` valid periods after `o`. 
+- A fold is eligible only if its minimum training size and full required evaluation horizon are available.
+- The origin advances by the configured `step`. 
+
+With an optional gap `g`, the evaluated horizons start after the gap. The design must explicitly record whether reported horizons are measured from the origin or form the first evaluated timestamp; **the recommended convention is to measure horizons from the origin**.
+
+Partial final folds should be disallowed by default and supported only through an explicit option with clear output metadata. 
 
 
 ---
