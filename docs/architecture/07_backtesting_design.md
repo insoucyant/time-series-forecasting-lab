@@ -77,6 +77,17 @@ Fold 3: [ TRAIN                         ] [ TEST ]
 
 Suitable for models intended to learn from all available historical data.
 
+### 5.2 Sliding-window backtesting
+
+The training window has a fixed length and moves forward.
+
+```text
+Fold 1: [ TRAIN             ] [ TEST ]
+Fold 2:       [ TRAIN             ] [ TEST ]
+Fold 3:             [ TRAIN             ] [ TEST ]
+```
+
+Suitable when recent observations may be more representative than distant history.
 
 ---
 
