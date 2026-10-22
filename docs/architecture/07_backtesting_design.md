@@ -44,8 +44,21 @@ The backtester should **orchestrate** data splits, model fitting, prediction, an
 
 ---
 
-## 4.
+## 4. Core Terminology
 
+| Term | Meaning |
+|---|---|
+| *Forecast origin (cutoff)* | last timestamp whose observed target is available to the model |
+| *Horizon* (`h`) | Number of periods ahead of the forecast origin |
+| *Initial training window* | Historical observations available for the first fit |
+| *step/stride* | Number of periods between consecutive forecast origin |
+| *Expanding window* | Training start is fixed; training end advances |
+| *Sliding window* | Training start and end both advance; window length is fixed |
+| *Fold* | One origin with its associated training and test oservations |
+| *Gap* | Optional excluded periods between the training end and teh evaluated targets |
+| *Refit* | Training a new model instance on each fold or at a configured interval |
+
+All period counts must be interpreted against the dataset's declared frequency, not as arbitrary row offsets when timestamps are irregular. 
 
 ---
 
