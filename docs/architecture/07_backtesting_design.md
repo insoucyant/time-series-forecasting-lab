@@ -62,7 +62,20 @@ All period counts must be interpreted against the dataset's declared frequency, 
 
 ---
 
-## 5.
+## 5. Backtesting Strategies
+
+### 5.1 Expanding-window backtesting
+
+The training window starts at the earliest permitted observation and grows as the forecast origin advances. 
+
+```text
+Time  ------------------------------------------------------------>
+Fold 1: [ TRAIN             ] [ TEST ]
+Fold 2: [ TRAIN                   ] [ TEST ]
+Fold 3: [ TRAIN                         ] [ TEST ]
+```
+
+Suitable for models intended to learn from all available historical data.
 
 
 ---
