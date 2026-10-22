@@ -172,7 +172,20 @@ The diagram is a proposed execution design; it is not a description of an alread
 
 ---
 
-## 9.
+## 9. Integration with `ForecastDataset`
+
+The backtester must consume the existing validated dataset interface rather than introducing a parallel dataset abstraction.
+
+Requirements:
+
+- Preserve the original input dataset without mutation
+- Respect timestamp, target, frequency, and optional series identifier metadata.
+- Slice folds by choronological boundaries and series identifiers.
+- Preserve the exact timestamp-to-target association.
+- Reject or explicitly handle missing periods in accordance with the dataset's validation rules.
+- Avoid reusing information from held-out periods during transformations.
+
+If a subset must be represented as a `ForecastDataset`, use its existing constructor and validated public interface. Do not add methods to `ForecastDataset` unless implementation reveals a concrete necessity.
 
 
 ---
