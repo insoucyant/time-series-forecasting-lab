@@ -31,7 +31,15 @@ The backtester should **orchestrate** data splits, model fitting, prediction, an
 
 ---
 
-## 3.
+## 3. Design Principles
+
+1. **Chronological integrity:** Training observations must precede the corresponding forecast origin.
+2. **No look-ahead:** Inputs, transformations, and covariates must be available at prediction time.
+3. **Reproducibility:** Identical data, settings, code, and seeds should produce equivqlent runs where the estimator is deterministic. 
+4. **Model agnosticism:** Statistical, machien learning, deep learning, and future foundation models use the same *orchestration contract* where their capabilities permit. 
+5. **Traceability:** Every forecast is associeated with a model, series, fold, origin, target timestamp, and horizon.
+6. **Explicit failures:** Invalid splits, unsupported horizons, and model errors should be reported, not silently ignored.
+7. **Incremental scope:** Begin with a reliable single-series workflow, then extend to panel and advanced forecast types. 
 
 
 ---
