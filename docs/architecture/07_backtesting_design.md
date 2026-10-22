@@ -93,6 +93,10 @@ Suitable when recent observations may be more representative than distant histor
 
 A single chronological train/test split can be used as a basic *smoke test* or baseline, but it does not provide the same robustness as multiple forecast origins. 
 
+## 5.4 Future Strategies
+
+Blocked or nested temporal validation, irregularly spaced series, panel-specific calendars, and event-driven evaluation may be introduced when justified. they are not prerequisites for the first implementation.
+
 ---
 
 ## 6.
