@@ -190,7 +190,13 @@ If a subset must be represented as a `ForecastDataset`, use its existing constru
 
 ---
 
-## 10.
+## 10. Integration with `BaseForecaster`
+
+The engine should use the established `fit` and `predict` methods and honor the exiting `ForecastResult` contract.
+
+Model-specific behavior, including the meaning of `predict` arguments, must be checked against the current `BaseForecaster` implementation before coding. The backtesting design does **not** authorize silently changing that interface. 
+
+Each fold should ordinarily receive an independent model instance to prevent fitted state leaking across folds. If `refit=false` is supported, its semantics must be defined and validated for each model type; otherwise reject the option rather than pretending it works. 
 
 
 ---
