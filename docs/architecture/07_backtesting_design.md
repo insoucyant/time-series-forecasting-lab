@@ -206,11 +206,22 @@ A model factory or registry-backed constructor may be used when available. For t
 
 Predictions must be matched to evaluation timestamps using the declared frequency and forecast origin. Never assume that row order alone guarantees correct alignment.
 
-
 ---
 
-## 11.
+## 11. Multi-Series Backtesting
 
+The long-term backtester should support datasets containing multiple series identifiers.
+
+Important design choices include:
+
+- **Shared-origin mode:** All series use the same calendar cutoffs, with explicit eligibility rles for shorter histories.
+- **Per-series-origin mode:** Each series has its own valid cutoffs.
+- **Local models:** One fitted model per series and fold.
+- **Global models:** One model trained on multiple series, subject to its supported interface.
+
+The initial implementation may focus on a single series. Multi-series execution should be introduced after the single-series contract and results have been tested.
+
+A global model must not train on future observations from one series while forecasting an earlier cutoff for another series unless the experiment design explicitly permits that information and documents its availability.
 
 ---
 
