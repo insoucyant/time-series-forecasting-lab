@@ -282,8 +282,13 @@ The first implementation should prioritize strict target separation and fold iso
 
 ---
 
-## 15.
+## 15. Error Handling and Fold Policies
 
+Distinguish configuration errors, data errors, model fit errors, prediction errors, and output alignment errors.
+
+Recommended initial policy: **fail fast** on invalid configuration, invalid data, or violated temporal invariants. A future configurable `continue_on_fold_error` mode may record failures while continuing other folds, but must never misrepresent missing forecasts as successful predictions. 
+
+When an error occurs, record sufficient context: run, model, series, fold, origin-stage, exception type, and message. Avoid logging raw sensitive dataset contents.
 
 ---
 
