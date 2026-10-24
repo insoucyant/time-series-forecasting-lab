@@ -308,12 +308,25 @@ Persisting these records is a later pipeline/experiment-tracking concern; the ou
 
 ---
 
-## 17.
+## 17. Computational Efficiency
 
+The initial design should favor correctness and traceability over premature optimization.
+
+Potential later improvements.
+
+- Cache immutable, validated fold definitions.
+- Parallelize independent folds or series where safe.
+- Reuse fitted state only when the model explicitly supports valid incremental training.
+- Bound memory use for large panel datasets.
+- Support checkpointing and restart for long-running backtests.
+
+Parallelization must not compromise determinism, ordering, or model isolation.
 
 ---
 
-## 18.
+## 18. Testing Startegy
+
+### 18.1 Unit tests
 
 
 ---
