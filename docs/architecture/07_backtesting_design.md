@@ -328,6 +328,16 @@ Parallelization must not compromise determinism, ordering, or model isolation.
 
 ### 18.1 Unit tests
 
+- Expanding-window fold boundaries.
+- Sliding-window fold boundaries.
+- Step, gap, and horizon calculations.
+- Too-short datasets and invalid settings.
+- No overlap between training observations and evaluated future targets.
+- Correct alignment of timestamps, horizons, predictions, and actuals.
+- Input dataset immutability.
+- Deterministic fold ordering and identifiers.
+
+
 
 ---
 
