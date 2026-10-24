@@ -225,8 +225,28 @@ A global model must not train on future observations from one series while forec
 
 ---
 
-## 12.
+## 12. Backtesting Output Contract
 
+A long-format, one-row-per-forecast-target result is recommended for interoperability with evaluation and experiment tracking.
+
+| Field | Description |
+|---|---|
+| `run_id` | Identifier of the backtesting run |
+| `model_id` | Stable model identifier |
+| `series_id` | Series identifier, nullable for single-series data |
+| `fold_id` | Fold identifier |
+| `forecast_origin` | Historical cutoff at which the forecast was issued |
+| `target_timestamp` | Timestamp being forecast |
+| `horizon` | Periods ahead of forecast origin |
+| `y_true` | Observed target |
+| `y_pred` | Point forecast |
+| `fit_status` | Fold fit outcome |
+| `predict_status` | Fold prediction outcome | 
+
+
+Additional optional metadata may include model version, configuration hash, data version, runtime, seed, and error code. Future probabilistic outputs may be represented in a separate, clearly specified extension rather than overloading `y_pred`. 
+
+**Uniqueness invariant:** For a given run and model, the combination `(series_id, fold_id, forecast_origin, target_timestamp, horizon)` must identify at most one forecast record. 
 
 ---
 
