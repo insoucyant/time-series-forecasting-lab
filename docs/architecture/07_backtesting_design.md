@@ -292,8 +292,19 @@ When an error occurs, record sufficient context: run, model, series, fold, origi
 
 ---
 
-## 16.
+## 16. Reproducibility and Provenance
 
+A reproducible backtest should record, where available:
+
+- Source data identifier and version or content hash.
+- Timestamp range, series selection, and frequency.
+- Model identifier, parameters, and software version.
+- Backtest strategy and complete configuration.
+- Fold cutoffs and training/test ranges.
+- Random seed and relevant libraray versions.
+- Run timestamp and execution status.
+
+Persisting these records is a later pipeline/experiment-tracking concern; the output contract should be designed to carry or refernce them.
 
 ---
 
