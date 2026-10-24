@@ -250,7 +250,19 @@ Additional optional metadata may include model version, configuration hash, data
 
 ---
 
-## 13.
+## 13. Separation from Evaluation 
+
+The backtesting engine produces out-of-sample forecasts and actuals. The evaluation framework consumes these records and computes metrics.
+
+This separation enables:
+
+- Reuse of one backtest for multiple series.
+- Model comparisons on identical folds and horizons.
+- Diagnostics by series, time period, and horizon.
+- Statistical significance testing without retraining models unnecessarily.
+
+
+Detailed metrics definitions belong to `08_evaluation_framework.md`, not in this document.
 
 
 ---
