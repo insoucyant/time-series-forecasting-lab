@@ -198,6 +198,14 @@ Model-specific behavior, including the meaning of `predict` arguments, must be c
 
 Each fold should ordinarily receive an independent model instance to prevent fitted state leaking across folds. If `refit=false` is supported, its semantics must be defined and validated for each model type; otherwise reject the option rather than pretending it works. 
 
+### 10.1 Model construction
+
+A model factory or registry-backed constructor may be used when available. For the first implementation, a simple explicitly supplied constructor is sufficient if it preseves configuration and instance isolation.
+
+### 10.2 Forecast alignment 
+
+Predictions must be matched to evaluation timestamps using the declared frequency and forecast origin. Never assume that row order alone guarantees correct alignment.
+
 
 ---
 
