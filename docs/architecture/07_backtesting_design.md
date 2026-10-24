@@ -267,8 +267,18 @@ Detailed metrics definitions belong to `08_evaluation_framework.md`, not in this
 
 ---
 
-## 14.
+## 14. Data Leakage Prevention
 
+The following must be enforced or explicitly validated:
+
+1. **Temporal leakage:** No future target observations in the training fold.
+2. **Feature leakage:** Lagged, rolling, and aggregated features are calculated only from information available at the origin.
+3. **Transformation leakage:** Scalers, imputers, and encoders are fitted on training data only, then applied to evaluation data.
+4. **Covariate leakage:** Future covariates are used only when genuinely known at forecast issuance time.  
+5. **Selection leakage:** Hyperparameters tuning and model selection must not optimize directly against the final untouched test period. 
+6. **Cross-series leakage:** For global models, time-based restrictions apply across all participating series.
+
+The first implementation should prioritize strict target separation and fold isolation; feature-pipeline safeguards become mandatory as feature engineering in integrated.
 
 ---
 
