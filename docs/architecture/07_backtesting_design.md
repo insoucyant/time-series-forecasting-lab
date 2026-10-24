@@ -337,7 +337,12 @@ Parallelization must not compromise determinism, ordering, or model isolation.
 - Input dataset immutability.
 - Deterministic fold ordering and identifiers.
 
+### 18.2 Integration tests
 
+- Run backtesting using the existing `SeasonalNaiveForecaster` and `ForecastDataset`.
+- Verify the engine uses the established `BaseForecaster` interface.
+- Check fold isolation and model refitting behavior.
+- Verify downstream compatibility with the evaluation result contract.
 
 ---
 
