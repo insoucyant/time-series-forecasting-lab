@@ -344,6 +344,18 @@ Parallelization must not compromise determinism, ordering, or model isolation.
 - Check fold isolation and model refitting behavior.
 - Verify downstream compatibility with the evaluation result contract.
 
+### 18.3 Golden tests
+
+Construct small synthetic series for which every fold, prediction, and expected error can be calculated manually. Store expected values in tests and compare them with pipeline output. 
+
+### 18.4 Property and edge-case tests
+
+- No forecast origin is later than its target timestamp.
+- Horizons remain positive and consistent with the declared frequency.
+- Duplicate timestamps and missing periods follow dataset calidation policy.
+- Multi-series histories with dufferent start/end dates are handle explicitly.
+- Missing or invalid predictions are not silently accepted.
+
 ---
 
 ## 19.
