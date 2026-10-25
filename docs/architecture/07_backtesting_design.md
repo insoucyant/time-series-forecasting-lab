@@ -376,7 +376,18 @@ Construct small synthetic series for which every fold, prediction, and expected 
 
 ---
 
-## 20.
+## 20. Incremental Implementation Plan
+
+| Stage | Deliverable | Exit condition |
+|---|---|---|
+| 1 | Backtest configuration validation and chronological fold generator | All fold-boundary unit tests pass |
+| 2 | Single-series execution with `BaseForecaster` | Seasonal Naive integration test passes |
+| 3 | Stnadardized result collection and validation | Golden outputs and alignment tests pass |
+| 4 | Evaluation framework integration | Metrics consume backtest results without custom reshaping |
+| 5 | Multi-series execution | Series-specific and shared-cutoff tests pass |
+| 6 | Advanced features | Introduced only with documented need and tests |
+
+The stages describe logical deliverables, **not new mandated folders or files**. Their implememntation locations must follow the existing repository structure. 
 
 
 ---
