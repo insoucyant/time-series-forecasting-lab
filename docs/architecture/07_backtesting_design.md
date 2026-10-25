@@ -407,6 +407,11 @@ This document is authoratative for the **backtesting design**, while the above m
 
 ## 22. Current Status and Next Action
 
+**Existing foundation:** Configuration framework, `ForecastDataset`, `BaseForecaster`, `ForecastResult`, and `SeasonalNaiveForecaster` have been implemented and initially tested. 
+
+**Not yet implemented:** The backtesting engine, its fold generator, result schema, and the evaluation integration described above are planned components.
+
+**Next action:** Review this design against the current `BaseForecaster.predict` and `ForecastResult` signatures before writing the first backtesting implementation. Preserve existing interfaces unless a verified incompatibility required a deliberate change.
 
 
 --- 
