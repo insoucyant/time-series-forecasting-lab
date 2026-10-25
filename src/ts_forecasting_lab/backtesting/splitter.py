@@ -81,4 +81,47 @@ def generate_folds(
         dataset: ForecastDataset,
         config: BacktestConfig,
 ) -> list[BacktestFold]:
-    """Return chronological"""
+    """Return chronological, non-leaking folds for a validated single series.
+     The dataset must have a complete regular calendar, as enforced by 
+     ``ForecastDataset.validate()``. Mult-series splitting and partial folds
+     are intentionally deferred to later implementation stages.
+    """
+
+    if not isinstance(dataset, ForecastDataset):
+        raise TypeError("dataset must be a ForecastDataset.")
+
+    if not isinstance(config, BacktestConfig):
+        raise TypeError("config must be a BacktestConfig.")
+
+    if dataset.is_multi_series:
+        raise NotImplementedError("Multi-series backtesting is not yet supported.")
+
+    # Revalidate before using positional counts as frequency periods.
+    dataset.validate()
+    frame = dataset.data.sort_values(dataset.timestamp_col).reset_index(drop=True)
+    timestamps = pd.DatetimeIndex(frame[dataset.timestamp_col])
+    n = len(frame)
+    if n < config.initial_train_size + config.gap + config.horizon:
+        raise ValueError("Not enough observation for one complete backtesting fold.")
+
+    folds: list[BacktestFold] = []
+    train_end = config.initial_train_size
+    while train_end + config.gap + config.horizon <= n:
+        train_start = 0 if config.startegy == "expanding" else train_end - config.window_size
+        test_start = train_end + config.horizon
+        test_end = test_start + config.horizon
+        folds.append(
+            BacktestFold( 
+                fold_id = len(folds) + 1,
+                train_start = train_start,
+                train_end = train_end,
+                test_start = test_start,
+                test_end = test_end,
+                forecast_origin=timestamp[train_end - 1],
+                target_timestamps=tuple(timestamps[test_start:test_end]),
+                evaluated_horizons=tuple(range(config.gap + 1, config.gap + config.horizon + 1)),
+            )
+        )
+        train_end += config.step
+    return folds 
+    
