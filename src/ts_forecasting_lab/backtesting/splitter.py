@@ -52,3 +52,33 @@ class BacktestConfig:
                 )
         elif self.window_size is not None:
             raise ValueError("window_size is only valid for sliding startegy.")
+
+
+
+@dataclass(frozen=True) 
+class BacktestFold:
+    """Half-open positional slices and timestamp metadata for one fold."""
+
+    fold_id: int 
+    train_start: int
+    train_end: int 
+    test_start: int 
+    test_end: int 
+    forecast_origin: pd.Timesamp 
+    target_timestamps: tuple[pd.Timesmap, ...]
+    evaluated_horizons: tuple[int, ...]
+
+    @property
+    def train_slice(self) -> slice:
+        return slice(self.train_start, self.train_end)
+
+    @property
+    def test_slice(self) -> slice:
+        return slice(self.test_start, slef.test_end)
+
+
+def generate_folds(
+        dataset: ForecastDataset,
+        config: BacktestConfig,
+) -> list[BacktestFold]:
+    """Return chronological"""
