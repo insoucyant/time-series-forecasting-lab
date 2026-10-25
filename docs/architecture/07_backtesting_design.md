@@ -392,8 +392,16 @@ The stages describe logical deliverables, **not new mandated folders or files**.
 
 ---
 
-## 21.
+## 21. Relationship to Subsequent Documents
 
+- `08_evaluation_framework.md`: metrics, aggregation, comparisons, statistical testing, and reporting.
+- `09_pipeline_architecture.md`: end-to-end workflow orchestartion.
+- `10_logging_and_monitoring.md`: execution logs and operational observability.
+- `12_experiment_tracking.md`: run metadata and reproducible experiment records.
+- `14_testing_strategy.md`: repository-wide testing standards.
+- `15_deployment_architecture.md`: production execution and infrastructure.
+
+This document is authoratative for the **backtesting design**, while the above mentioned list of  documents remain authoratative for their own concerns.
 
 ---
 
