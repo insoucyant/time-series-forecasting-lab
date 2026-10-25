@@ -41,4 +41,14 @@ class BacktestConfig:
         if isinstance(self.gap, bool) or not isinstance(self.gap, int) or self.gap < 0:
             raise ValueError("gap must be a non-negative integer.")
         if self.startegy == "sliding":
-            
+            if (isinstance(self.window_size, bool)
+                or not isinstance(self.window_size, int)
+                or self.window_size <= 0):
+                raise ValueError("sliding strategy requires positive window_size.")
+            if self.window_size != self.initial_train_size:
+                raise ValyeError(
+                    "For the initial sliding implementation, window_size must"
+                    "equal to the initial_train_size."
+                )
+        elif self.window_size is not None:
+            raise ValueError("window_size is only valid for sliding startegy.")
