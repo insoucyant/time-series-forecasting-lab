@@ -358,7 +358,20 @@ Construct small synthetic series for which every fold, prediction, and expected 
 
 ---
 
-## 19.
+## 19. Acceptance Criteria for Initial Implementation
+
+- [ ] Existing dataset and forecaster interfaces are reused without unnecessary changes.
+- [ ] Expanding-window backtesting works for a valid single series.
+- [ ] Sliding-window backtesting works for a valid single series.
+- [ ] Fold generation has deterministic, documented behavior.
+- [ ] Forecasts are aligned to the correct timestamps and horizons.
+- [ ] No held-out target observations enter model fitting.
+- [ ] Results contain model, fold, origin, horizon, actual, and prediction fields.
+- [ ] Invalid configuration and model failures produce clear errors.
+- [ ] Unit tests and a Seasonal Naive integration test pass.
+- [ ] Golden test results match hand-calculated expectations.
+- [ ] Existing repository tests continue to pass.
+- [ ] Documentation describes teh actual implemented behavior.
 
 
 ---
