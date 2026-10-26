@@ -20,3 +20,12 @@ def make_dataset(n: int = 20) -> ForecastDataset:
         target_col="sales",
         frequency="D",
     )
+
+def test_expanding_window_boundaries():
+    folds = generate_folds(
+        make_dataset(), BacktestConfig("expanding", initial_train_size=10, horizon=3, step=3)
+    )
+    assert [(f.train_start, f.train_end, f.test_start, f.test_end) for f in folds] == [
+        (0, 10, 10, 13), (0, 13, 13, 16), (0, 16, 16, 19)
+    ]
+    assert [f.fold_id for f in folds] == [1, 2, 3]
