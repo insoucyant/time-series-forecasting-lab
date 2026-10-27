@@ -51,3 +51,8 @@ def test_half_open_slices_select_expected_rows():
     frame = ds.data
     assert frame.iloc[fold.train_slice]["sales"].tolist() == list(range(10))
     assert frame.iloc[fold.test_slice]["sales"].tolist() == [10, 11, 12]
+
+def test_no_temporal_overlap():
+    folds = generate_folds(make_dataset(), BacktestConfig("expanding", 8, 4, step=2))
+    assert all(f.train_end <= f.test_start for f in folds)
+    assert all(f.forecast_origin < f.target_timestamps[0] for f in folds)
