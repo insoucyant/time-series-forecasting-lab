@@ -68,3 +68,13 @@ def test_exactly_one_fold():
 def test_insufficient_observations():
     with pytest.raises(ValueError, match="Not enough observations"):
         generate_folds(make_dataset(12), BacktestConfig("expanding", 10, 3))
+
+@pytest.mark.parametrize("kwargs", [
+    {"initial_train_size": 0}, {"horizon": 0}, {"step": 0},
+    {"gap": -1}, {"initial_train_size": True}
+])
+def test_invalid_numeric_configuration(kwargs):
+    args = {"strategy": "expanding", "initial_train_size": 10, "horizon": 3}
+    args.update(kwargs)
+    with pytest.raises(ValueError):
+        BacktestConfig(**args)
