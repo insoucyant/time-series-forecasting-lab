@@ -37,3 +37,10 @@ def test_sliding_window_boundaries():
     assert [(f.train_start, f.train_end) for f in folds] == [
         (0,13), (3,13), (6,16)
     ]
+
+def test_gap_and_horizon_convention():
+    fold = generate_folds(make_dataset(), BacktestConfig("expanding", 10, 3, gap=2))[0]
+    assert (fold.train_end, fold.test_start, fold.test_end) == (10, 12, 15)
+    assert fold.evaluated_horizons == (3, 4, 5)
+    assert fold.forecast_origin == pd.Timestamp("2026-01-10")
+    assert fold.target_timestamps[0] == pd.Timestamp("2026-01-13")
