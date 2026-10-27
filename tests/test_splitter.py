@@ -56,3 +56,8 @@ def test_no_temporal_overlap():
     folds = generate_folds(make_dataset(), BacktestConfig("expanding", 8, 4, step=2))
     assert all(f.train_end <= f.test_start for f in folds)
     assert all(f.forecast_origin < f.target_timestamps[0] for f in folds)
+
+def test_partial_final_fold_is_not_generated():
+    folds = generate_folds(make_dataset(15), BacktestConfig("expanding", 10, 4, step=2))
+    assert len(folds) == 1
+    assert folds[0].test_end == 14
