@@ -44,3 +44,10 @@ def test_gap_and_horizon_convention():
     assert fold.evaluated_horizons == (3, 4, 5)
     assert fold.forecast_origin == pd.Timestamp("2026-01-10")
     assert fold.target_timestamps[0] == pd.Timestamp("2026-01-13")
+
+def test_half_open_slices_select_expected_rows():
+    ds = make_dataset()
+    fold = generate_folds(ds, BacktestConfig("expanding", 10, 3))[0]
+    frame = ds.data
+    assert frame.iloc[fold.train_slice]["sales"].tolist() == list(range(10))
+    assert frame.iloc[fold.test_slice]["sales"].tolist() == [10, 11, 12]
