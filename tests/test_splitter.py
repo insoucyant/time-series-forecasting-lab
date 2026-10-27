@@ -64,3 +64,7 @@ def test_partial_final_fold_is_not_generated():
 
 def test_exactly_one_fold():
     assert len(generate_folds(make_dataset(13), BacktestConfig("expanding", 10, 3))) == 1
+
+def test_insufficient_observations():
+    with pytest.raises(ValueError, match="Not enough observations"):
+        generate_folds(make_dataset(12), BacktestConfig("expanding", 10, 3))
