@@ -29,3 +29,11 @@ def test_expanding_window_boundaries():
         (0, 10, 10, 13), (0, 13, 13, 16), (0, 16, 16, 19)
     ]
     assert [f.fold_id for f in folds] == [1, 2, 3]
+
+def test_sliding_window_boundaries():
+    fold = generate_folds(
+        make_dataset(), BacktestConfig("sliding", 10, 3, step=3, window_size=10)
+    )
+    assert [(f.train_start, f.train_end) for f in folds] == [
+        (0,13), (3,13), (6,16)
+    ]
