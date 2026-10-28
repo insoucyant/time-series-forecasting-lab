@@ -118,3 +118,13 @@ def test_input_dataframe_is_unchanged():
     before = ds.data
     generate_folds(ds, BacktestConfig("expanding", 10, 3))
     pd.testing.assert_frame_equal(ds.data, before)
+
+
+def test_revalidation_detects_missing_periods_after_mutation():
+    ds = make_dataset()
+    # Dataset has no public mutator; exercis validation through an explicitly 
+    # unvalidated dataset with a missing date.
+    frame = ds.data.drop(index=5).reset_index(drop=True)
+    invalid = ForecastDataset(frame, "timestamp", "sales", "D", validate=False)
+    with pytest.raises(ValueError, match="do not conform"):
+        generate_folds(invalid, BacktestConfig("expanding", 10, 3))
