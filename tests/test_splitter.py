@@ -105,3 +105,11 @@ def test_multi_series_is_explicitly_unsupported():
     dataset = ForecastDataset(frame, "timestamp", "sales", "D", "store_id")
     with pytest.raises(NotImplementedError, match="Multi-series"):
         generate_folds(dataset, BacktestConfig("expanding", 8, 3))
+
+
+def test_reproducible_fold_generation():
+    ds = make_dataset()
+    config = BacktestConfig("expanding", 10, 3, step=2)
+    assert generate_folds(ds, config) == generate_folds(ds, config)
+
+
