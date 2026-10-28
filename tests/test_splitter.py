@@ -82,3 +82,7 @@ def test_invalid_numeric_configuration(kwargs):
 def test_invalid_strategy():
     with pytest.raises(ValueError, match="strategy"):
         BacktestConfig("unknown", 10, 3)
+
+def test_sliding_requires_window_size():
+    with pytest.raises(ValueError, match="window_size"):
+        BacktestConfig("sliding", 10, 3)
