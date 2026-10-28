@@ -78,3 +78,7 @@ def test_invalid_numeric_configuration(kwargs):
     args.update(kwargs)
     with pytest.raises(ValueError):
         BacktestConfig(**args)
+
+def test_invalid_strategy():
+    with pytest.raises(ValueError, match="strategy"):
+        BacktestConfig("unknown", 10, 3)
