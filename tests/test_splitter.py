@@ -90,3 +90,7 @@ def test_sliding_requires_window_size():
 def test_sliding_window_must_equal_initial_train_size():
     with pytest.raises(ValueError, match="equal initial train size"):
         BacktestConfig("sliding", 10, 3, window_size=8)
+
+def test_expanding_rejects_window_size():
+    with pytest.raises(ValueError, match="only valid"):
+        BacktestConfig("expanding", 10, 3, window_size=10)
