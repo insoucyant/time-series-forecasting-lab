@@ -94,3 +94,14 @@ def test_sliding_window_must_equal_initial_train_size():
 def test_expanding_rejects_window_size():
     with pytest.raises(ValueError, match="only valid"):
         BacktestConfig("expanding", 10, 3, window_size=10)
+
+
+def test_multi_series_is_explicitly_unsupported():
+    frame = pd.DataFrame({
+        "timestamp": list(pd.date_range("2026-01-01", periods=12, freq="D")) * 2,
+        "sales": list(range(12)) * 2,
+        "store_id": ["A"] * 12 + ["B"] * 12,
+    })
+    dataset = ForecastDataset(frame, "timestamp", "sales", "D", "store_id")
+    with pytest.raises(NotImplementedError, match="Multi-series"):
+        generate_folds(dataset, BacktestConfig("expanding", 8, 3))
