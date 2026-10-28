@@ -113,3 +113,8 @@ def test_reproducible_fold_generation():
     assert generate_folds(ds, config) == generate_folds(ds, config)
 
 
+def test_input_dataframe_is_unchanged():
+    ds = make_dataset()
+    before = ds.data
+    generate_folds(ds, BacktestConfig("expanding", 10, 3))
+    pd.testing.assert_frame_equal(ds.data, before)
