@@ -47,8 +47,8 @@ class BacktestConfig:
                 raise ValueError("sliding strategy requires positive window_size.")
             if self.window_size != self.initial_train_size:
                 raise ValueError(
-                    "For the initial sliding implementation, window_size must"
-                    "equal to the initial_train_size."
+                    "For the initial sliding implementation, "
+                    "window_size must equal initial_train_size."
                 )
         elif self.window_size is not None:
             raise ValueError("window_size is only valid for sliding strategy.")

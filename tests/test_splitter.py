@@ -31,11 +31,14 @@ def test_expanding_window_boundaries():
     assert [f.fold_id for f in folds] == [1, 2, 3]
 
 def test_sliding_window_boundaries():
-    fold = generate_folds(
-        make_dataset(), BacktestConfig("sliding", 10, 3, step=3, window_size=10)
+    folds = generate_folds(
+        make_dataset(), 
+        BacktestConfig("sliding", 10, 3, step=3, window_size=10)
     )
     assert [(f.train_start, f.train_end) for f in folds] == [
-        (0,13), (3,13), (6,16)
+        (0,10), 
+        (3,13), 
+        (6,16),
     ]
 
 def test_gap_and_horizon_convention():
@@ -88,7 +91,10 @@ def test_sliding_requires_window_size():
         BacktestConfig("sliding", 10, 3)
 
 def test_sliding_window_must_equal_initial_train_size():
-    with pytest.raises(ValueError, match="equal initial train size"):
+    with pytest.raises(
+        ValueError, 
+        match="equal initial_train_size"
+        ):
         BacktestConfig("sliding", 10, 3, window_size=8)
 
 def test_expanding_rejects_window_size():
