@@ -24,7 +24,7 @@ class BacktestConfig:
     the forecast origin, so the first evaluated position is ``gap + 1``. 
     """
 
-    startegy: Literal["expanding", "sliding"]
+    strategy: Literal["expanding", "sliding"]
     initial_train_size: int
     horizon: int
     step: int = 1
@@ -32,7 +32,7 @@ class BacktestConfig:
     window_size: int | None = None
 
     def __post_init__(self) -> None:
-        if self.startegy not in {"expanding", "sliding"}:
+        if self.strategy not in {"expanding", "sliding"}:
             raise ValueError("strategy must be 'expanding' or 'siliding'. ")
         for name in ("initial_train_size", "horizon", "step"):
             value = getattr(self, name)
@@ -40,18 +40,18 @@ class BacktestConfig:
                 raise ValueError(f"{name} must be a positive integer.")
         if isinstance(self.gap, bool) or not isinstance(self.gap, int) or self.gap < 0:
             raise ValueError("gap must be a non-negative integer.")
-        if self.startegy == "sliding":
+        if self.strategy == "sliding":
             if (isinstance(self.window_size, bool)
                 or not isinstance(self.window_size, int)
                 or self.window_size <= 0):
                 raise ValueError("sliding strategy requires positive window_size.")
             if self.window_size != self.initial_train_size:
-                raise ValyeError(
+                raise ValueError(
                     "For the initial sliding implementation, window_size must"
                     "equal to the initial_train_size."
                 )
         elif self.window_size is not None:
-            raise ValueError("window_size is only valid for sliding startegy.")
+            raise ValueError("window_size is only valid for sliding strategy.")
 
 
 
@@ -64,8 +64,8 @@ class BacktestFold:
     train_end: int 
     test_start: int 
     test_end: int 
-    forecast_origin: pd.Timesamp 
-    target_timestamps: tuple[pd.Timesmap, ...]
+    forecast_origin: pd.Timestamp 
+    target_timestamps: tuple[pd.Timestamp, ...]
     evaluated_horizons: tuple[int, ...]
 
     @property
@@ -74,7 +74,7 @@ class BacktestFold:
 
     @property
     def test_slice(self) -> slice:
-        return slice(self.test_start, slef.test_end)
+        return slice(self.test_start, self.test_end)
 
 
 def generate_folds(
@@ -102,13 +102,13 @@ def generate_folds(
     timestamps = pd.DatetimeIndex(frame[dataset.timestamp_col])
     n = len(frame)
     if n < config.initial_train_size + config.gap + config.horizon:
-        raise ValueError("Not enough observation for one complete backtesting fold.")
+        raise ValueError("Not enough observations for one complete backtesting fold.")
 
     folds: list[BacktestFold] = []
     train_end = config.initial_train_size
     while train_end + config.gap + config.horizon <= n:
-        train_start = 0 if config.startegy == "expanding" else train_end - config.window_size
-        test_start = train_end + config.horizon
+        train_start = 0 if config.strategy == "expanding" else train_end - config.window_size
+        test_start = train_end + config.gap
         test_end = test_start + config.horizon
         folds.append(
             BacktestFold( 
@@ -117,7 +117,7 @@ def generate_folds(
                 train_end = train_end,
                 test_start = test_start,
                 test_end = test_end,
-                forecast_origin=timestamp[train_end - 1],
+                forecast_origin=timestamps[train_end - 1],
                 target_timestamps=tuple(timestamps[test_start:test_end]),
                 evaluated_horizons=tuple(range(config.gap + 1, config.gap + config.horizon + 1)),
             )
