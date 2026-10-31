@@ -48,3 +48,15 @@ def test_golden_naive_forecast_and_actuals():
     assert result.y_pred.tolist() == [9, 9, 9]
     assert result.horizon.tolist() == [1, 2, 3]
     assert result.target_timestamp.tolist() == list(pd.date_range("2026-01-01", periods=3))
+
+
+def test_gap_requests_extra_prediction_steps():
+    result = run_backtest(
+        make_dataset(15),
+        BacktestConfig("expanding", 10, 3, gap=2),
+        factory
+    )
+    first = result[result.fold_id == 1]
+    assert first.horizon.tolist == [3, 4, 5]
+    assert first.y_true.tolist() == [12, 13, 14]
+    assert first.y_pred.tolist() == [9, 9, 9]
