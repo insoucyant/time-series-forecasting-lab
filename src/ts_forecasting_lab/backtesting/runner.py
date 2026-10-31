@@ -81,4 +81,18 @@ def run_backtest(
 
         actual = frame.iloc[fold.test_slice]
         for horizon, target_timestamp, y_true in zip(fold.evaluated_horizons, fold.target_timestamps, actual[dataset.target_col, strict=True]):
-            
+            records.append({
+                "run_id": identifier,
+                "model_id": model.model_name,
+                "series_id": None,
+                "fold_id": fold.fold_id,
+                "forecast_origin": fold.forecast_origin,
+                "target_timestamp": target_timestamp,
+                "horizon": horizon,
+                "y_true": y_true,
+                "y_pred": by_step.loc[horizon],
+                "fit_status": "success",
+                "predict_status"
+            })
+
+    return pd.DataFrame.from_records(records, columns=RESULT_COLUMNS)
