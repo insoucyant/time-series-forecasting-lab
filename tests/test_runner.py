@@ -68,4 +68,15 @@ def test_sliding_window_golden():
         factory
     )
     assert result.groupby("fold_id").y_pred.first().tolist() == [9, 12, 15]
+
+def test_dataset_is_not_mutated():
+    dataset = make_dataset()
+    before = dataset.data
+    run_backtest(
+        dataset,
+        BacktestConfig("expanding", 10, 3),
+        factory
+    )
+    pd.testing.assert_frame_equal(dataset.data, before)
+    
     
