@@ -19,3 +19,29 @@ RESULT_COLUMNS = [
     "target_timestamp", "horizon", "y_true", "y_pred",
     "fit_status", "predict_status",
 ]
+
+def run_backtest(
+        dataset: ForecastDataset,
+        config: BacktestConfig,
+        model_factory: Callable[[], BaseForecaster],
+        *,
+        run_id: str | None = None, 
+) -> pd.DataFrame:
+    """Fit a fresh model for each fold and return aligned long-format forecasts.
+
+    Initial scope: single-series point forecasts, one model per fold, fail-fast.
+    The factory must return an unfitted BaseForecaster on every cell.
+    The existing SeasonalNaiveForecaster expects a training column named 'y'
+    and returns 'step' (1-based horizon) and 'yhat' columns.
+    """
+
+    folds = generate_folds(dataset, config)
+    frame = dataset.data.sort_values(dataset.timestamp_col).reset_index(drop=True)
+    identifier = run_id or uuid4().hex
+    if not isinstance(identifier, str) or not identifier.strip():
+        raise ValueError("run_id must be a non-empty string.")
+
+    records: list[dict[str, object]] = []
+    seen_model_instances: set[int] = set()
+    for fold in folds:
+        model = model_factory()
