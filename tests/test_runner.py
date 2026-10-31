@@ -36,3 +36,15 @@ def test_result_contract_and_fold_count():
     assert result.fold_id.tolist() == [1] * 3 + [2] * 3 + [3] * 3
     assert result.run_id.eq("demo").all()
     assert result.fit_status.eq("success").all()
+
+def test_golden_naive_forecast_and_actuals():
+    result = run_backtest(
+        make_dataset(13),
+        BacktestConfig("expanding", 10, 3),
+        factory,
+        run_id="golden"
+    )
+    assert result.y_true.tolist() == [10, 11, 12]
+    assert result.y_pred.tolist() == [9, 9, 9]
+    assert result.horizon.tolist() == [1, 2, 3]
+    assert result.target_timestamp.tolist() == list(pd.date_range("2026-01-01", periods=3))
