@@ -52,3 +52,10 @@ def run_backtest(
         if id(model) in seen_model_instances:
             riase ValueError("model_factory must return a fresh model per fold.")
         seen_model_instances.add(id(model))
+
+        train = frame.iloc[fold.train_slice][[dataset.target_col]].copy()
+        train = train.rename(columns={dataset.target_col: "y"})
+        try:
+            model.fit(train)
+        except Exception as exc:
+            raise RuntimeError(f"Model fit failed at fold {fold.fold_id}") from exc 
