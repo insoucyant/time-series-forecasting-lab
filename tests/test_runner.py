@@ -78,5 +78,16 @@ def test_dataset_is_not_mutated():
         factory
     )
     pd.testing.assert_frame_equal(dataset.data, before)
+
+
+def test_rejects_invalid_factory_result():
+    with pytest.raises(TypeError, match="BaseForecaster"):
+        run_backtest(
+            make_dataset(),
+            BacktestConfig("expanding", 10, 3),
+            lambda: object()
+        )
+
+def 
     
     
