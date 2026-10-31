@@ -20,3 +20,7 @@ def make_dataset(n=20):
         ),
         timestamp_col="date", target_col="sales", frequency="D",
     )
+
+def factory():
+    return SeasonalNaiveForecaster(season_length=1)
+
