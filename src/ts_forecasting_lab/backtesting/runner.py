@@ -59,3 +59,15 @@ def run_backtest(
             model.fit(train)
         except Exception as exc:
             raise RuntimeError(f"Model fit failed at fold {fold.fold_id}") from exc 
+
+
+        # Predict from the forecast origin through the gap and evaluated horizon.
+        requested_horizon = config.gap + config.horizon 
+        try:
+            result = model.predict(requested_horizon)
+        except Exception as exc:
+            raise RuntimeError(f"Model prediction failed at fold {fold.fold_id}.") from exc
+        if not isinstance(result, ForecastResult):
+            raise TypeError(f"Fold {fold.fold_id}: predict must return ForecastResult.")
+        if result.horizon != requested_horizon or result.model_name != model.model_name:
+            raise ValueError(f"Fold {fold.fold_id}: forecast metadata mismatch.")
