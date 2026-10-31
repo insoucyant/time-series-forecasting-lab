@@ -97,6 +97,13 @@ def test_rejects_reused_model():
             lambda: shared
         )
 
-def 
+def test_rejects_empty_run_id():
+    with pytest.raises(ValueError, match="run_id"):
+        run_backtest(
+            make_dataset(),
+            BacktestConfig("expanding", 10, 3)
+            factory,
+            run_id=" "
+        )
     
     
