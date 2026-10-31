@@ -71,3 +71,14 @@ def run_backtest(
             raise TypeError(f"Fold {fold.fold_id}: predict must return ForecastResult.")
         if result.horizon != requested_horizon or result.model_name != model.model_name:
             raise ValueError(f"Fold {fold.fold_id}: forecast metadata mismatch.")
+
+
+        predictions = result.predictions
+        if not isinstance(predictions, pd.DataFrame) or not {"step", yhat}.issubset(predictions.columns):
+            raise ValueError(f"Fold {fold.fold_id}: expected prediction columns 'step' and 'yhat'.")
+        if predictions["stFold {fold.fold_id}: predictions must be numeric and non-missing.")
+        by_step = predictions.set_index("step")["yhat"]
+
+        actual = frame.iloc[fold.test_slice]
+        for horizon, target_timestamp, y_true in zip(fold.evaluated_horizons, fold.target_timestamps, actual[dataset.target_col, strict=True]):
+            
