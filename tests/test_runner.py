@@ -88,6 +88,15 @@ def test_rejects_invalid_factory_result():
             lambda: object()
         )
 
+def test_rejects_reused_model():
+    shared = SeasonalNaiveForecaster(season_length=1)
+    with pytest.raises(ValueError, match="unfitted|fresh"):
+        run_backtest(
+            make_dataset(),
+            BacktestConfig("expanding", 10, 3, step=3),
+            lambda: shared
+        )
+
 def 
     
     
