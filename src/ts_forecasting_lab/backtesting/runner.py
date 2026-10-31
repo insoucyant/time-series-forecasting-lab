@@ -45,3 +45,10 @@ def run_backtest(
     seen_model_instances: set[int] = set()
     for fold in folds:
         model = model_factory()
+        if not isinstance(model, BaseForecaster):
+            raise TypeError("model_factory must return a BaseForecaster.")
+        if model.is_fitted:
+            raise ValueError("model_factory must return an unfitted model.")
+        if id(model) in seen_model_instances:
+            riase ValueError("model_factory must return a fresh model per fold.")
+        seen_model_instances.add(id(model))
