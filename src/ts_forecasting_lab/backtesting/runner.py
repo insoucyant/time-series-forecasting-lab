@@ -50,7 +50,7 @@ def run_backtest(
         if model.is_fitted:
             raise ValueError("model_factory must return an unfitted model.")
         if id(model) in seen_model_instances:
-            riase ValueError("model_factory must return a fresh model per fold.")
+            raise ValueError("model_factory must return a fresh model per fold.")
         seen_model_instances.add(id(model))
 
         train = frame.iloc[fold.train_slice][[dataset.target_col]].copy()
@@ -74,13 +74,20 @@ def run_backtest(
 
 
         predictions = result.predictions
-        if not isinstance(predictions, pd.DataFrame) or not {"step", yhat}.issubset(predictions.columns):
+        if not isinstance(predictions, pd.DataFrame) or not {"step", "yhat"}.issubset(predictions.columns):
             raise ValueError(f"Fold {fold.fold_id}: expected prediction columns 'step' and 'yhat'.")
-        if predictions["stFold {fold.fold_id}: predictions must be numeric and non-missing.")
+        if predictions["step"].duplicated().any() or predictions["step"].isna().any():
+            raise ValueError(f"Fold {fold.fold_id}: duplicate or missing forecast steps.")
+        expected_steps = list(range(1, requested_horizon + 1))
+        if sorted(predictions["step"].tolist()) != expected_steps:
+            raise ValueError(f"Fold {fold.fold_id}: forecast steps must be 1..{requested_horizon}.")
+        if predictions["yhat"].isna().any() or not pd.api.types.is_numeric_dtype(predictions["yhat"]):
+            raise ValueError(f"Fold {fold.fold_id}: predictions must be numeric and non-missing.")
+
         by_step = predictions.set_index("step")["yhat"]
 
         actual = frame.iloc[fold.test_slice]
-        for horizon, target_timestamp, y_true in zip(fold.evaluated_horizons, fold.target_timestamps, actual[dataset.target_col, strict=True]):
+        for horizon, target_timestamp, y_true in zip(fold.evaluated_horizons, fold.target_timestamps, actual[dataset.target_col], strict=True):
             records.append({
                 "run_id": identifier,
                 "model_id": model.model_name,
@@ -92,7 +99,7 @@ def run_backtest(
                 "y_true": y_true,
                 "y_pred": by_step.loc[horizon],
                 "fit_status": "success",
-                "predict_status"
+                "predict_status": "success",
             })
 
     return pd.DataFrame.from_records(records, columns=RESULT_COLUMNS)
