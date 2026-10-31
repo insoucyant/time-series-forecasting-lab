@@ -60,3 +60,12 @@ def test_gap_requests_extra_prediction_steps():
     assert first.horizon.tolist == [3, 4, 5]
     assert first.y_true.tolist() == [12, 13, 14]
     assert first.y_pred.tolist() == [9, 9, 9]
+
+def test_sliding_window_golden():
+    result = run_backtest(
+        make_dataset(),
+        BacktestConfig("sliding", 10, 3, step=3, window_size=10),
+        factory
+    )
+    assert result.groupby("fold_id").y_pred.first().tolist() == [9, 12, 15]
+    
