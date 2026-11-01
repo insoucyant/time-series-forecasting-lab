@@ -38,9 +38,24 @@ established and tested foundation: ForecastDataset, BaseForecaster, ForecastResu
 
 ---
 
-# 04. 
+# 04. Input Contract
 
+The evaluator consumes the runner's long-format backtest results, preferbaly as a pandas DataFrame. The initial point-forecast contract is:
 
+| Field | Meaning/rule |
+|---|---|
+| run_id | Nonemepty run identifier |
+| model_id | Stable model identifier |
+| series_id | Nullable for initial single-series runs |
+| fold_id | Positive fold identifier |
+| forecast_origin | Historical timestamp at forecast issuance |
+| target_timestamp | Timestamp of evaluated actual |
+| horizon | Positive integer periods ahead of origin | 
+| y_true | Finite observed target (numeric) |
+| y_pred | Finite point forecast (numeric) |
+| fit_status, predict_status | Successful status required for scored records; explicit failure policy later |
+
+Validate required columns, compatible dtypes, nonempty input, uniqueness of (*run_id, model_id, series_id, fold_id, forecast_orifin, targte_timestamp, horizon*), and *temporal ordering*. The horizon must agree with the origin/target frequency when that frequency is supplied. The inital behavior must not infer calendar frequency from arbitrary row order.   
 
 ---
 
