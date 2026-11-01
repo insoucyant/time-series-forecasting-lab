@@ -178,8 +178,11 @@ otherwise report undefined with a reason, not an invented zero. Since expanding 
 
 ---
 
-# 19.
+# 19. Dependencies and next action
 
+Implementation must first inspect the committed runner output columns and the existing repository structure. Then implement the smallest compatible evaluation module and its tests, without changing the tested backtesting components. After this architecture document is reviewed, move to implementation in short, verifiable steps.
+
+Document status: design proposal. Update status and interfaces after implementation is validated.
 
 
 ---
