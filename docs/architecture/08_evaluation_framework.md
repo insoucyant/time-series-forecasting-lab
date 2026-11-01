@@ -237,9 +237,9 @@ These signatures are designed proposals, not implemented APIs. Exact function na
 
 ---
 
-# 18.
+# 18. Out of scope for the initial evaluator
 
-
+Probabilistic forecasts (pinball loss, interval coverage, CRPS), quantile calibration, hierarchical coherence, cost-sensitive/business value metrics, automatic hyperparameter search, distributed execution, monitoring dashboards, and significance testing. These are future extensions, not prerequistes for a correct point-forecast evaluator.
 
 ---
 
