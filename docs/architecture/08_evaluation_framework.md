@@ -59,9 +59,17 @@ Validate required columns, compatible dtypes, nonempty input, uniqueness of (*ru
 
 ---
 
-# 05. 
+# 05. Evaluation levels and grouping 
 
+| Level | Default grouping | Purpose |
+|---|---|---|
+| Overall | run_id, model_id | Single headline metric per model/run |
+| By horizon | run_id, model_id, horizon | Error growth with lead time |
+| By fold | run_id, model_id, fold_id | Performance across historical origins |
+| By period | run_id, model_id, defined time bucket | Drift and seasonality diagnostocs |
+| By series (future) | run_id, model_id, series_id | Panel and portfolio comparisons | 
 
+All aggregate outputs include n_observations and coverage metadata. Do not treat repeated observations from overlapping backtest folds as independent evidence when reporting uncertainty or statistical tests.
 
 ---
 
