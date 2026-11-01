@@ -120,9 +120,19 @@ Default initial behaviour: calculate row-level errors, then pooled metrics over 
 
 ---
 
-# 09. 
+# 09. Comparison Contract 
 
+A model comparison must use a matched cohort: identical(series_id, forecast_origin, target_timestamp, horizon) evaluation keys, with run identity handled explicitly. Report candidate row count, matched row count, unmatched keys and coverage percentage. 
 
+Reject comparisons of incompatible targets, frequency, or horizon definitions. Ranking is permitted only after cohort alignment and explicit metric direction. 
+
+Recommended comparisons: MAE/RMSE difference, 
+
+$$
+\text{relative improvement} = \frac{\text{baseline_error - candidiate_error}}{\text{baseline_error}} \times 100 [\text{undefined if baseline_error}= 0 ].
+$$
+
+bias comparison, and horzon-sepcific profiles. Preserve baseline model identification in outputs.
 
 ---
 
