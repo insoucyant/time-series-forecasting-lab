@@ -199,9 +199,19 @@ These signatures are designed proposals, not implemented APIs. Exact function na
 
 ---
 
-# 14.
+# 14. Validation and Failure Policy
 
+- Fail fast for missing required fields, duplicate forecast keys, invalid numeric values, impossible timestamps, or unsupported metric names.
 
+- Validate that successful predictions contain the expected evaluated horizons and timestamps.
+
+- Explicitly define zero-denominator handling for WAPE/sMAPE and undefined training scale for MASE.
+
+- Reject empty matched cohorts for model comparisons; report coverage shortfalls rather than filling missing predictions.
+
+- Do not mutate the caller’s DataFrame. Preserve original rows and key columns.
+
+- Use clear exception messages with metric, run/model, and affected fold context; avoid exposing full sensitive records in logs.
 
 ---
  
