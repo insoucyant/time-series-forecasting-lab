@@ -136,13 +136,26 @@ bias comparison, and horzon-sepcific profiles. Preserve baseline model identific
 
 ---
 
-# 10. 
+# 10. Statistical inference (planned, not initial implementation)
 
-
+Forecast origins from rolling-origin evaluation are often correlated, especially when horizons overlap. Do not apply ordinary independent-observation t-tests to every score row. Future options include *paire loss-differential analysis*, *Diebold-Mariano-type tests* with appropriate *autocorrelation treatment*, or *bloc/boots
 
 ---
 
-# 11. 
+# 11. Diagnostics and visualizations
+
+- Actual versus predicted by target timestamp, with fold/origin filtering.
+
+- Absolute and signed error distributions; quantiles and extreme-error cases.
+
+- MAE/RMSE/bias by horizon and by fold.
+
+- Rolling or calendar-bucket errors, where sufficient observations exist.
+
+- Coverage matrix by model and horizon, highlighting missing or invalid records.
+
+- Matched-cohort model comparison chart; show sample sizes and uncertainty only when statistically justified.
+
 
 
 
