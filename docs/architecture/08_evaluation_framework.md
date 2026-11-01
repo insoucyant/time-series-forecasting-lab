@@ -225,9 +225,9 @@ These signatures are designed proposals, not implemented APIs. Exact function na
 
 ---
 
-# 16. 
+# 16. Worked golden example
 
-
+Actuals $[10, 12, 14]$, forecasts $[11, 10, 16]$. Residuals (actual − forecast)$ = [−1, 2, −2]$. Absolute errors$ = [1, 2, 2]$; squared errors$ = [1, 4, 4]$. MAE$ = 5/3 ≈ 1.6667$; MSE$ = 3$; RMSE $= sqrt(3) ≈ 1.7321$; signed bias (forecast − actual)$ = (1 − 2 + 2)/3 = 1/3 ≈ 0.3333$. These are suitable golden test assertions.
 
 ---
 
