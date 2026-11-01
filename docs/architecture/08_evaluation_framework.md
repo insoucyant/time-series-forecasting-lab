@@ -176,9 +176,26 @@ Maintain metric names, denominator policies, group keys, and implementation vers
 
 ---
 
-# 13.
+# 13. Suggested Public Interface (conceptual)
 
+```python
+def evaluate_backtest(
+    results: pd.DataFrame,
+    metrics: Sequence[str]
+    group_by: Sequence[str] | None = None,
+) -> pd. DataFrame: ...
 
+def score_observations(results: pd.DataFrame) -> pd.DataFrame: ...
+
+def compare_models(
+    results: pd.DataFrame,
+    baseline_model_id: str,
+    candidate_model_id: str,
+    metrics: Sequence[str],
+) -> pd.DataFrame: ...
+```
+
+These signatures are designed proposals, not implemented APIs. Exact function names and file locations should be reconciled with `00_repository_structure.md` before coding. Avoid adding new package layers solely for the evaluator.
 
 ---
 
