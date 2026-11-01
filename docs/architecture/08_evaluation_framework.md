@@ -6,9 +6,17 @@ Define a reproducible, model-agnostic framework for measuring and comparing *out
 
 ---
 
-# 02. 
+# 02. Relationship to the existing platform
 
+established and tested foundation: ForecastDataset, BaseForecaster, ForecastResult, SeasonalNaiveForecaster, chronological BacktestConfig/BacktestFold/generate_folds, and backtesting execution runner. 
 
+- 07_backtesting_design.md owns temporal splitting, model fitting, prediction, and the long-format out-of-sample record contract.
+
+- 08_evaluation_framework.md owns metric definition, input validation, aggregation, diagnostics, and comparison policies. 
+
+- 09_pipeline_architecture.md will orchestrate evaluation within end-to-end workflows; 12_experiment_tracking.md will govern persisitence and governance.
+
+- Existing dataset, model, and backtest APIs remain unchanged unless a verified integration issue requires and explicit decisions.
 
 ---
 
