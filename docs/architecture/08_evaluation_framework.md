@@ -161,9 +161,18 @@ Forecast origins from rolling-origin evaluation are often correlated, especially
 
 ---
 
-# 12. 
+# 12. Proposed Output Contracts
 
+Do not introduce an alternative forecast result schema. The evaluator should return pandas DatFrames or a small typed result wrapper whose tables have stable columns. 
 
+| Output | Mimimum fields |
+|---|---|
+| Metric summary | run_id, model_id, group_keys, metric, value, n_observations, n_folds |
+| Scored observations | All original forecast keys plus error, absolute_error, squared_error |
+| Comparison summary | baseline_model_id, candidate_model_id, metric, baseline_value, candidate_value, absolute_difference, relative_improvement_pct, matched_n |
+| Validation report (optional) | rule, severity, affected_count, sample_keys |
+
+Maintain metric names, denominator policies, group keys, and implementation version in metadata. Undefined metrics should use NaN/nullable values accompanied by a documented reason, never silently converted to zero. 
 
 ---
 
