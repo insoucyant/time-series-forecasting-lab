@@ -231,9 +231,26 @@ These signatures are designed proposals, not implemented APIs. Exact function na
 
 ---
 
-# 17.
+# 17. Implementation stages and acceptance criteria
 
+| Stage | Deliverable | Exit criterion |
+| --- | --- | --- |
+| 1 | Input validation + row-level error columns | Contract and failure tests pass |
+| 2 | MAE, MSE, RMSE, bias with grouping | Hand-calculated golden tests pass |
+| 3 | Runner integration and per-horizon/fold summaries | Seasonal Naive integration tests pass |
+| 4 | Matched-cohort comparison | Alignment/coverage tests pass |
+| 5 | Optional WAPE, sMAPE, MASE | Zero and training-scale policies tested |
+| 6 | Inference and advanced forecast types | Separate documented design and tests |
 
+- Evaluator accepts the current runner’s long-format records without modifying the runner API.
+
+- Metrics have mathematically precise definitions, units, and error direction.
+
+- No information from future evaluation targets is used in training-dependent denominators.
+
+- Grouping, observation counts, and matching policies are deterministic and documented.
+
+- Golden and integration tests pass, followed by the complete repository suite.
 
 ---
 
