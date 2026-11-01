@@ -20,9 +20,21 @@ established and tested foundation: ForecastDataset, BaseForecaster, ForecastResu
 
 ---
 
-# 03. 
+# 03. Design Principles 
 
+- *Out-of-sample only*: score predictions emitted by the backtesting runner, never fitted values.
 
+- *Traceability*: retain run, model, series, fold, origin, target time, and horizon for every scored point. 
+
+- *Fairness*: compare models on identical evaluation keys and document missing coverage.
+
+- *Explicit semantics*: metric formulas, units, direction, undefined cases, and aggregation rules must be documented.
+
+- *No silent cleaning*: missing, infinite, duplicated, or misaligned records fail validation or follow and explicitly chosen policy.
+
+- *Separate computation from interpretation*: calculate metrics first, then summarize, rank, visualize, or test significance.
+
+- *Incremental scope*: single-series deterministic point forecast first; probabilistic, hierarchical, and decision metrics later.
 
 ---
 
