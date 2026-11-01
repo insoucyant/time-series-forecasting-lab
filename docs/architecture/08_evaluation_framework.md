@@ -51,8 +51,8 @@ The evaluator consumes the runner's long-format backtest results, preferbaly as 
 | forecast_origin | Historical timestamp at forecast issuance |
 | target_timestamp | Timestamp of evaluated actual |
 | horizon | Positive integer periods ahead of origin | 
-| y_true | Finite observed target (numeric) |
-| y_pred | Finite point forecast (numeric) |
+| $y_{true}$ | Finite observed target (numeric) |
+| $y_{pred}$ | Finite point forecast (numeric) |
 | fit_status, predict_status | Successful status required for scored records; explicit failure policy later |
 
 Validate required columns, compatible dtypes, nonempty input, uniqueness of (*run_id, model_id, series_id, fold_id, forecast_orifin, targte_timestamp, horizon*), and *temporal ordering*. The horizon must agree with the origin/target frequency when that frequency is supplied. The inital behavior must not infer calendar frequency from arbitrary row order.   
@@ -84,7 +84,7 @@ Let $e_i = y_{\text{true},i} - y_{\text{pred},i}$ and $n$ be the number of valid
 | **RMSE** | $\sqrt{\text{MSE}}$ | Target units; emphasizes large misses |
 | **Bias/ME** | $\frac{1}{n} \sum (y_{\text{pred},i} - y_{\text{true},i})$ | Positive = systematic overprediction |
 | **WAPE** | $\left( \frac{\sum \vert e_i \vert}{\sum \vert y_{\text{true},i} \vert} \right) \times 100$ | Undefined when $\sum \vert y_{\text{true},i} \vert = 0$; dominated by high-volume observations |
-| **sMAPE** | $\frac{100}{n} \sum \frac{2\vert e_i \vert}{\vert y_{\text{true},i} \vert + \vert y_{\text{pred},i} \vert}$ | Undefined for 0/0 without an explicit policy; can behave poorly near zero |
+| **sMAPE** | $\frac{100}{n} \sum \frac{2\vert e_i \vert}{\vert y_{\text{true},i} \vert + \vert y_{\text{pred},i} \vert}$ | Undefined for $\frac{0}{0}$ without an explicit policy; can behave poorly near zero |
 | **MASE** | $\frac{\text{MAE}}{q_f}$ | Requires strictly in-sample denominator per fold; not computable from $(y_{\text{true}}, y_{\text{pred}})$ alone |
 
 The initial implementation should prioritize MAE, RMSE, MSE, and signed bias. WAPE and sMAPE are optional next-step metrics with explicit zero handling. MASE requires a training-history-derived scale recorded per fold or provided via a controlled auxiliary input; do not compute its denominator using evaluation-period clusters.
