@@ -112,9 +112,11 @@ otherwise report undefined with a reason, not an invented zero. Since expanding 
 
 ---
 
-# 08. 
+# 08. Aggregation Policy
 
+Distinguish micro and macro aggregation. Micro MAE pools all eligible forecast rows: $\frac{|e|}{N}$. Macro MAE avergaes fold - or series-level MAEs, Optionally with explicit weights. These need not agree when group sizes differ. For RMSE, pool squared errors before taking the square root; do not average RMSE values and label the result pooled RMSE. 
 
+Default initial behaviour: calculate row-level errors, then pooled metrics over a selected group with $n$ and distinct fold count. Publish optional per-fold and per-horizon tables. DO not average per-row WAPE or per-row MASE denominators indiscriminately. 
 
 ---
 
