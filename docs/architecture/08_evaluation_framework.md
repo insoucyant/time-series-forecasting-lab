@@ -83,8 +83,8 @@ Let $e_i = y_{\text{true},i} - y_{\text{pred},i}$ and $n$ be the number of valid
 | **MSE** | $\frac{1}{n} \sum e_i^2$ | Squared target units; emphasizes large errors |
 | **RMSE** | $\sqrt{\text{MSE}}$ | Target units; emphasizes large misses |
 | **Bias/ME** | $\frac{1}{n} \sum (y_{\text{pred},i} - y_{\text{true},i})$ | Positive = systematic overprediction |
-| **WAPE** | $\left( \frac{\sum |e_i|}{\sum |y_{\text{true},i}|} \right) \times 100$ | Undefined when $\sum |y_{\text{true},i}| = 0$; dominated by high-volume observations |
-| **sMAPE** | $\frac{100}{n} \sum \frac{2|e_i|}{|y_{\text{true},i}| + |y_{\text{pred},i}|}$ | Undefined for 0/0 without an explicit policy; can behave poorly near zero |
+| **WAPE** | $\left( \frac{\sum \vert e_i \vert}{\sum \vert y_{\text{true},i} \vert} \right) \times 100$ | Undefined when $\sum \vert y_{\text{true},i} \vert = 0$; dominated by high-volume observations |
+| **sMAPE** | $\frac{100}{n} \sum \frac{2\vert e_i \vert}{\vert y_{\text{true},i} \vert + \vert y_{\text{pred},i} \vert}$ | Undefined for 0/0 without an explicit policy; can behave poorly near zero |
 | **MASE** | $\frac{\text{MAE}}{q_f}$ | Requires strictly in-sample denominator per fold; not computable from $(y_{\text{true}}, y_{\text{pred}})$ alone |
 
 The initial implementation should prioritize MAE, RMSE, MSE, and signed bias. WAPE and sMAPE are optional next-step metrics with explicit zero handling. MASE requires a training-history-derived scale recorded per fold or provided via a controlled auxiliary input; do not compute its denominator using evaluation-period clusters.
