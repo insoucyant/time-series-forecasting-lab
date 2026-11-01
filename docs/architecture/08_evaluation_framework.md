@@ -73,8 +73,21 @@ All aggregate outputs include n_observations and coverage metadata. Do not treat
 
 ---
 
-# 06. 
+# 06. Point forecast metrics
 
+Let e_i = y_true,i - y_pred,i and n be the number of valid scored records. Lower is better for error magnitudes; bias is ideally near zero.
+
+| Metric | Definition | Intepretation/caution |
+|---|---|---|
+| MAE | (1/n)(Σ \|e_i\) | Same units as target; robust relative to squared-error metrics |
+| MSE | (1/n) (Σ e_i² ) | Squared target units; emphasizes large errors |
+| RMSE | sqrt(MSE) | Target units; emphasizes large misses |
+| Bias/ME |  (1/n) Σ (y_pred,i − y_true,i) | Positive = systematic overprediction |
+| WAPE | ((Σ \|e_i\|) / (Σ \|y_true,i\|)) × 100 | Undefined when Σ\|actual\| = 0; dominated by high-volume observations |
+| sMAPE | (100/n) Σ [2\|e_i\|/(\|y_true,i\|+\|y_pred,i\|)] | Undefined for 0/0 without an explicit policy; can behave poorly near zero |
+| MASE | MAE/(training seasonal-naive scale) | Requires strictly in-sample denominator per fold; not computable from (y_true/y_pred) alone |
+
+The initial implementation should prioritize MAE, RMSE, MSE and signed bias. WAPE and sMAPE are optional next-step metrics with explicit zero handling. MASE requires a training-histor-derived scale recorded per fold or provided via a controlled auxiliary input; do not compute its denominator using evaluation-period clusters.
 
 
 ---
