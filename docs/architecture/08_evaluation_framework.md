@@ -215,9 +215,13 @@ These signatures are designed proposals, not implemented APIs. Exact function na
 
 ---
  
-# 15.
+# 15. Testing Strategy
 
+*Unit tests*: hand-calculated MAE/MSE/RMSE/bias; zero and negative targets; perfect forecasts; singleton data; invalid types; NaN/Inf; duplicate keys; unsupported metric; grouping and counts; nonmutation; deterministic ordering.
 
+*Integration tests*: consume actual runner output from SeasonalNaiveForecaster; verify exact golden scores by fold and horizon; compare two model outputs on matching keys; verify gap-aware horizons; confirm the complete existing suite still passes.
+
+*Property tests*: MAE/MSE/RMSE nonnegative; RMSE ≥ MAE on the same finite cohort; all-zero residuals imply zero MAE/RMSE/bias; reordering rows does not change aggregate results; adding identical forecast rows with duplicate keys is rejected.
 
 ---
 
