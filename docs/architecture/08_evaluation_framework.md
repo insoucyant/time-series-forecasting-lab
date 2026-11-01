@@ -79,7 +79,7 @@ Let $e_i = y_{\text{true},i} - y_{\text{pred},i}$ and $n$ be the number of valid
 
 | Metric | Definition | Interpretation/caution |
 |---|---|---|
-| **MAE** | $\frac{1}{n} \sum |e_i|$ | Same units as target; robust relative to squared-error metrics |
+| **MAE** | $\frac{1}{n} \sum \vert e_i \vert $ | Same units as target; robust relative to squared-error metrics |
 | **MSE** | $\frac{1}{n} \sum e_i^2$ | Squared target units; emphasizes large errors |
 | **RMSE** | $\sqrt{\text{MSE}}$ | Target units; emphasizes large misses |
 | **Bias/ME** | $\frac{1}{n} \sum (y_{\text{pred},i} - y_{\text{true},i})$ | Positive = systematic overprediction |
