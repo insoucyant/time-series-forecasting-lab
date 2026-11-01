@@ -94,13 +94,13 @@ The initial implementation should prioritize MAE, RMSE, MSE and signed bias. WAP
 
 # 07. MASE and scale-dependent denominators
 
-For a training sequence y_1, ... , y_T and seasonality m, the *in-sample* seasonal-naive scale is:
+For a training sequence $y_1, ... , y_T$ and seasonality $m$, the *in-sample* seasonal-naive scale is:
                      q=(1/(T-m))Σ[t=m+1..T] |y_t−y_(t−m)|
-For fold f:
+For fold $f$:
              MASE_f = mean(|forecast errors in f|)/q_f
 Require:
-* T > m
-* q_f > 0
+* $T > m$
+* $q_f > 0$
 otherwise report undefined with a reason, not an invented zero. Since expanding and sliding window have different training histories, scales can vary by fold. Record the scale source, $m$, and calculation window.        
 
 ---
