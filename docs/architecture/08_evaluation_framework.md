@@ -97,7 +97,7 @@ The initial implementation should prioritize MAE, RMSE, MSE and signed bias. WAP
 For a training sequence $y_1, ... , y_T$ and seasonality $m$, the *in-sample* seasonal-naive scale is:
 
 $$
-q=(1/(T-m))Σ[t=m+1..T] |y_t−y_(t−m)|
+q= \frac{1}{T-m} \sum_{t=m+1..T} |y_t−y_{t−m}|
 $$ 
 
 For fold $f$:
