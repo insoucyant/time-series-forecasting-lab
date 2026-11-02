@@ -3,7 +3,9 @@
 
 # 01. Purpose
 
+Define how the existing forecasting components are assembled into **reproducible testable workflows**. The pipeline layer coordinates configuration, validate data, model construction, fitting, forecasting, backtesting, evaluation, and outputs. It must not reimplement the algorithms, validation rules, temporal splitting, or metric formulas owned by those components.
 
+The initial objective is a small, deterministic, **single-series, point-forecast workflow** that can be executed repeatedly and tested end-to-end. Model comparison, multi-series execution, tracking, and production deployment follow once that vertical slice is reliable. 
 
 ---
 
