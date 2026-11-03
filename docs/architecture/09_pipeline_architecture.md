@@ -43,7 +43,16 @@ The initial objective is a small, deterministic, **single-series, point-forecast
 
 # 04. Pipeline Types and Initial Scope 
 
+| Workflow | Intended operation | Initial status |
+|---|---|---|
+| **Training and Forecasting** | Validate data → fit model  → forecast future periods | First vertical slice | 
+| **Backtesting and Evaluation** | Generate historical folds → forecast → evaluate errors | First vertical slice; reuse exisiting runner |
+| **Model Comparison** | Backtest multiple models → align matched observations → compare | Next increment |
+| **Batch Inference** | Load approved artifact → validate inputs → forecast | Future, after persisitence contract |
+| **Scheduled Retraining** | Trigger a versioned training/evaluation run | Future operational concern |
+| **Production Serving** | Expose controlled inference endpoint | Defined separately in `11` and `15` |
 
+Do not combine model selection, hyperparameter optimization, serving, and monitoring into the first pipeline implementation.  
 
 ---
 
