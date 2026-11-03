@@ -78,13 +78,28 @@ N --> O[Return results to caller]
 O -. optional later .-> P[Tracking and artifact persistence]
 ```
 
-The **piepline** controls sequencing and execution context. It does **not** own fold generation, forecast alignment, metric formulas, or model-specific algorithms. 
+The **pipeline** controls sequencing and execution context. It does **not** own fold generation, forecast alignment, metric formulas, or model-specific algorithms. 
 
 ---
 
 # 06. Concrete Current-status Contracts
 
+The initial implementation must inspect the actual repository code before committing signatures. The following contracts are already established in the project:
 
+| Interface | Current meaning | Pipeline obligation |
+|---|---|---|
+| `ForecastDataset` | Validated time-series dataset | Pass the validated dataset to downstream components without mutating caller data |
+| `BaseForecaster.fit(data, **kwargs)` | Fit on pandas DataFrame | Provide training-only data and preserve model-specific parameters |
+| `BaseForecaster.predict(data, **kwargs)` | Return `ForecastResult` | Supply positive horizon; validate resulting predictions |
+| `ForecastResult` | Contains predictions, horizon, model name, frequency, metadata | Do not invent a competing forecast schema | 
+| `BacktestConfig` | Expanding/sliding, initial size, horizon, step, gap, optional window size | Use the existing validated configuration object |
+| `generate_folds` | Chronological fold boundaries | Do not reproduce fold arithmetic inteh pipeline. |
+| Backtesting runner | Independent model per fold, fir, predict, and align | Invoke through its implemented interface, after inspection |
+| Evaluation (`08`) | Consumes long-form runner records | Integrate only once evaluator API is implemented and tested |
+
+The runner emits long-format columns including `run_id`, `model_id`, `series_id`, `fold_id`, `forecast_origin`, `target_timestamp`, `horizon`, `y_true`, `y_pred`, `fit_status`, and `predict_status`. 
+
+**Important:** The evaluator functions in `08_evaluation_framework.md` are conceptual until implemented. Thsi document does not claim they already exist. 
 
 ---
 
