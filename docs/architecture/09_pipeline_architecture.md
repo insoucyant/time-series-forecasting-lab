@@ -58,7 +58,27 @@ Do not combine model selection, hyperparameter optimization, serving, and monito
 
 # 05. End-to-end Architecture Diagram
 
+```mermaid
+flowchart TD
+A[Entry point: script, CLI or test] --> B[Load validated configuration]
+B --> C[Obtain data]
+C --> D[ForecastDataset validation]
+D --> E{Workflow type}
+E -->|Forecast| F[Construct BaseForecaster]
+F --> G[Fit on permitted history]
+G --> H[Predict requested horizon]
+H --> I[Validate ForecastResult]
+E --> |Backtest| J[Existing backtesting runner]
+J --> K[Long-form out-of-sample records]
+K --> L[Evaluation framework]
+L --> M[Metric and diagnostic tables]
+I --> N[Collect output and provenance]
+M --> N
+N --> O[Return results to caller]
+O -. optional later .-> P[Tracking and artifact persistence]
+```
 
+The **piepline** controls sequencing and execution context. It does **not** own fold generation, forecast alignment, metric formulas, or model-specific algorithms. 
 
 ---
 
