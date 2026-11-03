@@ -29,7 +29,15 @@ The initial objective is a small, deterministic, **single-series, point-forecast
 
 # 03. Design Principles
 
-
+1. **Composition over duplication:** call the established components and preserve their interfaces.
+2. **Vertical delivery:** first deliver one complete dataset-to-evaluation run, then extend capabilities.
+3. **Chronological integrity:** prohibit target, feature, transformation, and cross-series leakage.
+4. **Determinism:** record configuration, model settings, data identity, and seed where applicable.
+5. **Explicit Boundaries:** input validation, fit/predict, backtest, evaluation, and persistence have separate owners.
+6. **Fail visibly:** no fabricated predictions, silently dropped folds, or zero-filled undefined metrics.
+7. **Idempotent outputs:** repeated runs must not corrupt or ambiguously write artifacts.
+8. **Architecture stability:** introduce new files only for concrete responsibilities and corresponding tests.
+9. **Minimal initial dependencies:** local execution must not require a workflow scheduler, cloud service, database, or proprietary experiment platform.
 
 ---
 
