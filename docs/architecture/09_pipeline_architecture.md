@@ -105,7 +105,21 @@ The runner emits long-format columns including `run_id`, `model_id`, `series_id`
 
 # 07. Pipeline Input Contract 
 
+An initial pipeline invocation requires:
 
+| Input | Required | Rule |
+|---|---|---|
+| Validated dataset | Yes | Must satisfy `ForecastDataset` contract |
+| Model factory or explicit constructor | Yes | Must produce a compatible `BaseForecaster`; new instance per backtest fold |
+| Model identifier | Yes | Stable and nonempty; distinct from display name |
+| Workflow type | Yes | Explicit forecast or backtest/evaluate operation |
+| Forecast horizon | Yes | Positive integer; interpreted in dataset periods |
+| Backtest configuration | For backtest | Existing `BacktestConfig`, not a duplicate schema |
+| Evaluation metric selection | For evaluation | Supported metrics; no silent fallback |
+| Run identifier | Recommended | Stable identifier for correlating records and outputs |
+| Optional execution context | Optional | Seed, data version, code revision, artifact destination |
+
+For initial development, callers may construct these inputs directly in tests or a minimal script. YAML integration must use the existing configuration reader and schema; do not add an independent configuration parser.
 
 ---
 
