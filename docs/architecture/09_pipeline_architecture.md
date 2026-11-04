@@ -125,7 +125,24 @@ For initial development, callers may construct these inputs directly in tests or
 
 # 08. Training and Forecasting Workflow
 
+```mermaid
+flowchart TD
+    A[Validated dataset] --> B[Select permitted training history]
+    B --> C[Create model instance]
+    C --> D[Fit]
+    D --> E[Predict H periods]
+    E --> F[Validate ForecastResult]
+    F --> G[Return predictions and run metadata]
+```
 
+Requirements:
+
+- The fit stage receives only observations permitted at the chosen forecast origin.
+- For a future forecast, the origin is the latest observed target available to the caller. 
+- Forecast horizon is validated before invoking `predict`.
+- `ForecastResult.predictions` must be checked against the actual model contract; do not assume a data-indexed output if the model currently returns `step` and `yhat`. 
+- The pipeline may attach contextual metadata outside the model output but must not silently change `ForecastResult` fields.
+- Persistence is optional for the first version; returning a structured in-memory result is sufficient.
 
 ---
 
