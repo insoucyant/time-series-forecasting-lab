@@ -169,7 +169,30 @@ The evaluation layer, not the pipeline, owns duplicate-key checks, undefined met
 
 # 10. Example Chronological Execution
 
+Assume daily observations through January 13, an expanding backtest with `initial_train_size = 10`, `horizon = 3`, `step = 1`, and `gap = 0`. 
 
+```text
+Calendar day: Jan 1 ......... Jan 10 | Jan 11 Jan 12 Jan 13
+Fold 1:     [training   ]| h=1 h=2 h=3
+                    ^ origin Jan 10
+
+Calendar day: Jan 1 ......... Jan 11 | Jan 12 Jan 13 Jan 14
+Fold 2:     [training   ]| h=1 h=2 h=3
+                    ^ origin Jan 11
+```
+
+Fold 2 is eligible only if January 14's actual is present in the backtesting dataset. Both folds may evaluate Jan 12; their records remain distinct becuase the forecast origins and horizons differ.
+
+| fold_id | forecast_origin | target_timestamp | horizon | Meaning |
+|---|---|---|---|---|
+| 1 | 2026-01-10 | 2026-01-11 | 1 | One-day-ahead forecast |
+| 1 | 2026-01-10 | 2026-01-12 | 2 | Two-day-ahead forecast |
+| 1 | 2026-01-10 | 2026-01-13 | 3 | Three-day-ahead forecast |
+| 2 | 2026-01-11 | 2026-01-12 | 1 | New origin, one-day-ahead forecast |
+| 2 | 2026-01-11 | 2026-01-13 | 2 | New origin, two-day-ahead forecast |
+| 2 | 2026-01-11 | 2026-01-14 | 3 | Three-day-ahead forecast| 
+
+No pipeline code should alter this distinction when combining or summarizing outputs. 
 
 ---
 
