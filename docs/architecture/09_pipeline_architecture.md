@@ -148,7 +148,22 @@ Requirements:
 
 # 09. Backtesting and Evaluation Workflow
 
+```mermaid
+flowchart TD
+A[ForecastDataset + BacktestConfig] --> B[Existing backtesting runner]
+B --> C[Long-form forecast / actual records]
+C --> D[Evaluation input vlaidation]
+D --> E[Row level errors]
+E --> F[MAE, MSE, RMSE, bias]
+F --> G[Overall / horizon / fold summaries]
+G --> H[Return forecasts and metrics]
+```
 
+The pipeline calls the existing runner, **not** `generate_folds` plus a second homemade fold executor. The runner remains teh authority for fold isolation, `gap`, origin\target alignment, and prediction collection.
+
+For `gap = g` and evaluated window length `H`, the runner predicts through `g + H` periods and evaluates horizons `g + 1` through `g + H`. The pipeline must preserve these horizon values; it must not relabel the first evaluated row as horizon 1 when `g > 0`.
+
+The evaluation layer, not the pipeline, owns duplicate-key checks, undefined metric policies, pooled versus micro aggregation, and matched-cohort comparisons. 
 
 ---
 
