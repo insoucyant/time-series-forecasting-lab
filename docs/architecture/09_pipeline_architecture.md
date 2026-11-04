@@ -214,7 +214,16 @@ The presence of empty `arima.py`, `xgboost.py`, `lstm.py`, or registry files doe
 
 # 12. Pipeline Output Contracts
 
+| Output | Minimum content | Owner |
+|---|---|---|
+| Forecast output | Existing `Forecastresult`, plus optional external execution metadata | Forecaster + pipeline wrapper |
+| Backtest observations | Existing long-format runner schema | Backtesting runner |
+| Evaluation summary | Metric, value, group keys, counts, coverage | Evaluation framework |
+| Run summary | Run ID, workflow model, config/data references, status | Pipeline |
+| Failue report | Stage, exception class, safe message, relevant run/fold context | Pipeline + component | 
+| Artifacts | Explicitly named tables, metadata, and model artifacts if enabled | Tarcking/persistence layer later | 
 
+A **small typed result wrapper** is acceptable if it compares existing outputs without changing them. The initial implementation should  avoid a large genralized result hierarchy.
 
 ---
 
