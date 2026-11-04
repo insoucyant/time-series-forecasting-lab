@@ -294,7 +294,21 @@ Distributed scheduling, DAG orchestartion platform, automatic hyperparameter tun
 
 # 23. Relationship to Subsequent Documents
 
+- **`10_logging_and_monitoring.md`** defines structured logs, monitoring signals and operational alerts.
 
+- **`11_model_serving.md`** defines inference endpoints and serving semantics. 
+
+- **`12_experiment_tacking.md`**  is the *current tracked filename* for experiment tracking (note the spelling); its design owns tracking/persistence decisions. Renaming should be a deliberate cleanup, not an implicit pipeline change.
+
+- **`13_plugin_architecture.md`** defines optional extensions.
+
+- **`14_testing_strategy.md`** defines repository-wide testing standards.
+
+- **`15_deployment_architecture.md`** defines production packaging, execution, and recovery.
+
+- **`16_future_roadmap.md`** defines long-term architectural evolution.
+
+Do not create a separate production-architecture document; production belongs in `15_deployment_architecture.md`.
 
 ---
 
