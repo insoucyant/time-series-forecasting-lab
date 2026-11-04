@@ -288,7 +288,7 @@ The presence of empty `arima.py`, `xgboost.py`, `lstm.py`, or registry files doe
 
 # 22. Out of Scope for the First Principle 
 
-
+Distributed scheduling, DAG orchestartion platform, automatic hyperparameter tuning, parallel folds, streaming ingestion, online learning, Kubernetes, cloud-specific services, feature stores, model promotion/rollback, dashboards, probabilitic forecasting, hierarchical reconciliation, and optimization/design intelligence. These are legitimate future capabilties, not prerequisites for the initial end-to-end workflow. 
 
 ---
 
