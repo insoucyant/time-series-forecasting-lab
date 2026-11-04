@@ -314,6 +314,15 @@ Do not create a separate production-architecture document; production belongs in
 
 # 24. Current Status and Next Action
 
+**Verified existing foundation:** configuration, dataset, `BaseForecaster`, `ForecastResult`, Seasonal Naive, fold generation, and the backtesting runner have nonempty implementations and have been exercised by tests in the user's development environment. The most recently user-reported full test checkpoint was **96 passed, 1 warning**; this is historical evidence, not a fresh test execution.
+
+**Design completed, implementation unverified:** `08_evaluation_framework.md` defines evaluation, but its Python implementation must be checked before pipeline integration.
+
+**Not implemented at this checkpoint:** the `pipelines/` package contains only an empty initializer, and the existing `scripts/train.py`, `scripts/forecast.py`, and `scripts/evaluate.py` are empty.
+
+**Next action:** inspect the current `runner.py`, `base.py`, `naive.py`, `dataset.py`, and evaluation implementation (if any). Implement the smallest pipeline composition and golden integration test without modifying their established contracts.
+
+**Maintenance rule:** update this document when an actual pipeline interface or responsibility changes. Preserve the existing architecture unless a verified technical need justifies an explicit decision.
 
 
 ---
