@@ -198,7 +198,17 @@ No pipeline code should alter this distinction when combining or summarizing out
 
 # 11. Model Construction and Lifecycle
 
+- **Initial:** pass a model factory/constructor compatible with the existing backtesting runner. Inspect its exact callable signature before integration.
 
+- **Each backtest fold:** create a fresh model instance and fir it only for that fold's training history.
+
+- **Single forecast:** create and fit one instance unless and explicitly supported artifact-loading path is provided. 
+
+- **Later:** resolve model identifiers and parameters through the existing model registry design. 
+
+- **Never:** reuse a fitted model across folds by accident, mutate shared hyperparameters, or infer model capabilities solely from filenames. 
+
+The presence of empty `arima.py`, `xgboost.py`, `lstm.py`, or registry files does not imply that their runtime implementation exist.
 
 ---
 
