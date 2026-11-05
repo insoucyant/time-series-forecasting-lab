@@ -264,7 +264,27 @@ The pipeline enforces ordering and refuses incompatible stages; it does not repl
 
 # 15. Error Handling and Execution States 
 
+Use clear stage boundaries:
 
+```text
+CREATED->VALIDATING->RUNNING->EVALUATING->COMPLETED
+                   \         \           \
+                    ----------> FAILED <---
+```
+
+These are **conceptual lifecycle states**, not a requirement to add state machine library.
+
+| Failure | Initial Behaviour |
+|---|---|
+| Invalid configuration | Fail before model construction |
+| Invalid dataset | Fail before training or backtesting |
+| Model construction or fit error | Fail with model/run context; do not fabricate outputs |
+| Prediction or alignment error | Fail with fold/origin context where available |
+| Invalid evaluation records | Reject and surface evaluator validation message |
+| Unsupported metrics | Fail explicitly; do not substitute another metric |
+| Persistence failure (when enabled) | Report partial execution separately from computation success | 
+
+Initial prefer **fail fast**. Partial-fold continuation, retries, and resume/checkpoint policies require separate documented contracts before implementation. Never classify an incomplete run as successfully evaluated. 
 
 ---
 
