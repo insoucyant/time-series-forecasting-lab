@@ -248,7 +248,17 @@ A reproducibility claim must identify which information is actually captured ver
 
 # 14. Data Leakage and Temporal Safety 
 
+| Leakage Type | Required Control | Owner|
+|---|---|---|
+| Future targets in training | Training cutoff strictly precedec evaluated targets | Dataset/backtesting |
+| Feature leakage | Compute lag/rolling features using only origin/available information | Feature component |
+| Transformation leakage | Fit scalers and imputers only on training portion | Feature component |
+| Future covariates | require documented availability at issuance time | Model/feature component |
+| Cross-fold state leakage | fresh model instance per fold | Backtesting runner |
+| Hyperparameter selection leakage | Keep final holdout outside tuning loop | Experiment design |
+| Cross-series leakage | Enforce compatible cutoffs across panel/global models | Future multi-series design |
 
+The pipeline enforces ordering and refuses incompatible stages; it does not replace the lower-level leakage tests.
 
 ---
 
