@@ -229,7 +229,20 @@ A **small typed result wrapper** is acceptable if it compares existing outputs w
 
 # 13. Configuration and Reproducibility 
 
+The configuration system already exists. Pipleine-level configuration should be added to its established schema **only after** an executable use case proves the need. Do not add new YAML files or keys speculatively.
 
+Capture, where available:
+
+- Run ID and workflow type.
+- Dataset identity, series selction, frequency and time range.
+- Model ID, constructor parameters and relevant library versions.
+- Backtest configuration, including `gap`, `step`, `horizon` and window strategy.
+- Evaluation metric selection and aggregation mode.
+- Random seed where the model supports deterministic execution.
+- Git revision or code version, plus environment/dependendency version.
+- Start/end timestamps and final execution status. 
+
+A reproducibility claim must identify which information is actually captured versus not yet available. Do not claim byte-identical outputs or nondeterministic or hardware-sensitive model without evidence. 
 
 ---
 
