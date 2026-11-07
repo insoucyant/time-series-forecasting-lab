@@ -8,7 +8,7 @@ The initial deliverable is a reliable, structured, privacy-conscious **local exe
 
 ---
 
-# 02. Realtionship to Existing Architecture and Ownership
+# 02. Relationship to Existing Architecture and Ownership
 
 | Owner | Responsibility | Observability boundary |
 |---|---|---|
@@ -44,7 +44,15 @@ The initial deliverable is a reliable, structured, privacy-conscious **local exe
 
 # 04. Observability Layers
 
-
+| Layer | Primary question | Examples | Initial status |
+|---|---|---|---|
+| Execution Logs | What happened? | `pipeline.started`, `fold.failed` | Initial design |
+| Operational metrics | How often and how long? | Run success rate, stage duration, failure counts | Basic aggregation first |
+| Data quality monitoring | Is input trustworthy? | Missingness, duplicates, unexpected time gaps | Report existing validator results |
+| Forecast quality monitoring | Are forecasts useful? | MAE/RMSE by model/horizon, bias over time | Consume evaluation outputs |
+| Model/data drift | Has the environment changed? | Feature distribution shifts, residual drift | Later, with baselines |
+| Distributed traces | Where was time spent across services? | Pipeline-to-serving trace | Later, when distributed |
+| Alering | Who needs to act? | Repeated failures, latency SLO breach | Production extension |
 
 ---
 
