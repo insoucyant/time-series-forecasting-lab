@@ -390,6 +390,18 @@ Use a short, manually calculable series. Verify training cutoffs, model predicti
 
 # 21. Incremental Implementation Plan 
 
+| Stage | Deliverable | Exit evidence |
+|---|---|---|
+| 0 | Inspect current code signatures and existing tests | Confirmed runner/model/dataset contracts; no API guesses |
+| 1 | Implement evaluation module from `08` if still pending | Golden metric and input-validation tests pass |
+| 2 | Minimal forecast pipeline | Dataset → Seasonal Naive → `ForecastResult` integration test passes |
+| 3 | Backtest-and-evaluate pipeline | Existing runner output scored without reshaping; gap-aware tests pass |
+| 4 | Run metadata and explicit failures | Reproducibility and negative tests pass |
+| 5 | Minimal executable script/example | Documented command runs end to end in a clean environment |
+| 6 | Multi-model comparison and registry integration | Matched-cohort and model-resolution tests pass |
+| 7 | Optional persistence, tracking and production entry points | Separate acceptance criteria from `10`–`15` satisfied |
+
+**Sequencing rule:** Stage 1 may already be completed by the time this document is implemented; verify the code, not the document's date. Do not rebuild a working component.
 
 
 ---
