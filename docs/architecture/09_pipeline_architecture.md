@@ -358,7 +358,7 @@ The smallest first implementation may be a single pipeline module plus its tests
 
 ## 19.3 Golden Numerical Tests
 
-
+Use a short, manually calculable series. Verify training cutoffs, model predictions, runner records, row errors, MAE/MSE/RMSE/bias, and output counts. The golden case in `08_evaluation_framework.md` (actual `[10,12,14]`, predictions `[11,10,16]`) yields MAE `5/3`, MSE `3`, RMSE `sqrt(3)`, and signed prediction-minus-actual bias `1/3`.
 
 ## 19.4 Negative and Property Tests
 
