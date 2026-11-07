@@ -363,6 +363,12 @@ Use a short, manually calculable series. Verify training cutoffs, model predicti
 ## 19.4 Negative and Property Tests
 
 
+- Invalid horizon and insufficient history are rejected.
+- No forecast target precedes or equals its origin.
+- Nonzero gap does not cause horizon relabeling.
+- Re-running a deterministic workflow with identical inputs produces equivalent forecast and metric tables (excluding deliberately volatile run metadata).
+- Input row reordering, where accepted by dataset validation, does not change chronological results.
+- No duplicate forecast keys appear in successful backtest output.
 
 ---
 
