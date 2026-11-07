@@ -290,7 +290,9 @@ Initial prefer **fail fast**. Partial-fold continuation, retries, and resume/che
 
 # 16. Logging and Observability Boundary 
 
+The pipeline should emit concise, structured lifecycle information: `run_id`, workflow, stage, model ID, fold count where relevant, start/end time, duration, status, and safe error category. Avoid per-row log spam and sensitive raw observations. 
 
+Detailed logger configuration, metrics, alerts, retention and monitoring belong to `10_logging_and_monitoring.md`. This document establishes **what the piepeline needs to report**, not a second monitoring architecture. 
 
 ---
 
