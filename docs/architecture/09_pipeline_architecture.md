@@ -348,6 +348,12 @@ The smallest first implementation may be a single pipeline module plus its tests
 
 ## 19.2 Integration Tests
 
+- `ForecastDataset` → `SeasonalNaiveForecaster` → `ForecastResult`.
+- `ForecastDataset` → existing backtesting runner → evaluation metrics.
+- Check expanding and sliding strategies with nonzero `gap` and `step > 1`.
+- Verify one run's metrics equal directly evaluating the same runner DataFrame.
+- Ensure an evaluation failure does not produce a `COMPLETED` run status.
+- Run the complete existing repository test suite after integration.
 
 
 ## 19.3 Golden Numerical Tests
