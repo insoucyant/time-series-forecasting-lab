@@ -374,6 +374,16 @@ Use a short, manually calculable series. Verify training cutoffs, model predicti
 
 # 20. Acceptance Criteria 
 
+- [ ] One executable workflow runs validated data → fit → forecast using existing interfaces.
+- [ ] One executable workflow runs validated data → backtest → evaluation using the existing runner and implemented evaluator.
+- [ ] No duplicate fold generator, forecaster interface, or metric engine is introduced.
+- [ ] Timestamps, forecast origins, gaps and horizons remain consistent across components.
+- [ ] Outputs preserve the established long-format backtesting contract.
+- [ ] Failures are explicit and do not create misleading successful results.
+- [ ] Golden, unit and integration tests pass.
+- [ ] The full existing test suite continues to pass.
+- [ ] The run can be reproduced using documented inputs and commands.
+- [ ] Documentation clearly distinguishes implemented features from planned extensions.
 
 
 ---
