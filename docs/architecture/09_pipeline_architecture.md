@@ -298,12 +298,39 @@ Detailed logger configuration, metrics, alerts, retention and monitoring belong 
 
 # 17. Artifact Storage and Idempotency
 
+The initial local pipeline may return in-memory DataFrames and `ForecastResult` objects; persistence is **not a prerequisite** for validating the vertical slice. 
 
+When artifact saving is introduced:
+
+1. Identify outputs by run ID and artifact type.
+2. Use explicit, deterministic filenames or run-scoped paths.
+3. Write complete artifacts atomically where feasible; avoind partially written outputs.
+4. Save metadata describing schema, model, data and configuration provenance. 
+5. Do not silently overwrite an unrelated prior run.
+6. Distinguish reusbale model artifacts from forecast rows, metric tables and daignostic features.
+
+The long-term tracking contract belongs to `12_experiment_tracking.md`; storage backends and retention polciy belong to deployment/operations design. 
 
 ---
 
 # 18. Entry Points and Module Pleacement  
 
+The repository already contains:
+
+```text
+src/ts_forecasting_lab/pipelines/__init__.py
+src/ts_forecasting_lab/cli.py
+scripts/train.py
+scripts/forecast.py
+scripts/evaluate.py
+scripts/serve_api.py
+```
+
+At the current checkpoint these entry-point files are empty. Do not treat them as working interfaces.
+
+**Implementation placement:** add orchestration code under the existing `pipelines/` package, and use existing `scripts/` entry points only when their behavior is defined. No new `workflow/`, `orchestrator/`, or `engine/` top-level package is required.
+
+The smallest first implementation may be a single pipeline module plus its tests. Final filenames should be chosen after reviewing the current repository, not mandated by this design.
 
 
 ---
