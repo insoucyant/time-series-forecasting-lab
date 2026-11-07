@@ -339,7 +339,12 @@ The smallest first implementation may be a single pipeline module plus its tests
 
 ## 19.1 Unit Tests
 
-
+- Validate required pipeline inputs and unsupported workflow types. 
+- verify a model factory is invoked correctly and errors propagate with stage context.
+- Confirm the pipeline does not mutate the caller's dataset or settings.
+- Ensure the requested horizon reaches the model unchanged.
+- Verify output wrapper retains `ForecastResult` and backtest columns without renaming.
+- Confirm deterministic output ordering and stable metadata where promised. 
 
 ## 19.2 Integration Tests
 
