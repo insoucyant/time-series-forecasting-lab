@@ -28,6 +28,16 @@ The initial deliverable is a reliable, structured, privacy-conscious **local exe
 
 # 03. Design Principles
 
+1. **Structured and contextual:** machine-readabale event fields with stable names, rather than parsing free-text messages.
+2. **Separation of concerns:** Logs describe events; metrics aggregate behavior; traces connect steps; evaluation calculates forecast accuracy.
+3. **Non-invasive:** Instrument the orchestration boundary before instrumenting individual models.
+4. **Reproducible:** Correlate events to `run_id`, `model_id`, and `fold_id` where available. 
+5. **Explicit outcomes:** Never log a failed or skipped step as successful.
+6. **No hidden side effects:** Observability failure must not silently chaneg predictions or metric calculations. 
+7. **Data minimization:** Do not log target arrays, feature matrices, credentials, tokens, full request pauloads or personally identifiable data by default. 
+8. **Progressive sophistication:** Start with standard library `logging`; introduce OpenTelemetry or a metrics backend only when a real operational requirement arises. 
+9. **Bounded cost:** Avoid per observation log storms, excessive cardinality, and unbounded artifact retention.
+10. **Testability:** Validate emitted events, context, redaction and error behavior in automates tests.
 
 
 ---
