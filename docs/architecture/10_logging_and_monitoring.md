@@ -219,6 +219,15 @@ The values above are **synthetic examples**, not measured platform results.
 
 # 21. Testing Strategy 
 
+## 21.1 Unit tests
+
+- Correct UTC timestamp formatting, event names, severity, and schema version.
+- Required run/model/fold context is attached when available.
+- Durations are nonnegative and based on a monotonic clock.
+- Sensitive fields are redacted or excluded.
+- Invalid log levels and configuration values fail validation.
+- Initializing logging twice does not duplicate handlers.
+- JSON event serialization is deterministic for supported types and does not mutate inputs.
 
 
 ---
