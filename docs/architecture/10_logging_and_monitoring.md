@@ -207,7 +207,15 @@ The values above are **synthetic examples**, not measured platform results.
 
 # 19. Proposed Module Placement and Dependencies
 
+Follow `00_repository_structure.md` and the current package layout:
 
+- `src/ts_forecasting_lab/monitoring/` **already exists**. Use it for a small shared logging/monitoring adapter only when needed; do not introduce a second observability hierarchy. 
+- `src/ts_forecasting_lab/pipeline` owns orchestration and shoudl call the adapter at stage boundaries. 
+- `src/ts_forecasting_lab/config` remains the source of validated configuration.
+- `tests/` should contain focus observability tests following the established test conventions; exact filenames are implementation choices.  
+- `scripts/` or the existing CLI may select output format and log level when executable entry points are implemented.
+
+**Initial dependencies:** Python standard-library `logging`, `json`, `datetime`, and `time` are sufficient. Optional future integrations include OpenTelemetry, Prometheus-compatible metrics, and a log aggregation backend, but **none is mandated** until an operational need and deployment design justify it.
 
 ---
 
