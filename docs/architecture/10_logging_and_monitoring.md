@@ -107,7 +107,29 @@ A log event should be a structured record with the following recommended fields.
 
 **Additional optional context:** `config_fingerprint`, `dataset_fingerprint`, `forcast_origin`, `horizon`, `n_rows`, `n_folds`, `n_predictions`, `metric_name`, `metric_value`. Only include fields appropriate to the event; never attach full data frames or parameters object indiscriminately. 
 
-**Idetifiers and cardinality:** `run_id` is essential in logs but must not be used as a high-cardinality *metrics label* in systems such as Prometheus. Likewise, do not label operational metrics by raw timestamps, request IDs, or unbounded series IDs. 
+**Identifiers and cardinality:** `run_id` is essential in logs but must not be used as a high-cardinality *metrics label* in systems such as Prometheus. Likewise, do not label operational metrics by raw timestamps, request IDs, or unbounded series IDs. 
+
+## 06.1 Example JSON event (illustrative)
+
+```json
+{
+  "timestamp_utc": "2026-11-07T10:00:00Z",
+  "level": "INFO",
+  "event_name": "backtesting.fold_completed",
+  "message": "Fold completed successfully",
+  "schema_version": "1",
+  "run_id": "run-example-001",
+  "model_id": "seasonal_naive",
+  "series_id": null,
+  "fold_id": 2,
+  "stage": "backtesting",
+  "status": "succeeded",
+  "duration_ms": 42.6,
+  "n_predictions": 3
+}
+```
+
+The values above are **synthetic examples**, not measured platform results.
 
 ---
 
