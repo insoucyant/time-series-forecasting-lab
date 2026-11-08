@@ -243,6 +243,12 @@ The values above are **synthetic examples**, not measured platform results.
 
 # 25. Dependencies, Current Status, and Next Action 
 
+**Verified design context:** The platform already defines a configuration system, dataset, forecaster interface, backtesting runner, evaluation design and pipeline architecture. The repository includes `src/ts_forecasting_lab/monitoring/__init__.py`, but an empty package initializer is **not** evidence that logging or monitoring is implemented.
 
+**Implementation prerequisite:** Inspect the current committed pipeline entry point, runner result schema, and configuration models before choosing function signatures or writing code. Do not assume the evaluation framework has been implemented merely because its architecture document exists.
+
+**Next action:** Review this document against `09_pipeline_architecture.md`; then implement and test the smallest logging adapter when the executable pipeline is ready. The next architecture document in sequence is `11_model_serving.md`.
 
 ---
+
+**Maintenance rule:** Update this document when actual event schemas, sinks, alert thresholds, or operational ownership change. Keep aspirational production integrations clearly marked as future work.
