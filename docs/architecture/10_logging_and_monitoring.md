@@ -86,7 +86,28 @@ The diagram is a **proposed design**. It does not imply that any collector, dash
 
 # 06. Event Contract 
 
+A log event should be a structured record with the following recommended fields. Fields may be null or omitted where the component has no meaningful value. 
 
+| Field | Type | Rule |
+|---|---|---|
+| `timestamp_utc` | ISO 8601 string | UTC, timezone-aware |
+| `level` | enum | `DEBUG`, `INFO`, `WARNING`, `CRITICAL` |
+| `event_name` | string | Stable dotted event identifier, e.g. `pipeline.started` |
+| `message` | string | Concise human readabale description |
+| `run_id` | string/null | Same identifier as pipeline/backtest records |
+| `model_id` | string/null | Same identifier as forecast/evaluation records |
+| `series_id` | string/null | Nullable for single-series workflows |
+| `fold_id` | integer/null | Positive when tied to a backtest fold |
+| `stage` | string/null | E.g. `data_validation`, `backtesting`, `evaluation` |
+| `status` | enum/null | `started`, `succeeded`, `failed`, `skipped` |
+| `duration_ms` | number/null | Nonnegative monotonic elapsed duration |
+| `error_type` | string/null | Exception class or stable error category |
+| `error_code` | string/null | Optional stable programmatic code |
+| `schema_version` | string | Version of event contract, initially `1` |
+
+**Additional optional context:** `config_fingerprint`, `dataset_fingerprint`, `forcast_origin`, `horizon`, `n_rows`, `n_folds`, `n_predictions`, `metric_name`, `metric_value`. Only include fields appropriate to the event; never attach full data frames or parameters object indiscriminately. 
+
+**Idetifiers and cardinality:** `run_id` is essential in logs but must not be used as a high-cardinality *metrics label* in systems such as Prometheus. Likewise, do not label operational metrics by raw timestamps, request IDs, or unbounded series IDs. 
 
 ---
 
