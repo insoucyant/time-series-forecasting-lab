@@ -211,9 +211,23 @@ The values above are **synthetic examples**, not measured platform results.
 
 ---
 
-# 20. Wroked Example: Three-Fold Backtest 
+# 20. Worked Example: Three-Fold Backtest 
 
+**Illustrative input:** a validated daily series. `SeasonalNaiveForecaster`, expanding window backtesting, three eligible folds, forecast horizon 3, `gap=0`.
 
+| Sequence | Event | Context/result |
+|---|---|---|
+| 1 | `pipeline.started` | `run_id=example-001`, `stage=pipeline` |
+| 2 | `stage.completed` | `stage=data_validation`, `n_rows=30` |
+| 3 | `stage.started` | `stage=backtesting` |
+| 4 | `backtesting.fold_completed` | `fold_id=1`, `n_predictions=3` |
+| 5 | `backtesting.fold_completed` | `fold_id=2`, `n_predictions=3` |
+| 6 | `backtesting.fold_completed` | `fold_id=3`, `n_predictions=3` |
+| 7 | `stage.completed` | `stage=backtesting`, `n_folds=3`, `n_predictions=9` |
+| 8 | `evaluation.completed` | `n_observations=9`, metrics computed by evaluator | 
+| 9 | `pipeline.completed` | Terminal status `succeeded` | 
+
+The nine forecast records may include repeated target timestamps at different origins/horizons; logs should report counts, while the evaluation contract preserves distinct forecast keys. This example does not claim a real run was executed.
 
 ---
 
