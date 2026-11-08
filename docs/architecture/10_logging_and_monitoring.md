@@ -229,6 +229,10 @@ The values above are **synthetic examples**, not measured platform results.
 
 The nine forecast records may include repeated target timestamps at different origins/horizons; logs should report counts, while the evaluation contract preserves distinct forecast keys. This example does not claim a real run was executed.
 
+## 20.1 Failure variation 
+
+If fold 2 raises a model fit exception under fail-fast policy, emit `backtesting.fold_failed` with `fold_id=2` and safe `error_type`; then emit `stage.failed` and `pipeline.failed`. **Do not emit** `evaluation.completed` or `pipeline.completed` for that failed run. Partial artifacts, if any, must be explicitly marked incomplete.
+
 ---
 
 # 21. Testing Strategy 
