@@ -60,7 +60,27 @@ The initial deliverable is a reliable, structured, privacy-conscious **local exe
 
 # 05. High-level Observability Architecture
 
+```mermaid
+flowchartTD
+A[Validated configuration]-->B[Pipeline run context]
+B --> C[Dataset validation]
+C --> D[Model and backtesting execution]
+D --> E[Evaluation]
+E --> F[Pipeline completion]
+B -. structured events .-> L[Logging adapter]
+C -. validation summaries .-> L
+D -. stage and fold events .-> L
+E -. metric summaries .-> L
+F -. final status .-> L
+L --> O[Console/rotating file: initial]
+L -. future .-> M[Central log collection]
+F -. provenance and artifacts .-> X[Experiment tracking: document 12]
+E -. evaluated metrics .-> Q[Quality monitoring: future]
+M -. future .-> R[dashboards and alerts]
+Q -. future .-> R
+```
 
+The diagram is a **proposed design**. It does not imply that any collector, dashboard, monitoring server, or alert integration currently exists.
 
 ---
 
