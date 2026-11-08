@@ -237,7 +237,7 @@ The values above are **synthetic examples**, not measured platform results.
 
 # 24. Out of Scope for the Initial Release
 
-
+A centralized log cluster, distributed tracing, automated drift detectors, retraining triggers, automated model rollback, per-prediction real-time dashboards, alert paging integrations, and large-scale observability infrasctructure. These may be added when production use cases justify their cost and operational ownership. 
 
 ---
 
