@@ -237,6 +237,13 @@ The values above are **synthetic examples**, not measured platform results.
 - Verify fold counts and prediction counts match runner output, including nonzero `gap`.
 - Confirm existing dataset, model, backtesting and evaluation contracts remain unchanged.
 
+### 21.3 Operational tests (when deployed)
+
+- Collector/sink outage and fallback behavior.
+- Log rotation, access control and retention enforcement.
+- Bounded metrics labels and absence of high-cardinality IDs.
+- Alert firing, deduplication, recovery, and runbook routing.
+- Clock/timezone consistency and correlation across services.
 
 ---
 
