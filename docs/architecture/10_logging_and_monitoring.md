@@ -289,7 +289,17 @@ If fold 2 raises a model fit exception under fail-fast policy, emit `backtesting
 
 # 23. Incremental Implementation Plan 
 
+## Initial logging milestone
 
+- [ ] A run emits structured start and exactly one authoratative terminal summary when the process can complete normally.
+- [ ] Each required pipeline stages records outcome and elapsed duration. 
+- [ ] Backtesting failures can be traced to `run_id`, `model_id`, and `fold_id` where applicable. 
+- [ ] Event fields and severity follow a documented, versioned contract.
+- [ ] Logs exclude sensitive raw data and credentials by default.
+- [ ] Observability does not cahnge model predictions, evaluation metrics, or tested public interfaces. 
+- [ ] Error propagation matches the existing pipeline/backtesting policy.
+- [ ] Unit, integration and regression tests pass.
+- [ ] Documentation distinguishes implemented behaviour from future monitoring capabilities.  
 
 ---
 
