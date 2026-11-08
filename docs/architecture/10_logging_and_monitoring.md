@@ -54,6 +54,8 @@ The initial deliverable is a reliable, structured, privacy-conscious **local exe
 | Distributed traces | Where was time spent across services? | Pipeline-to-serving trace | Later, when distributed |
 | Alering | Who needs to act? | Repeated failures, latency SLO breach | Production extension |
 
+**Important distinction:** Backtest accuracy is *offline evaluation*. Production accuracy monitoring requires actual outcomes to arrive later and be joined to prior predictions without leakage or duplicate scoring.
+
 ---
 
 # 05. High-level Observability Architecture
