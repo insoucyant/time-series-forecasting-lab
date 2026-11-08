@@ -229,6 +229,14 @@ The values above are **synthetic examples**, not measured platform results.
 - Initializing logging twice does not duplicate handlers.
 - JSON event serialization is deterministic for supported types and does not mutate inputs.
 
+## 21.2 Integration tests
+
+- Run the current Seasonal Naive backtesting workflow and capture emitted lifecycle events.
+- Verify successful stages and terminal state agree with actual runner/evaluator outcomes.
+- Trigger a deterministic model failure; confirm error context and absence of false success.
+- Verify fold counts and prediction counts match runner output, including nonzero `gap`.
+- Confirm existing dataset, model, backtesting and evaluation contracts remain unchanged.
+
 
 ---
 
