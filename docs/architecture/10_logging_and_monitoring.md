@@ -299,7 +299,15 @@ If fold 2 raises a model fit exception under fail-fast policy, emit `backtesting
 - [ ] Observability does not cahnge model predictions, evaluation metrics, or tested public interfaces. 
 - [ ] Error propagation matches the existing pipeline/backtesting policy.
 - [ ] Unit, integration and regression tests pass.
-- [ ] Documentation distinguishes implemented behaviour from future monitoring capabilities.  
+- [ ] Documentation distinguishes implemented behaviour from future monitoring capabilities. 
+
+## Production monitoring milestone (later)
+
+- [ ] Monitoring destination, retention, access control, and ervice ownership are documented. 
+- [ ] Operational metrics and dashboards have stable definitions and bounded cardinality.
+- [ ] Alert thresholds, runbooks, recovery rules and escalation owners are approved.
+- [ ] Forecast quality monitoring scores only predictions with matured actuals and matched keys.
+- [ ] Collector failure and monitoring blind spots are tested.
 
 ---
 
