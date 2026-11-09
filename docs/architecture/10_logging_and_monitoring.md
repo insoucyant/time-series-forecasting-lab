@@ -135,6 +135,24 @@ The values above are **synthetic examples**, not measured platform results.
 
 # 07. Event Taxonomy and Severity 
 
+| Event | Recommended level | When emitted |
+|---|---|---|
+| `pipeline.started` | INFO | Run context and validated configuration established |
+| `pipeline.completed` | INFO | Required stages completed and output validated |
+| `pipeline.failed` | ERROR | Required stage failed; run successful |
+| `stage.started` | INFO | A pipeline stage begins |
+| `stage.completed` | INFO | A pipeline stage begins |
+| `stage.failed` | ERROR | Stage fails, with safe exception metadata |
+| `dataset.validation_failed` |ERROR | Dataset contract violated |
+| `backtesting.fold_started` | DEBUG |  Fold execution begins (optional at INFO for small runs)
+| `backtesting.fold_completed` | DEBUG | Fold execution succeeds | 
+| `backtesting.fold_failed` | ERROR | Fit, predict or alignment fails | 
+| `evaluation.completed` | INFO | Validated metrics produced | 
+| `evaluation.coverage_warning` | WARNING | Missing matched observations or incomplete coverage |
+| `artifact.write_failed` | ERROR | Required output could not be persisted |
+| `monitoring.signal_unavailable` | WARNING |  Optional monitoring sink unavailable | 
+
+**Severity policy:** `WARNING` means the run may remain valid but requires attention; `ERROR` means an operation failed. A warning must never be silently transformed into success signal. For high fold counts, log per-fold events at DEBUG or aggregate them to avoid excessive output. 
 
 
 ---
@@ -284,11 +302,6 @@ If fold 2 raises a model fit exception under fail-fast policy, emit `backtesting
 # 22. Acceptance Criteria
 
 
-
----
-
-# 23. Incremental Implementation Plan 
-
 ## Initial logging milestone
 
 - [ ] A run emits structured start and exactly one authoratative terminal summary when the process can complete normally.
@@ -308,6 +321,11 @@ If fold 2 raises a model fit exception under fail-fast policy, emit `backtesting
 - [ ] Alert thresholds, runbooks, recovery rules and escalation owners are approved.
 - [ ] Forecast quality monitoring scores only predictions with matured actuals and matched keys.
 - [ ] Collector failure and monitoring blind spots are tested.
+
+---
+
+# 23. Incremental Implementation Plan 
+
 
 ---
 
