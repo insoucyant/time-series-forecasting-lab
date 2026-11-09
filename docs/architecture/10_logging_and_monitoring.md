@@ -159,7 +159,19 @@ The values above are **synthetic examples**, not measured platform results.
 
 # 08. Run Lifecycle and State Transitions
 
+```mermaid
+stateDiagram-v2
+    [*] --> Created
+    Created --> Running: validated start
+    Running --> Succeeded: all required stages complete
+    Running --> Failed: required stages fail 
+    Running --> Cancelled: explicit interruption
+    Succeeded --> [*]
+    Failed --> [*]
+    Cancelled --> [*]
+```
 
+A run must have exactly one terminal state (`succeeded`, `failed`, or `cancelled`) in it authoratative run summary. Duplicate event delivery can occur in external logging systems; consumers must not treat event count as a substitute for run-state truth. Stage retries, if introduced, should carry an explicit attempt number and shoudl not erase previous failures.
 
 ---
 
