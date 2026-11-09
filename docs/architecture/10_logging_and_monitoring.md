@@ -177,7 +177,17 @@ A run must have exactly one terminal state (`succeeded`, `failed`, or `cancelled
 
 # 09. Instrumentation Boundaries and Correlation 
 
+**Recommended initial pattern:** the pipeline creates a *run context* once, passes it to its *execution wrapper*, and uses a *logging adapter* to *attach consistent identifiers*. A context-aware logger, `LoggerAdapter`, or equivalent standard library approach is sufficient; do not mandate an additional dependency for its first implementation. 
 
+1. Load and validate configuration via the existing configuration system.
+2. Assign or accept a unique `run_id` at the orchestartion boundary.
+3. Log `pipeline.started` after validation and before execution.
+4. Surround each stage with a monotomic timer and emit start, success or failure.
+5. For backtesting, attach the **existing** `model_id`, `fold_id` and optional `series_id`. 
+6. For evaluation, log the number of scored observations and numeric summaries derived from evaluator outputs.
+7. Emit exactly one authoratative terminal run summary, even when exceptions propagate.
+
+Use `time.perf_counter()` or another monotonic clock for elapsed duration; wall-clock UTC timestamps are for event ordering and correlation, not precise duration calculations. 
 
 ---
 
