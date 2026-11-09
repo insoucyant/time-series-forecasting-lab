@@ -193,7 +193,19 @@ Use `time.perf_counter()` or another monotonic clock for elapsed duration; wall-
 
 # 10. Logging Configuration 
 
+Configuration ahould extend the existing validated settings model **only when implementation requires it**. These are concepual keys, not a claim about current YAML or Pydantic fields. 
 
+| Proposed settings | Default concept | Purpose |
+|---|---|---|
+| `logging.level` | INFO | Minimum severity |
+| `logging.format` | `json` for machine ingestion; readabale text only | Log representation |
+| `logging.console_enabled` | `true` | Local developer visibility | 
+| `logging.file_enabled` | `false` initially | Optioanl file sink | 
+| `logging.file_path` | null | Explicit path when file sink enabled | 
+| `logging.redact_fields` | Known sensitive field list | Defense in depth |
+| `logging.include_traceback` |  `true` for local errors, controlled in production | Debuggability | 
+
+**Configuration rules:** Validate levels and paths, avoid writing secrets to logs, do not overwrite teh application root logger indiscriminately, and avoid duplicate handlers when initialization is called twice. Do not create a second configuration loader.
 
 ---
 
