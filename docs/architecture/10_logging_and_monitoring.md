@@ -230,7 +230,19 @@ Configuration ahould extend the existing validated settings model **only when im
 
 # 12. Data Quality Monitoring
 
+Data quality signals must be **derived from the dataset validation contract** and ingestion diagnostics rather than independent, inconsistent validators. 
 
+| Signal | Example check | Action |
+|---|---|---|
+| Schema compliance | Required timestamp/target columns | Fail invalid input according to dataset contract |
+| Missingness | Count and percentage of null targets or features | Reject or report according to agreed data policy |
+| Chronology | Duplicate or unsorted timestamps | Enforce dataset rules; log summarized failure |
+| Frequency integrity | Missing expected periods | Report only when frequency/calendar semantics are defined |
+| Volume | Unexpectedly small/large input | Warn against a documented baseline; do not invent one |
+| Freshness | Age of latest observation | Evaluate against source-specfied SLA, if defined | 
+| Distribution Shift | Change in target/feature distribution | Future monitoring with reference cohort and thresholds |
+
+A validation failure is not automatically a drift alert. Data quality, data drift, and forecast error should be represented as separate signals. 
 
 ---
 
