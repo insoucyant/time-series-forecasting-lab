@@ -230,7 +230,21 @@ Configuration ahould extend the existing validated settings model **only when im
 
 # 12. Data Quality Monitoring
 
+**Offline:** Consume evaluation outputs (`08_evaluation_framework.md`) with `run_id`. `model_id`, `horizon`, observation count, and cohort definitions. Track MAE, RMSE, MSE and signed bias without recomputing them inside the monitoring layer. 
 
+
+**Online(future):** Store predictions with their issuance time and target timestamp. When actuals becoem available, join on stabel identity keys and calculate realized error only for matured predictions. A forecast for a target not yet observed is **pending**, not wrong or missing. 
+
+| Signal | What it reveals | Important caveat |
+|---|---|---|
+| MAE by horizon | Typical absolute errors | compare on equivalent horizons/cohorts |
+| RMSE by horizon | Large-error sensitivity | Same units as target |
+| Signed bias |  Persistent over/underforecasting | Define sign consistent with evaluation design |
+| Coverage | Fraction of eligible predictions with actuals | Distinguish pending, unavailable and invalid actuals |
+| Performance vs Baseline | Model value relative to naive forecast | Match forecast origins and targets | 
+| Stability over time | Changes in recent realized errors | Accounting for overlapping windows and small samples | 
+
+**Do not** use ordinary row-wise significance tests on overlapping rolling-origin forecasts without handling dependence. Alert thresholds must be based on a justified baseline and wnough matured observations, not an arbitrary fixed percentage.
 
 ---
 
