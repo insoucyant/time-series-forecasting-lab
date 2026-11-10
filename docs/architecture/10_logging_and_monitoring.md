@@ -211,7 +211,20 @@ Configuration ahould extend the existing validated settings model **only when im
 
 # 11. Operational Metrics
 
+| Metric (cocneptual) | Type | Definition/aggregation |
+|---|---|---|
+| `forecast_pipeline_runs_total` | Counter | Number of runs by terminal status and pipeline type |
+| `forecast_pipeline_duration_seconds` | Histogram | End-to-end run duration |
+| `forecast_stage_duration_seconds` | Histogram | Duration by bounded stage name |
+| `forecast_backtest_folds_total` | Counter | Completed\failed fold attempts by status |
+| `forecast_predictions_total` | Counter | Valid emitted prediction records |
+| `forecast_artifact_write_failures_ total` | Counter | Failed required artifacts write |
+| `forecast_serving_requests_total` | Counter | Future API request counts by status |
+| `forecast_serving_latency_seconds` | Histogram | Future inference request latency |
 
+**Initial implementation:** timers and counts in run summaries or structured logs are enough. Exporters and dashbaords are deferred until deployment design identifies an actual destination. 
+
+**Label policy:** Allow only bounded labels such as `stage`, `status`, `pipeline_type`, and a controlled `model_family`; avoid raw `run_id`, arbitrary exception text, target timestamp, and unconstrained series identifiers.  
 
 ---
 
