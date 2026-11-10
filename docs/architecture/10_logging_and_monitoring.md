@@ -230,6 +230,12 @@ Configuration ahould extend the existing validated settings model **only when im
 
 # 12. Data Quality Monitoring
 
+
+
+---
+
+# 13. Forecast Quality Monitoring
+
 **Offline:** Consume evaluation outputs (`08_evaluation_framework.md`) with `run_id`. `model_id`, `horizon`, observation count, and cohort definitions. Track MAE, RMSE, MSE and signed bias without recomputing them inside the monitoring layer. 
 
 
@@ -245,12 +251,6 @@ Configuration ahould extend the existing validated settings model **only when im
 | Stability over time | Changes in recent realized errors | Accounting for overlapping windows and small samples | 
 
 **Do not** use ordinary row-wise significance tests on overlapping rolling-origin forecasts without handling dependence. Alert thresholds must be based on a justified baseline and wnough matured observations, not an arbitrary fixed percentage.
-
----
-
-# 13. Forecast Quality Monitoring
-
-
 
 ---
 
