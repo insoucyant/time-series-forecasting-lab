@@ -282,7 +282,17 @@ Do not flag seasonality or legitimate level changes as drift merely because two 
 
 # 15. Alering and Incident Response (Production Extension)
 
+| Condition | Initial response | Owner/routing |
+|---|---|---|
+| Repeated pipeline failures | Inspect stage/error code and last successful run | Assigned pipeline operator |
+| Missing scheduled run | Check scheduler and execution environment | Deployment operator |
+| Data freshness beach | Verify upstream availability and ingestion | Data owner | 
+| Serving error/latency breach | Check request failures, resource limits and model loading | Serving operator |
+| Sustained forecast degradation | Review matched-cohort errors, baseline and data changes | Forecast/model owner |
 
+Alerts must have severity, owner, runbook, threshold, evaluation window, suppression/deduplication rule, and recovery condition. No pager, email integration, or service-level objective is assumed to exist today. Define numerical SLOs with stakeholders before deployment. 
+
+**Incident workflow:** detect → conform scope and validity → identify affected runs/models → contain or revert if necessary → restore → document root cause and corrective action. Rollback mechanics belong to `15_deployment_architecture.md`.  
 
 ---
 
