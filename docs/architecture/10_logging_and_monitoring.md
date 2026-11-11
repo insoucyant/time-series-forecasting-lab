@@ -298,7 +298,14 @@ Alerts must have severity, owner, runbook, threshold, evaluation window, suppres
 
 # 16. Errors, Exceptions, and Failure Policy
 
+- **Configuration/data contract errors:** Fail fast, record safe error category, and preserve the original exception for the caller.
+- **Model fit/predict errors:** Attach run/model/fold context; follow the runner's existing fail-fast or documented fold policy.
+- **Evaluation errors:** Fail the required stage; do not fabricate a metric or substitute zero. 
+- **Artifact persistence failures:** Fail the run if the artifact is required for acceptance; optional outputs amy be warning under explicit policy.
+- **Log sink failure:** Prefer a safe fallback (e.g., stderr) where possible. If required audit logging cannot be guaranteed, apply a separately documented strict policy. 
+- **Interruption/Cancellation:** Emit a cancelled terminal state when technically possible; recognize abrupt process termination may prevent final event emission. 
 
+Do not swallow exceptions just to log them. Use exception chaining and avoid duplicate stack traces at every layer. An error should be logged atthe responsible boundary and then propagate or handled according to the existing component contract.
 
 ---
 
