@@ -268,7 +268,15 @@ A validation failure is not automatically a drift alert. Data quality, data drif
 
 # 14. Drift Monitoring (Future Extension)
 
+Distinguish three phenomena:
 
+1. **Data drift:** Input or target distributions differ from an agreed reference period. 
+2. **Concept drift"** Relationship between available predictors and target changes; may be reflected in deteriorating realized forecast accuracy.
+3. **Operational drift:** Changes in runtime, latency, failure rate, or dependency behaviour. 
+
+Possible techniques: population stability index with documented bins, KS statistics where appropriate, distribution distance, rolling residua summaries, and change-point analysis. These are **candidate methods**, not universally valid defaults. Specify the baseline, window, sample size, seasonality treatment, multiple-testing policy, and alert threshold before enabling them. 
+
+Do not flag seasonality or legitimate level changes as drift merely because two adjacent windows differ. Do not claim concept drift based solely on a feature-distribution test.
 
 ---
 
