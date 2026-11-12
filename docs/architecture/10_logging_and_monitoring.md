@@ -438,6 +438,18 @@ If fold 2 raises a model fit exception under fail-fast policy, emit `backtesting
 
 # 23. Incremental Implementation Plan 
 
+| Stage | Deliverable | Exit criterion |
+|---|---|---|
+| 1 | Minimal structured logging adapter | JSON/text output, stable schema, redaction and unit tests |
+| 2 | Pipeline lifecycle instrumentation | Run/stage start, completion, failure, duration and correlation tests |
+| 3 | Backtesting and evaluation integration | Fold context and metric summaries agree with source outputs |
+| 4 | Local diagnostics and optional file sink | Controlled configuration, rotation and failure behavior |
+| 5 | Operational metrics exporter | Deployment need identified; bounded labels and integration tests |
+| 6 | Quality/drift monitoring | Reference cohorts, matured actuals, thresholds and statistical tests defined |
+| 7 | Dashboards, alerts and incident runbooks | Owners, SLOs, routing and end-to-end incident tests approved |
+
+Stages are **logical deliverables, not mandated new folders or filenames**. Implement the smallest coherent slice first and keep logging separate from metric computation.
+
 
 ---
 
