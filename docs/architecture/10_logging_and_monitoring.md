@@ -311,7 +311,12 @@ Do not swallow exceptions just to log them. Use exception chaining and avoid dup
 
 # 17. Privace, Security, and Retention 
 
+**Never log by default:** secrets, access tokens, passwords, raw dataset rows, complete feature matrices, full prediction arrays, , personally identifying attributes, or unrestricted user-provided strings.
 
+**Prefer:** counts, hashes/fingerprints (only if non-sensitive and appropriately designed), time ranges, schema names, model identifiers, and summarized statistics. A dataset fingerprint is not necessarily anonymous; its use must be assessed for the data involved.
+
+Recommended controls: least-privilege access to log stores, redaction of sensitive fields, safe exception formatting, configurable retention, log rotation for file sinks, and explicit deletion/retention policies before production. Actual retention durations and storage locations are **deployment decisions**, not invented defaults in this document.
+ 
 
 ---
 
