@@ -322,6 +322,15 @@ Recommended controls: least-privilege access to log stores, redaction of sensiti
 
 # 18. Logging vs Experiment Tracking vs Artifacts
 
+| Information | Primary home | Reason |
+|---|---|---|
+| Lifecycle events and exceptions | Logs | Time-ordered diagnostic evidence |
+| Run parameters, code/data version, metric snapshots | Experiment tracking (`12`) | Reproducible experiment history |
+| Forecast rows, evaluation tables, model artifacts | Defined artifact storage | Structured outputs, not log messages |
+| Stage durations, success/failure rates | Operational metrics | Aggregated operational health |
+| Alert status and incident ownership | Monitoring/incident system | Operational response |
+
+The same `run_id` should link these systems when available. **A log file is not a substitute for a versioned experiment store, and experiment tracking is not a substitute for operational logs.**
 
 
 ---
