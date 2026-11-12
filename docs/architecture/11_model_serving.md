@@ -12,7 +12,20 @@ The initial target is **local batch inference** for a validated, single-series, 
 
 # 02. Relationship to Existing Architecture 
 
+| Component/document | Owns | Serving responsibility |
+|---|---|---|
+| `03` model interface | `BaseForecaster`, `ForecastResult`, fit/predict semantics | Invoke supported prediction interface; do not replace its schema|
+| `04` dataset | `ForecastDataset` and validation rules | Validate inference history through established rules |
+| `06` model registry | Model identity and construction design | Resolve approved model/version once registry is implemented |
+| `07` backtesting | Historical folds and out-of-sample forecasts| No backtest execution inside serving |
+| `08` evaluation | Accuracy metrics and comparisons | No recomputation of evaluation metrics inside serving |
+| `09` pipeline | Training, backtesting, orchestration | Supply trained artifacts and a stable handoff |
+| `10` logging and monitoring | Events, telemetry, health signals | Emit serving lifecycle events and bounded metrics | 
+| `12` experiment tracking | Run history, artifact provenance, lifecycle | Retrieve or reference approved artifacts when available |
+| `14` testing startegy | Test levels and acceptance evidence | Implement serving-specific tests under established test structure |
+| `15` deployment architecture | packaging, hosting, scaling, secrets | Choose infrastructure; serving defines runtime contract | 
 
+**Repository rule:** Use the existing `src/ts_forecasting_lab/serving` package and `scripts/serve_api.py` placeholder when implementation is justified. Do not create a parallel serving framework or restructure the repository speculatively. 
 
 ---
 
