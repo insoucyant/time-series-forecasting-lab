@@ -31,7 +31,16 @@ The initial target is **local batch inference** for a validated, single-series, 
 
 # 03. Design Principles
 
-
+1. **Prediction-only boundary:** no implicit fit, backtest, evaluation, or tuning.
+2. **Reuse existing contracts:** `BaseForecaster`, `ForecastResult`, `ForecastDataset`, and configuration remain authoratative.
+3. **Model provenance:** every result identifies the exact model artifact/version and input context. 
+4. **Temporal correctness:** forecasts are anchored to a defined origin; future target observations cannot leak into inference. 
+5. **Explicit capability checks:** reject unsupported frequencies, horizons, covariates, or output types. 
+6. **Deterministic behavior where possible:** same approved artifact and equivalent input should yield equivalent predictions.
+7. **Safe failures:** no fabricated predictions, silent model fallback, or partial success disguised as full success. 
+8. **Operational simplicity:** begin with local batch execution; add a network service only when required.
+9. **Security and privacy:** no arbitrary model deserialization or untrusted artifact loading. 
+10. **Testable boundaries:** model loader, request validator, inference adapter, response adapter, and logging can be tested independently.
 
 ---
 
