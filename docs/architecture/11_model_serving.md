@@ -62,7 +62,26 @@ Do not treat `scripts/serve_api.py` being present as evidence of a functioning A
 
 # 05. High-Level Serving Architecture
 
+```mermaid
+flowchart TD
+A[Caller: CLI/batch/future HTTP] --> B[Request validation]
+B --> C[Resolve approved model artifact]
+C --> D[Verify artifcat manifest and compatibility]
+D --> E[Load fitted forecaster]
+B --> F[Validated infernce history/covariates]
+E --> G[Prediction adapter]
+F --> G
+G --> H[Existing BaseForecaster.predict]
+H --> I[Existing ForecastResult validation]
+I --> J[Response/bacth output adapter]
+J --> K[Predictions + provencance]
+B -.lifecycle events.-> L[Logging and monitoring: doc 10]
+G -.timings and errors.-> L
+J -.completing events.-> L
+C -.future approved versions .-> M[Experiment tracking/registr: doc 12]
+```
 
+The diagram is a **target design**, not a claim that the loaders, API, registry, or telemetry exporters currently exist.
 
 ---
 
