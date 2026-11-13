@@ -46,7 +46,17 @@ The initial target is **local batch inference** for a validated, single-series, 
 
 # 04. Serving Modes and Delivery Order
 
+| Mode | Description | Priority |
+|---|---|---|
+| In-process inference | Call a known fitted forecaster through a small adapter | First development stream |
+| Local batch inference | Read approved model + validated history, write predictions and manifest | **Initial deliverable** |
+| CLI invocation | Exlicit inputs, artifact reference, horizon and output path | Inital or next increment |
+| Synchronous REST API | Request/response inference, health checks and versioned routes | Later, when local contract is stable |
+| Asynchronous batch jobs | Queue large requests and poll job status | Future
+| Multi-model/multi-series routing | Select approved versions across many series | Future
+| Streaming/real-time scoring | Event-driven inference with state and latency constraints | Future; not assumed necesary |
 
+Do not treat `scripts/serve_api.py` being present as evidence of a functioning API. Inspect its contents before implementation. 
 
 ---
 
