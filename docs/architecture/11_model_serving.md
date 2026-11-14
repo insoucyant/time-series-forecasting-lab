@@ -99,7 +99,13 @@ A model is not ready for artifact-based serving until a tested save/load mechani
 
 # 07. Current Model Interface Compatibility 
 
+Established model concepts:
 
+- `BaseForecaster.fit(data: pd.DataFrame, **kwargs)` fits a forecaster.
+- `BaseForecaster.predict(horizon:int, **kwargs)` returns `ForecastResult`.
+- `ForecastResult` contains `predictions` with `step` and `yhat`, plus `horizon`, `model_name`, `frequency`, and `metadata`. 
+
+The exact signatures, constructor behavior, and serialization compatibility must be verified against repository code before implementing serving. Serving must **not** assume the model returns timestamp-indexed predictions or that every model can be reconstructed from hyperparameters alone. 
 
 ---
 
