@@ -136,7 +136,21 @@ Avoid sending full sensitive training datasets in HTTP requests. For an API, pre
 
 # 09. Conceptual Response Contract 
 
+Preserve the existing `ForecastResult` as the forecasting payload. A serving envelope may add operational metadata **outside** that object:
 
+| Field | Meaning |
+|---|---|
+| `request_id` | Correlates response with caller and logs |
+| `model_id`, `model_version` | Exact model identity |
+| `artifact_digest` | Verified artifcat content hash, if available |
+| `forecast_origin` | Last observed timestamp used for issuance |
+| `generated_at_utc` | Response generation timestamp |
+| `frequency` | Forecast calendar/frequency |
+| `predictions` | Validated forecast values and, if derived, target timestamps |
+| `status` | Success or explicit failure, never misleading partial success | 
+| `warnings` | Nonfatal, documented limitations |
+
+**Timestamp rule:** The model's `step` is a horizon index, not itself a timestamp. A separate adapter may derive future target timestamps only when the frequency/calendar is unambiguos. Business calendars, holidays, and irregular time axes need explicit policies; do not invent dates from row order. 
 
 ---
 
