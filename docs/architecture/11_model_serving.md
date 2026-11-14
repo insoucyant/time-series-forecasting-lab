@@ -87,7 +87,9 @@ The diagram is a **target design**, not a claim that the loaders, API, registry,
 
 # 06. Boundary Between Training and Serving 
 
+Training is responsible for: selecting data and features; constructing the model; fitting and tuning; evaluating on historical data; and producing an approved fitted artifact with metadata. Serving is responsible for: validating an inference request; resolving the approved artifact; prepairing permitted inference inputs; invoking prediction; validating output; and returning predictions with provenance.
 
+**Forbidden behaviour:** `serve()` must not call `fit()` unless an explicit separate training workflow is requested. A convenience script that fits and immediately forecasts is a *training-and-forecast pipeline*, not artifact based serving. 
 
 ---
 
