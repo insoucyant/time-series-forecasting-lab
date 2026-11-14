@@ -113,9 +113,24 @@ The loader or in-process caller must establish that the forecaster is fitted. If
 
 ---
 
-# 08. Conceptual request Contract 
+# 08. Conceptual Request Contract 
 
+This is a **design-level contract**, not an implemented Pydantic schema or endpoint. 
 
+| Field | Required? | Validation | 
+|---|---|---|
+| `request_id` | Recommended | Nonempty unique coorelation identifier |
+| `model_id` | Yes | Stable registered or explicitly approved model identifier |
+| `model_version`/`artifact_id` | Yes for artifact serving | Immutable reference; no ambiguous `latest` in reproducibility-critical runs |
+| `series_id` | if multi-series | Must match artifact scope and permitted identifiers |
+| `horizon` | Yes | Positive integer, supported by model and policy | 
+| `forecast_horizon` | Yes or derived explicitly | Must equal last permitted observed target timestamp | 
+| `frequency` | Yes or from validated data | Must match training/serving exceptions | 
+| `history` or `dataset_reference` | Depends on model | Validate through existing dataset contract; do not assume all models need the same history |
+| `known_future_covariates` | Only if supported | Proven available at forecast issuance time |
+| `output_type` | Optional future | Point forecast initially; reject unsupported probabilistic requests |
+
+Avoid sending full sensitive training datasets in HTTP requests. For an API, prefer controlled references or bounded inference histories as requirements evolve. 
 
 ---
 
