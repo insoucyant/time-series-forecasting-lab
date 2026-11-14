@@ -107,6 +107,10 @@ Established model concepts:
 
 The exact signatures, constructor behavior, and serialization compatibility must be verified against repository code before implementing serving. Serving must **not** assume the model returns timestamp-indexed predictions or that every model can be reconstructed from hyperparameters alone. 
 
+## 07.1 Fitted-model invariant 
+
+The loader or in-process caller must establish that the forecaster is fitted. If fitted state cannot be verified, reject the request or rely on a tested model-specific contract; do not silently fit from supplied history. 
+
 ---
 
 # 08. Conceptual request Contract 
