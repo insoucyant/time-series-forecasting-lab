@@ -91,6 +91,10 @@ Training is responsible for: selecting data and features; constructing the model
 
 **Forbidden behaviour:** `serve()` must not call `fit()` unless an explicit separate training workflow is requested. A convenience script that fits and immediately forecasts is a *training-and-forecast pipeline*, not artifact based serving. 
 
+## 06.1 Artifact Handoff
+
+A model is not ready for artifact-based serving until a tested save/load mechanism exists for its model family. The current base interface should **not** be expanded with mandatory `save()` and `load()` methods until conrete implementation requirements are verified. Use a family-specific serializer or a tested artifact adapter when needed. 
+
 ---
 
 # 07. Current Model Interface Compatibility 
