@@ -199,7 +199,21 @@ Do not deserialize untrusted `pickle`/`joblib` artifacts: these formats can exec
 
 # 12. Model Lifecycle and Version Resolution
 
+```mermaid
+stateDiagram-v2
+[*] --> Trained
+Trained --> Evaluated
+Evaluated --> Candidate
+Candidate --> Approved: explicit approval
+Approved --> Serving: deployment selects immutable version
+Serving --> Retired: decommission
+Approved --> Retired: rejected or superseded
+Retired --> [*]
+```
 
+This is a conceptual lifecycle owned by tracking/registry and deployment policies. Serving checks the state but does not independently approve a model. An artifact with no verified approval must be rejected by production serving. Local development may use a clearly marked development-only override. 
+
+Avoid mutable `latest` resolution in repeatable tests; if a human-friendly alias is offered, resolve it to an immutable version and record that version in every response. 
 
 ---
 
