@@ -156,7 +156,17 @@ Preserve the existing `ForecastResult` as the forecasting payload. A serving env
 
 # 10. Worked Example: Forecast Origin and Horizon
 
+Suppose that a validated daily series has observations through **2026-01-10** and a fitted seasonal-naive model is approved for a serving. A request for `horizon=3` measn forecast steps 1, 2, and 3 after the origin. 
 
+| `step` | illustrative target date (daily calendar) | Meaning |
+|---|---|---|
+| 1 | 2026-01-11 | One period ahead |
+| 2 | 2026-01-12 | Two periods ahead |
+| 3 | 2026-01-13 | Three periods ahead |
+
+These dates are valid   **only under an ordinary daily calendar**; a business-day or custom calendar produces different timestamps. The response must not contain actual future target values as input to the model. 
+
+Backtesting's `gap` is not a serving request field by default. If a caller requests forecasts beginning several periods after the origin, define that explicitly as a future capability rather than silently relabeling horizons. 
 
 ---
 
