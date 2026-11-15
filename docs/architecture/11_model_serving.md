@@ -247,7 +247,20 @@ Do not put model-specific feature engineering, training or metric formulas insid
 
 # 15. Batch Inference Workflow
 
+```mermaid
+flowchartTD
+A[Explicit batch request + model artifact ID] --> B[Validaet config and inputs]
+B --> C[Verify approved artifact and load]
+C --> D[Rn prediction]
+D --> E[Validate ForecastResult]
+E --> F[Write outputs atomically]
+F --> G[Write manifest/provenance]
+G --> H[Report terminal run status]
+```
 
+Initial output can be a CSV or Parquet prediction table plu a small JSON manifest. Choose the format based on existing project conventions rather than mandating both. Use temporary writes followed by atomic replacement where supported. A failed run must not leave a misleading success manifest.
+
+For repeated requests, defien an explicit output collission policy: fail if path exists, or overwrite only with an explicit option. A determinsitic request key may aid deduplication but should not substitute for model/version identity. 
 
 ---
 
