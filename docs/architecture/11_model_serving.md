@@ -232,7 +232,16 @@ Avoid mutable `latest` resolution in repeatable tests; if a human-friendly alias
 
 # 14. Serving Adapter and Dependency Boundaries
 
+A minimal adapter should have four conceptual responsibilties:
 
+1. **Resolve** the requested approved model/version.
+2. **Validate** request, artifact, history, and capabilties.
+3. **Predict** through the existing model interface.
+4. **Present** a validated `ForecastResult` with a small provenance envelope.
+
+Do not put model-specific feature engineering, training or metric formulas inside the serving adapter. If models need different inference preprocessing, then, package and version that preprocessing alongside the trained model, with a verified fit/transform boundary.
+
+**Possible implementation seam:** `src/ts_forecasting_lab/serving/` may contain an adapter once a concrete interface is approved. Exact module filenames and signatures are intentionally deferred until existing source inspection and first vertical-slice tests.
 
 ---
 
