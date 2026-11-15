@@ -322,3 +322,13 @@ Do not put model-specific feature engineering, training or metric formulas insid
 ---
 
 # 27. Relationship to the Next Documents
+
+- **`12_experiment_tracking.md`:** authoritative experiment history, model artifacts, version identity and approval metadata. Serving references those artifacts but does not implement tracking.
+- **`13_plugin_architecture.md`:** optional model or serializer plugins must honor the existing model interface and explicit capability checks.
+- **`14_testing_strategy.md`:** formalize cross-layer test ownership, fixtures, regression gates and acceptance evidence.
+- **`15_deployment_architecture.md`:** choose packaging, hosting, service operations and infrastructure from validated serving requirements.
+- **`16_future_roadmap.md`:** phase advanced serving modes, multi-series and probabilistic interfaces only after the initial vertical slice is stable.
+
+**Final architectural principle:** *A serving layer should be a thin, reliable and auditable boundary around an approved forecasting capability—not another place where forecasting, training, or evaluation logic is reimplemented.*
+
+--- 
