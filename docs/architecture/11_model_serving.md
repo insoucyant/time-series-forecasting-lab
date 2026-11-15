@@ -172,7 +172,28 @@ Backtesting's `gap` is not a serving request field by default. If a caller reque
 
 # 11. Model Artifact and Manifest Design
 
+An artifact package should have a small immutable manifest and model-specific serialized payload. 
 
+**Illustrative manifest (not currently implemented):** 
+
+```json
+{
+    "schema_version":"1",
+    "model_id":"seasonal_naive",
+    "artifact_format":"model-family-specific",
+    "artifact_digest_sha256":"<compute digest>",
+    "training_run_id":"example-run",
+    "frequency":"D",
+    "target_name":"y",
+    "series_scope":"single-series",
+    "library_version":{},
+    "approved_for_serving":false
+}
+```
+
+Requirements: immutable artifact identity; verified checksum; explicit serializer and library compatibility; manifest schema version; source training run when available; and approval state enforced by a trusted registry or policy. A boolean in an untrusted manifest **alone** is not authorization.
+
+Do not deserialize untrusted `pickle`/`joblib` artifacts: these formats can execute code during loading. Use trusted, access-controlled artifacts and appropriate format-sepcific validation. Prefer safe formats when feasible.  
 
 ---
 
