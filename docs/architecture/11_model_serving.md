@@ -317,6 +317,17 @@ Do not put model-specific feature engineering, training or metric formulas insid
 
 # 26. Open Design Decisions
 
+| Decision | Recommendation | When to finalize |
+|---|---|---|
+| Artifact Serialization | Model-family-specific, trusted, versioned | Before persisted-model serving | 
+| Artifact Approval | Explicit regsitry or controlled manifest policy | Before production |
+| Forecast Timestamps | Separate calendar-aware adapter | Before exposing timestamps to callers |
+| Future Covariates | Explicit availability contract per model | When exogenous models arrive | 
+| API Framework | Consider FastAPI; do not require now | When network serving is requested |
+| Cache/Concurrency | Benchmark by model family | Before multi-request deployment |
+| Model Aliases | Resolve to immutable versions in outputs | With registry implementation |
+| Probabilistic Output | Extend through a documented capability contract | When probabilitic models are implemented | 
+| Online Accuracy Monitoring | Join predictions to later actuals | With production feedback pipeline | 
 
 
 ---
