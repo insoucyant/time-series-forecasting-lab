@@ -219,7 +219,14 @@ Avoid mutable `latest` resolution in repeatable tests; if a human-friendly alias
 
 # 13. Input Data Validation and Temporal Safety
 
-
+- Validate history using `ForecastDataset` or an adapter that delegates to its established checks
+- Ensure the declared origin matches the actual last observed target available to the request
+- Reject duplicate timestamps, invalid freqency, missing mandatory columns, and unsupported hsitory length according to teh existing dataset contract.
+- Do not fit transformations on future observations.
+- Distinguish observed historical covariates from genuinely known future covariates. 
+- Reject a future-covariate request if teh model or data availability policy does not support it.
+- Preserve timezone and calendar semantics; use CTC for operational timestamps, not as a substitute for business calendar logic.
+- Never treat a missing value as zero unless that behaviour is an explicit validated domain rule.    
 
 ---
 
