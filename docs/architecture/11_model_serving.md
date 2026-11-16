@@ -292,7 +292,17 @@ Do not expose Python stack traces, secrets, local filesystem paths, or raw data 
 
 # 17. Runtime Model Loading, Caching and Concurrency
 
+Intial local mode may load one artifact per invocation. For future long-running services:
 
+- Cache by **immutable model version**, not by a mutable alias.
+- Bound cache size and memory; use explicit eviction and startup policies. 
+- Verify thread/process safety for each model family; do not assume fitted Python estimators are safe for concurrent calls. 
+- Avoid sharing mutable preprocessing state across requests.
+- Establish load-on-startup versus lazy-load behaviour from latency and memory requirements.
+- Treat artifact loading failures as readiness failures when the model is mandatory. 
+- Record model load time separately from prediction time. 
+
+Parallel serving and GPU allocation are deployment-specific and should not be benchmarked rather than assumed.  
 
 ---
 
