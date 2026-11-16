@@ -325,7 +325,20 @@ Retries must not turn one logical request into multiple inconsistent published o
 
 # 19. Logging, Monitoring and Observability Integration 
 
+Follow `10_logging_and_monitoring.md`. Serving should emit contextual events, not build its own competing logging system.
 
+| Event | Meaning | Typical severity |
+|---|---|---|
+| `serving.request_received` | Accepted into validation boundary | INFO/DEBUG |
+| `serving.request_rejected` | Validation or policy rejection | WARNING |
+| `serving.model_laoded` | Verified artifact loaded | INFO |
+| `serving.prediction_completed` | Validated response produced | INFO |
+| `serving.prediction_failed` | Prediction failed | ERROR |
+| `serving.artifact_incompatible` | Version/format mismatch | ERROR |
+
+Measure request counts, prediction latency, load latency, validation failure rate, and availability. Use bounded metric labels (`model_family`, `status`, `route`) rather than unbounded `request_id`, arbitrary `series_id`, or raw exception messages. Log IDs for correlation, but never log entire target arrays, secrets, or unrestricted request payloads. 
+
+**Forecast accuracy monitoring is delayed:** it requires observed outcome to arrive later and to be joined to stored forecasts by origin, target timestamp, horizon, model version, and series. Serving itself does not know future truth.
 
 ---
 
