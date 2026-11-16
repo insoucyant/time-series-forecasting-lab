@@ -344,6 +344,14 @@ Measure request counts, prediction latency, load latency, validation failure rat
 
 # 20. Security, Governance and Data Policy
 
+- Authenticate and authorize future network callers; restrict which models and series they may access.
+- Restrict artifact storage to trusted writers; verify checksums and supported formats.
+- Protect against arbitrary file paths, path traversal, oversized payloads, and unbounded horizons.
+- Limit request sizes and execution time; apply quotas/rate limits where needed.
+- Keep credentials in deployment secret management, not in YAML committed to Git.
+- Avoid sensitive target values and features in logs by default.
+- Track version provenance and approval actions separately from transient request logs.
+- Define retention for predictions, request metadata, and artifacts before production use.
 
 
 ---
