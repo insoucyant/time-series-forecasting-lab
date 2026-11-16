@@ -266,7 +266,16 @@ For repeated requests, defien an explicit output collission policy: fail if path
 
 # 16. Future HTTP API Design
 
+A REST service is an **optional adapter** around the same inference core; it must not implement a separate forecasting engine. 
 
+| Illustrative endpoint | Intent | Initial status |
+|---|---|---|
+| `GET /health/live` | Process liveness; no heavy model execution | Future |
+| `GET /health/ready` | Readiness: required model/artifact available | Future |
+| `POST /v1/forecasts` | Validate request and return forecast | Future |
+| `GET /v1/models/{model_id}/versions` | Approved version discovery, if authorized | Future |
+
+These routes are **proposed**, not existing endpoints. FastAPI is a reasonable future choice because it supports typed validation and OpenAPI documentation, but it should not be added until there is a demonstrated API requirement.
 
 ## 16.1 HTTP Status Principles
 
