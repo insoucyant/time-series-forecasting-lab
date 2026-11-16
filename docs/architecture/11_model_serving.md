@@ -279,7 +279,14 @@ These routes are **proposed**, not existing endpoints. FastAPI is a reasonable f
 
 ## 16.1 HTTP Status Principles
 
+- `400` or `422`: malformed/invalid request, according to selected API validation conventions.
+- `401` / `403`: authentication/authorization failure.
+- `404`: unknown model or artifact identifier when disclosure is permitted.
+- `409`: version/state conflict, where appropriate.
+- `503`: temporarily unavailable required serving dependency.
+- `500`: unexpected internal failure, with safe response details.
 
+Do not expose Python stack traces, secrets, local filesystem paths, or raw data in client-facing errors.  
 
 ---
 
