@@ -308,7 +308,18 @@ Parallel serving and GPU allocation are deployment-specific and should not be be
 
 # 18. Errors, Retries and Idempotency
 
+| Failure Class | Required Behavior | 
+|---|---|
+| Invaild request or incompatible horizon | Reject; do not retry unchanged input |
+| Invalid request or incomplete horizon | Reject; do not retry unchanged input |
+| Missing/unapproved artifact | Reject or mark service unavailable; never select an unapproved fallback silently |
+| Curropt or incompatible artifact | Fail safely; log safe error category |
+| Insufficient history | Reject with actionable validation reason |
+| Model prediction exception | Return failure; preserve request correlation |
+| Output write failure | Mark batch run failed; avoid partial-success manifest |
+| Transient infrastructure outage | Retry only when operation is safe and unbounded |
 
+Retries must not turn one logical request into multiple inconsistent published outputs. Define request IDs and atomic output behavior before introducing automated retries.
 
 ---
 
