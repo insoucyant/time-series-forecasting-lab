@@ -376,7 +376,7 @@ Set SLOs only after collecting baseline data and agreeing on business requiremen
 
 # 22. Deployment Boundary and Infrastructure Readiness
 
-
+Serving architecture defines **what** must run
 
 ---
 
