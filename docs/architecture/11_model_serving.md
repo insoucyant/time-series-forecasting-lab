@@ -358,7 +358,19 @@ Measure request counts, prediction latency, load latency, validation failure rat
 
 # 21. Performance, Capacity and SLOs
 
+Do not invent production performance guarantees before measurement. Define an initial benchmark matrix using representative model families, history length, horizons, and concurrent requests.
 
+| Dimension | Benchmark question |
+|---|---|
+| Cold start | How long to load and validate an artifact? |
+| Warm latency | How long does `predict()` take without load overhead? |
+| End-to-end latency | What is the full request duration including validation and serialization? |
+| Memory | Peak memory per loaded model and concurrent worker |
+| Throughput | Valid forecasts per second or per batch |
+| Error rate | Rejected, failed, timed-out requests by cause | 
+| Recovery | How quickly can the last approved version be restored? |
+
+Set SLOs only after collecting baseline data and agreeing on business requirements. Batch completion-time targets and online p95 latency targets are different concerns. 
 
 ---
 
