@@ -406,6 +406,15 @@ Cloud provider, Kubernetes, container orchestration, model registry vendor, API 
 6. Sensitive request fields are not logged.
 7. Artifact-loading errors do not produce fabricated forecasts.
 
+## 23.2 Integration tests
+
+1. Train a seasonal-naive model through an existing supported workflow; persist and reload only after a tested serialization mechanism exists.
+2. Run a three-step forecast and compare loaded-model predictions with in-process predictions.
+3. Validate the exact artifact/version and origin recorded in the output manifest.
+4. Run an invalid input and confirm failure status with no success artifact.
+5. Confirm local batch output can be consumed without requiring an HTTP server.
+6. If an API is added, test HTTP validation, authentication, liveness, readiness, and error mappings separately. 
+
 ---
 
 # 24. Incremental Implementation Plan
