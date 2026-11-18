@@ -378,6 +378,16 @@ Set SLOs only after collecting baseline data and agreeing on business requiremen
 
 Serving architecture defines **what** must run; `15_deployment_architecture.md` defines **where and how** it runs. Infrastructure work may proceed in parallel, but it should not force premature application dependencies. 
 
+## 22.1 Minimal environment-neutral requirements
+
+- Reproducible Python environment and pinned dependencies.
+- Read access to trusted model artifacts and approved manifests.
+- Explicit input and output locations for batch execution.
+- Environment-specific configuration via existing settings conventions.
+- Safe logging destination and error reporting.
+- Version identification for code, data, model, and serializer.
+- Health/readiness contract if an API is introduced.
+
 ---
 
 # 23. Testing Startegy and Acceptance Evidence
