@@ -388,6 +388,10 @@ Serving architecture defines **what** must run; `15_deployment_architecture.md` 
 - Version identification for code, data, model, and serializer.
 - Health/readiness contract if an API is introduced.
 
+## 22.2 Infrastructure decisions to defer
+
+Cloud provider, Kubernetes, container orchestration, model registry vendor, API gateway, metrics backend, GPU provisioning, and autoscaling policy should follow measures workload needs and deployment requirements. They are not prerequisites for a correct local serving contract.
+
 ---
 
 # 23. Testing Startegy and Acceptance Evidence
