@@ -429,7 +429,16 @@ Cloud provider, Kubernetes, container orchestration, model registry vendor, API 
 
 # 24. Incremental Implementation Plan
 
+| Stage | Scope | Exit criterion |
+|---|---|---|
+| S0: Contract audit | Inspect existing `BaseForecaster`, `ForecastResult`, `ForecastDataset`, scripts and model implementation | Verified signatures, no conflicting schema |
+| S1: In-process adapter | Validate horizon/history, invoke fitted seasonal-naive model, return validated result | Unit tests pass; no implicit fit |
+| S2: Local batch workflow | Explicit request, safe output, provenance manifest | Repeatable batch integration tests |
+| S3: Artifact loading | Tested serializer, immutable manifest, checksum, compatibility | Reloaded predictions match reference |
+| S4: Optional HTTP API | Typed request/response, health, errors, auth policy | Contract and integration tests pass |
+| S5: Production hardening | Metrics, concurrency, rate limits, deployment integration | Measured SLOs and operational acceptance | 
 
+S1 can precede S3 because it uses an already fitted in-process object. **Do not describe S1 as persisted-model serving** until the artifact lifecycle exists.
 
 ---
 
