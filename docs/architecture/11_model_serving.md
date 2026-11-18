@@ -444,7 +444,16 @@ S1 can precede S3 because it uses an already fitted in-process object. **Do not 
 
 # 25. Definition of Done: Initial Serving Architecture
 
-
+- [ ] Existing source contracts have been inspected and documented accurately.
+- [ ] In-process serving invokes a fitted forecaster without retraining.
+- [ ] Request validation rejects invalid horizons, incompatible data and unsupported capabilities.
+- [ ] Forecast output preserves `ForecastResult` semantics.
+- [ ] Forecast origin, model identity and version/provenance are explicit.
+- [ ] Local batch output has a clear success/failure and collision policy.
+- [ ] Unit and integration tests cover normal and failure paths.
+- [ ] Serving emits safe structured lifecycle logs using the existing observability design.
+- [ ] No HTTP server, cloud service, database, or experiment platform is required for the first working vertical slice. 
+- [ ] Any unimplemented artifact loader, registry, API, or monitoring integration is explicitly marked as future work.  
 
 ---
 
