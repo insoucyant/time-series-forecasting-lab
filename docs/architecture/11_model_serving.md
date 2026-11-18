@@ -396,7 +396,15 @@ Cloud provider, Kubernetes, container orchestration, model registry vendor, API 
 
 # 23. Testing Startegy and Acceptance Evidence
 
+## 23.1 Unit tests
 
+1. Request schema rejects `horizon <= 0`, invalid frequency, unsupported model and missing required fields.
+2. Model resolver rejects unknown, unapproved, mismatched, or corrupt artifacts.
+3. Prediction adapter invoked `predict()` exactly as intended and never calls `fit()`.
+4. Response adapter preserves `step`, `yhat`, `horizon`, `model_name`, `frequency`, and metadata.
+5. Calendar adapter derives timestamps correctly only for supported frequencies.
+6. Sensitive request fields are not logged.
+7. Artifact-loading errors do not produce fabricated forecasts.
 
 ---
 
