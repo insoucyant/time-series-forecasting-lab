@@ -376,7 +376,7 @@ Set SLOs only after collecting baseline data and agreeing on business requiremen
 
 # 22. Deployment Boundary and Infrastructure Readiness
 
-Serving architecture defines **what** must run
+Serving architecture defines **what** must run; `15_deployment_architecture.md` defines **where and how** it runs. Infrastructure work may proceed in parallel, but it should not force premature application dependencies. 
 
 ---
 
