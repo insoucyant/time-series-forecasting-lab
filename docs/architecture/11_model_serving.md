@@ -415,6 +415,16 @@ Cloud provider, Kubernetes, container orchestration, model registry vendor, API 
 5. Confirm local batch output can be consumed without requiring an HTTP server.
 6. If an API is added, test HTTP validation, authentication, liveness, readiness, and error mappings separately. 
 
+## 23.3 Regression and secutity tests
+
+- Golden prediction fixtures for a deterministic baseline.
+- Reproducibility across supported dependency versions.
+- Malformed manifest, unsupported serializer, path traversal, and oversized horizon cases.
+- Concurrent calls only after concurrency support is introduced
+- No training-data leakage or future-target input in serving.
+
+**Important:** Do not claim tests pass until code and test output provide evidence. The existence of test placeholders is not evidence of coverage.
+
 ---
 
 # 24. Incremental Implementation Plan
