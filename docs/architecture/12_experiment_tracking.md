@@ -29,7 +29,14 @@ Reuse existing repository paths and placeholders after inspecting the actual cod
 
 # 03. Principles
 
-
+1. **Evidence over leaderboard:** store predictions, coverage and protocol, not only summary scores.
+2. **Immutability:** finalized runs are read-only; corrections require new versions or runs. 
+3. **Reproducibility:** capture data, code, environment, configuration, model, and temporal protocol. 
+4. **Explicit failures:** failed and interrupted runs remain inspectable. 
+5. **Separation:** backtesting and evaluation remain authoritative.
+6. **Privacy:** do not store secrets or proprietary raw data by default.
+7. **Local-first:** simple portable files before shared tracking services.
+8. **Incremental:** avoid premature dependencies and schema proliferation.
 
 ---
 
