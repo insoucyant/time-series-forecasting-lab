@@ -42,7 +42,16 @@ Reuse existing repository paths and placeholders after inspecting the actual cod
 
 # 04. Vocabulary and Hierarchy 
 
+- **Study:** collections of related experiments answering one question.
+- **Specification:** fixed dataset, model, parameters, evaluation protocol and environment.
+- **Run:** one execution attempt with a unique `run_id`. 
+- **Trial:** candidate hyperparameters or random seed, linked to a study.
+- **Fold:** backtesting origin; owned by the existing runner. 
+- **Evaluation:** metrics calculated from out-of-sample predictions
+- **Model artifact:** fitted serialized model, only where safe save/load is implemented.
+- **Approved model:** separately governed decision; not automatically the top-scoring run. 
 
+Identical specifications can have multiple runs. Never overwrite one because its parameter match another. 
 
 ---
 
