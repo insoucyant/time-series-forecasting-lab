@@ -1,6 +1,8 @@
 # 01. Purpose
 
+Define reproducible identification, recording, persistence, comparison and audit of forecasting experiments. Tracking stores evidence; it does **not** fit models. generate backtesting folds, calculate evaluation metrics and serve predictions.
 
+**Initial deliverable:** local, filesystem-backed experiment manifests and artifacts for single-series point forecasts. Do not require MLflow, databases, cloud services or model serialization in teh first implementation. 
 
 ---
 
