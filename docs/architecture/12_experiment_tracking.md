@@ -8,7 +8,22 @@ Define reproducible identification, recording, persistence, comparison and audit
 
 # 02. Relationship to Existing Architecture
 
+| Document/component | Owns | Tracking responsibility |
+|---|---|---|
+| 01 Configuration | Validated settings | Persist sanitized resolved configuration |
+| 03 Model Interfaces | `BaseForecaster`, `ForecastResult` | Record model ID, parameters and version |
+| 04 Dataset | `ForecastDataset` validation | Record source, identity, frequency and checksum | 
+| 06 Model registry | Model discovery | Reference model identity; avoid duplicate registry |
+| 07 Backtesting | Splits, fitting and long-form predictions | Persist protocol and original records |
+| 08 Evaluation | Metrics, aggregation, comparison | Persist computed outputs; never recompute |
+| 09 Pipeline | Workflow orchestration | Establish run context and invoke tracker |
+| 10 Logging | Operational events | Correlate logs with `run_id` | 
+| 11 Serving | Approved artifact inference | Provide traceable approved model references | 
+| 13 Plugins | Extensibility | Optional tracking backend later |
+| 14 Testing | Test strategy | Verify tracking integrity and recovery |
+| 15 Deployment | Infrastructure | Configure storage, access and retention | 
 
+Reuse existing repository paths and placeholders after inspecting the actual code. 
 
 ---
 
