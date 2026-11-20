@@ -57,7 +57,23 @@ Identical specifications can have multiple runs. Never overwrite one because its
 
 # 05. Architecture
 
-
+```mermaid
+flowchartTD
+A[Validated configuration and dataset] --> B[Pipeline run context]
+B --> C[Model and backtesting runner]
+C --> D[Long-form predictions]
+D --> E[Evaluation framework]
+E --> F[Metrics and diagnostics]
+B --> G[Tracking Adapter]
+D --> G
+F --> G
+G --> H[Run manifest]
+G --> I[Immutable local artifacts]
+H --> J[Reproduce and compare runs]
+I --> J
+G -. future .-> K[MLflow or othe backend]
+H -. approved artifacts later .-> L[Serving]
+```
 
 ---
 
