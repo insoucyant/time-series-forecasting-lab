@@ -174,7 +174,14 @@ This is a **proposed** layout, not an assertion about current folders. Confirm e
 
 # 11. Comparison and Scientific Validity 
 
+Comparisons must verify:
+- Same dataset version and eligible evaluation population, or report differences explicitly.
+- Matched forecast keys: series, origin, target timestamp, horizon and fold.
+- Same metric definition, aggregation policy, and treatment of missing predictions.
+- Comparable tuning budgets and training-history constraints.
+- Clear distinction between per-observation, per-fold, per-series and per-dataset units.
 
+Overlapping forecast errors are statistically dependent. Do not treat thousands of prediction rows as thousands of independent replications. Statistical inference belongs to the evluataion/research layer; tracking stores paired losses and analysis outputs.
 
 ---
 
