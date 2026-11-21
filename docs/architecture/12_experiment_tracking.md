@@ -294,6 +294,6 @@ Implement in small reviewable changes with tests. Do not build Stages 5-6 to del
 
 # 20. Suggested Copilot Prompt 
 
-
+> Read `docs/architecture/07_backtesting_design.md` through `12_experiment_tracking.md` and inspect the actual source and tests. Report which tracking, pipeline and evaluation components are implemented versus empty placeholders. Propose only Stage 1: a local, validated run manifest with unique IDs, provenance, sanitized configuration and lifecycle status. Reuse existing packages and config; do not alter `ForecastDataset`, `BaseForecaster`, `ForecastResult`, backtesting outputs or metric definitions. Do not add MLflow, databases, cloud services or serialization. Present a file-by-file implementation plan, test cases and acceptance criteria, and wait for approval before changing code.
 
 ---
