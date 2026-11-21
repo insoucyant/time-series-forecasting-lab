@@ -28,3 +28,10 @@ config = BacktestConfig(
     gap=0,
 )
 
+# 4. Run the forecasting experiment
+results = run_backtest(
+    dataset=dataset,
+    config=config,
+    model_factory=lambda: SeasonalNaiveForecaster(season_length=1),
+    run_id="experiment01",
+)
