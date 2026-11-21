@@ -229,7 +229,18 @@ If required artifact persistence fails, do not claim the run is reproducibly suc
 
 # 16. Testing Matrix
 
+| Level | Scenarios |
+|---|---|
+| Unit | Manifest schema, identifiers, timestamps, redaction, config hashing |  
+| Unit | Legal/illegal status transitions, duplicate IDs, invalid paths |
+| Integration | Runner predictions saved and loaded without schema drift |
+| Integration | Evaluator outputs persisted without metric recaluclation |
+| Regression | Stable fixture produces equivalent normalized manifest |
+| Recovery | Interrupted write, corrupt file, missing artifact, hash mismatch |
+| Security | Secret redaction, path traversal, unsafe artifact rejection |
+| Research | Mismatched cohort and evaluation policy detected | 
 
+Use deterministic tiny datasets and temporary directories; initial CI should need no cloud, GPU, MLflow server or database.  
 
 ---
 
