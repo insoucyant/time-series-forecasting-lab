@@ -208,13 +208,22 @@ Begin with local manifests and simple read/list/compare utility. An index can be
 
 # 14. Logging and Monitoring Boundary 
 
+Logging records *lifecycle events* and *operational telemetry*; experiment tracking records authoratative run metadata and artifacts. Correlate by `run_id`, but do not treat event counts as run truth.
 
+If required artifact persistence fails, do not claim the run is reproducibly successful. Optional backend outages should be reported without silently modifying forecast values. 
 
 ---
 
 # 15. Security, Retention and Reliability
 
-
+- Redact credentials, tokens, connection strings and private payloads.
+- Respect dataset redistribution licenses. 
+- Validate artifact paths against traversal and unintended overwrite.
+- Use unique run directories and atomic manifest writes.
+- Detect missing files, corrupt manifests and checksum mismatches.
+- Define retention separately for metadata, predictions and model binaries.
+- Preserve inspectable failure records on disk-pull, permission and interruption errors.
+- Do not publish proprietary client artifacts in a public repository.   
 
 ---
 
