@@ -281,7 +281,14 @@ Implement in small reviewable changes with tests. Do not build Stages 5-6 to del
 
 # 19. Open Decisions
 
-
+- Which output/artifact directories already exist?
+- Is the evaluator executable or still only documented?
+- Which metrics and aggregation modes are currently implemented?
+- Should predictions be copied into runs or referenced by immutable checksum?
+- What are the data version and licensing conventions?
+- Is any model family safely serializable?
+- What retention and sharing requirements exist?
+- Is a tracking UI actually necessary now?
 
 --- 
 
