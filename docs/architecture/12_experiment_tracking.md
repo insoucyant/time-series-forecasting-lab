@@ -141,7 +141,13 @@ A seed alone does not guarantee deterministic results. Record known mondetermini
 
 # 09. Prediction and Evaluation Artifacts
 
+Preserve the runner's existing long-form fields:
 
+`run_id, model_id, series_id, fold_id, forecast_origin, target_timestamp, horizon, y_true, y_pred, fit_status, predict_status`
+
+Do not relabel horizons when `gap > 0`; horizons remain relative to the forecast origin. Preserve timestamps, nulls and numeric precision. CSV is acceptable initially; Parquet may be added with explicit schema/version control. 
+
+Persist evaluator-produced metrics, including grouping keys, sample counts, coverage and aggregation semantics. Tracking must not implement a second MAE/RMSE/MASE calculator. MASE requires training-derived denominations and their provenance. 
 
 ---
 
