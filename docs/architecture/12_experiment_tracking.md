@@ -79,7 +79,21 @@ H -. approved artifacts later .-> L[Serving]
 
 # 06. Run Lifecycle
 
+```mermaid
+stateDiagram-v2
+[*] --> created
+created --> running 
+running --> succeeded
+running --> failed
+running --> cancelled
+running --> interrupted
+succeeded --> [*]
+failed --> [*]
+cancelled --> [*]
+interrupted --> [*]
+```
 
+Each attempt has a unique ID and one authoratative termina state. Stale `running` records should be marked interrupted only after verifying the process is no longer active. Use UTC timestamps for chronology and monotonic clock for elapsed durations. 
 
 ---
 
