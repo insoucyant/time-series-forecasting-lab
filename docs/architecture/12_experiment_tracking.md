@@ -100,7 +100,25 @@ Each attempt has a unique ID and one authoratative termina state. Stale `running
 
 # 07. Manifest Contract 
 
+Illustrative JSON; field names must be reconciled with actual repository contracts. 
 
+```json
+{
+    "schema_version":"1.0",
+    "run_id":"example_run_id",
+    "study_id":"seasonal-baselines",
+    "status":"succeeded",
+    "workflow_type":"backtest_evaluate",
+    "code":{"git_commit":"example-sha","dirty_worktree":false},
+    "data":{"dataset_id":"example", "sha256":"example-checksum","frequency":"D"},
+    "model":{"model_id":"seasonal_naive", "parameters":{"season_length":7}},
+    "backtest":{"strategy":"expanding","initial_train_size":90, "horozon":7, "step":7, "gap":0},
+    "evaluation":{"metrics":["MAE","RMSE"], "aggregation":"pooled", "policy_version": "1"},
+    "artifacts":[{"path":"predictions.csv", "sha256": "example-checksum"}]
+}
+```
+
+Example checksums are placeholders, not valid digests. Validate actual digests and schema before finalizing. Store resolved, **sanitized** settings, not only a mutable config file path. 
 
 ---
 
