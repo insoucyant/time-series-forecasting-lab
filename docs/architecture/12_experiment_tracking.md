@@ -246,7 +246,16 @@ Use deterministic tiny datasets and temporary directories; initial CI should nee
 
 # 17. First-Release Acceptance Criteria
 
-
+1. Every run has a unique ID, valid manifest and clear terminal status.
+2. Resolved configuration, data, model, code, backtest and evaluator identities are recorded.
+3. Existing prediction schema is preserved exactly on save/read.
+4. Metrics come from the evaluation framework, not tracking code. 
+5. Required artifact checksums are verifed.     
+6. Failed and interrupted runs remain inspectable; not false success. 
+7. Secrets are redacted and output paths are cnfined. 
+8. A local utility can list runs and compare compatible protocols/cohorts.
+9. Tests pass offline with deterministic fixtures.
+10. Existing model, dataset, backtesting and evaluation contracts remain unchanged. 
 
 --- 
 
