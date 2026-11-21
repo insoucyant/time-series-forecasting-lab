@@ -124,7 +124,18 @@ Example checksums are placeholders, not valid digests. Validate actual digests a
 
 # 08. Required Provenance
 
+| Category | Required or recommended evidence |
+|---|---|
+| Code | Git commit, dirty state, package version |
+| Environment | Python and dependencies; hardware when relevant |
+| Data | Source, license, version, checksum, selected series, time range |
+| Model | Stable ID, parameters, seed, model/library version |
+| Backtest | Complete `BacktestConfig`, origins, horizon, gap, step |
+| Evaluation | Metric names, aggregation, undefined-value policy, evaluator version |
+| Outputs | Predictions, metrics, diagnostics, failure summary |
+| Resources | Duration and measured computer/memory if available |
 
+A seed alone does not guarantee deterministic results. Record known mondeterminism.  
 
 ---
 
