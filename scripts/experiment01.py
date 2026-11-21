@@ -18,3 +18,13 @@ dataset = ForecastDataset(
     target_col="sales",
     frequency="D",
 )
+
+# 3. Define the hsitorical evaluation protocol
+config = BacktestConfig(
+    strategy="expanding",
+    initial_train_size=10,
+    horizon=3,
+    steps=3,
+    gap=0,
+)
+
