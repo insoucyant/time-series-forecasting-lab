@@ -11,3 +11,10 @@ data = pd.DataFrame({
     "sales": list(range(20)),
 })
 
+# 2. Create a ForecastDataset
+dataset = ForecastDataset(
+    data=data,
+    time_col="date",
+    target_col="sales",
+    frequency="D",
+)
