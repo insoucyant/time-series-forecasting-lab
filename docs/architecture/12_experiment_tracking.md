@@ -261,7 +261,21 @@ Use deterministic tiny datasets and temporary directories; initial CI should nee
 
 # 18. Incremental Delivery Plan
 
+**Stage 0 — Inventory:** inspect existing repository folders, placeholders, evaluator implementation, outputs and config.
 
+**Stage 1 — Manifest:** unique run IDs, sanitized resolved config, provenance and lifecycle. 
+
+**Stage 2 — Artifacts:** original predictions, evaluator metrics, read-back, hashes and atomic finalization. 
+
+**Stage 3 — Comparison:** list/filter runs; validate matched cohorts and protocols.
+
+**Stage 4 — Hardening:** interruption recovery, concurrency, corruption, retention and security tests.
+
+**Stage 5 — Optional MLflow adapter:** only after concrete shared tracking needs.
+
+**Stage 6 — Serving integration:** approved model artifacts, only after safe serialization exists.
+
+Implement in small reviewable changes with tests. Do not build Stages 5-6 to deliver Stage 1. 
 
 ---
 
