@@ -195,7 +195,14 @@ Possible later governance status: `candidate → validated → approved → reti
 
 # 13. Storage Backend Choices
 
+| Backend | Appropriate stage | Trade-off |
+|---|---|---|
+| JSON manifests + local files | Initial | Portable, minimal dependencies; slower search |
+| SQLite metadata index | Later | Better filtering; migration and concurrency |
+| MLflow | Later if needed | UI and sahred tracking; added service/dependency |
+| Remote artifact storage | Team/production | Access control, retention and operations |
 
+Begin with local manifests and simple read/list/compare utility. An index can be rebuilt from authoritative manifests. Adopt MLflow only after documenting a concrete shared tracking requirement. 
 
 ---
 
