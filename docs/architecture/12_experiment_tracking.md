@@ -187,7 +187,9 @@ Overlapping forecast errors are statistically dependent. Do not treat thousands 
 
 # 12. Model Artifact Lineage and Approval
 
+A successful run is **not** automatically approved for serving. When fitted model persistence exists, record serializer, model version, training cutoff, library versions, artifact checksum, validation evidence, and approval decision. 
 
+Possible later governance status: `candidate → validated → approved → retired`. Never rely solely on a mutable `latest` alias. Do not load untrusted pickle/joblib artifacts; follow document 11's artifact security policy.
 
 ---
 
