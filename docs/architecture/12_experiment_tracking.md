@@ -153,7 +153,22 @@ Persist evaluator-produced metrics, including grouping keys, sample counts, cove
 
 # 10. Local Artifact Layout 
 
+```text
+artifacts/
+    experiments/
+        <study_id>/
+            <run_id>/
+            manifest.json
+            resolved_config.json
+            predictions.csv
+            metrics.csv
+            diagnostics.json
+            environment.json
+            logs.jsonl
+            model/      # only after tested serialization exists
+```
 
+This is a **proposed** layout, not an assertion about current folders. Confirm existing conventions first. Write into a temporary directory, verify required artifacts and hashes, then finalize atomically where supported. Completed run directories must not be mutated.
 
 ---
 
