@@ -17,3 +17,15 @@ class EvaluationResults:
     by_horizon: pd.DataFrame
 
 
+def calculate_metrics(forecasts: pd.DataFrame) -> dict:
+    """Calculate evaluation metrics for a set of forecast observations."""
+
+    actual = forecasts["y_true"]
+    predicted = forecasts["y_pred"]
+
+    return {
+        "mae": mean_absolute_error(actual, predicted),
+        "mse": mean_squared_error(actual, predicted),
+        "rmse": root_mean_squared_error(actual, predicted),
+        "bias": mean_bias(actual, predicted),   
+    }
