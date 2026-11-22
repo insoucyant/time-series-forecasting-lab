@@ -88,7 +88,7 @@ def evaluate_forecasts(forecasts: pd.DataFrame) -> EvaluationResults:
 
     by_horizon = pd.DataFrame(horizon_rows)
 
-    return EvaluationResult(
+    return EvaluationResults(
         overall=overall,
         by_fold=by_fold,
         by_horizon=by_horizon,
