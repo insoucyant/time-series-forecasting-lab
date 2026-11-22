@@ -14,7 +14,7 @@ data = pd.DataFrame({
 # 2. Create a ForecastDataset
 dataset = ForecastDataset(
     data=data,
-    time_col="date",
+    timestamp_col="date",
     target_col="sales",
     frequency="D",
 )
@@ -24,7 +24,7 @@ config = BacktestConfig(
     strategy="expanding",
     initial_train_size=10,
     horizon=3,
-    steps=3,
+    step=3,
     gap=0,
 )
 
