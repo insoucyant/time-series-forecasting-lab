@@ -35,3 +35,20 @@ results = run_backtest(
     model_factory=lambda: SeasonalNaiveForecaster(season_length=1),
     run_id="experiment01",
 )
+
+# 5. Inspect the results
+print("\nForecasting results:")
+print(
+    results[
+        [
+            "fold_id",
+            "forecast_origin",
+            "target_timestamp",
+            "horizon",
+            "y_true",
+            "y_pred",
+        ]
+    ].to_string(index=False)
+)
+
+print("\nTotal forecast observations:", len(results))
