@@ -29,3 +29,35 @@ def calculate_metrics(forecasts: pd.DataFrame) -> dict:
         "rmse": root_mean_squared_error(actual, predicted),
         "bias": mean_bias(actual, predicted),   
     }
+
+def evaluate_forecasts(forecasts: pd.DataFrame) -> EvaluationResults:
+    """Evaluate one model's successful backtest forecasts."""
+    required_columns = {
+        "fold_id",
+        "horizon",
+        "y_true",
+        "y_pred",
+        "fit_status",
+        "predict_status",
+    }
+
+    missing = required_columns - set(forecasts.columns)
+
+    if missing:
+        raise ValueError(
+            f"Forecasts DataFrame is missing required columns: {sorted(missing)}"
+        )
+
+    if forecasts.empty:
+        raise ValueError("Forecasts DataFrame is empty. Cannot evaluate.")
+
+    # Do not silently exclude failed forecasts; raise an error if any exist.
+    if (
+        not forecasts["fit_status"].eq("success").all()
+        or not forecasts["predict_status"].eq("success").all()
+    ):
+        raise ValueError(
+            "Forecasts contain unsuccessful fit or predict statuses. Cannot evaluate."
+        )
+
+    
