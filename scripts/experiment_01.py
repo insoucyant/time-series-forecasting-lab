@@ -90,4 +90,16 @@ for horizon, group in results.groupby("horizon"):
     print(f"  RMSE: {horizon_rmse:.4f}")
     print(f"  Bias: {horizon_bias:.4f}")
 
+
+
+evaluation = evaluate_forecasts(results)
+print("\nOverall evaluation metrics:")
+print(evaluation.overall.to_string(index=False))
+
+print("\nEvaluation metrics by fold:")
+print(evaluation.by_fold.to_string(index=False))
+
+print("\nEvaluation metrics by horizon:")
+print(evaluation.by_horizon.to_string(index=False))
+
 # Run this script using the command: `python scripts/experiment_01.py`
