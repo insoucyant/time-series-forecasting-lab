@@ -52,3 +52,20 @@ print(
 )
 
 print("\nTotal forecast observations:", len(results))
+
+# Calculate forecast errors
+results["error"] = results["y_true"] - results["y_pred"]
+results["absolute_error"] = results["error"].abs()
+results["squared_error"] = results["error"] ** 2
+
+# Calculate evaluation metrics
+mae = results["absolute_error"].mean()
+mse = results["squared_error"].mean()
+rmse =  mse ** 0.5
+bias = (results["y_pred"] - results["y_true"]).mean()
+
+print("\nEvaluation metrics:")
+print(f"Mean Absolute Error (MAE): {mae:.4f}")
+print(f"Mean Squared Error (MSE): {mse:.4f}")
+print(f"Root Mean Squared Error (RMSE): {rmse:.4f}")
+print(f"Bias: {bias:.4f}")
