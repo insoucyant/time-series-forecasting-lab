@@ -51,3 +51,14 @@ def test_backtesting_evaluation_integration():
     assert mean_squared_error(actual, predicted) == pytest.approx(0.375, rel=1e-9)
     assert root_mean_squared_error(actual, predicted) == pytest.approx(0.6123724356957945, rel=1e-9)
     assert mean_bias(actual, predicted) == pytest.approx(0.0, rel=1e-9)
+
+    expected_horizon_mae = {1: 1.0, 2: 2.0, 3: 3.0}\
+
+    for horizon, group in results.groupby("horizon"):
+        actual_mae = mean_absolute_error(group["y_true"], group["y_pred"])
+        assert actual_mae == pytest.approx(expected_horizon_mae[horizon], rel=1e-9), f"Expected MAE for horizon {horizon} to be {expected_horizon_mae[horizon]}, but got {actual_mae}." 
+
+
+# Run this test using python -m pytest tests/test_evaluation_integration.py
+# And complete test with the command: python -m pytest tests/test_evaluation_integration.py --maxfail=1 --disable-warnings -q
+# Complete tests by python -m pytest -q 
