@@ -78,4 +78,18 @@ def evaluate_forecasts(forecasts: pd.DataFrame) -> EvaluationResults:
 
     by_fold = pd.DataFrame(fold_rows)
 
-    
+    # Evaluate by forecast horizon 
+    horizon_rows = []
+
+    for horizon, group in forecasts.groupby("horizon"):
+        metrics = calculate_metrics(group)
+        metrics["horizon"] = horizon
+        horizon_rows.append(metrics)
+
+    by_horizon = pd.DataFrame(horizon_rows)
+
+    return EvaluationResult(
+        overall=overall,
+        by_fold=by_fold,
+        by_horizon=by_horizon,
+    )

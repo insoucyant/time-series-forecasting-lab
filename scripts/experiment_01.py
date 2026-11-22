@@ -4,6 +4,7 @@ from ts_forecasting_lab.data.dataset import ForecastDataset
 from ts_forecasting_lab.models.statistical.naive import SeasonalNaiveForecaster
 from ts_forecasting_lab.backtesting.splitter import BacktestConfig 
 from ts_forecasting_lab.backtesting.runner import run_backtest
+from ts_forecasting_lab.evaluation.runner import evaluate_forecasts
 from ts_forecasting_lab.evaluation.metrics import (
     mean_absolute_error,
     mean_squared_error,
