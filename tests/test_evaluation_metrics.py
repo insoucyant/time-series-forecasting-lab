@@ -20,7 +20,7 @@ def test_mae_perfect_prediction():
 
 def test_mae_rejects_different_lengths():
     y_true = pd.Series([1, 2, 3])
-    y_pred = pd.Series(1, 2, 3, 4])
+    y_pred = pd.Series([1, 2, 3, 4])
     with pytest.raises(ValueError, match="Actual and predicted values must have the same length."):
         mean_absolute_error(y_true, y_pred)
 
