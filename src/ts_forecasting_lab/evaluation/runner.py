@@ -60,4 +60,22 @@ def evaluate_forecasts(forecasts: pd.DataFrame) -> EvaluationResults:
             "Forecasts contain unsuccessful fit or predict statuses. Cannot evaluate."
         )
 
+    if forecasts[["y_true", "y_pred"]].isna().any().any():
+        raise ValueError(
+            "Forecasts contain missing actual or predicted values. Cannot evaluate."
+        )
+
+    # Overall Evaluation 
+    overall = pd.DataFrame([calculate_metrics(forecasts)])
+
+    # Evaluate by backtesing fold
+    fold_rows = []
+
+    for fold_id, group in forecasts.groupby("fold_id"):
+        metrics = calculate_metrics(group)
+        metrics["fold_id"] = fold_id
+        fold_rows.append(metrics)
+
+    by_fold = pd.DataFrame(fold_rows)
+
     
