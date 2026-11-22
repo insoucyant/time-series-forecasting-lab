@@ -71,8 +71,28 @@ def test_bias_overprediction():
         mean_squared_error,
         root_mean_squared_error,
         mean_bias,
-    ]
+    ],
 )
+def test_metrics_reject_empty_series(metric):
+    y_true = pd.Series([])
+    y_pred = pd.Series([])
+    with pytest.raises(ValueError, match="Cannot calculate .* for empty series."):
+        metric(y_true, y_pred)
+
+@pytest.mark.parametrize(
+    "metric",
+    [
+        mean_squared_error,
+        root_mean_squared_error,
+        mean_bias,
+    ],
+)
+def test_metrics_reject_different_lengths(metric):
+    y_true = pd.Series([1, 2, 3])
+    y_pred = pd.Series([1, 2])
+
+    with pytest.raises(ValueError, match="Actual and predicted values must have the same length."):
+        metric(y_true, y_pred)
 
 
     
