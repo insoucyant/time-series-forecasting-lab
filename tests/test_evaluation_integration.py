@@ -41,4 +41,13 @@ def test_backtesting_evaluation_integration():
         run_id="integration_test",
     )
 
-    
+    assert len(results) == 9, "Expected 9 forecast observations for the given configuration."
+    assert results["fold_id"].nunique() == 3, "Expected 3 folds for the given configuration."
+
+    actual = results["y_true"]
+    predicted = results["y_pred"]
+
+    assert mean_absolute_error(actual, predicted) == pytest.approx(0.5, rel=1e-9)
+    assert mean_squared_error(actual, predicted) == pytest.approx(0.375, rel=1e-9)
+    assert root_mean_squared_error(actual, predicted) == pytest.approx(0.6123724356957945, rel=1e-9)
+    assert mean_bias(actual, predicted) == pytest.approx(0.0, rel=1e-9)
