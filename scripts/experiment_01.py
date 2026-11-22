@@ -74,3 +74,19 @@ print(f"Mean Absolute Error (MAE): {mae:.4f}")
 print(f"Mean Squared Error (MSE): {mse:.4f}")
 print(f"Root Mean Squared Error (RMSE): {rmse:.4f}")
 print(f"Bias: {bias:.4f}")
+
+
+print("\nEvaluation by forecast horizon:")
+for horizon, group in results.groupby("horizon"):
+    horizon_mae = mean_absolute_error(group["y_true"], group["y_pred"])
+    horizon_mse = mean_squared_error(group["y_true"], group["y_pred"])
+    horizon_rmse = root_mean_squared_error(group["y_true"], group["y_pred"])
+    horizon_bias = mean_bias(group["y_true"], group["y_pred"])
+
+    print(f"\nHorizon {horizon}:")
+    print(f"  MAE: {horizon_mae:.4f}")
+    print(f"  MSE: {horizon_mse:.4f}")
+    print(f"  RMSE: {horizon_rmse:.4f}")
+    print(f"  Bias: {horizon_bias:.4f}")
+
+# Run this script using the command: `python scripts/experiment_01.py`
