@@ -64,7 +64,15 @@ def test_bias_overprediction():
 
     assert mean_bias(y_true, y_pred) == pytest.approx(1.0, rel=1e-9)
 
-    
+
+@pytest.mark.parametrize(
+    "metric",
+    [
+        mean_squared_error,
+        root_mean_squared_error,
+        mean_bias,
+    ]
+)
 
 
     
