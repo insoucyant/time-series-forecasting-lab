@@ -33,4 +33,11 @@ def mean_squared_error(
     errors = y_true.to_numpy() - y_pred.to_numpy()
     mse = float((errors ** 2).mean())
     return mse 
+
+def root_mean_squared_error(
+        y_true: pd.Series,
+        y_pred: pd.Series,
+) -> float:
+    """Calculate the Root Mean Squared Error."""
+    return mean_squared_error(y_true, y_pred) ** 0.5
     
