@@ -4,6 +4,12 @@ from ts_forecasting_lab.data.dataset import ForecastDataset
 from ts_forecasting_lab.models.statistical.naive import SeasonalNaiveForecaster
 from ts_forecasting_lab.backtesting.splitter import BacktestConfig 
 from ts_forecasting_lab.backtesting.runner import run_backtest
+from ts_forecasting_lab.evaluation.metrics import (
+    mean_absolute_error,
+    mean_squared_error,
+    root_mean_squared_error,
+    mean_bias
+)
 
 # 1. Create a small daily time series
 data = pd.DataFrame({
@@ -53,16 +59,15 @@ print(
 
 print("\nTotal forecast observations:", len(results))
 
-# Calculate forecast errors
-results["error"] = results["y_true"] - results["y_pred"]
-results["absolute_error"] = results["error"].abs()
-results["squared_error"] = results["error"] ** 2
+#Evaluate forecasting performance using the implemented metrics
+actual = results["y_true"]
+predicted = results["y_pred"]
 
-# Calculate evaluation metrics
-mae = results["absolute_error"].mean()
-mse = results["squared_error"].mean()
-rmse =  mse ** 0.5
-bias = (results["y_pred"] - results["y_true"]).mean()
+mae = mean_absolute_error(actual, predicted)
+mse = mean_squared_error(actual, predicted)
+rmse = root_mean_squared_error(actual, predicted)
+bias = mean_bias(actual, predicted)
+
 
 print("\nEvaluation metrics:")
 print(f"Mean Absolute Error (MAE): {mae:.4f}")

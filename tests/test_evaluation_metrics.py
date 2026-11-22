@@ -95,4 +95,10 @@ def test_metrics_reject_different_lengths(metric):
         metric(y_true, y_pred)
 
 
-    
+
+
+
+# To run this test file, you can use the following command in your terminal:
+# python -m pytest tests/test_evaluation_metrics.py -v
+# To run all tests in the project, simply run:
+# python -m pytest -q
