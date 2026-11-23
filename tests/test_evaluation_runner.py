@@ -60,3 +60,11 @@ def test_missing_required_column(valid_forecasts):
 def test_empty_forecasts(valid_forecasts):
     with pytest.raises(ValueError, match="empty"):
         evaluate_forecasts(valid_forecasts.iloc[0:0])
+
+@pytest.mark.parametrize("status_column", ["fit_status", "predict_status"])
+def test_unsuccessful_model_runs(valid_forecasts, status_column):
+    invalid = valid_forecasts.copy()
+    invalid.loc[0, status_column] = "failed"
+    with pytest.raises(ValueError, match="unsuccessful"):
+        evaluate_forecasts(invalid)
+
