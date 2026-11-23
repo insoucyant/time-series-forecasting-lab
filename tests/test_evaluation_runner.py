@@ -41,3 +41,14 @@ def test_metrics_by_fold(valid_forecasts):
     for fold_id in (1, 2, 3):
         assert by_fold.loc[fold_id, "mae"] == pytest.approx(2.0)
         assert by_fold.loc[fold_id, "bias"] == pytest.approx(-2.0)
+
+
+def test_metrics_by_horizon(valid_forecasts):
+    result = evaluate_forecasts(valid_forecasts)
+    by_horizon = result.by_horizon.set_index("horizon")
+    assert set(by_horizon.index) == {1, 2, 3}
+    for horizon in (1, 2, 3):
+        assert by_horizon.loc[horizon, "mae"] == pytest.approx(horizon)
+        assert by_horizon.loc[horizon, "mse"] == pytest.approx(horizon ** 2)
+        assert by_horizon.loc[horizon, "bias"] == pytest.approx(-horizon)
+
