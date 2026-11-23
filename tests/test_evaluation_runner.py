@@ -52,3 +52,7 @@ def test_metrics_by_horizon(valid_forecasts):
         assert by_horizon.loc[horizon, "mse"] == pytest.approx(horizon ** 2)
         assert by_horizon.loc[horizon, "bias"] == pytest.approx(-horizon)
 
+def test_missing_required_column(valid_forecasts):
+    invalid = valid_forecasts.drop(columns=["y_pred"])
+    with pytest.raises(ValueError, match="Missing required columns"):
+        evaluate_forecasts(invalid)
