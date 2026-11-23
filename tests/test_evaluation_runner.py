@@ -24,3 +24,12 @@ def valid_forecasts():
                 "predict_status": "success",
             })
     return pd.DataFrame(rows)
+
+def test_overall_metrics(valid_forecasts):
+    result = evaluate_forecasts(valid_forecasts)
+    assert len(result.overall) == 1
+    metrics = result.overall.iloc[0]
+    assert metrics["mae"] == pytest.approx(2.0)
+    assert metrics["mse"] == pytest.approx(14/3)
+    assert metrics["rmse"] == pytest.approx((14 / 3)**0.5)
+    assert metrics["bias"] == pytest.approx(-2.0)
