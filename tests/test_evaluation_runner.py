@@ -33,3 +33,11 @@ def test_overall_metrics(valid_forecasts):
     assert metrics["mse"] == pytest.approx(14/3)
     assert metrics["rmse"] == pytest.approx((14 / 3)**0.5)
     assert metrics["bias"] == pytest.approx(-2.0)
+
+def test_metrics_by_fold(valid_forecasts):
+    result = evaluate_forecasts(valid_forecasts)
+    by_fold = result.by_fold.set_index("fold_id")
+    assert set(by_fold.index) == {1, 2, 3}
+    for fold_id in (1, 2, 3):
+        assert by_fold.loc[fold_id, "mae"] == pytest.approx(2.0)
+        assert by_fold.loc[fold_id, "bias"] == pytest.approx(-2.0)
