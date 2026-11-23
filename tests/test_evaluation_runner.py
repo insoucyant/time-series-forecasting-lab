@@ -54,7 +54,7 @@ def test_metrics_by_horizon(valid_forecasts):
 
 def test_missing_required_column(valid_forecasts):
     invalid = valid_forecasts.drop(columns=["y_pred"])
-    with pytest.raises(ValueError, match="Missing required columns"):
+    with pytest.raises(ValueError, match="missing required columns"):
         evaluate_forecasts(invalid)
 
 def test_empty_forecasts(valid_forecasts):
