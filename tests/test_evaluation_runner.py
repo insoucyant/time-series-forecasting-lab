@@ -68,3 +68,9 @@ def test_unsuccessful_model_runs(valid_forecasts, status_column):
     with pytest.raises(ValueError, match="unsuccessful"):
         evaluate_forecasts(invalid)
 
+@pytest.mark.parametrize("value_column", ["y_true", "y_pred"])
+def test_missing_forecast_values(valid_forecasts, value_column):
+    invalid = valid_forecasts.copy()
+    invalid.loc[0, value_column] = float("nan")
+    with pytest.raises(ValueError, match="missing"):
+        evaluate_forecasts(invalid)
