@@ -7,23 +7,25 @@ from ts_forecasting_lab.evaluation.runner import evaluate_forecasts
 
 @pytest.fixture
 def valid_forecasts():
-    """Three folds, each containing three forecast horizons."""
-    rows = []
-    for fold_id, actuals, prediction in [
-        (1, [10, 11, 12], 9),
-        (2, [13, 14, 15], 12),
-        (3, [16, 17, 18], 15), 
-    ]:
-        for horizon, actual in enumerate(actuals, start=1):
-            rows.append({
-                "fold_id": fold_id,
-                "horizon": horizon, 
-                "y_true": actual,
-                "y_pred": prediction, 
-                "fit_status": "success",
-                "predict_status": "success",
-            })
-    return pd.DataFrame(rows)
+    return pd.DataFrame({
+        "run_id": ["run_01"] * 9,
+        "model_id": ["naive"] * 9,
+        "series_id": ["series_01"] * 9,
+        "fold_id": [1, 1, 1, 2, 2, 2, 3, 3, 3],
+        "horizon": [1, 2, 3, 1, 2, 3, 1, 2, 3],
+        "forecast_origin": pd.to_datetime(
+            ["2026-01-10"] * 3
+            + ["2026-01-13"] * 3
+            + ["2026-01-16"] * 3
+        ),
+        "target_timestamp": pd.date_range(
+            "2026-01-11", periods=9, freq="D"
+        ),
+        "y_true": [10, 11, 12, 13, 14, 15, 16, 17, 18],
+        "y_pred": [9, 9, 9, 12, 12, 12, 15, 15, 15],
+        "fit_status": ["success"] * 9,
+        "predict_status": ["success"] * 9,
+    })
 
 def test_overall_metrics(valid_forecasts):
     result = evaluate_forecasts(valid_forecasts)

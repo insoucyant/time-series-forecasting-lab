@@ -7,8 +7,17 @@ from ts_forecasting_lab.evaluation.runner import evaluate_forecasts
 @pytest.fixture
 def valid_forecasts():
     return pd.DataFrame({
+        "run_id": ["run_01"] * 3,
+        "model_id": ["naive"] * 3,
+        "series_id": ["series_01"] * 3,
         "fold_id": [1, 1, 1],
         "horizon": [1, 2, 3],
+        "forecast_origin": pd.to_datetime(
+            ["2026-01-10"] * 3
+        ),
+        "target_timestamp": pd.date_range(
+            "2026-01-11", periods=3, freq="D"
+        ),
         "y_true": [10.0, 11.0, 12.0],
         "y_pred": [9.0, 9.0, 9.0],
         "fit_status": ["success"] * 3,
