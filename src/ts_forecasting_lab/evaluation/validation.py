@@ -26,3 +26,10 @@ def validate_forecast_structure(
 
     if forecasts.empty:
         raise ValueError("Cannot validate empty forecasts.")
+
+    # Reject missing structural values.
+    for column in required_columns:
+        if forecasts[column].isna().any():
+            raise ValueError(
+                f"Missing values in {column}."
+            )
