@@ -33,3 +33,31 @@ def validate_forecast_structure(
             raise ValueError(
                 f"Missing values in {column}."
             )
+
+    # Validate positive integer identifiers
+    for column in ["fold_id", "horizon"]:
+        valid = forecasts[column].map(
+            lambda value: (
+                isinstance(value, Integral)
+                and not isinstance(value, bool)
+                and value > 0
+            )
+        )
+        if not vaid.all():
+            raise ValueError(
+                f"{column} must contain positive integers."
+            )
+
+    # Validate experiment identifiers
+    for column in ["run_id", "model_id", "series_id"]:
+        valid = forecasts[column].map(
+            lambda value: (
+                isinstance(value, str)
+                and bool(value.strip())
+            )
+        )
+
+        if not valid.all():
+            raise ValueError(
+                f"Invalid identifier in {column}."
+            )
