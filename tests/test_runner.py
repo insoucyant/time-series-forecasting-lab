@@ -9,6 +9,7 @@ from ts_forecasting_lab.backtesting.runner import run_backtest, RESULT_COLUMNS
 from ts_forecasting_lab.backtesting.splitter import BacktestConfig
 from ts_forecasting_lab.data.dataset import ForecastDataset
 from ts_forecasting_lab.models.statistical.naive import SeasonalNaiveForecaster
+from ts_forecasting_lab.evaluation.runner import evaluate_forecasts
 
 def make_dataset(n=20):
     return ForecastDataset(
@@ -105,6 +106,36 @@ def test_rejects_empty_run_id():
             factory, 
             run_id=" "
         )
+
+def test_single_series_identifier_is_populated():
+    """Single-series backtesting must emit a valid series identifier."""
+    result = run_backtest(
+        make_dataset(),
+        BacktestConfig("expanding", 10, 3, step=3),
+        factory,
+        run_id="series_id_test",
+    )
+
+    assert result["series_id"].notna().all()
+    assert result["series_id"].eq("series_01").all()
+
+
+def test_backtesting_output_can_be_evaluated():
+    """Backtesting output must satisfy the evaluation input contract."""
+    forecasts = run_backtest(
+        make_dataset(),
+        BacktestConfig("expanding", 10, 3, step=3),
+        factory,
+        run_id="integration_test",
+    )
+
+    evaluation = evaluate_forecasts(forecasts)
+
+    assert evaluation.overall.loc[0, "mae"] == pytest.approx(2.0)
+    assert evaluation.overall.loc[0, "rmse"] == pytest.approx(
+        (14 / 3) ** 0.5
+    )
+
 
     
     

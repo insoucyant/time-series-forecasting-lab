@@ -91,7 +91,7 @@ def run_backtest(
             records.append({
                 "run_id": identifier,
                 "model_id": model.model_name,
-                "series_id": None,
+                "series_id": "series_01",
                 "fold_id": fold.fold_id,
                 "forecast_origin": fold.forecast_origin,
                 "target_timestamp": target_timestamp,
