@@ -62,6 +62,11 @@ def validate_forecast_structure(
                 f"Invalid identifier in {column}."
             )
     # Evaluate only one run and one model at a time
+    for column in ["run_id", "model_id"]:
+        if forecasts[column].nunique() != 1:
+            raise ValueError(
+                f"Multiple values found in {column}."
+            )
 
 
     # Reject duplicate forecast observations
