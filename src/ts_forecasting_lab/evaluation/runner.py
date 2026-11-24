@@ -80,7 +80,8 @@ def evaluate_forecasts(forecasts: pd.DataFrame) -> EvaluationResults:
                 f"Forecast column {column} contains non-finite values."
             )
 
-
+    # Validate forecast record structure
+    validate_forecast_structure(forecasts)
     # Overall Evaluation 
     overall = pd.DataFrame([calculate_metrics(forecasts)])
 
