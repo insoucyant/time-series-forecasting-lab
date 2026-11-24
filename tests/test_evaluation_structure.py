@@ -38,4 +38,11 @@ def test_missing_required_column(valid_forecasts):
     with pytest.raises(ValueError, match="missing required columns"):
         validate_forecast_structure(invalid)
 
+def test_empty_forecast(valid_forecasts):
+    invalid = valid_forecasts.iloc[0:0]
+
+    with pytest.raises(ValueError, match="empty"):
+        validate_forecast_structure(invalid)
+
+
 
