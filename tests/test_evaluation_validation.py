@@ -23,3 +23,12 @@ def test_rejects_infinite_forecast_values(valid_forecasts, column, invalid):
 
     with pytest.raises(ValueError, match="non-finite"):
         evaluate_forecasts(forecasts)
+
+@pytest.mark.parametrize("column", ["y_true", "y_pred"])
+def test_rejects_non_numeric_forecast_values(valid_forecasts, column):
+    forecasts = valid_forecasts.copy()
+    forecasts[column] = forecasts[column].astype(object)
+    forecasts.loc[0, column] = "not-a-number"
+
+    with pytest.raises(ValueError, match="numeric"):
+        evaluate_forecasts(forecasts)
