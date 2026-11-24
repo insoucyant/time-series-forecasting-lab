@@ -32,3 +32,7 @@ def test_rejects_non_numeric_forecast_values(valid_forecasts, column):
 
     with pytest.raises(ValueError, match="numeric"):
         evaluate_forecasts(forecasts)
+
+def test_valid_forecasts_still_evaluate(valid_forecasts):
+    evaluation = evaluate_forecasts(valid_forecasts)
+    assert evaluation.loc[0, "mae"] == pytest.approx(2.0)
