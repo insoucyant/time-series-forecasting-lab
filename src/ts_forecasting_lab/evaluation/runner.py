@@ -1,6 +1,7 @@
 """Evaluate forecasts produced by the backtesting runner using various metrics."""
 
 from dataclasses import dataclass
+import numpy as np 
 import pandas as pd
 
 from ts_forecasting_lab.evaluation.metrics import (
@@ -64,6 +65,16 @@ def evaluate_forecasts(forecasts: pd.DataFrame) -> EvaluationResults:
         raise ValueError(
             "Forecasts contain missing actual or predicted values. Cannot evaluate."
         )
+
+    for column in ("y_pred", "y_true"):
+        if not pd.api.types.is_numeric_dtype(forecasts[column]):
+            raise ValueError(f"Forecast column {column} must be numeric.")
+
+        values = forecasts[column].to_numpy(dtype=float)
+        if not np.isfinite(value).all():
+            raise ValueError(
+                f"Forecast column {column} contains non-finite values."
+            )
 
     # Overall Evaluation 
     overall = pd.DataFrame([calculate_metrics(forecasts)])

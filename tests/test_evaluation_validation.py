@@ -19,7 +19,7 @@ def valid_forecasts():
 @pytest.mark.parametrize("invalid", [np.inf, -np.inf])
 def test_rejects_infinite_forecast_values(valid_forecasts, column, invalid):
     forecasts = valid_forecasts.copy()
-    forecasts.loc[o, column] = invalid
+    forecasts.loc[0, column] = invalid
 
     with pytest.raises(ValueError, match="non-finite"):
         evaluate_forecasts(forecasts)
