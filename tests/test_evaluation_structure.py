@@ -28,3 +28,6 @@ def valid_forecasts():
             "2026-01-13",
         ]) 
     })
+
+def test_valid_forecast_structure(valid_forecasts):
+    validate_forecast_structure(valid_forecast)
