@@ -11,6 +11,10 @@ from ts_forecasting_lab.evaluation.metrics import (
     mean_bias,
 )
 
+from ts_forecasting_lab.evaluation.validation import (
+    validate_forecast_structure,
+)
+
 @dataclass
 class EvaluationResults:
     overall: pd.DataFrame
