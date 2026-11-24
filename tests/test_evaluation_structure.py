@@ -1,0 +1,30 @@
+"""Unit tests for structural validation of forecast records."""
+
+import pandas as pd
+import pytest 
+
+from ts_forecasting_lab.evaluation.validation import (
+    validate_forecast_structure,
+)
+
+@pytest.fixture
+def valid_forecasts():
+    return pd.DataFrame({
+        "run_id": ["run_01"] * 4,
+        "model_id": ["naive"] * 4,
+        "series_id": ["series_01"] * 4,
+        "fold_id": [1, 1, 2, 2],
+        "horizon": [1, 2, 1, 2],
+        "forecast_origin": pd.to_datetime([
+            "2026-01-10",
+            "2026-01-10",
+            "2026-01-11",
+            "2026-01-11",
+        ]),
+        "target_timestamp": pd.to_datetime([
+            "2026-01-11",
+            "2026-01-12",
+            "2026-01-12",
+            "2026-01-13",
+        ]) 
+    })

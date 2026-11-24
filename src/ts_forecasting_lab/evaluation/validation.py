@@ -43,7 +43,7 @@ def validate_forecast_structure(
                 and value > 0
             )
         )
-        if not vaid.all():
+        if not valid.all():
             raise ValueError(
                 f"{column} must contain positive integers."
             )
