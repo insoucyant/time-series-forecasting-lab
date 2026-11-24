@@ -14,7 +14,7 @@ from ts_forecasting_lab.evaluation.metrics import (
 
 # 1. Create a small daily time series
 data = pd.DataFrame({
-    "date": pd.date_range(start="2026-01-01", periods=20, freq="D"),
+    "date": pd.date_range("2026-01-01", periods=20, freq="D"),
     "sales": list(range(20)),
 })
 
@@ -91,7 +91,12 @@ for horizon, group in results.groupby("horizon"):
     print(f"  Bias: {horizon_bias:.4f}")
 
 
-
+print("\nForecast identifiers:")
+print(
+    results[["run_id", "model_id", "series_id"]]
+    .drop_duplicates()
+    .to_string(index=False)
+)
 evaluation = evaluate_forecasts(results)
 print("\nOverall evaluation metrics:")
 print(evaluation.overall.to_string(index=False))
