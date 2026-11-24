@@ -63,7 +63,7 @@ def test_invalid_positive_integer(
         validate_forecast_structure(invalid)
 
 @pytest.mark.parametrize(
-    "columns",
+    "column",
     [
         "run_id",
         "model_id",
@@ -86,12 +86,12 @@ def test_missing_structural_value(valid_forecasts, column):
     "column",
     ["run_id", "model_id", "series_id"],
 )
-@pytest.mark.parametrize(
-    "value",
-    ["", " ", 123],
-)
+@pytest.mark.parametrize("value", ["", "   ", 123])
 def test_invalid_identifier(valid_forecasts, column, value):
     invalid = valid_forecasts.copy()
+
+    invalid[column] = invalid[column].astype(object)
+
     invalid.loc[0, column] = value
 
     with pytest.raises(ValueError, match="Invalid identifier"):
