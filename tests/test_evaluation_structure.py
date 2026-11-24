@@ -30,4 +30,12 @@ def valid_forecasts():
     })
 
 def test_valid_forecast_structure(valid_forecasts):
-    validate_forecast_structure(valid_forecast)
+    validate_forecast_structure(valid_forecasts)
+
+def test_missing_required_column(valid_forecasts):
+    invalid = valid_forecasts.drop(columns=["run_id"])
+
+    with pytest.raises(ValueError, match="missing required columns"):
+        validate_forecast_structure(invalid)
+
+
