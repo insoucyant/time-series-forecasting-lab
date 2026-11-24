@@ -105,3 +105,9 @@ def evaluate_forecasts(forecasts: pd.DataFrame) -> EvaluationResults:
         by_fold=by_fold,
         by_horizon=by_horizon,
     )
+
+
+# NaN and infinity are different failure modes. 
+# Missing-value checks such as isna() detedt NaN bot not positive or negative infinity. 
+# np.infinite() rejects all three.
+#  
