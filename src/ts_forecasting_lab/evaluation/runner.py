@@ -71,10 +71,11 @@ def evaluate_forecasts(forecasts: pd.DataFrame) -> EvaluationResults:
             raise ValueError(f"Forecast column {column} must be numeric.")
 
         values = forecasts[column].to_numpy(dtype=float)
-        if not np.isfinite(value).all():
+        if not np.isfinite(values).all():
             raise ValueError(
                 f"Forecast column {column} contains non-finite values."
             )
+
 
     # Overall Evaluation 
     overall = pd.DataFrame([calculate_metrics(forecasts)])
