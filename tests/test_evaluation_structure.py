@@ -116,7 +116,14 @@ def test_duplicate_forecast_records(valid_forecasts):
     with pytest.raises(ValueError, match="Duplicate forecast"):
         validate_forecast_structure(invalid)
 
-        
+
+def test_overlapping_forecast_windows(valid_forecasts):
+    assert valid_forecasts["target_timestamp"].duplicated().any()
+
+    # Overlapping target dates are legitimate.
+    validate_forecast_structure(valid_forecasts)
+
+
 
 
 
