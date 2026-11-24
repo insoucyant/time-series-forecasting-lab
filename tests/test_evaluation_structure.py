@@ -107,6 +107,17 @@ def test_mixed_identifiers(valid_forecasts, columns):
     with pytest.raises(ValueError, match="Duplicate forecast"):
         validate_forecast_structure(invalid)
 
+def test_duplicate_forecast_records(valid_forecasts):
+    invalid = pd.concat(
+        [valid_forecasts, valid_forecasts.iloc[[0]]],
+        ignore_index=True
+    )
+
+    with pytest.raises(ValueError, match="Duplicate forecast"):
+        validate_forecast_structure(invalid)
+
+        
+
 
 
 
