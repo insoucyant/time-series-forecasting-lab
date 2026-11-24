@@ -61,3 +61,17 @@ def validate_forecast_structure(
             raise ValueError(
                 f"Invalid identifier in {column}."
             )
+    # Evaluate only one run and one model at a time
+
+
+    # Reject duplicate forecast observations
+    forecast_key = [
+        "run_id",
+        "model_id",
+        "series_id",
+        "fold_id",
+        "horizon",
+    ]
+
+    if forecasts.duplicated(subset=forecast_key).any():
+        raise ValueError("Duplicate forecast records found.")
