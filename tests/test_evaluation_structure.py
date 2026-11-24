@@ -62,5 +62,27 @@ def test_invalid_positive_integer(
     with pytest.raises(ValueError, match="positive integers"):
         validate_forecast_structure(invalid)
 
+@pytest.mark.parametrize(
+    "columns",
+    [
+        "run_id",
+        "model_id",
+        "series_id",
+        "fold_id",
+        "horizon",
+        "forecast_origin",
+        "target_timestamp",
+    ],
+)
+def test_missing_structural_value(valid_forecasts, column):
+    invalid = valid_forecasts.copy()
+    invalid[column] = invalid[column].astype(object)
+    invalid.loc[0, column] = None
+
+    with pytest.raises(ValueError, match="Missing values"):
+        validate_forecast_structure(invalid)
+
+        
+
 
 
