@@ -97,6 +97,16 @@ def test_invalid_identifier(valid_forecasts, column, value):
     with pytest.raises(ValueError, match="Invalid identifier"):
         validate_forecast_structure(invalid)
 
+@pytest.mark.parametrize("columns", ["run_id","model_id"])
+def test_mixed_identifiers(valid_forecasts, columns):
+    invalid = pd.concat(
+        [valid_forecasts, valid_forecasts.iloc[[0]]],
+        ignore_index=True
+    )
+
+    with pytest.raises(ValueError, match="Duplicate forecast"):
+        validate_forecast_structure(invalid)
+
 
 
 
