@@ -82,7 +82,22 @@ def test_missing_structural_value(valid_forecasts, column):
     with pytest.raises(ValueError, match="Missing values"):
         validate_forecast_structure(invalid)
 
-        
+@pytest.mark.parametrize(
+    "column",
+    ["run_id", "model_id", "series_id"],
+)
+@pytest.mark.parametrize(
+    "value",
+    ["", " ", 123],
+)
+def test_invalid_identifier(valid_forecasts, column, value):
+    invalid = valid_forecasts.copy()
+    invalid.loc[0, column] = value
+
+    with pytest.raises(ValueError, match="Invalid identifier"):
+        validate_forecast_structure(invalid)
+
+
 
 
 
