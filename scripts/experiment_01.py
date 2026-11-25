@@ -47,7 +47,7 @@ results = run_backtest(
     dataset=dataset,
     config=config,
     model_factory=lambda: SeasonalNaiveForecaster(season_length=1),
-    run_id="experiment01",
+    run_id=uuid4().hex,
 )
 
 # 5. Inspect the results
@@ -158,5 +158,53 @@ evaluation.by_horizon.to_csv(
 )
 
 print(f"\nExperimen artifacts saved to: {output_dir}")
+
+# ============================================================
+#               Persist experiment metadata
+# ============================================================
+
+metadata = {
+    "experiment_name": "experiment_01",
+    "run_id": run_id,
+    "recorded_at_utc": datetime.now(timezone.utc).isoformat(),
+
+    "dataset": dataset.get_metadata(),
+
+    "model":{
+        "model_id": str(results["model_id"].iloc[0]),
+        "parameters": {
+            "season_length": 1,
+        }, 
+    }, 
+
+    "backtesting": asdict(config), 
+
+    "results": {
+        "n_forecast_observations": len(results),
+        "n_folds": int(results["fold_id"].nunique())
+        "n_series": int(results["series_id"].nunique()),
+    },
+
+    "environment": {
+        "python_version": platform.python_version(),
+        "pandas_version": pd.__version__,
+        "platform": platform.platform(),
+    },
+
+}
+
+with (output_dir / "metadata.json").open(
+    "w", 
+    encoding="utf-8", 
+) as file: 
+    json.dump(metadata, file, indent=4)
+
+
+
+
+
+
+
+
 
 # Run this script using the command: `python scripts/experiment_01.py`
