@@ -181,7 +181,7 @@ metadata = {
 
     "results": {
         "n_forecast_observations": len(results),
-        "n_folds": int(results["fold_id"].nunique())
+        "n_folds": int(results["fold_id"].nunique()),
         "n_series": int(results["series_id"].nunique()),
     },
 
@@ -198,7 +198,6 @@ with (output_dir / "metadata.json").open(
     encoding="utf-8", 
 ) as file: 
     json.dump(metadata, file, indent=4)
-
 
 
 
