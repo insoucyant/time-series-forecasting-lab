@@ -1,4 +1,5 @@
 import pandas as pd
+from pathlib import Path 
 
 from ts_forecasting_lab.data.dataset import ForecastDataset
 from ts_forecasting_lab.models.statistical.naive import SeasonalNaiveForecaster
@@ -106,5 +107,50 @@ print(evaluation.by_fold.to_string(index=False))
 
 print("\nEvaluation metrics by horizon:")
 print(evaluation.by_horizon.to_string(index=False))
+
+
+# ============================================================
+#               Persist experiment artifacts
+# ============================================================
+
+project_root = Path(__file__).resolve().parents[1]
+
+run_id = str(results["run_id"].iloc[0])
+
+output_dir = (
+    project_root
+    / "artifacts"
+    / "experiments"
+    / "experiment_01"
+    / run_id
+)
+
+output_dir.mkdir(parents=True, exist_ok=False)
+
+# Save raw forecast records
+results.to_csv(
+    output_dir / "forecasts.csv",
+    index=False, 
+)
+
+# Save overall evaluation metrics
+evaluation.overall.to_csv(
+    output_dir / "metrics_overall.csv",
+    index = False, 
+)
+
+# Save evaluation metrics by fold
+evaluation.by_fold.to_csv(
+    output_dir / "metrics_by_fold.csv",
+    index=False,
+)
+
+# Save evaluation metrics by forecast horizon
+evaluation.by_horizon.to_csv(
+    output_dir / "metrics_by_horizon.csv",
+    index=False
+)
+
+print(f"\nExperimen artifacts saved to: {output_dir}")
 
 # Run this script using the command: `python scripts/experiment_01.py`
