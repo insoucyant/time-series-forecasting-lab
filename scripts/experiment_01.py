@@ -156,6 +156,23 @@ metadata = {
 
 
 
+# ============================================================
+#               Persist experiment artifacts
+# ============================================================
+
+output_dir = save_experiment_artifacts(
+    artifact_root=project_root / "artifacts",
+    experiment_name="experiment_01",
+    run_id=run_id,
+    forecasts=results,
+    evaluation=evaluation,
+    metadata=metadata,
+)
+
+print(f"\nExperiment artifacts saved to: {output_dir}")
+
+
+
 
 
 

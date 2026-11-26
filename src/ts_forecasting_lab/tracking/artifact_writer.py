@@ -14,8 +14,8 @@ def validate_identifier(identifier: str) -> None:
     if not isinstance(identifier, str):
         raise ValueError("Identifier must be a string.")
 
-    if not re.fullmatch(r"[A-Za-z0-9_-]", identifier):
-        raise ValueError(f"Invalid identifer: {identifier!r}")
+    if not re.fullmatch(r"[A-Za-z0-9_-]+", identifier):
+        raise ValueError(f"Invalid identifier: {identifier!r}")
 
 
 def save_experiment_artifacts(
@@ -37,7 +37,7 @@ def save_experiment_artifacts(
     if forecasts.empty:
         raise ValueError("Cannot persist empty forecasts")
 
-    if "run_id" not in forecasts.colums:
+    if "run_id" not in forecasts.columns:
         raise ValueError("Forecasts must contain run_id.")
 
     if (
