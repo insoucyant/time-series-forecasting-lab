@@ -108,3 +108,42 @@ def sample_metadata():
             },
         },
     }
+
+def test_save_experiment_artifacts(
+        tmp_path,
+        sample_forecasts,
+        sample_evaluation,
+        sample_metadata,
+):
+    output_dir = save_experiment_artifacts(
+        artifact_root=tmp_path,
+        experiment_name="experiment_01",
+        run_id="run_01",
+        forecasts=sample_forecasts,
+        evaluation=sample_evaluation,
+        metadata=sample_metadata,
+    )
+
+    expected_dir = (
+        tmp_path
+        / "experiments"
+        / "experiment_01"
+        / "run_01"
+    )
+
+    assert output_dir == expected_dir
+    assert output_dir.is_dir()
+
+    expected_files = {
+        "forecasts.csv",
+        "metrics_overall.csv",
+        "metrics_by_fold.csv",
+        "metrics_by_horizon.csv",
+        "metadata.json",
+    }
+
+    actual_files = {
+        file.name for file in output_dir.iterdir()
+    }
+
+    assert actual_files == expected_files
