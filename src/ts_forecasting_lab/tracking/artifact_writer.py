@@ -90,4 +90,11 @@ def save_experiment_artifacts(
         index=False 
     )
 
-    
+    # Persist experiment metadata
+
+    (output_dir / "metadata.json").write_text(
+        metadata_json,
+        encoding="utf-8",
+    )
+
+    return output_dir
