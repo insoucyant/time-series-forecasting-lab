@@ -1,6 +1,5 @@
 import pandas as pd
 from pathlib import Path 
-import json 
 import platform 
 
 from dataclasses import asdict 
@@ -17,6 +16,9 @@ from ts_forecasting_lab.evaluation.metrics import (
     mean_squared_error,
     root_mean_squared_error,
     mean_bias
+)
+from ts_forecasting_lab.tracking.artifact_writer import (
+    save_experiment_artifacts,
 )
 
 # 1. Create a small daily time series
@@ -116,66 +118,26 @@ print(evaluation.by_horizon.to_string(index=False))
 
 
 # ============================================================
-#               Persist experiment artifacts
+#               Persist experiment metadata
 # ============================================================
 
 project_root = Path(__file__).resolve().parents[1]
 
 run_id = str(results["run_id"].iloc[0])
 
-output_dir = (
-    project_root
-    / "artifacts"
-    / "experiments"
-    / "experiment_01"
-    / run_id
-)
-
-output_dir.mkdir(parents=True, exist_ok=False)
-
-# Save raw forecast records
-results.to_csv(
-    output_dir / "forecasts.csv",
-    index=False, 
-)
-
-# Save overall evaluation metrics
-evaluation.overall.to_csv(
-    output_dir / "metrics_overall.csv",
-    index = False, 
-)
-
-# Save evaluation metrics by fold
-evaluation.by_fold.to_csv(
-    output_dir / "metrics_by_fold.csv",
-    index=False,
-)
-
-# Save evaluation metrics by forecast horizon
-evaluation.by_horizon.to_csv(
-    output_dir / "metrics_by_horizon.csv",
-    index=False
-)
-
-print(f"\nExperimen artifacts saved to: {output_dir}")
-
-# ============================================================
-#               Persist experiment metadata
-# ============================================================
-
 metadata = {
     "experiment_name": "experiment_01",
-    "run_id": run_id,
+    "run_id": run_id, 
     "recorded_at_utc": datetime.now(timezone.utc).isoformat(),
 
     "dataset": dataset.get_metadata(),
 
-    "model":{
+    "model": {
         "model_id": str(results["model_id"].iloc[0]),
         "parameters": {
             "season_length": 1,
         }, 
-    }, 
+    },
 
     "backtesting": asdict(config), 
 
@@ -189,15 +151,8 @@ metadata = {
         "python_version": platform.python_version(),
         "pandas_version": pd.__version__,
         "platform": platform.platform(),
-    },
-
+    }, 
 }
-
-with (output_dir / "metadata.json").open(
-    "w", 
-    encoding="utf-8", 
-) as file: 
-    json.dump(metadata, file, indent=4)
 
 
 
