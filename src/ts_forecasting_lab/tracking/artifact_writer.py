@@ -59,3 +59,35 @@ def save_experiment_artifacts(
         indent=4,
         allow_nan=False,
     )
+
+    # Construct the experiment output directory
+    output_dir =(
+        Path(artifact_root)
+        / "experiments"
+        / experiment_name
+        / run_id
+    )
+
+    # Prevent accidental overwrite
+    output_dir.mkdir(
+        parents=True,
+        exist_ok=False,
+    )
+
+    # Persist evaluation metrics 
+    evaluation.overall.to_csv(
+        output_dir / "metrics_verall.csv",
+        index=False,
+    )
+
+    evaluation.by_fold.to_csv(
+        output_dir / "metrics_by_fold.csv",
+        index=False,
+    )
+
+    evaluation.by_horizon.to_csv(
+        output_dir / "metrics_by_horizon.csv",
+        index=False 
+    )
+
+    
