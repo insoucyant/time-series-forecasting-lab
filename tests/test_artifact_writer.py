@@ -95,3 +95,16 @@ def sample_evaluation():
             }
         ),
     )
+
+@pytest.fixture
+def sample_metadata():
+    return {
+        "experiment_name": "experiment_01",
+        "run_id": "run_01",
+        "model": {
+            "model_id": "seasonal_naive",
+            "parameters": {
+                "seasonal_length": 1,
+            },
+        },
+    }
