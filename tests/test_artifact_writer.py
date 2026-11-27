@@ -278,3 +278,44 @@ def test_invalid_forecasts_rejectd(
         ) 
 
     assert not (tmp_path / "experiments").exists()
+
+
+
+@pytest.mark.parametrize(
+    "field, invalid_value, expected_error",
+    [
+        (
+            "run_id",
+            "wrong_run",
+            "Metadata run_id does not match",
+        ),
+        (
+            "experiment_name",
+            "wrong_experiment",
+            "Metadata experiment name does not match",
+        ),
+    ],
+)
+def test_inconsistent_metadata_rejected(
+    tmp_path,
+    sample_forecasts,
+    sample_evaluation,
+    sample_metadata,
+    field,
+    invalid_value,
+    expected_error,
+):
+    metadata = sample_metadata.copy()
+    metadata[field] = invalid_value
+
+    with pytest.raises(ValueError, match=expected_error):
+        save_experiment_artifacts(
+            artifact_root=tmp_path,
+            experiment_name="experiment_01",
+            run_id="run_01",
+            forecasts=sample_forecasts,
+            evaluation=sample_evaluation,
+            metadata=metadata,
+        )
+
+    assert not (tmp_path / "experiments").exists()
