@@ -147,3 +147,134 @@ def test_save_experiment_artifacts(
     }
 
     assert actual_files == expected_files
+
+
+
+def test_saved_artifact_contents(
+        tmp_path,
+        sample_forecasts,
+        sample_evaluation,
+        sample_metadata,
+):
+    output_dir = save_experiment_artifacts(
+        artifact_root=tmp_path,
+        experiment_name="experiment_01",
+        run_id="run_01",
+        forecasts=sample_forecasts,
+        evaluation=sample_evaluation,
+        metadata=sample_metadata,
+    )
+
+    # Verify forecast records
+    saved_forecasts = pd.read_csv(
+        output_dir / "forecasts.csv"
+    )
+
+    pd.testing.assert_frame_equal(
+        saved_forecasts,
+        sample_forecasts,
+    )
+
+    # Verify all evaluation tables
+    for filename, expected in [
+        ("metrics_overall.csv", sample_evaluation.overall),
+        ("metrics_by_fold.csv", sample_evaluation.by_fold),
+        ("metrics_by_horizon.csv", sample_evaluation.by_horizon),
+    ]:
+        saved_metrics = pd.read_csv(output_dir / filename)
+
+        pd.testing.assert_frame_equal(
+            saved_metrics,
+            expected,
+        )
+
+    # Verify metadata
+    saved_metadata = json.loads(
+        (output_dir / "metadata.json").read_text(
+            encoding="utf-8"
+        )
+    )
+
+    assert saved_metadata == sample_metadata
+
+
+    def test_duplicate_run_id_rejected(
+            tmp_path,
+            sample_forecasts,
+            sample_evaluation,
+            sample_metadata,
+    ):
+        kwargs = {
+            "artifact_root": tmp_path,
+            "experiment_name": "experiment_01",
+            "run_id": "run_01",
+            "forecasts": sample_forecasts,
+            "evaluation": sample_evaluation,
+            "metadata": sample_metadata,
+        }
+
+        # First execution should succeed 
+        output_dir = save_experiment_artifacts(**kwargs)
+
+        # Capture original artifact contents
+        original_files = {
+            file.name: file.read_bytes()
+            for file in output_dir.iterdir()
+        }
+
+        # Second execution should fail
+        with pytest.raises(FileExistsError):
+            save_experiment_artifacts(**kwargs)
+
+        # Verify that original artifacts remain unchanged
+        current_files = {
+            file.name: file.read_bytes()
+            for file in output_dir.iterdir()
+        }
+
+        assert current_files == original_files
+
+
+@pytest.mark.parametrize(
+    "scenarion_expected_error",
+    [
+        ("empty", "Cannot persist empty forecasts"),
+        ("missing_run_id", "Forecasts must contain run_id"),
+        ("incorrect_run_id", "Forecast run_id does not match"),
+        ("mixed_run_ids", "Forecast run_id does not match"),
+        ("null_run_id", "Foreast run_id does not match"),
+    ],
+)
+def test_invalid_forecasts_rejectd(
+    tmp_path,
+    sample_forecasts,
+    sample_evaluation,
+    sample_metadata,
+    scenario,
+    expected_error,
+):
+    forecasts = sample_forecasts.copy()
+
+    if scenario == "empty":
+        forecasts = forecasts.iloc[0:0]
+
+    elif scenario == "missing_run_id":
+        forecasts = forecasts.drop(columns=["run_id"])
+
+    elif scenario == "incorrect_run_id":
+        forecasts["run_id"] = "wrong_run"
+
+    elif scenario == "null_run_id":
+        forecasts.loc[0, "run_id"] = None 
+
+    with pytest.raises(ValueError, match=expected_error):
+        save_experiment_artifacts(
+            artifact_root=tmp_path,
+            experiment_name="experiment_01",
+            run_id="run_01",
+            forecasts=forecasts,
+            evaluation=sample_evaluation,
+            metadata=sample_metadata,
+        ) 
+
+    assert not (tmp_path / "experiments").exists()

@@ -74,9 +74,15 @@ def save_experiment_artifacts(
         exist_ok=False,
     )
 
-    # Persist evaluation metrics 
+    # Persist forecast records
+    forecasts.to_csv(
+        output_dir / "forecasts.csv",
+        index=False,
+    )
+
+    # Persist evaluation metrics
     evaluation.overall.to_csv(
-        output_dir / "metrics_verall.csv",
+        output_dir / "metrics_overall.csv",
         index=False,
     )
 
@@ -87,11 +93,10 @@ def save_experiment_artifacts(
 
     evaluation.by_horizon.to_csv(
         output_dir / "metrics_by_horizon.csv",
-        index=False 
+        index=False,
     )
 
     # Persist experiment metadata
-
     (output_dir / "metadata.json").write_text(
         metadata_json,
         encoding="utf-8",
