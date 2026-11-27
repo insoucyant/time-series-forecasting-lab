@@ -319,3 +319,36 @@ def test_inconsistent_metadata_rejected(
         )
 
     assert not (tmp_path / "experiments").exists()
+
+
+@pytest.mark.parametrize(
+    "invalid_value, expected_exception",
+    [
+        (float("nan"), ValueError),
+        (float("inf"), ValueError),
+        (float("-inf"), ValueError),
+        (object(), TypeError)
+    ],
+)
+def test_invalid_json_metadata_rejected(
+    tmp_path,
+    sample_forecasts,
+    sample_evaluation,
+    sample_metadata,
+    invalid_value,
+    expected_exception,
+):
+    metadata=sample_metadata.copy()
+    metadata["invalid_field"] = invalid_value
+
+    with pytest.raises(expected_exception):
+        save_experiment_artifacts(
+            artifact_root=tmp_path,
+            experiment_name="experiment_01",
+            run_id="run_01",
+            forecasts="sample_forecasts",
+            evaluation=sample_evaluation,
+            metadata=metadata
+        )
+
+    assert not (tmp_path / "experiments").exists()
