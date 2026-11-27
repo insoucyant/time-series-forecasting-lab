@@ -198,54 +198,54 @@ def test_saved_artifact_contents(
     assert saved_metadata == sample_metadata
 
 
-    def test_duplicate_run_id_rejected(
-            tmp_path,
-            sample_forecasts,
-            sample_evaluation,
-            sample_metadata,
-    ):
-        kwargs = {
-            "artifact_root": tmp_path,
-            "experiment_name": "experiment_01",
-            "run_id": "run_01",
-            "forecasts": sample_forecasts,
-            "evaluation": sample_evaluation,
-            "metadata": sample_metadata,
-        }
+def test_duplicate_run_id_rejected(
+        tmp_path,
+        sample_forecasts,
+        sample_evaluation,
+        sample_metadata,
+):
+    kwargs = {
+        "artifact_root": tmp_path,
+        "experiment_name": "experiment_01",
+        "run_id": "run_01",
+        "forecasts": sample_forecasts,
+        "evaluation": sample_evaluation,
+        "metadata": sample_metadata,
+    }
 
-        # First execution should succeed 
-        output_dir = save_experiment_artifacts(**kwargs)
+    # First execution should succeed 
+    output_dir = save_experiment_artifacts(**kwargs)
 
-        # Capture original artifact contents
-        original_files = {
-            file.name: file.read_bytes()
-            for file in output_dir.iterdir()
-        }
+    # Capture original artifact contents
+    original_files = {
+        file.name: file.read_bytes()
+        for file in output_dir.iterdir()
+    }
 
-        # Second execution should fail
-        with pytest.raises(FileExistsError):
-            save_experiment_artifacts(**kwargs)
+    # Second execution should fail
+    with pytest.raises(FileExistsError):
+        save_experiment_artifacts(**kwargs)
 
-        # Verify that original artifacts remain unchanged
-        current_files = {
-            file.name: file.read_bytes()
-            for file in output_dir.iterdir()
-        }
+    # Verify that original artifacts remain unchanged
+    current_files = {
+        file.name: file.read_bytes()
+        for file in output_dir.iterdir()
+    }
 
-        assert current_files == original_files
+    assert current_files == original_files
 
 
 @pytest.mark.parametrize(
-    "scenarion_expected_error",
+    "scenario, expected_error",
     [
         ("empty", "Cannot persist empty forecasts"),
         ("missing_run_id", "Forecasts must contain run_id"),
         ("incorrect_run_id", "Forecast run_id does not match"),
         ("mixed_run_ids", "Forecast run_id does not match"),
-        ("null_run_id", "Foreast run_id does not match"),
+        ("null_run_id", "Forecast run_id does not match"),
     ],
 )
-def test_invalid_forecasts_rejectd(
+def test_invalid_forecasts_rejected(
     tmp_path,
     sample_forecasts,
     sample_evaluation,
@@ -265,7 +265,13 @@ def test_invalid_forecasts_rejectd(
         forecasts["run_id"] = "wrong_run"
 
     elif scenario == "null_run_id":
-        forecasts.loc[0, "run_id"] = None 
+        forecasts.loc[0, "run_id"] = None
+
+    elif scenario == "mixed_run_ids":
+        forecasts.loc[0, "run_id"] = "wrong_run"
+
+    else:
+        raise AssertionError(f"Unknown test scenario: {scenario}")
 
     with pytest.raises(ValueError, match=expected_error):
         save_experiment_artifacts(
@@ -275,7 +281,7 @@ def test_invalid_forecasts_rejectd(
             forecasts=forecasts,
             evaluation=sample_evaluation,
             metadata=sample_metadata,
-        ) 
+        )
 
     assert not (tmp_path / "experiments").exists()
 
@@ -340,13 +346,13 @@ def test_invalid_json_metadata_rejected(
 ):
     metadata=sample_metadata.copy()
     metadata["invalid_field"] = invalid_value
-
+    assert isinstance(sample_forecasts, pd.DataFrame)
     with pytest.raises(expected_exception):
         save_experiment_artifacts(
             artifact_root=tmp_path,
             experiment_name="experiment_01",
             run_id="run_01",
-            forecasts="sample_forecasts",
+            forecasts=sample_forecasts,
             evaluation=sample_evaluation,
             metadata=metadata
         )

@@ -44,7 +44,9 @@ def save_experiment_artifacts(
         forecasts["run_id"].isna().any()
         or not forecasts["run_id"].eq(run_id).all()
     ):
-        raise ValueError("Forecast run_id does not match supplied run_id.")
+        raise ValueError(
+            "Forecast run_id does not match supplied run_id."
+        )
 
     # Check metadata consistency
     if metadata.get("run_id") != run_id:
